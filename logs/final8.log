@@ -1,0 +1,23 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+jendela: 106749 | positif: 5169 (0.0484) | fitur: 150 | video: 86
+window=96 stride=2
+  fold 1/5: ambang dipilih = 0.030
+  fold 2/5: ambang dipilih = 0.030
+  fold 3/5: ambang dipilih = 0.075
+  fold 4/5: ambang dipilih = 0.050
+  fold 5/5: ambang dipilih = 0.030
+AUC (level jendela) = 0.6442
+  ambang per-fold (inner): P=0.4046 R=0.4545 F1=0.4281 (TP 140, FP 206, FN 168)
+         recall macro=112/251 micro=28/57
+
+  durasi event deteksi: median 209 frame (n=346, 4.0/video)
+  durasi GT           : median 29 frame
+  dengan syarat IoU >= 0,5: P=0.0058 R=0.0065 F1=0.0061
+  lokalisasi (jarak pusat event ke apex GT): median 172 frame | <=10:0.055 <=20:0.120 <=40:0.227 <=80:0.360
+
+F1 = 0.4281
+Keluaran: output/training/window_honest_w96/summary.md

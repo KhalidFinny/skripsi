@@ -1,0 +1,1617 @@
+HASIL REFAKTOR - KONDISI PELATIHAN SAAT INI
+PROYEK SKRIPSI MICRO-EXPRESSION ANXIETY (POC-ABS + TabR)
+Tanggal dokumen : 2026-09-01
+
+Sumber yang dipakai:
+- Backup lama: /home/finny/projects/Skripsi-backup-2026-08-25/
+  - before.md
+  - foundings.md
+  - scripts/run_official_tabr_v25.sh
+  - scripts/export_to_official_tabr_dataset.py
+  - scripts/export_to_official_tabr_dataset_qholdout.py
+  - scripts/export_to_official_tabr_dataset_qwalkforward.py
+  - preprocess-anxiety/spotting.py
+  - preprocess-anxiety/export_apex_tabr_train_test_v19.ipynb
+  - preprocess-anxiety/export_apex_tabr_train_test_v20.ipynb
+  - notebooks/tabr_final_analysis.ipynb
+  - notebooks/tabr_compare_timeaware_vs_event_inference.ipynb
+  - logs/tabr_overnight_20260324_221022.log
+- Keadaan sekarang:
+  - spotting-foundings.md
+  - foundings.md
+  - results.md
+  - summary/progress.md
+  - scripts/run_pipeline.sh
+  - scripts/run_all_variants.sh
+  - scripts/export_to_official_tabr_dataset.py
+  - preprocess-anxiety/process_all_datasets_script.py
+  - preprocess-anxiety/export_apex_poc_abs_ordered_script.py
+  - output/training/convat_apex_anxiety/summary.md
+  - output/training/convat_apex_anxiety/best_report.json
+  - third_party/tabular-dl-tabr-official/lib/data.py
+  - third_party/tabular-dl-tabr-official/bin/ensemble.py
+
+=====================================================================
+0. TUJUAN DOKUMEN
+=====================================================================
+
+Dokumen ini dibuat supaya kamu punya SATU file plain text yang bisa
+kamu baca sendiri atau kasih ke orang lain saat ditanya:
+
+1. Pipeline lama itu sebenarnya bagaimana jalan dan bagaimana cara
+   kerjanya.
+2. Masalah-masalah apa yang kita temukan pada pipeline lama.
+3. Perubahan apa saja yang sudah dilakukan pada refaktor tahap 1.
+4. Hasil training jujur pertama (run 1 / hasil pagi).
+5. Perubahan tambahan dan hasil training terbaru (run 2 / hasil sekarang).
+6. Apa arti angka-angkanya, pakai bahasa yang lebih manusiawi.
+7. Apa yang paling masuk akal dilakukan berikutnya.
+
+Kalau butuh jawaban singkat:
+- Angka lama terlihat tinggi karena split data lama bocor subjek.
+- Setelah evaluasi dibuat jujur, angka turun, tapi justru lebih bisa
+  dipertanggungjawabkan.
+- Run 1 lebih sehat untuk metrik seimbang.
+- Run 2 sedikit lebih tinggi akurasinya, tetapi lebih bias ke kelas mayoritas.
+
+=====================================================================
+1. ISTILAH PENTING DENGAN BAHASA SEDERHANA
+=====================================================================
+
+1. POC-ABS
+   Cara mengukur gerakan yang sangat kecil antar gambar wajah.
+   Kelebihannya: bisa menangkap gerakan sub-piksel, yaitu gerakan lebih
+   kecil dari 1 piksel. Ini penting karena micro-expression memang sangat
+   halus.
+
+2. ROI (Region of Interest)
+   Area wajah yang dipotong untuk dianalisis. Di proyek ini yang dipakai:
+   mata kiri, mata kanan, alis kiri, alis kanan, dan mulut.
+
+3. Apex
+   Titik puncak ekspresi. Secara sederhana: frame saat ekspresi kecil itu
+   sedang paling kuat.
+
+4. Spotting
+   Langkah untuk mencari kapan micro-expression terjadi di dalam video.
+   Output-nya adalah event clip: onset sampai offset, plus posisi apex.
+
+5. TabR
+   Model tabular resmi dari Yandex. Model ini menerima angka-angka fitur,
+   bukan video langsung. Jadi video harus diubah dulu menjadi tabel fitur.
+
+6. LOSO
+   Leave-One-Subject-Out. Cara evaluasi yang memisahkan subjek. Model
+   dilatih di semua subjek kecuali satu, lalu diuji di subjek yang tidak
+   pernah dilihat. Ini paling jujur untuk kasus seperti ini.
+
+7. Train / Validation / Test
+   - Train: data untuk belajar.
+   - Validation (val): data untuk memilih konfigurasi terbaik.
+   - Test: data final untuk menilai performa.
+
+   Cara gampang mengingatnya:
+   - train = latihan
+   - val   = cek saat latihan
+   - test  = ujian akhir
+
+8. Accuracy
+   Persentase prediksi yang benar.
+   Contoh: akurasi 62% berarti dari 100 prediksi, 62 benar.
+
+9. Macro F1
+   Nilai rata-rata kualitas prediksi untuk tiap kelas dengan bobot sama.
+   Ini penting saat dua kelas tidak seimbang. Macro F1 lebih jujur daripada
+   akurasi kalau model cenderung memilih satu kelas terus.
+
+10. Balanced Accuracy
+    Rata-rata recall tiap kelas. Artinya: seberapa adil model mengenali
+    kedua kelas, bukan cuma kelas yang paling banyak.
+
+11. ROC-AUC
+    Ukuran seberapa baik model memberi ranking antara kelas rendah vs tinggi.
+    Semakin dekat ke 100%, semakin bagus. Sekitar 50% artinya hampir acak.
+
+12. Overfitting
+    Model terlihat hebat di data latihan, tapi turun saat diuji di data baru.
+    Bahasa gampangnya: model menghafal, bukan benar-benar paham pola.
+
+Kenapa kita sekarang lebih suka macro F1 dan balanced accuracy?
+Karena tugas ini bukan cuma “berapa banyak tebakan benar”, tapi juga
+“apakah model adil mengenali dua kelas”. Kalau model selalu menebak
+"cemas", akurasi bisa lumayan, tapi model sebenarnya jelek.
+
+=====================================================================
+2. BAGIAN A - OLD CODEBASE / PIPELINE LAMA (SEBELUM REFACTOR)
+=====================================================================
+
+2.1. Keadaan asli codebase lama
+---------------------------------------------------------------------
+
+Dari before.md di backup, keadaan lama punya beberapa masalah praktis:
+
+- data mentah video tidak ada di mesin lokal
+- model dlib shape_predictor_68_face_landmarks.dat belum ada
+- folder third_party/tabular-dl-tabr-official awalnya kosong
+- konfigurasi 0-tuning.toml untuk TabR resmi juga hilang
+- banyak notebook masih hardcoded ke path /home/ryuko/...
+- output/ juga tidak ada, jadi hasil lama bukan hasil yang bisa langsung
+  diulang mentah-mentah di mesin ini
+
+Artinya:
+Pipeline lama punya LOGIKA, tapi tidak benar-benar siap dijalankan ulang
+end-to-end tanpa menambal banyak prasyarat dulu.
+
+Kalau ditanya “jadi pipeline lama itu rusak total?”
+Jawabannya:
+- Tidak. Logikanya ada.
+- Tapi sangat rapuh, tergantung notebook, path lama, file hilang, dan
+  artefak dari mesin orang lain.
+
+2.2. Pipeline lama dari awal sampai akhir
+---------------------------------------------------------------------
+
+Pipeline lama bukan satu script rapi. Ia lebih seperti gabungan notebook
++ beberapa script ekspor + script shell training.
+
+Urutan kerjanya seperti ini:
+
+STAGE 0 - SIAPKAN LINGKUNGAN
+- install dependency dengan uv
+- siapkan model dlib
+- siapkan video mentah
+- siapkan repo TabR resmi
+
+Potongan perintah lama:
+    uv sync
+    mkdir -p preprocess-anxiety/models
+    wget http://dlib.net/files/shape_predictor_68_face_landmarks.dat.bz2
+    git clone https://github.com/yandex-research/tabular-dl-tabr \
+      third_party/tabular-dl-tabr-official
+
+Kenapa ini penting:
+Karena tanpa dlib model dan video mentah, stage 1 bahkan tidak bisa mulai.
+Tanpa repo TabR resmi + TOML, stage training juga tidak bisa jalan.
+
+STAGE 1 - SPOTTING (mencari event micro-expression)
+- sumber utama: preprocess-anxiety/process_all_datasets.ipynb
+- spotting.py hanya berisi config, fungsi run_spotting() malah
+  NotImplementedError
+
+Apa yang dilakukan stage ini:
+1. buka video satu pertanyaan
+2. ubah frame jadi grayscale
+3. deteksi 68 landmark wajah pakai dlib di setiap frame
+4. crop 5 ROI wajah
+5. hitung gerakan dengan POC per blok 7x7
+6. ubah jadi satu sinyal magnitude per frame
+7. haluskan sinyal
+8. cari puncak (apex)
+9. cari onset dan offset
+10. simpan klip event ke output/apex/dataset/... dan metadata.xlsx
+
+Potongan perintah lama:
+    uv run jupyter nbconvert --to notebook --execute --inplace \
+      preprocess-anxiety/process_all_datasets.ipynb
+
+Potongan logika lama:
+    prev = frame[0]
+    for curr in frame[1:]:
+        mag = compute_frame_magnitude(prev, curr)
+        magnitudes.append(mag)
+        prev = curr
+
+Jadi, spotting = mesin yang bilang:
+“di video ini, bagian ekspresi kecil kemungkinan besar terjadi di detik/ frame
+sekian sampai sekian”.
+
+STAGE 2 - EKSPOR FITUR KE TABEL
+- sumber utama lama: preprocess-anxiety/export_apex_poc_abs_ordered.ipynb
+
+Apa yang dilakukan:
+1. baca event clip hasil spotting
+2. frame pertama clip dijadikan baseline
+3. tiap frame sesudahnya dibandingkan ke baseline dengan POC-ABS
+4. tiap ROI dipecah ke blok 7x7
+5. tiap blok menghasilkan 4 angka:
+   - x = arah horizontal
+   - y = arah vertikal
+   - t = sudut gerak
+   - m = besar gerak
+6. semua angka dirangkai menjadi satu baris tabel
+
+Potongan perintah lama:
+    uv run jupyter nbconvert --to notebook --execute --inplace \
+      preprocess-anxiety/export_apex_poc_abs_ordered.ipynb
+
+Potongan logika lama:
+    poc = POC(baseline_gray[comp], gray, block_size)
+    vec = Vektor(poc.getPOC(), block_size)
+    quad = Quadran(vec.getVektor()).getQuadran()
+    row[f'{comp}_x{block_id}'] = block[1]
+    row[f'{comp}_y{block_id}'] = block[2]
+    row[f'{comp}_t{block_id}'] = block[3]
+    row[f'{comp}_m{block_id}'] = block[4]
+
+Hasil akhirnya:
+- file xlsx berisi 392 fitur utama + kolom meta
+
+Kenapa angka 392?
+Karena blok yang dipakai untuk model utama lama adalah:
+- mulut: 50 blok
+- mata kiri: 24 blok
+- mata kanan: 24 blok
+Total 98 blok
+Setiap blok punya 4 angka (x, y, t, m)
+98 x 4 = 392 fitur
+
+STAGE 3 - EKSPOR KE FORMAT TabR (.npy)
+- sumber utama lama: scripts/export_to_official_tabr_dataset.py
+- variasi lain: qholdout dan qwalkforward
+
+Apa yang dilakukan:
+1. baca xlsx fitur
+2. ubah label menjadi angka 0/1
+3. bagi data ke train/val/test
+4. isi nilai kosong dengan SimpleImputer(mean)
+5. normalisasi fitur dengan StandardScaler
+6. simpan ke X_num_train.npy, X_num_val.npy, X_num_test.npy,
+   Y_train.npy, Y_val.npy, Y_test.npy
+
+Potongan perintah lama:
+    uv run python scripts/export_to_official_tabr_dataset.py
+
+Potongan logika lama:
+    X_train = scaler.fit_transform(imputer.fit_transform(df_tr[feature_cols])).astype(np.float32)
+    X_val = scaler.transform(imputer.transform(df_val[feature_cols])).astype(np.float32)
+    X_test = scaler.transform(imputer.transform(df_external[feature_cols])).astype(np.float32)
+    np.save(OUT_DIR / 'X_num_train.npy', X_train)
+    np.save(OUT_DIR / 'X_num_val.npy', X_val)
+    np.save(OUT_DIR / 'X_num_test.npy', X_test)
+
+Kenapa normalisasi dipakai?
+Karena model tabular seperti TabR lebih stabil kalau skala fitur tidak liar.
+Kalau satu fitur nilainya sangat besar dan fitur lain kecil, model bisa bias.
+
+Cara split data yang ada di pipeline lama:
+- event_clip_split
+- balanced_train_clips
+- qholdout
+- qwalkforward
+- loso (tercatat di analisis_versi_summary.csv, tapi notebook v21 tidak ada)
+
+Masalah besarnya:
+Hampir semua split lama membiarkan subjek yang sama muncul di train dan
+test. Jadi model bisa “mengenali orangnya”, bukan pola kecemasannya.
+
+STAGE 4 - TRAINING MODEL
+Pipeline lama sebenarnya punya dua jalur model:
+
+A. TabR kustom lama
+- ada di core/TabR.py dan notebook v19/v20/v21
+- ini jalur eksperimen lama
+
+B. TabR resmi Yandex
+- dipanggil dari scripts/run_official_tabr_v25.sh
+- perintah intinya:
+    cd third_party/tabular-dl-tabr-official
+    python bin/go.py exp/tabr/convat_apex_anxiety/0-tuning.toml
+
+Potongan perintah final lama:
+    python bin/ensemble.py exp/tabr/convat_apex_anxiety/0-evaluation --n-ensembles 2 --ensemble-size 5
+
+Apa yang dilakukan TabR resmi:
+1. Optuna mencoba banyak konfigurasi (30 trial)
+2. trial terbaik dipilih dari validasi score
+3. konfigurasi terbaik dievaluasi lagi di banyak seed
+4. hasil beberapa model bisa digabung lewat ensemble
+
+Kenapa banyak seed?
+Karena training deep/tabular seperti ini ada unsur acak. Satu seed saja
+bisa kebetulan bagus atau jelek. Banyak seed memberi gambaran lebih stabil.
+
+STAGE 5 - ANALISIS HASIL / NOTEBOOK PEMBANDING
+- notebooks/tabr_final_analysis.ipynb
+- notebooks/tabr_compare_timeaware_vs_event_inference.ipynb
+- notebooks/tabr_datatest_event_inference.ipynb
+- baseline lain ada di comparasion/notebooks/
+
+Potongan fokus notebook analisis:
+    (0.7565372969997247, 0.7428256070640177)
+    ...
+    test_accuracy 0.748344
+
+Fungsi tahap ini:
+- membaca report hasil training
+- membandingkan split
+- mencoba threshold
+- menguji ke data tanggal baru (datatest)
+- membandingkan model lain seperti SVM/KNN/LSTM
+
+2.3. Cara kerja spotting lama dengan bahasa sederhana
+---------------------------------------------------------------------
+
+Spotting lama bekerja seperti ini:
+
+1. Video dibaca frame demi frame.
+2. Wajah dicari pakai dlib.
+3. Lima area wajah dipotong.
+4. Gerakan kecil dihitung per area dengan POC.
+5. Semua gerakan itu dirata-ratakan menjadi SATU angka per frame.
+6. Sinyal angka itu dihaluskan.
+7. Dicari puncak yang dianggap sebagai micro-expression.
+8. Di sekitar puncak itu ditentukan awal dan akhir event.
+9. Potongan frame disimpan.
+
+Masalahnya:
+Pipeline lama terlalu banyak merata-ratakan sinyal.
+Kalau micro-expression muncul cuma di alis atau mulut, sinyal itu bisa
+hilang karena dicampur dengan area lain yang diam.
+
+2.4. Apa yang sebenarnya dipakai pipeline lama
+---------------------------------------------------------------------
+
+Komponen utama yang benar-benar dipakai:
+
+- dlib 68 landmark
+- crop ROI wajah
+- POC / POC-ABS untuk ekstraksi gerak halus
+- blok 7x7
+- Savitzky-Golay smoothing
+- scipy find_peaks untuk cari apex
+- SimpleImputer + StandardScaler
+- TabR resmi Yandex untuk model utama yang paling kuat
+- notebook analisis untuk membandingkan hasil
+
+Tentang LOSO pada pipeline lama:
+- LOSO ada sebagai ide dan tercatat di analisis_versi_summary.csv
+- tetapi notebook v21 yang seharusnya menjalankan LOSO tidak ada
+- jadi secara praktik, pipeline lama belum memberi baseline LOSO yang bisa
+  dipakai sebagai acuan final
+
+Kalau ditanya “jadi LOSO dipakai atau tidak?”
+Jawaban paling jujur:
+- dipikirkan dan dicatat, ya
+- menjadi hasil final yang bisa dipakai, tidak
+
+2.5. Hasil lama yang paling penting
+---------------------------------------------------------------------
+
+A. TabR kustom v19/v20
+- internal akurasi : 69.2%
+- external akurasi : 72.6%
+- internal macro F1 : 69.1%
+- external macro F1 : 72.1%
+
+Arti sederhananya:
+Model lama buatan sendiri lumayan, tapi bukan titik terbaik proyek.
+
+B. TabR resmi baseline lama (ini angka yang paling sering jadi patokan)
+- train akurasi : 97.4%
+- val akurasi   : 75.7%
+- test akurasi  : 74.3%
+- test macro F1  : 72.8%
+- test balanced accuracy : 72.4%
+- jumlah test    : 906 frame
+- jika threshold disetel dari val: test akurasi bisa 74.8%
+
+Arti sederhananya:
+Di atas kertas, ini terlihat sangat bagus.
+Masalahnya: split lama bocor subjek, jadi angka ini terlalu optimistis.
+
+C. qholdout + alis (608 fitur)
+- test akurasi : 82.9%
+- macro F1      : 81.3%
+- ROC-AUC       : 90.1%
+
+Arti sederhananya:
+Ini terlihat paling hebat, tapi TIDAK adil dibandingkan baseline utama,
+karena split-nya berbeda dan juga bocor subjek.
+
+D. Datatest (tanggal baru)
+- akurasi sekitar 61% sampai 72%
+- macro F1 sekitar 39% sampai 47%
+
+Arti sederhananya:
+Begitu diuji ke data baru, model mulai goyah. Ini tanda awal bahwa hasil
+lama tidak sekuat yang kelihatan.
+
+2.6. Apa arti angka-angka ini kalau dijelaskan ke orang non-teknis
+---------------------------------------------------------------------
+
+- Train tinggi sekali (97.4%) artinya model sangat kuat di data yang sudah
+  pernah dilihat.
+- Val dan test jauh lebih rendah artinya model tidak sepenuhnya membawa
+  kemampuan itu ke data baru.
+- Macro F1 dan balanced accuracy yang turun di data baru menunjukkan model
+  tidak adil ke dua kelas.
+- Kalau test di data baru jauh turun, berarti model lebih mirip hafal pola
+  lokal daripada benar-benar paham pola kecemasan umum.
+
+2.7. Bug dan masalah utama yang kita temukan dari pipeline lama
+---------------------------------------------------------------------
+
+MASALAH 1 - split data bocor subjek
+Apa masalahnya:
+- subjek yang sama bisa muncul di train dan test
+Kenapa ini buruk:
+- model bisa mengenali orangnya, bukan kecemasannya
+Akibat:
+- akurasi terlihat tinggi palsu
+Fix yang direkomendasikan:
+- ganti ke split subjek-disjoint atau LOSO
+Potongan kode lama:
+    external_event_ids = balanced_external_events(event_table, N_EXTERNAL_PER_LABEL, seed=RANDOM_SEED)
+    ...
+    train_event_ids, val_event_ids = train_test_split(
+        train_event_table_balanced['event_id'],
+        test_size=0.3,
+        stratify=train_event_table_balanced['target'],
+        random_state=RANDOM_SEED,
+    )
+Arti potongan:
+- split dilakukan berdasarkan event_id, bukan participant
+
+MASALAH 2 - spotting pakai frame berurutan, fitur pakai baseline frame pertama
+Apa masalahnya:
+- spotting mencari puncak kecepatan
+- fitur menghitung perpindahan dari baseline
+Kenapa ini buruk:
+- definisi “puncak” berbeda
+Akibat:
+- clip bisa bergeser dari puncak ekspresi sebenarnya
+Fix yang direkomendasikan:
+- spotting juga pakai baseline frame pertama (POC-ABS)
+Potongan kode terkait:
+    prev = frame[0]
+    for curr in frame[1:]:
+        mag = compute_frame_magnitude(prev, curr)
+        magnitudes.append(mag)
+        prev = curr
+Arti potongan:
+- referensi bergerak maju terus; ini bukan baseline tetap
+
+MASALAH 3 - sinyal spotting dirata-rata ke satu angka global
+Apa masalahnya:
+- gerakan lokal di satu area bisa tenggelam
+Kenapa ini buruk:
+- micro-expression sering lokal, bukan selalu seluruh wajah
+Akibat:
+- event penting bisa lolos
+Fix yang direkomendasikan:
+- pakai sinyal per ROI, bukan satu rata-rata global
+Potongan kode terkait:
+    roi_mags.append(np.mean(magnitudes) if magnitudes else 0.0)
+    ...
+    return float(np.mean(roi_mags)) if roi_mags else 0.0
+Arti potongan:
+- magnitude di-mean di dalam ROI, lalu di-mean lagi antar ROI
+
+MASALAH 4 - smoothing terlalu panjang
+Apa masalahnya:
+- window smoothing lama hampir selalu 31 frame
+Kenapa ini buruk:
+- micro-expression itu pendek
+Akibat:
+- sinyal kecil bisa hilang setelah dihaluskan
+Fix yang direkomendasikan:
+- pakai window tetap yang lebih pendek, sekitar 7 frame
+Potongan kode lama:
+    WINDOW_LENGTH_PERCENTAGE = 0.05
+    MAX_WINDOW_LENGTH = 31
+    ...
+    window_length = max(5, min(window_length, ApexSmoother.MAX_WINDOW_LENGTH))
+Arti potongan:
+- window bisa membesar sampai 31 frame
+
+MASALAH 5 - asumsi fps lama salah
+Apa masalahnya:
+- dokumen lama menyebut 200 fps
+- data nyata yang kita pakai sekarang terbukti 60 fps untuk avi dan 30 fps
+  untuk webm
+Kenapa ini buruk:
+- semua hitungan durasi event dan smoothing jadi meleset
+Akibat:
+- window 31 frame ternyata bukan 155 ms, tapi sekitar 517 ms di 60 fps
+Fix yang direkomendasikan:
+- sesuaikan seluruh logika ke fps nyata
+Potongan terkait:
+    # Micro-expression berlangsung 1/25 - 1/5 detik.
+    # Pada fps aktual 60 (RealSense), itu = 2.4 - 12 frame.
+    # Window 7 frame (~117 ms) meratakan noise tanpa menghapus ME.
+Arti potongan:
+- perhitungan durasi lama harus dibaca ulang dengan fps nyata
+
+MASALAH 6 - threshold spotting pakai mean + std global
+Apa masalahnya:
+- video ramai gerak menaikkan ambang terlalu tinggi
+- video tenang membuat noise lolos
+Kenapa ini buruk:
+- sensitivitas spotting tidak stabil
+Fix yang direkomendasikan:
+- threshold adaptif per ROI atau MAD
+Potongan kode lama:
+    height_threshold = float(signal_arr.mean() + signal_arr.std())
+Arti potongan:
+- satu formula global dipakai mentah
+
+MASALAH 7 - jika landmark gagal, magnitude jadi 0
+Apa masalahnya:
+- nilai gagal dianggap benar-benar tidak bergerak
+Kenapa ini buruk:
+- menimbulkan lembah palsu di sinyal
+Fix yang direkomendasikan:
+- isi dengan interpolasi, bukan nol mentah
+Potongan kode terkait:
+    if ref_lm is not None and curr_lm is not None:
+        ...
+    else:
+        mag = 0.0
+Arti potongan:
+- kegagalan deteksi diterjemahkan langsung menjadi nol
+
+MASALAH 8 - parameter distance/prominence hampir tidak bekerja
+Apa masalahnya:
+- pada setelan lama, filtering nyata hampir hanya ditentukan oleh
+  satu threshold utama
+Kenapa ini buruk:
+- sistem terlalu sensitif ke satu knob
+Fix yang direkomendasikan:
+- dokumentasikan dan perkuat threshold yang lebih masuk akal
+Potongan kode terkait:
+    find_peaks(distance=1, prominence=0.005, height=mean_plus_std)
+Arti potongan:
+- distance dan prominence sangat longgar; height jadi penentu utama
+
+MASALAH 9 - logika spotting hidup di notebook besar
+Apa masalahnya:
+- spotting.py tidak menjalankan apa-apa
+Kenapa ini buruk:
+- sulit diuji, sulit diulang, sulit dipelihara
+Fix yang direkomendasikan:
+- pindahkan logika ke script .py
+Potongan kode lama:
+    def run_spotting(_config: SpottingConfig) -> pd.DataFrame:
+        raise NotImplementedError("Run logic lives in process_all_datasets_flexible.ipynb")
+Arti potongan:
+- file Python resminya sendiri mengaku logika hidup di notebook
+
+MASALAH 10 - banyak path hardcoded /home/ryuko/...
+Apa masalahnya:
+- codebase bergantung pada mesin orang lain
+Kenapa ini buruk:
+- proyek tidak portable
+Fix yang direkomendasikan:
+- ganti ke path lokal dan script yang menerima env/config
+Potongan bukti:
+    /home/ryuko/Documents/Codes/Python/Skripsi/Con...
+Arti potongan:
+- path lama memang tertanam di notebook dan output historis
+
+MASALAH 11 - repo TabR resmi dan config hilang di state awal
+Apa masalahnya:
+- training resmi tidak bisa diulang langsung
+Kenapa ini buruk:
+- hasil lama susah diverifikasi
+Fix yang direkomendasikan:
+- clone ulang repo resmi dan buat ulang TOML dari log lama
+Potongan bukti:
+    third_party/tabular-dl-tabr-official/     FOLDER KOSONG
+    ...
+    Config TOML (0-tuning.toml) juga hilang — harus dibuat ulang.
+Arti potongan:
+- jalur training resmi lama memang putus di state awal
+
+MASALAH 12 - banyak kode mati
+Apa masalahnya:
+- ada file eksperimen lama, typo utils, duplikat script, template rusak
+Kenapa ini buruk:
+- membingungkan siapa pun yang mencoba memahami proyek
+Fix yang direkomendasikan:
+- hapus yang memang tidak dipakai
+Potongan bukti:
+    - core/tabr_v2.py
+    - core/tabr_faithful.py
+    - core/utis.py
+    - conv1_base.py
+    - export_to_official_tabr_dataset_qholdout_copy.py
+Arti potongan:
+- ini daftar file yang memang sudah teridentifikasi sebagai mati/duplikat/rusak
+
+MASALAH 13 - tidak ada baseline optical flow yang bisa diperiksa
+Apa masalahnya:
+- ada cerita “optical flow 80%” tapi kode tidak ada
+Kenapa ini buruk:
+- tidak bisa dibuktikan atau dibandingkan adil
+Fix yang direkomendasikan:
+- buat baseline optical flow dengan split yang sama
+Potongan bukti:
+    Kode optical flow TIDAK ADA sama sekali di proyek ini.
+    Tidak ada implementasi Farneback, Lucas-Kanade, atau metode optical flow lain.
+Arti potongan:
+- masalahnya bukan kualitas kode optical flow, tapi kodenya memang tidak ada
+
+2.8. Ringkasan jujur untuk PIPELINE LAMA
+---------------------------------------------------------------------
+
+Kalau harus dijelaskan singkat saat sidang atau ditanya dosen:
+
+- Pipeline lama secara ide masuk akal.
+- Ia memakai dlib + ROI + POC + spotting + fitur tabular + TabR.
+- Hasil lamanya terlihat tinggi.
+- Tetapi ada masalah besar di evaluasi dan spotting.
+- Karena itu, angka lama lebih cocok disebut “angka historis”, bukan
+  “angka final yang jujur”.
+
+=====================================================================
+3. BAGIAN B - REFAKTOR TAHAP 1 + RUN 1 (HASIL PAGI / HASIL JUJUR PERTAMA)
+=====================================================================
+
+3.1. Tujuan refaktor tahap 1
+---------------------------------------------------------------------
+
+Tujuan refaktor tahap 1 bukan membuat model baru yang canggih.
+Tujuannya lebih mendasar:
+
+1. bikin evaluasi jujur dulu
+2. rapikan pipeline supaya bisa dijalankan dari script
+3. buang kode yang jelas mati
+4. ukur baseline baru yang benar
+5. coba variasi fitur yang masuk akal
+
+Inti filosofinya:
+Lebih baik angka turun tapi jujur, daripada angka tinggi tapi bohong.
+
+3.2. Perubahan besar yang dilakukan pada tahap 1
+---------------------------------------------------------------------
+
+PERUBAHAN 1 - split diubah menjadi subjek-disjoint
+File utama:
+- scripts/export_to_official_tabr_dataset.py
+- scripts/export_to_official_tabr_dataset_qholdout.py
+- scripts/export_to_official_tabr_dataset_qwalkforward.py
+Apa yang berubah:
+- sebelumnya split utama berbasis event
+- sekarang split berbasis participant dengan GroupShuffleSplit
+- seed tetap 72
+- test = 20% subjek
+- val  = 20% subjek dari total (25% dari sisa train_val)
+Potongan kode sebelum:
+    train_event_ids, val_event_ids = train_test_split(
+        train_event_table_balanced['event_id'],
+        test_size=0.3,
+        stratify=train_event_table_balanced['target'],
+        random_state=RANDOM_SEED,
+    )
+Potongan kode sesudah:
+    participants = pd.Series(df['participant'].unique())
+    gss_test = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=RANDOM_SEED)
+    ...
+    df_tr = df[df['participant'].isin(train_parts)].copy()
+    df_val = df[df['participant'].isin(val_parts)].copy()
+    df_external = df[df['participant'].isin(test_parts)].copy()
+Kenapa ini dipilih:
+- kita butuh split jujur yang bisa dijalankan sekarang
+- LOSO ideal, tapi notebook LOSO lama tidak tersedia sebagai baseline final
+- GroupShuffleSplit adalah kompromi jujur dan praktis
+
+PERUBAHAN 2 - metrik seimbang ditambahkan
+File utama:
+- scripts/collect_training_results.py
+Apa yang berubah:
+- output ringkasan sekarang tidak hanya akurasi
+- sekarang ada macroF1 dan balanced accuracy juga
+Potongan kode sesudah:
+    macro = values.get('macro avg')
+    if isinstance(macro, dict) and isinstance(macro.get('f1-score'), (int, float)):
+        out[f'{split}_macroF1'] = macro['f1-score']
+    recalls = [
+        values[k]['recall']
+        for k in ('0', '1')
+        if isinstance(values.get(k), dict) and isinstance(values[k].get('recall'), (int, float))
+    ]
+    if len(recalls) == 2:
+        out[f'{split}_bal_acc'] = sum(recalls) / 2
+Kenapa ini dipilih:
+- akurasi saja bisa menipu kalau satu kelas dominan
+- macroF1 dan balanced accuracy memaksa kita melihat apakah model adil
+
+PERUBAHAN 3 - kode mati dibersihkan
+File yang dulu ada di backup, sekarang sudah tidak ada:
+- core/tabr_v2.py
+- core/tabr_faithful.py
+- core/utis.py
+- conv1_base.py
+- scripts/export_to_official_tabr_dataset_qholdout_copy.py
+Potongan bukti lama:
+    core/                  ... TabR.py, tabr_v2.py, tabr_faithful.py, ..., utis.py
+    scripts/               ... export_to_official_tabr_dataset_qholdout_copy.py
+    conv1_base.py          14K      template CNN (RUSAK: "class %(nn.Module)")
+Kenapa dihapus:
+- tidak dipakai, rusak, atau duplikat
+- bikin codebase lebih kecil dan lebih mudah dibaca
+
+PERUBAHAN 4 - repo TabR resmi dan konfigurasi dipulihkan
+Apa yang berubah:
+- repo resmi Yandex TabR sudah ada dan dipakai
+- konfigurasi 0-tuning.toml dibuat ulang dari log lama
+Potongan bukti lama:
+    third_party/tabular-dl-tabr-official/     FOLDER KOSONG
+Potongan bukti sesudah:
+    [ -f "$ROOT/third_party/tabular-dl-tabr-official/bin/go.py" ] || die "repo TabR resmi belum di-clone"
+    [ -f "$ROOT/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety/0-tuning.toml" ] || die "config TOML tidak ada: exp/tabr/convat_apex_anxiety/0-tuning.toml"
+Kenapa ini penting:
+- tanpa ini, jalur training resmi tidak bisa direproduksi
+
+PERUBAHAN 5 - pipeline dibungkus skrip
+File utama:
+- scripts/run_pipeline.sh
+Apa yang berubah:
+- proses stage 1 sampai 4 bisa dijalankan dari shell script yang lebih rapi
+- ada progress bar dan log
+- tidak lagi bergantung penuh pada buka notebook satu-satu
+Potongan kode sesudah:
+    ./scripts/run_pipeline.sh --mode anxiety --stage 1
+    ./scripts/run_pipeline.sh --mode anxiety --stage 2
+    ./scripts/run_pipeline.sh --mode anxiety --stage 3
+    ./scripts/run_pipeline.sh --mode anxiety --stage 4
+Kenapa ini penting:
+- lebih mudah diulang
+- lebih mudah diawasi
+- lebih cocok untuk jalankan ulang
+
+3.3. Keputusan konfigurasi pada tahap 1 dan alasannya
+---------------------------------------------------------------------
+
+Kenapa seed 72 tetap dipakai?
+- supaya tetap dekat dengan eksperimen lama dan mudah dibandingkan
+
+Kenapa Optuna tetap 30 trial?
+- karena itu pola lama yang sudah dipakai tim
+- cukup untuk cari baseline, tidak terlalu kecil, tidak terlalu mahal
+
+Kenapa batch_size 128 dipertahankan?
+- ini sudah cocok dengan GPU 4 GB dan pola lama
+
+Kenapa context_size 7 sampai 12, d_main 96 sampai 384, lr loguniform,
+wd loguniform dipertahankan?
+- supaya perubahan utama yang diuji adalah SPLIT dan FITUR,
+  bukan mengganti seluruh karakter model sekaligus
+
+Kenapa train clip tetap dibalance per label?
+- supaya model tidak langsung tenggelam ke kelas mayoritas sejak awal
+
+3.4. Variasi fitur yang dicoba pada tahap 1
+---------------------------------------------------------------------
+
+VARIAN A - 392 fitur
+- baseline jujur baru
+- tetap paling dekat ke pipeline lama
+
+VARIAN B - 196 fitur
+- buang kolom t dan m
+- hanya simpan x dan y
+
+Kenapa dicoba:
+- karena t dan m ternyata turunan pasti dari x dan y
+- secara informasi, t/m tidak membawa pengetahuan baru
+
+VARIAN C - 608 fitur
+- 392 fitur lama + alis kiri/kanan
+
+Kenapa dicoba:
+- hipotesisnya, alis mungkin menyimpan sinyal kecemasan tambahan
+
+VARIAN D - roi25
+- 25 fitur per frame, yaitu 5 sinyal x 5 ROI
+
+Kenapa dicoba:
+- sinyal per-ROI lebih ringkas
+- gerakan lokal tidak tenggelam oleh rata-rata global
+- jauh lebih kecil dimensinya
+
+3.5. Hasil run 1 (hasil jujur pertama)
+---------------------------------------------------------------------
+
+Split run 1:
+- 33 subjek train / 11 val / 12 test
+- 23.742 frame train / 8.922 val / 9.190 test
+
+Hasil 392 fitur (run 1 utama):
+- best seed        : 3
+- val akurasi     : 60.3%
+- test akurasi    : 61.2%
+- test macro F1    : 53.6%
+- test bal akurasi: 55.2%
+- test ROC-AUC     : 58.4%
+- train akurasi   : 63.6%
+- gap train-test   : 2.4 poin
+
+Per kelas pada test:
+- kelas rendah recall : 26.1%
+- kelas tinggi recall : 84.2%
+
+Arti sederhananya:
+- model masih bias ke kelas tinggi
+- tapi tidak separah model lama yang bocor
+- overfitting jauh lebih kecil daripada baseline lama
+
+Hasil varian lain pada tahap 1:
+- 392   : akurasi 61.2% / macroF1 53.6% / bal_acc 55.2% / ROC-AUC 58.4%
+- 196   : akurasi 60.0% / macroF1 47.7% / bal_acc 52.1% / ROC-AUC 54.6%
+- 608   : akurasi 58.6% / macroF1 54.2% / bal_acc 54.5% / ROC-AUC 57.2%
+- roi25 : akurasi 63.4% / macroF1 59.6% / bal_acc 59.6% / ROC-AUC 63.8%
+
+Pemenang tahap 1:
+- roi25
+
+3.6. Apa arti hasil run 1
+---------------------------------------------------------------------
+
+Kalau dibandingkan angka lama:
+- baseline lama test 74.3%
+- run 1 jujur test 61.2%
+
+Ini bukan berarti model tiba-tiba rusak.
+Ini lebih berarti:
+“sekarang kita baru melihat kenyataan.”
+
+Kenapa run 1 penting:
+- ia membuktikan subjek leakage memang masalah besar
+- ia menurunkan gap train-test dari sekitar 23 poin ke 2.4 poin
+- ia memberi baseline jujur yang lebih pantas dibela
+
+Kenapa roi25 menang pada tahap 1:
+- fitur lebih ringkas
+- sinyal lebih lokal
+- lebih sedikit ruang untuk overfit
+- informasi penting tidak terlalu diencerkan
+
+Kenapa 196 tidak menang?
+- membuang t/m memang tidak membuang informasi baru secara teori
+- tapi itu juga tidak otomatis menambah informasi yang berguna
+- hasilnya malah terlihat underfit di run ini
+
+Kenapa 608 tidak menang?
+- tambah fitur tidak selalu tambah kualitas
+- alis menambah dimensi dan peluang overfit
+- pada split jujur, manfaatnya tidak terbukti
+
+3.7. Ringkasan tahap 1 yang bisa kamu jawab saat ditanya
+---------------------------------------------------------------------
+
+Kalau ditanya “apa hasil refaktor pertama?”
+Jawaban sederhana:
+
+- kita berhasil memisahkan subjek train dan test
+- kita berhenti menilai model hanya dari akurasi
+- kita dapat baseline jujur baru
+- angka memang turun
+- tapi sekarang lebih ilmiah
+- dari varian yang dicoba, roi25 justru terlihat paling menjanjikan
+
+3.8. Apa yang logis dilakukan setelah tahap 1
+---------------------------------------------------------------------
+
+Dari hasil run 1, arah logis berikutnya adalah:
+
+1. perbaiki spotting, karena bottleneck sekarang tampaknya bukan cuma split,
+   tapi juga kualitas event yang dideteksi
+2. jalankan ulang dataset setelah spotting baru
+3. bandingkan lagi semua varian di event set baru yang sama
+4. cek apakah roi25 tetap menang setelah event set berubah
+5. buat baseline optical flow supaya klaim pembanding bisa diuji adil
+
+=====================================================================
+4. BAGIAN C - PUTARAN TERBARU + RUN 2 (HASIL SEKARANG)
+=====================================================================
+
+4.1. Apa yang berubah setelah tahap 1
+---------------------------------------------------------------------
+
+Setelah refaktor tahap 1, fokus pindah ke kualitas spotting dan konsistensi
+pipeline.
+
+PERUBAHAN TAMBAHAN 1 - spotting baru dijadikan default di script
+File utama:
+- preprocess-anxiety/process_all_datasets_script.py
+Setelan penting sekarang:
+- SPOT_ABS=1
+- SPOT_SIGNAL_MODE=roi_signals
+- SPOT_INTERP=1
+- SPOT_THRESH=meanstd
+- SPOT_NO_EVENT_SIGNAL bisa dipakai untuk skip visualisasi
+Potongan kode sesudah:
+    USE_ABS_BASELINE = os.environ.get('SPOT_ABS', '1') == '1'
+    SPOT_SIGNAL_MODE = os.environ.get('SPOT_SIGNAL_MODE', 'roi_signals')
+    SPOT_INTERP = os.environ.get('SPOT_INTERP', '1') == '1'
+    SPOT_THRESH = os.environ.get('SPOT_THRESH', 'meanstd')
+    SPOT_NO_EVENT_SIGNAL = os.environ.get('SPOT_NO_EVENT_SIGNAL', '0') == '1'
+Arti sederhananya:
+- spotting sekarang pakai baseline frame pertama
+- spotting sekarang melihat sinyal per ROI
+- frame gagal landmark tidak langsung dianggap nol
+- threshold bisa lebih adaptif
+Kenapa ini dilakukan:
+- supaya event yang dipotong lebih dekat ke ekspresi sebenarnya
+- supaya gerakan lokal tidak tenggelam
+- supaya noise karena landmark gagal berkurang
+
+PERUBAHAN TAMBAHAN 2 - OOM pada ekspor fitur diperbaiki
+File utama:
+- preprocess-anxiety/export_apex_poc_abs_ordered_script.py
+Yang diubah:
+- worker dibatasi
+- frame diproses streaming, bukan menumpuk semua ke RAM
+- baris fitur di-flush per chunk
+- apex yang gagal sekarang return None, bukan membuang seluruh baris fitur
+Potongan kode sesudah:
+    MAX_WORKERS = min(6, os.cpu_count() or 1)
+    pending_rows: list[dict] = []
+    CHUNK_CLIPS = 800
+    ...
+    pending_rows.extend(rows)
+    if len(pending_rows) >= CHUNK_CLIPS:
+        flush_pending()
+Potongan kode tambahan:
+    if len(signal) < 3:
+        return None
+    ...
+    except Exception:
+        return None
+Kenapa ini penting:
+- sebelumnya ekspor fitur bisa mati diam-diam karena RAM/swap habis
+- setelah fix, pipeline lebih tahan untuk dataset event yang lebih besar
+
+PERUBAHAN TAMBAHAN 3 - ada script satu tombol untuk semua varian
+File utama:
+- scripts/run_all_variants.sh
+Apa fungsinya:
+- spotting baru
+- ekspor fitur 392/608/roi25
+- ekspor npy 392/196/608/roi25
+- training semua varian
+- collect hasil
+Potongan kode sesudah:
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py)
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py --brows)
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py --roi-signals)
+    uv run python scripts/export_to_official_tabr_dataset.py
+    uv run python scripts/export_to_official_tabr_dataset.py --drop-derived --dataset convat_apex_anxiety_196
+    uv run python scripts/export_to_official_tabr_dataset.py --features output/apex/features/poc_abs_flatten_ordered_608.xlsx --dataset convat_apex_anxiety_608
+    uv run python scripts/export_to_official_tabr_dataset.py --features output/apex/features/poc_abs_roi_signals.xlsx --dataset convat_apex_anxiety_roi25
+Kenapa ini penting:
+- memaksa semua varian berjalan di protokol yang sama
+- mengurangi kemungkinan beda langkah manual
+
+PERUBAHAN TAMBAHAN 4 - bug cache/split mismatch pada training resmi diperbaiki
+File utama:
+- third_party/tabular-dl-tabr-official/lib/data.py
+- third_party/tabular-dl-tabr-official/bin/ensemble.py
+Masalahnya:
+- setelah data .npy berubah, cache build_dataset lama masih bisa terbaca
+- ensemble sempat membandingkan label baru melawan prediksi lama dengan
+  panjang berbeda
+- error yang muncul: jumlah sampel tidak konsisten (contoh 34.530 vs 23.742)
+Potongan kode sesudah:
+    def _get_dataset_cache_signature(path: Path) -> str:
+        return hashlib.md5(
+            '\n'.join(
+                f'{file.name}:{stat.st_size}:{stat.st_mtime_ns}'
+                for file in [path / 'info.json', *sorted(path.glob('*.npy'))]
+                if file.exists()
+                for stat in [file.stat()]
+            ).encode('utf-8')
+        ).hexdigest()
+Potongan kode sesudah (ensemble):
+    first_report = lib.load_report(single_outputs[0])
+    report['data'] = first_report["config"]["data"]["path"]
+    dataset = lib.build_dataset(**first_report['config']['data'])
+Fix yang dilakukan:
+- cache dataset sekarang diberi signature dari file .npy dan info.json
+- ensemble sekarang memuat dataset lewat jalur yang sama dengan evaluasi
+Kenapa ini penting:
+- hasil yang dilaporkan sekarang konsisten dengan data terbaru
+- ensemble bisa jalan lagi tanpa mismatch panjang data
+
+4.2. Apakah ada file yang dihapus lagi pada round sekarang?
+---------------------------------------------------------------------
+
+Tidak ada penghapusan kode besar baru yang menonjol pada round ini.
+Round ini fokus ke:
+- perbaikan spotting default
+- stabilitas memori ekspor fitur
+- latih ulang dataset 392 pada event set baru
+- perbaikan konsistensi cache dan ensemble
+
+Jadi kalau ditanya “deletion baru di round sekarang apa?”
+Jawaban paling jujur:
+- tidak ada deletion besar baru
+- deletion besar terjadi di tahap 1
+- round sekarang lebih ke perbaikan perilaku dan konsistensi
+
+4.3. Pipeline sekarang bekerja seperti apa
+---------------------------------------------------------------------
+
+Sekarang pipeline jauh lebih rapi daripada kode lama.
+
+Jalur utama sekarang bisa dibaca per stage dari scripts/run_pipeline.sh:
+
+STAGE 1 - spotting
+Potongan perintah:
+    ./scripts/run_pipeline.sh --mode anxiety --force --stage 1
+
+Potongan isi stage:
+    (cd "$ROOT/preprocess-anxiety" \
+      && SPOT_DATASET_ROOT="$DS_ROOT" SPOT_OUTPUT_ROOT="$OUT_DIR" SPOT_VIDEO_EXT=".$EXT" SPOT_ABS="$ABS" \
+         SPOT_OVERWRITE="${SPOT_OVERWRITE:-0}" \
+         SPOT_NO_EVENT_SIGNAL="${SPOT_NO_EVENT_SIGNAL:-0}" \
+         MPLBACKEND=Agg uv run python process_all_datasets_script.py)
+
+Arti:
+- spotting sekarang jadi stage skrip yang jelas, bukan bergantung penuh pada notebook
+
+STAGE 2 - ekspor fitur
+Potongan perintah:
+    ./scripts/run_pipeline.sh --mode anxiety --stage 2
+
+Potongan isi stage:
+    (cd "$ROOT/preprocess-anxiety" && uv run python "$(basename "$FEAT_SCRIPT")")
+
+Arti:
+- hasil spotting diubah menjadi tabel fitur dari stage terpisah
+
+STAGE 3 - ekspor npy
+Potongan perintah:
+    ./scripts/run_pipeline.sh --mode anxiety --stage 3
+
+Potongan isi stage:
+    uv run python scripts/export_to_official_tabr_dataset.py
+
+Arti:
+- tabel fitur diubah menjadi format .npy yang dipakai TabR
+
+STAGE 4 - training TabR + kumpulkan hasil
+Potongan perintah:
+    ./scripts/run_pipeline.sh --mode anxiety --stage 4
+
+Potongan isi stage:
+    PYTHONUNBUFFERED=1 "$ROOT/.venv/bin/python" bin/go.py --force exp/tabr/convat_apex_anxiety/0-tuning.toml 2>&1 | tee "$TRAIN_LOG"
+    uv run python scripts/collect_training_results.py --exp convat_apex_anxiety
+
+Arti:
+- training dan pengumpulan hasil sekarang jadi satu alur yang jelas
+
+Kalau ingin jalur pembanding semua varian dari stage 1 sampai akhir:
+
+Potongan perintah:
+    ./scripts/run_all_variants.sh
+
+Potongan isi skrip:
+    ./scripts/run_pipeline.sh --mode anxiety --force --stage 1
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py)
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py --brows)
+    (cd preprocess-anxiety && uv run python export_apex_poc_abs_ordered_script.py --roi-signals)
+    uv run python scripts/export_to_official_tabr_dataset.py
+    uv run python scripts/export_to_official_tabr_dataset.py --drop-derived --dataset convat_apex_anxiety_196
+    uv run python scripts/export_to_official_tabr_dataset.py --features output/apex/features/poc_abs_flatten_ordered_608.xlsx --dataset convat_apex_anxiety_608
+    uv run python scripts/export_to_official_tabr_dataset.py --features output/apex/features/poc_abs_roi_signals.xlsx --dataset convat_apex_anxiety_roi25
+    PYTHONUNBUFFERED=1 "$ROOT/.venv/bin/python" bin/go.py --force "exp/tabr/$ds/0-tuning.toml"
+    uv run python scripts/collect_training_results.py --exp "$ds"
+
+Secara konsep, alurnya tetap sama:
+video -> spotting -> event clip -> fitur -> npy -> TabR -> hasil
+
+Yang berubah adalah kualitas dan kedisiplinan prosesnya:
+- lebih mudah diulang
+- lebih jujur di evaluasi
+- lebih aman memori
+- lebih mudah dibaca per stage
+
+4.4. Hasil run 2 (training sekarang)
+---------------------------------------------------------------------
+
+Run 2 adalah latih ulang 392 fitur setelah spotting baru + re-export.
+
+Split run 2:
+- train 34.530 frame
+- val   14.668 frame
+- test  14.962 frame
+
+Artinya:
+Event set membesar dibanding run 1. Ini masuk akal karena spotting baru
+lebih sensitif dan menangkap lebih banyak event.
+
+Hasil Optuna:
+- best trial : 11
+- val akurasi pada best trial : 76.1%
+- test akurasi pada best trial: 62.4%
+
+Hasil evaluasi 15 seed:
+- best seed berdasar validasi : 13
+- val akurasi   : 75.7%
+- test akurasi  : 62.7%
+- test macro F1  : 50.7%
+- test bal acc   : 54.4%
+- test ROC-AUC   : 59.1%
+
+Per kelas pada test (seed 13):
+- kelas rendah recall : 17.1%
+- kelas tinggi recall : 91.7%
+
+Rentang test antar seed:
+- sekitar 60.9% sampai 63.3%
+
+Ensemble setelah fix cache/split:
+- seed 0-4   : akurasi 62.5% / macroF1 45.9% / bal_acc 52.8%
+- seed 5-9   : akurasi 63.6% / macroF1 48.5% / bal_acc 54.2%
+- seed 10-14 : akurasi 63.2% / macroF1 47.1% / bal_acc 53.6%
+
+4.5. Apa arti hasil run 2 dibanding run 1
+---------------------------------------------------------------------
+
+Perbandingan langsung 392 fitur:
+
+Run 1:
+- akurasi 61.2%
+- macroF1 53.6%
+- bal_acc 55.2%
+- ROC-AUC 58.4%
+- recall kelas rendah 26.1%
+
+Run 2:
+- akurasi 62.7%
+- macroF1 50.7%
+- bal_acc 54.4%
+- ROC-AUC 59.1%
+- recall kelas rendah 17.1%
+
+Kesimpulan sederhananya:
+- run 2 MENAIKKAN akurasi mentah sedikit
+- run 2 TIDAK memperbaiki keadilan antar kelas
+- run 2 malah lebih berat ke kelas mayoritas
+- run 1 lebih sehat kalau yang dicari adalah generalisasi seimbang
+
+Kalau ditanya “mana yang lebih baik, run 1 atau run 2?”
+Jawaban jujur:
+- kalau patokanmu hanya akurasi, run 2 sedikit lebih baik
+- kalau patokanmu model yang lebih seimbang dan lebih aman untuk klaim
+  ilmiah, run 1 lebih baik
+
+4.6. Kenapa run 2 bisa begitu?
+---------------------------------------------------------------------
+
+Kemungkinan besar karena spotting baru menangkap lebih banyak event.
+Itu bagus untuk sensitivitas, tapi ada konsekuensi:
+- event lebih banyak
+- sebagian bisa mengandung noise
+- model jadi makin sering melihat sinyal kelas mayoritas
+- hasil akhirnya akurasi naik sedikit, tapi kelas minoritas lebih tertekan
+
+Dengan kata lain:
+run 2 tidak gagal, tapi juga belum kemenangan bersih.
+Ia menunjukkan bahwa lebih banyak event belum tentu berarti model lebih adil.
+
+4.7. Ringkasan training sekarang dengan bahasa yang paling gampang
+---------------------------------------------------------------------
+
+Kalau harus diringkas dalam beberapa kalimat:
+
+- Refaktor membuat pipeline lebih jujur dan lebih rapi.
+- Run 1 menunjukkan baseline jujur 392 fitur ada di sekitar 61.2% test,
+  dengan metrik seimbang yang masih lumayan untuk dua kelas.
+- Run 2, setelah spotting baru, membuat akurasi naik ke sekitar 62.7%,
+  tapi kelas minoritas makin sulit dikenali.
+- Jadi masalah proyek sekarang bukan lagi sekadar “gimana bikin angka naik”,
+  tapi “gimana bikin model naik TANPA makin berat ke satu kelas”.
+
+=====================================================================
+5. RANGKUMAN MASALAH, FIX, DAN ALASAN - DALAM SATU TEMPAT
+=====================================================================
+
+Masalah terbesar lama                -> Fix utama                  -> Alasan
+--------------------------------------------------------------------------
+Subjek bocor antar split             -> subject-disjoint split     -> angka lama terlalu optimistis
+Accuracy menipu                      -> macroF1 + bal_acc          -> perlu lihat dua kelas secara adil
+Spotting beda definisi dengan fitur  -> SPOT_ABS / baseline tetap  -> apex harus konsisten
+Gerakan lokal tenggelam              -> sinyal per ROI / roi25     -> micro-expression sering lokal
+Smoothing terlalu panjang            -> window 7 frame             -> event pendek jangan dihapus
+Landmark gagal jadi nol              -> interpolasi                -> hindari lembah palsu
+Threshold global kaku                -> meanstd per sinyal / MAD   -> sensitivitas lebih stabil
+Notebook-only logic                  -> script pipeline            -> lebih mudah diulang dan diverifikasi
+Ekspor fitur OOM                     -> streaming + chunking       -> pipeline harus kuat di data besar
+Cache lama bikin mismatch            -> file-signature cache key   -> hasil harus cocok dengan data terbaru
+
+=====================================================================
+6. APA YANG PALING MASUK AKAL DILAKUKAN SELANJUTNYA
+=====================================================================
+
+Urutan yang paling masuk akal sekarang:
+
+1. Ulang 196 / 608 / roi25 di event set BARU
+   Kenapa:
+   - sekarang 392 sudah dilatih ulang dengan spotting baru
+   - varian lain belum diukur ulang pada event set yang sama
+   - tanpa ini, perbandingan sekarang belum apple-to-apple
+
+2. Tentukan mode spotting final dengan sadar
+   Pilihan praktis:
+   - meanstd = lebih sensitif, event lebih banyak
+   - mad     = lebih konservatif, noise bisa lebih sedikit
+   Kenapa:
+   - run 2 menunjukkan event lebih banyak tidak otomatis lebih baik
+
+3. Evaluasi ke datatest lagi
+   Kenapa:
+   - data tanggal baru adalah ujian generalisasi paling nyata
+
+4. Buat baseline optical flow yang benar-benar ada di repo
+   Kenapa:
+   - supaya klaim pembanding tidak cuma cerita
+
+5. Putuskan apakah notebook spotting lama masih mau dipelihara
+   Kenapa:
+   - sekarang script sudah jadi sumber kebenaran
+   - lebih baik satu sumber utama daripada dua logika yang divergen
+
+6. Kalau harus memilih satu angka untuk dibawa presentasi sekarang
+   Saran jujur:
+   - bawa DUA angka, bukan satu:
+     a. baseline lama yang bocor = 74.3% (jelaskan ini bocor dan historis)
+     b. run 1 jujur 392    = 61.2% acc / 53.6% macroF1 / 55.2% bal_acc
+   Kenapa:
+   - ini menceritakan perjalanan proyek dengan jujur
+   - sekalian menunjukkan kenapa refaktor evaluasi memang perlu
+
+=====================================================================
+7. JAWABAN SINGKAT SIAP PAKAI KALAU DITANYA ORANG
+=====================================================================
+
+Q: Kenapa angka lama lebih tinggi?
+A: Karena split lama bocor subjek, jadi model sering melihat orang yang
+   sama di train dan test. Itu membuat hasil terlihat lebih bagus dari
+   kenyataan.
+
+Q: Kenapa refaktor pertama membuat hasil turun?
+A: Karena evaluasinya dibuat jujur. Yang turun bukan mutu modelnya saja,
+   tapi ilusi dari split lama juga ikut hilang.
+
+Q: Apa hasil jujur pertama setelah refactor?
+A: Untuk 392 fitur, test sekitar 61.2%, macro F1 53.6%, balanced accuracy
+   55.2%. Ini baseline jujur pertama.
+
+Q: Apa hasil terbaru sekarang?
+A: Setelah spotting baru dan latih ulang, akurasi naik ke sekitar 62.7%, tapi
+   macro F1 turun ke 50.7% dan balanced accuracy turun ke 54.4%.
+
+Q: Jadi hasil terbaru lebih baik?
+A: Lebih baik kalau dilihat dari akurasi mentah saja. Tapi tidak lebih
+   baik kalau dilihat dari keseimbangan dua kelas.
+
+Q: Apa model terbaik saat ini?
+A: Dari eksperimen lama yang jujur, roi25 paling menjanjikan. Dari 392 fitur,
+   run 1 lebih sehat secara seimbang, run 2 lebih tinggi akurasinya tapi
+   lebih bias ke kelas mayoritas.
+
+Q: Apa masalah utama proyek sekarang?
+A: Bukan lagi sekadar training. Sekarang masalah utamanya adalah kualitas
+   event spotting dan bagaimana menjaga agar model tidak berat ke satu kelas.
+
+=====================================================================
+8. KESIMPULAN AKHIR
+=====================================================================
+
+Kalau disederhanakan habis:
+
+- PIPELINE LAMA itu masuk akal sebagai ide, tapi terlalu rapuh dan terlalu
+  optimistis di evaluasi.
+- REFAKTOR TAHAP 1 berhasil membersihkan masalah paling besar:
+  evaluasi bocor dan kebiasaan melihat akurasi saja.
+- RUN 1 adalah baseline jujur pertama yang layak dipakai.
+- RUN 2 menunjukkan spotting baru membuat data lebih besar dan akurasi
+  sedikit naik, tetapi keseimbangan antar kelas belum membaik.
+- Jadi kondisi proyek saat ini adalah:
+  “pipeline sudah jauh lebih sehat, tapi tugas berikutnya adalah membuat
+   model lebih seimbang, bukan sekadar sedikit lebih tinggi akurasi-nya.”
+
+File ini sengaja ditulis dengan bahasa lebih manusiawi supaya bisa kamu
+pakai untuk baca sendiri, presentasi, atau jawab pertanyaan dosen.
+
+=====================================================================
+9. APAKAH DUA PERCOBAAN INI MEMAKAI LOSO?
+=====================================================================
+
+Jawaban singkat:
+- Tidak.
+- Kita TIDAK memakai LOSO pada run 1.
+- Kita juga TIDAK memakai LOSO pada run 2.
+
+Yang benar-benar dipakai pada dua percobaan ini:
+- split GroupShuffleSplit yang subject-disjoint
+- seed 72
+- ukuran test 20% participant
+- ukuran val 25% dari sisa participant train_val
+
+Sintaks persis yang dipakai:
+
+    participants = pd.Series(df['participant'].unique())
+    gss_test = GroupShuffleSplit(n_splits=1, test_size=0.2, random_state=RANDOM_SEED)
+    train_val_idx, test_idx = next(gss_test.split(participants, groups=participants))
+    ...
+    gss_val = GroupShuffleSplit(n_splits=1, test_size=0.25, random_state=RANDOM_SEED)
+
+Kenapa bukan LOSO?
+1. Jalur notebook/hasil LOSO lama tidak lengkap.
+   Buktinya:
+   - backup analisis_versi_summary.csv menyebut v21 sebagai LOSO
+   - backup foundings.md menyebut notebook v21 hilang, sehingga hasil LOSO
+     tidak tersedia sebagai baseline runnable yang bisa dipercaya
+
+2. Keputusan praktis saat refaktor adalah membuat evaluasi jujur dan
+   bisa diulang dulu dengan split subject-disjoint yang sudah ada dalam bentuk skrip.
+
+3. GroupShuffleSplit adalah pilihan aman dan membosankan untuk refaktor tahap 1
+   dan run 2 karena mudah diulang secara konsisten untuk 392 / 196 / 608 / roi25.
+
+Kalau nanti ada yang bertanya:
+- “Apakah dua run jujur yang baru memakai LOSO?”
+  Jawaban: Tidak. Kita memakai GroupShuffleSplit yang subject-disjoint,
+  bukan LOSO.
+
+- “Kenapa itu masih bisa diterima?”
+  Jawaban: Karena ini sudah menghilangkan bug terbesar, yaitu kebocoran subjek.
+  Ini memang tidak sekomplet LOSO, tetapi jujur, bisa diulang, dan tersedia
+  dalam bentuk skrip untuk semua pelatihan ulang yang benar-benar kita jalankan.
+
+=====================================================================
+10. APAKAH ViT (VISION TRANSFORMER) MASUK AKAL UNTUK PROYEK INI?
+=====================================================================
+
+10.1. Apa itu ViT, dengan bahasa sederhana
+---------------------------------------------------------------------
+
+ViT adalah model visi yang memperlakukan gambar seperti urutan potongan
+kecil (patch), mirip cara Transformer di NLP memperlakukan kalimat sebagai
+urutan token. Gambar dipecah menjadi patch, tiap patch diubah menjadi vektor,
+lalu semua patch itu diproses dengan self-attention supaya model belajar
+hubungan global antarbagian gambar.
+
+Potongan ide sederhananya:
+
+    gambar -> patch 16x16 -> embedding per patch -> self-attention -> kelas output
+
+Arti:
+- CNN biasanya melihat pola lokal dengan kernel konvolusi
+- ViT melihat hubungan antar patch lewat attention
+
+Menurut paper ViT asli, gambar memang dipecah menjadi patch dan Transformer
+murni bisa bekerja sangat baik, tetapi performa kuatnya sangat bergantung
+pada pretraining skala besar. Sumber:
+- ViT: https://arxiv.org/abs/2010.11929
+
+10.2. Bagaimana ViT bekerja secara teori
+---------------------------------------------------------------------
+
+Secara teori, alurnya kira-kira seperti ini:
+
+1. gambar dipotong menjadi patch tetap, misalnya 16x16
+2. tiap patch di-flatten lalu diubah jadi embedding
+3. embedding posisi ditambahkan supaya model tahu urutan/spasial patch
+4. semua patch masuk ke blok Transformer
+5. self-attention belajar patch mana yang penting terhadap patch lain
+6. token kelas atau pooled representation dipakai untuk klasifikasi akhir
+
+Keunggulan teoritisnya:
+- bisa menangkap konteks global
+- fleksibel untuk hubungan jarak jauh antarbagian gambar
+- tidak wajib bergantung pada bias lokal CNN
+
+Kelemahan teoritisnya:
+- patching bisa membuang detail sangat halus di level sangat kecil
+- butuh data yang cukup supaya attention belajar pola yang benar
+- biasanya lebih rakus memori daripada jalur tabular yang kita pakai sekarang
+
+10.3. ViT untuk video itu seperti apa?
+---------------------------------------------------------------------
+
+Kalau ViT dipakai untuk video, masalahnya jadi lebih berat. Model tidak
+hanya melihat patch ruang, tetapi juga waktu. Salah satu contoh terkenal
+adalah TimeSformer, yang memperluas Transformer ke video dengan attention
+spasial dan temporal. Sumber:
+- TimeSformer: https://arxiv.org/abs/2102.05095
+
+Arti praktisnya:
+- input lebih besar
+- jumlah token jauh lebih banyak
+- memori dan waktu training naik cepat
+
+Jadi, ViT untuk video biasanya lebih berat daripada ViT untuk satu gambar.
+
+10.4. Dibanding pipeline kita sekarang, bedanya apa?
+---------------------------------------------------------------------
+
+Pipeline kita sekarang:
+
+    video
+    -> spotting apex/event
+    -> ROI wajah
+    -> POC-ABS (gerak sub-piksel)
+    -> fitur tabular
+    -> TabR
+
+Potongan logika kita sekarang:
+
+    poc = POC(baseline_gray[comp], gray, block_size)
+    vec = Vektor(poc.getPOC(), block_size)
+    quad = Quadran(vec.getVektor()).getQuadran()
+
+Arti:
+- pipeline sekarang TIDAK memberi gambar mentah ke model akhir
+- pipeline sekarang memaksa informasi gerak halus diekstrak dulu
+- model akhir hanya menerima fitur angka yang sudah diringkas
+
+Kalau pakai ViT, jalurnya biasanya menjadi lebih dekat ke:
+
+    video / frame / ROI image
+    -> patch image
+    -> Transformer
+    -> klasifikasi
+
+Arti:
+- ViT belajar langsung dari citra atau urutan citra
+- pipeline sekarang belajar dari fitur gerak yang sudah diproses
+
+Perbedaan filosofinya:
+- jalur sekarang = feature engineering kuat, model akhir lebih ringan
+- jalur ViT     = feature engineering lebih sedikit, model belajar lebih banyak sendiri
+
+10.5. Kelebihan ViT untuk kasus ini
+---------------------------------------------------------------------
+
+Kalau ditanya “apa bagusnya ViT?”, jawabannya:
+
+1. ViT bisa belajar hubungan global
+   - misalnya pola antar area wajah yang jauh
+
+2. ViT bisa mengurangi ketergantungan pada feature engineering manual
+   - kita tidak harus mendesain semua fitur tangan demi tangan
+
+3. Kalau datanya besar dan pretraining bagus, ViT bisa sangat kuat
+   - ini yang membuat ViT sukses di banyak tugas visi modern
+
+4. Untuk penelitian, ViT menarik sebagai pembanding modern
+   - secara akademik, namanya kuat dan mudah dipahami penguji
+
+10.6. Kekurangan ViT untuk kasus ini
+---------------------------------------------------------------------
+
+Ini bagian pentingnya. Untuk proyek kita, kekurangan ViT justru besar:
+
+1. Data kita kecil untuk ukuran Transformer
+   - project lama pernah bicara sekitar 2.764 event clip
+   - state sekarang memang event set membesar, tetapi tetap jauh dari skala
+     dataset besar yang biasanya bersahabat untuk ViT
+
+2. GPU kita kecil
+   - GTX 1650 Ti Mobile, VRAM 4 GB
+   - ini sempit untuk training Transformer visi/video yang nyaman
+
+3. Sinyal micro-expression sangat halus
+   - proyek kita bertumpu pada gerakan sub-piksel
+   - patch image bisa terlalu kasar untuk sinyal sekecil itu
+
+4. ViT video jauh lebih berat daripada ViT gambar
+   - token spasial x temporal cepat meledak
+
+5. Risiko overfitting tinggi
+   - model besar + data kecil = kombinasi klasik untuk overfit
+
+6. Interpretasi praktis bisa lebih sulit
+   - jalur sekarang masih bisa dijelaskan lewat ROI, POC, apex, fitur
+   - ViT lebih “black box” untuk pembaca non-ML
+
+10.7. Teori vs praktik untuk proyek ini
+---------------------------------------------------------------------
+
+Secara teori:
+- ViT menarik karena bisa belajar end-to-end dari citra
+- Transformer bisa menangkap konteks global dan relasi spasial/temporal
+
+Secara praktik di proyek ini:
+- kita tidak berada di posisi “data besar + GPU besar + waktu eksperimen besar”
+- kita berada di posisi “data relatif kecil + VRAM 4 GB + sinyal sangat halus”
+
+Jadi ada jarak besar antara “menarik di teori” dan “masuk akal di praktik”.
+
+10.8. Kebutuhan sistem kalau benar-benar mau mencoba ViT
+---------------------------------------------------------------------
+
+Kalau tetap mau mencoba ViT dengan lebih waras, biasanya butuh:
+
+1. GPU lebih besar
+   - 4 GB VRAM itu sangat sempit
+   - lebih aman kalau punya GPU yang jauh lebih lega
+
+2. Data lebih banyak
+   - atau pretraining sangat kuat
+   - atau transfer learning dari model yang sudah matang
+
+3. Input yang diperkecil dengan hati-hati
+   - misalnya crop ROI kecil, bukan seluruh frame besar
+
+4. Augmentasi data yang serius
+   - supaya model tidak cepat menghafal
+
+5. Ekspektasi eksperimen yang realistis
+   - ViT sebaiknya dianggap eksperimen samping, bukan pengganti jalur utama
+
+10.9. Apakah ViT mungkin dipakai di proyek ini?
+---------------------------------------------------------------------
+
+Jawaban jujur:
+- Mungkin dicoba? Ya.
+- Mungkin jadi jalur utama yang paling masuk akal sekarang? Belum.
+
+Kenapa masih mungkin dicoba:
+- sebagai eksperimen pembanding modern
+- sebagai bahan diskusi akademik
+- kalau memakai ROI kecil dan transfer learning
+
+Kenapa belum cocok jadi jalur utama:
+- data terlalu kecil
+- GPU 4 GB terlalu sempit
+- proyek kita justru kuat di ekstraksi gerak sub-piksel yang sangat halus
+- jalur sekarang lebih selaras dengan karakter masalah
+
+10.10. Apakah ViT “nice to have”?
+---------------------------------------------------------------------
+
+Ya, tapi sebagai nice to have, bukan need to have.
+
+Arti praktisnya:
+- kalau semua baseline jujur sudah beres, ViT boleh dicoba
+- kalau baseline utama saja masih belum final, ViT belum prioritas
+
+Urutan prioritas yang lebih sehat:
+1. finalkan evaluasi jujur
+2. samakan event set semua varian
+3. bandingkan 392 / 196 / 608 / roi25 secara adil
+4. buat baseline optical flow
+5. baru kalau masih ada waktu, coba ViT sebagai eksperimen samping
+
+10.11. Apakah ada riset transformer untuk micro-expression?
+---------------------------------------------------------------------
+
+Ada. Salah satu contoh yang dekat dengan domain ini adalah:
+- “Multi-scale multi-modal micro-expression recognition algorithm based on transformer”
+  https://arxiv.org/abs/2301.02969
+
+Inti pesannya:
+- peneliti juga sadar micro-expression itu singkat, halus, dan berbeda skala
+- karena itu mereka tidak asal melempar ViT murni ke gambar mentah
+- mereka justru memakai pendekatan multi-modal, multi-scale, dan fokus ke
+  fitur lokal
+
+Ini penting buat kita:
+- bahkan di riset micro-expression, pendekatannya sering bukan “ViT murni
+  polos dari frame mentah”, tetapi model yang membantu attention dengan
+  struktur lokal / multi-modal / multi-scale
+
+10.12. Jadi kesimpulan ViT untuk skripsi ini apa?
+---------------------------------------------------------------------
+
+Kalau harus menjawab singkat ke dosen:
+
+- ViT adalah arsitektur Transformer untuk visi yang bekerja dengan patch gambar.
+- Secara teori kuat untuk konteks global.
+- Secara praktik, ViT biasanya lebih cocok kalau data besar dan komputasi cukup.
+- Untuk skripsi ini, kendala utamanya adalah VRAM 4 GB, data yang relatif kecil,
+  dan sinyal micro-expression yang sangat halus.
+- Karena itu ViT boleh dianggap eksperimen samping yang menarik, tetapi belum
+  layak menjadi jalur utama saat ini.
+
+Sumber yang dipakai untuk bagian ViT:
+- ViT asli: https://arxiv.org/abs/2010.11929
+- DeiT (versi lebih data-efficient): https://arxiv.org/abs/2012.12877
+- TimeSformer (Transformer untuk video): https://arxiv.org/abs/2102.05095
+- Transformer untuk micro-expression: https://arxiv.org/abs/2301.02969

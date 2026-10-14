@@ -1,0 +1,908 @@
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_fused_temporal.pkl
+label unit = person: 54820 baris "before" dibuang, sisa 45997 baris (sesi "after", 1 label per subjek)
+drop fitur /_max_m$/ (pra-agregasi): 5 dibuang -> ['mulut_max_m', 'mata_kiri_max_m', 'mata_kanan_max_m', 'alis_kiri_max_m', 'alis_kanan_max_m']
+agregasi subject: 45997 baris frame -> 56 baris, 402 fitur (mean+std)
+drop fitur /_max_m$/ (pasca-agregasi): 0 dibuang
+Total baris=56 subjek=56 fitur=402
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+Config  : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_roi25_reg.toml
+Score   : accuracy (default TabR)  <- dipakai untuk early stopping (best_epoch)
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+
+[1/56] fold: test subjek = aaisyah_nursalsabiil_ni_patriarti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_000/0-evaluation seeds=3
+2026-10-06 21:52:58.632 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:52:58.819 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:52:59.109 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:03.772 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:03.775 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:03.781 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:07.367 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:07.369 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:07.373 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[0] OK aaisyah_nursalsabiil_ni_patriarti seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:03.445549'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 11, 'time': '0:00:03.471876'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.866148'}]
+
+[2/56] fold: test subjek = abdillah_agil_arbiansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_001/0-evaluation seeds=3
+2026-10-06 21:53:10.379 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:10.382 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:10.386 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:53:13.817 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:13.818 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:13.823 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:53:17.442 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:17.445 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:17.449 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[1] OK abdillah_agil_arbiansyah seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 5, 'time': '0:00:03.314279'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 10, 'time': '0:00:03.512822'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.811160'}]
+
+[3/56] fold: test subjek = abdul_aziz
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_002/0-evaluation seeds=3
+2026-10-06 21:53:20.395 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:20.397 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:20.401 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:53:23.852 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:23.854 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:23.861 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:53:28.410 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:28.413 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:28.420 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[2] OK abdul_aziz seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 7, 'time': '0:00:03.274262'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 9, 'time': '0:00:04.397803'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:04.185804'}]
+
+[4/56] fold: test subjek = achmad_anfasa_rabbany
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_003/0-evaluation seeds=3
+2026-10-06 21:53:32.742 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:32.744 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:32.748 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:36.751 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:36.753 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:36.758 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:39.531 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:39.533 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:39.537 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[3] OK achmad_anfasa_rabbany seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 16, 'time': '0:00:03.889912'}, {'seed': 1, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.665338'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:02.936950'}]
+
+[5/56] fold: test subjek = adham_baskara
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_004/0-evaluation seeds=3
+2026-10-06 21:53:42.630 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:42.631 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:42.637 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:47.217 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:47.218 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:47.223 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:49.946 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:49.947 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:49.952 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[4] OK adham_baskara seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 26, 'time': '0:00:04.468283'}, {'seed': 1, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.598317'}, {'seed': 2, 'val_score': 0.9090909090909091, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.799209'}]
+
+[6/56] fold: test subjek = ahmad_rifqi_hendriansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_005/0-evaluation seeds=3
+2026-10-06 21:53:52.894 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:52.896 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:52.902 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:53:57.248 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:53:57.250 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:53:57.254 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:54:00.084 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:00.086 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:00.091 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[5] OK ahmad_rifqi_hendriansyah seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 26, 'time': '0:00:04.234334'}, {'seed': 1, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.714544'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.906489'}]
+
+[7/56] fold: test subjek = aida_rahma_fadhila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_006/0-evaluation seeds=3
+2026-10-06 21:54:03.143 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:03.145 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:03.150 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:54:06.198 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:06.199 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:06.203 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:54:08.776 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:08.777 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:08.781 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[6] OK aida_rahma_fadhila seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:02.936461'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.463913'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.722542'}]
+
+[8/56] fold: test subjek = akhmad_aakhif_athallah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 383 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_007/0-evaluation seeds=3
+2026-10-06 21:54:11.649 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:11.651 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:11.655 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:54:14.837 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:14.839 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:14.843 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+2026-10-06 21:54:17.734 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:17.736 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:17.741 | INFO     | bin.tabr:main:349 - n_parameters = 54209
+[7] OK akhmad_aakhif_athallah seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:03.065297'}, {'seed': 1, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.772893'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.842144'}]
+
+[9/56] fold: test subjek = ananda_satria_putra_nugraha
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_008/0-evaluation seeds=3
+2026-10-06 21:54:20.724 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:20.726 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:20.731 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:54:24.408 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:24.410 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:24.415 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:54:28.194 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:28.195 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:28.199 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[8] OK ananda_satria_putra_nugraha seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 9, 'time': '0:00:03.563249'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 11, 'time': '0:00:03.669615'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 18, 'time': '0:00:03.890454'}]
+
+[10/56] fold: test subjek = aryan_saputra_rahmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_009/0-evaluation seeds=3
+2026-10-06 21:54:32.228 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:32.230 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:32.234 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:35.354 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:35.356 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:35.361 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:38.644 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:38.646 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:38.650 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[9] OK aryan_saputra_rahmad seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:02.995305'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 5, 'time': '0:00:03.167013'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:02.902752'}]
+
+[11/56] fold: test subjek = ashrul_rifki_ardiyhasa
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_010/0-evaluation seeds=3
+2026-10-06 21:54:41.694 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:41.696 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:41.701 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:44.929 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:44.930 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:44.936 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:48.253 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:48.254 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:48.258 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[10] OK ashrul_rifki_ardiyhasa seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.113814'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 5, 'time': '0:00:03.205921'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:02.828830'}]
+
+[12/56] fold: test subjek = ayleen_ruhul_qisthy
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_011/0-evaluation seeds=3
+2026-10-06 21:54:51.222 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:51.223 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:51.228 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:54.364 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:54.367 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:54.371 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:54:57.385 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:54:57.387 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:54:57.392 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[11] OK ayleen_ruhul_qisthy seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.019884'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.898517'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 35, 'time': '0:00:04.913058'}]
+
+[13/56] fold: test subjek = billy_maulana_ferdinan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 384 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_012/0-evaluation seeds=3
+2026-10-06 21:55:02.458 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:02.460 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:02.466 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:55:05.633 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:05.634 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:05.638 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+2026-10-06 21:55:08.551 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:08.553 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:08.557 | INFO     | bin.tabr:main:349 - n_parameters = 54273
+[12] OK billy_maulana_ferdinan seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.049516'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.798127'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 35, 'time': '0:00:05.064924'}]
+
+[14/56] fold: test subjek = danendra_adhipramana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_013/0-evaluation seeds=3
+2026-10-06 21:55:13.765 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:13.767 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:13.772 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:17.442 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:17.444 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:17.449 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:20.945 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:20.946 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:20.951 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[13] OK danendra_adhipramana seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 13, 'time': '0:00:03.560407'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 9, 'time': '0:00:03.373303'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:03.966718'}]
+
+[15/56] fold: test subjek = dewita_anggraini
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_014/0-evaluation seeds=3
+2026-10-06 21:55:25.066 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:25.068 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:25.190 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:28.167 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:28.169 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:28.174 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:31.509 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:31.511 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:31.515 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[14] OK dewita_anggraini seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.866147'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 6, 'time': '0:00:03.215899'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 28, 'time': '0:00:04.702443'}]
+
+[16/56] fold: test subjek = dika_arie_arrifky
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_015/0-evaluation seeds=3
+2026-10-06 21:55:36.369 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:36.371 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:36.376 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:40.536 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:40.538 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:40.543 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:44.156 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:44.158 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:44.163 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[15] OK dika_arie_arrifky seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 19, 'time': '0:00:04.042902'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 10, 'time': '0:00:03.495874'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 18, 'time': '0:00:04.063594'}]
+
+[17/56] fold: test subjek = duta_kurnia_ardhani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_016/0-evaluation seeds=3
+2026-10-06 21:55:48.360 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:48.361 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:48.366 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:52.040 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:52.041 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:52.046 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:55:55.466 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:55.468 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:55.472 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[16] OK duta_kurnia_ardhani seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 12, 'time': '0:00:03.558737'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 8, 'time': '0:00:03.298163'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:04.370027'}]
+
+[18/56] fold: test subjek = ericha_rizki_wardani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_017/0-evaluation seeds=3
+2026-10-06 21:55:59.985 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:55:59.987 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:55:59.992 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:02.922 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:02.924 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:02.929 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:06.607 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:06.609 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:06.614 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[17] OK ericha_rizki_wardani seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.812094'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 9, 'time': '0:00:03.564284'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 18, 'time': '0:00:03.972196'}]
+
+[19/56] fold: test subjek = esa_pratama_putri
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_018/0-evaluation seeds=3
+2026-10-06 21:56:10.728 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:10.729 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:10.735 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:13.911 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:13.912 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:13.917 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:17.617 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:17.619 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:17.624 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[18] OK esa_pratama_putri seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:03.049098'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 9, 'time': '0:00:03.577436'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 16, 'time': '0:00:03.827863'}]
+
+[20/56] fold: test subjek = fabian_ananda_merdana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_019/0-evaluation seeds=3
+2026-10-06 21:56:21.589 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:21.592 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:21.596 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:26.164 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:26.165 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:26.170 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:29.896 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:29.899 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:29.903 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[19] OK fabian_ananda_merdana seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 24, 'time': '0:00:04.450942'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 12, 'time': '0:00:03.603229'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 29, 'time': '0:00:04.812949'}]
+
+[21/56] fold: test subjek = fahmi_yahya
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_020/0-evaluation seeds=3
+2026-10-06 21:56:34.870 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:34.871 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:34.876 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:38.331 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:38.333 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:38.338 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:42.388 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:42.390 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:42.394 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[20] OK fahmi_yahya seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 8, 'time': '0:00:03.328154'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 16, 'time': '0:00:03.934692'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 12, 'time': '0:00:03.616799'}]
+
+[22/56] fold: test subjek = fahri_zanuar_pradian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_021/0-evaluation seeds=3
+2026-10-06 21:56:46.161 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:46.163 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:46.169 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:49.737 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:49.738 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:49.742 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:56:53.809 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:53.811 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:53.817 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[21] OK fahri_zanuar_pradian seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 8, 'time': '0:00:03.450767'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 16, 'time': '0:00:03.949483'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 12, 'time': '0:00:03.757986'}]
+
+[23/56] fold: test subjek = fandy_wahyu_hanzura
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_022/0-evaluation seeds=3
+2026-10-06 21:56:57.721 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:56:57.723 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:56:57.728 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:57:00.820 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:00.822 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:00.826 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:57:04.505 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:04.507 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:04.511 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[22] OK fandy_wahyu_hanzura seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:02.970577'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 10, 'time': '0:00:03.553461'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.907912'}]
+
+[24/56] fold: test subjek = fiera_ziadattun_nisa_
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_023/0-evaluation seeds=3
+2026-10-06 21:57:07.570 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:07.572 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:07.577 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:10.541 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:10.543 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:10.548 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:13.515 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:13.516 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:13.521 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[23] OK fiera_ziadattun_nisa_ seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.847188'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.850265'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 9, 'time': '0:00:03.561793'}]
+
+[25/56] fold: test subjek = ghetsa_ramadhani_riska_arryanti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_024/0-evaluation seeds=3
+2026-10-06 21:57:17.227 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:17.228 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:17.234 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:20.307 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:20.309 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:20.314 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:23.272 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:23.274 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:23.279 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[24] OK ghetsa_ramadhani_riska_arryanti seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:02.958380'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.844436'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.945877'}]
+
+[26/56] fold: test subjek = haikal_muhammad_rafli
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_025/0-evaluation seeds=3
+2026-10-06 21:57:26.371 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:26.373 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:26.379 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:30.012 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:30.015 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:30.020 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:32.906 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:32.908 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:32.913 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[25] OK haikal_muhammad_rafli seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 10, 'time': '0:00:03.516062'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.764923'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 15, 'time': '0:00:03.850147'}]
+
+[27/56] fold: test subjek = hanifah_kurniasari
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_026/0-evaluation seeds=3
+2026-10-06 21:57:36.908 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:36.910 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:36.915 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:39.977 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:39.978 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:39.984 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:57:42.932 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:42.934 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:42.939 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[26] OK hanifah_kurniasari seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.946456'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.830714'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 14, 'time': '0:00:03.693831'}]
+
+[28/56] fold: test subjek = hizkia_elsadanta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_027/0-evaluation seeds=3
+2026-10-06 21:57:46.776 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:46.778 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:46.784 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:57:50.424 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:50.426 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:50.430 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:57:53.885 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:53.886 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:53.890 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[27] OK hizkia_elsadanta seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 7, 'time': '0:00:03.521205'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 6, 'time': '0:00:03.338156'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:03.010083'}]
+
+[29/56] fold: test subjek = ivansyah_eka_oktaviadi_santoso
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_028/0-evaluation seeds=3
+2026-10-06 21:57:57.041 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:57:57.043 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:57:57.048 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:00.619 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:00.620 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:00.626 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:04.035 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:04.036 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:04.041 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[28] OK ivansyah_eka_oktaviadi_santoso seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 7, 'time': '0:00:03.453220'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 6, 'time': '0:00:03.292196'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 22, 'time': '0:00:04.458900'}]
+
+[30/56] fold: test subjek = jiha_ramdhan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_029/0-evaluation seeds=3
+2026-10-06 21:58:08.650 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:08.652 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:08.657 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:11.800 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:11.802 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:11.806 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:15.476 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:15.477 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:15.482 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[29] OK jiha_ramdhan seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:03.025529'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 10, 'time': '0:00:03.555895'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 21, 'time': '0:00:04.198663'}]
+
+[31/56] fold: test subjek = kamila_habiba_putri_ananta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_030/0-evaluation seeds=3
+2026-10-06 21:58:19.858 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:19.860 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:19.866 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:58:23.016 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:23.018 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:23.023 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 21:58:26.113 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:26.115 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:26.119 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[30] OK kamila_habiba_putri_ananta seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.010436'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:02.979340'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:02.990732'}]
+
+[32/56] fold: test subjek = key_firdausi_alfarel
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_031/0-evaluation seeds=3
+2026-10-06 21:58:29.250 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:29.252 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:29.257 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:32.507 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:32.509 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:32.514 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:35.620 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:35.621 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:35.626 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[31] OK key_firdausi_alfarel seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.135337'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.984250'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.965618'}]
+
+[33/56] fold: test subjek = luqman_ananta_abdul_hakim
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_032/0-evaluation seeds=3
+2026-10-06 21:58:38.742 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:38.744 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:38.748 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:41.973 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:41.975 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:41.980 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:44.926 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:44.927 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:44.932 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[32] OK luqman_ananta_abdul_hakim seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:03.109291'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.827541'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:02.987484'}]
+
+[34/56] fold: test subjek = luthfi_triaswangga
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_033/0-evaluation seeds=3
+2026-10-06 21:58:48.063 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:48.065 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:48.070 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:51.628 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:51.630 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:51.635 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:58:55.651 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:55.653 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:55.658 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[33] OK luthfi_triaswangga seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 7, 'time': '0:00:03.440709'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 16, 'time': '0:00:03.898467'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.894004'}]
+
+[35/56] fold: test subjek = m__firmansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_034/0-evaluation seeds=3
+2026-10-06 21:58:58.694 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:58:58.695 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:58:58.700 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:02.817 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:02.820 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:02.824 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:06.802 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:06.805 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:06.810 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[34] OK m__firmansyah seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 7, 'time': '0:00:03.986581'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 11, 'time': '0:00:03.850159'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.992842'}]
+
+[36/56] fold: test subjek = mohammad_adri_favian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_035/0-evaluation seeds=3
+2026-10-06 21:59:09.956 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:09.958 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:09.963 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:13.386 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:13.388 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:13.393 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:16.372 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:16.374 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:16.379 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[35] OK mohammad_adri_favian seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 7, 'time': '0:00:03.305327'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.859473'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:03.051033'}]
+
+[37/56] fold: test subjek = muhammad_farrel_caesarian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_036/0-evaluation seeds=3
+2026-10-06 21:59:19.572 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:19.574 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:19.578 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:22.771 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:22.773 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:22.778 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:26.071 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:26.073 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:26.077 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[36] OK muhammad_farrel_caesarian seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:03.058747'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.179648'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.872241'}]
+
+[38/56] fold: test subjek = muhammad_khalid_atthoriq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_037/0-evaluation seeds=3
+2026-10-06 21:59:29.093 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:29.094 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:29.100 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:32.229 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:32.230 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:32.236 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:36.376 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:36.378 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:36.383 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[37] OK muhammad_khalid_atthoriq seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.013512'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:04.026208'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.774879'}]
+
+[39/56] fold: test subjek = muhammad_rifqi_rizqullah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_038/0-evaluation seeds=3
+2026-10-06 21:59:39.307 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:39.308 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:39.314 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:42.708 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:42.710 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:42.716 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:46.079 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:46.081 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:46.086 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[38] OK muhammad_rifqi_rizqullah seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:03.272834'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:03.241853'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:02.929064'}]
+
+[40/56] fold: test subjek = muhammad_syahrul_gunawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_039/0-evaluation seeds=3
+2026-10-06 21:59:49.169 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:49.171 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:49.175 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:52.309 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:52.310 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:52.316 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 21:59:55.460 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:55.462 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:55.468 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[39] OK muhammad_syahrul_gunawan seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:03.010903'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:03.018206'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.984774'}]
+
+[41/56] fold: test subjek = muhammad_zaki
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 386 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_040/0-evaluation seeds=3
+2026-10-06 21:59:58.614 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 21:59:58.615 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 21:59:58.621 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 22:00:01.858 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:01.860 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:01.866 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+2026-10-06 22:00:04.960 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:04.962 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:04.967 | INFO     | bin.tabr:main:349 - n_parameters = 54401
+[40] OK muhammad_zaki seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.119532'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:02.973159'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 5, 'time': '0:00:03.253598'}]
+
+[42/56] fold: test subjek = nabeel_nizam
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_041/0-evaluation seeds=3
+2026-10-06 22:00:08.372 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:08.373 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:08.378 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:11.444 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:11.446 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:11.450 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:14.625 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:14.627 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:14.632 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[41] OK nabeel_nizam seeds=[{'seed': 0, 'val_score': 0.36363636363636365, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.946164'}, {'seed': 1, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:03.054633'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.872969'}]
+
+[43/56] fold: test subjek = nahdia_putri_safira
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_042/0-evaluation seeds=3
+2026-10-06 22:00:17.659 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:17.660 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:17.665 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:20.680 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:20.682 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:20.687 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:23.853 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:23.856 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:23.860 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[42] OK nahdia_putri_safira seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.898452'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:03.032031'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:02.975826'}]
+
+[44/56] fold: test subjek = nakita_gayuh_cakrawala
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_043/0-evaluation seeds=3
+2026-10-06 22:00:26.980 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:26.982 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:26.987 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:30.479 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:30.481 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:30.486 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:33.523 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:33.525 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:33.530 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[43] OK nakita_gayuh_cakrawala seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.372367'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:02.920549'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 7, 'time': '0:00:03.381470'}]
+
+[45/56] fold: test subjek = nova_eliza_maharani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_044/0-evaluation seeds=3
+2026-10-06 22:00:37.058 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:37.060 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:37.066 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:40.350 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:40.352 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:40.356 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:44.282 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:44.283 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:44.288 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[44] OK nova_eliza_maharani seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 4, 'time': '0:00:03.166759'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 10, 'time': '0:00:03.806124'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 16, 'time': '0:00:04.022901'}]
+
+[46/56] fold: test subjek = oltha_rosyeda_al_haq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_045/0-evaluation seeds=3
+2026-10-06 22:00:48.471 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:48.473 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:48.478 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:53.753 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:53.755 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:53.761 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:00:58.508 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:00:58.510 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:00:58.515 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[45] OK oltha_rosyeda_al_haq seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 31, 'time': '0:00:05.152877'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 26, 'time': '0:00:04.626223'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 10, 'time': '0:00:03.514829'}]
+
+[47/56] fold: test subjek = rafiqo_adib_destarachmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_046/0-evaluation seeds=3
+2026-10-06 22:01:02.175 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:02.177 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:02.183 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:05.736 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:05.738 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:05.742 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:08.886 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:08.888 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:08.893 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[46] OK rafiqo_adib_destarachmad seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:03.431540'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.025020'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.209024'}]
+
+[48/56] fold: test subjek = rahmad_dwi_ferdyan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_047/0-evaluation seeds=3
+2026-10-06 22:01:12.240 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:12.242 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:12.247 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:15.511 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:15.513 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:15.518 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:18.745 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:18.748 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:18.754 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[47] OK rahmad_dwi_ferdyan seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:03.141767'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:03.108264'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 5, 'time': '0:00:03.338611'}]
+
+[49/56] fold: test subjek = rizkya_salsabila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_048/0-evaluation seeds=3
+2026-10-06 22:01:22.244 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:22.246 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:22.252 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:25.512 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:25.514 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:25.520 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:29.139 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:29.141 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:29.146 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[48] OK rizkya_salsabila seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.141488'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 7, 'time': '0:00:03.495213'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 44, 'time': '0:00:05.707327'}]
+
+[50/56] fold: test subjek = rocky_alessandro_kristanto
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_049/0-evaluation seeds=3
+2026-10-06 22:01:35.005 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:35.007 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:35.014 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:38.118 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:38.120 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:38.124 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:41.313 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:41.315 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:41.320 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[49] OK rocky_alessandro_kristanto seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:02.980890'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.073845'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 27, 'time': '0:00:04.731610'}]
+
+[51/56] fold: test subjek = satria_wiguna
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_050/0-evaluation seeds=3
+2026-10-06 22:01:46.208 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:46.210 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:46.215 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:49.463 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:49.464 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:49.469 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:52.589 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:52.591 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:52.596 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[50] OK satria_wiguna seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:03.133889'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:03.003687'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 9, 'time': '0:00:03.398883'}]
+
+[52/56] fold: test subjek = tomi_martino_affandi
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_051/0-evaluation seeds=3
+2026-10-06 22:01:56.142 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:56.143 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:56.148 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:01:59.521 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:01:59.522 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:01:59.528 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:04.706 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:04.708 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:04.712 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[51] OK tomi_martino_affandi seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.253062'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 34, 'time': '0:00:05.058244'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 35, 'time': '0:00:05.560324'}]
+
+[53/56] fold: test subjek = tora_digda_kristiawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_052/0-evaluation seeds=3
+2026-10-06 22:02:10.418 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:10.420 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:10.424 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:13.730 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:13.732 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:13.738 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:19.021 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:19.022 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:19.027 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[52] OK tora_digda_kristiawan seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.159019'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 34, 'time': '0:00:05.161998'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 30, 'time': '0:00:04.671099'}]
+
+[54/56] fold: test subjek = valentina_santi_grehasta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_053/0-evaluation seeds=3
+2026-10-06 22:02:23.836 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:23.837 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:23.841 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:27.144 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:27.145 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:27.150 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:30.131 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:30.133 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:30.138 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[53] OK valentina_santi_grehasta seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:03.187453'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:02.856861'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 21, 'time': '0:00:04.376001'}]
+
+[55/56] fold: test subjek = vincentius_leonanda_prabowo
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_054/0-evaluation seeds=3
+2026-10-06 22:02:34.663 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:34.665 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:34.670 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:38.014 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:38.016 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:38.020 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:41.679 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:41.681 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:41.685 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[54] OK vincentius_leonanda_prabowo seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 5, 'time': '0:00:03.219467'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 12, 'time': '0:00:03.543961'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 14, 'time': '0:00:03.650348'}]
+
+[56/56] fold: test subjek = vira_alfita_yunia
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 402 -> 385 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_055/0-evaluation seeds=3
+2026-10-06 22:02:45.484 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:45.485 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:45.491 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:48.623 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:48.625 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:48.630 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+2026-10-06 22:02:52.705 | INFO     | lib.util:start:130 - Creating the output
+2026-10-06 22:02:52.706 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3_geo)
+2026-10-06 22:02:52.711 | INFO     | bin.tabr:main:349 - n_parameters = 54337
+[55] OK vira_alfita_yunia seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 4, 'time': '0:00:03.012598'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:03.953036'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:02.890125'}]
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_v3_geo/fold_*/

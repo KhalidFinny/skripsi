@@ -1,0 +1,9 @@
+DATASET_ROOT = /run/media/finny/New Volume/dataset/anxiety_raw
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex_v2/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex_v2/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex_v2/event_signals
+MAX_WORKERS = 4
+SPOT_ALGO = phase
+REBUILD METADATA SAJA: dari klip yang sudah ada, tanpa video mentah
+Saved metadata: /home/finny/projects/Skripsi/output/apex_v2/metadata.xlsx
+  baris: 85 | sample: 59

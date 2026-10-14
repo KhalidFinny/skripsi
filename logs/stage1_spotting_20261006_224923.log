@@ -1,0 +1,17 @@
+DATASET_ROOT = /run/media/finny/New Volume/dataset/anxiety_raw
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex_v2/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex_v2/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex_v2/event_signals
+MAX_WORKERS = 4
+Found 560 video files
+Spotting:   0%|          | 0/560 [00:00<?, ?video/s]Spotting:   0%|          | 1/560 [00:01<12:19,  1.32s/video]Spotting:  10%|█         | 56/560 [00:01<00:09, 54.25video/s]Spotting:  26%|██▋       | 147/560 [00:01<00:02, 158.72video/s]Spotting:  43%|████▎     | 242/560 [00:01<00:01, 276.16video/s]Spotting:  61%|██████    | 339/560 [00:01<00:00, 397.44video/s]Spotting:  75%|███████▌  | 421/560 [00:01<00:00, 481.57video/s]Spotting:  91%|█████████ | 507/560 [00:01<00:00, 565.17video/s]Spotting: 100%|██████████| 560/560 [00:01<00:00, 281.91video/s]
+Saved metadata: /home/finny/projects/Skripsi/output/apex_v2/metadata.xlsx
+                                     relative_sample  ...                                           clip_dir
+0  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+1  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+2  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+3  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+4  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+
+[5 rows x 15 columns]
+Event signals: SKIPPED (SPOT_NO_EVENT_SIGNAL=1)

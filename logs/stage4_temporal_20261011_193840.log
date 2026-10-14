@@ -1,0 +1,6 @@
+Input : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (62955 baris, 73 kolom)
+Sinyal dasar: 55 (5 ROI x 11 sinyal), 1 deskriptor -> 55 kolom baru
+Deskriptor dibatasi ke ['rise']: 55 kolom
+Event: 2647 lintasan
+Keluaran: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal_rise.pkl (62955 baris, 68 kolom)
+Kolom baru: 55 (contoh: ['mulut_mean_m_rise', 'mulut_mean_abs_x_rise', 'mulut_mean_abs_y_rise', 'mulut_motion_count_rise', 'mulut_mean_x_rise'])

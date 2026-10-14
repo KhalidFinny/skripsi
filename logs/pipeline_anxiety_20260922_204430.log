@@ -1,0 +1,13 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 0/3 : PRA-SYARAT
+  APA YANG DILAKUKAN : Cek semua yang dibutuhkan sebelum pipeline dimulai
+  INPUT              : -
+  OUTPUT             : -
+  ESTIMASI WAKTU     : sebentar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-09-22 20:44:31] PRA-SYARAT OK: .venv, dlib model, dataset, TabR repo, nbconvert
+[2026-09-22 20:44:31] ══════════════════════════════════════════════════════════
+[2026-09-22 20:44:31] PIPELINE MODE=anxiety SELESAI
+[2026-09-22 20:44:31] Log lengkap: /home/finny/projects/Skripsi/logs/pipeline_anxiety_20260922_204430.log
+[2026-09-22 20:44:31] Stage yang dijalankan: dari stage 0 sampai selesai
+[2026-09-22 20:44:31] ══════════════════════════════════════════════════════════

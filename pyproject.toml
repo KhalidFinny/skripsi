@@ -32,4 +32,5 @@ dependencies = [
     "tomli>=2.4.0",
     "tomli-w>=1.2.0",
     "faiss-gpu-cu12>=1.14.1.post1",
+    "nbconvert>=7.17.1",
 ]

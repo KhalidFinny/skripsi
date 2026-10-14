@@ -1,0 +1,58 @@
+# Config training TabR untuk LOSO roi25 — REGULARISASI KUAT (project-owned).
+#
+# Tujuan: menutup gap train-val (overfitting), BUKAN menaikkan test accuracy.
+# Bukti overfitting pada config lama (168 report.json):
+#   roi25 frame-level : train 0.8285 vs val 0.5615 -> gap 0.2670
+#   exp3 subject-level: train 0.9024 vs val 0.7042 -> gap 0.1982
+#
+# Tiga penyebab struktural yang diperbaiki di sini:
+#   1. batch_size 128 dengan 44 baris train (mode --aggregate subject)
+#      = 0.34 step/epoch -> praktis tidak belajar, hanya menghafal 1 batch.
+#   2. context_size 12 dari 44 baris train = 27% data train ikut jadi konteks
+#      retrieval tiap prediksi. TabR paper memakai m=96 tapi di dataset
+#      ribuan baris; di N=44 itu retrieval = menghafal.
+#   3. d_main 192 + 486.721 parameter untuk 25 fitur & 44 baris -> kapasitas
+#      jauh melebihi informasi yang tersedia.
+#
+# Cara pakai (satuan baris = SUBJEK, karena label di data ini milik subjek):
+#   ./run loso --dataset <nama> --features <tabel> --aggregate subject \
+#              --subject-norm none --config experiments/configs/tabr_loso_roi25_reg.toml
+#
+# CATATAN PENTING: config ini mengecilkan gap, tapi TIDAK akan menaikkan test
+# accuracy ke 70%. Baseline logistik/GBDT di matriks fitur yang sama juga
+# berada di level acak (acc 0.46-0.55, permutation p 0.36-0.82), jadi masalah
+# akurasinya ada di representasi fitur, bukan di hyperparameter.
+
+seed = 13
+batch_size = 8         # was 128 -> 6 step/epoch pada 44 baris train
+patience = 40          # was 20
+n_epochs = inf
+context_size = 8       # was 12 (27% -> 18% data train jadi konteks retrieval)
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_roi25"
+num_policy = "standard"
+cat_policy = "__null__"
+y_policy = "__null__"
+# Seleksi best_epoch tetap default TabR binclass = "accuracy".
+# AUC sudah dihapus dari pipeline (bukan bagian protokol asli).
+
+[model]
+num_embeddings = "__null__"
+d_main = 64            # was 192  (kapasitas ~3x lebih kecil)
+context_dropout = 0.3  # was 0.1  (regularisasi konteks retrieval)
+d_multiplier = 1.0     # was 2.0  (d_block 128 -> 64)
+encoder_n_blocks = 1   # was 0    (blok encoder ringan sebelum retrieval)
+predictor_n_blocks = 1 # was 2
+mixer_normalization = "auto"
+dropout0 = 0.3         # was 0.1
+dropout1 = 0.1         # was 0.0
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 1e-3              # was 3e-4 (batch kecil butuh lr lebih besar)
+weight_decay = 1e-3    # was 1e-5 (regularisasi 100x lebih kuat)

@@ -1,0 +1,13 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+USE_ABS_BASELINE=False (mode=seq)
+  [1/10] 15_0101disgustingteeth.avi: gt=1 det=5
+  [2/10] 15_0102eatingworms.avi: gt=4 det=5
+  [3/10] 15_0401girlcrashing.avi: gt=1 det=5
+  [4/10] 15_0402beatingpregnantwoman.avi: gt=4 det=5
+  [5/10] 15_0502funnyerrors.avi: gt=2 det=5
+  [6/10] 15_0503unnyfarting.avi: gt=1 det=5
+  [7/10] 15_0505funnyinnovations.avi: gt=1 det=5

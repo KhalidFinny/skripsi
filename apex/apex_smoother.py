@@ -4,30 +4,37 @@ from scipy.signal import savgol_filter
 
 class ApexSmoother:
 
-    WINDOW_LENGTH_PERCENTAGE = 0.05
-    MAX_WINDOW_LENGTH = 31
+    # Panjang window = 3% panjang sinyal (ganjil), minimal 5 frame.
+    #
+    # Riwayat (audit 2026-10-09, lihat report/findings/audit-spotting-casme2.md):
+    #   - desain asli notebook: 5% panjang sinyal, clamp 31 (varian Casme/v2)
+    #     dan window tetap 28 (varian pertama micro_expression_spotting.ipynb)
+    #   - pernah diubah jadi TETAP 7 frame -> regresi (F1 0,214 vs 0,260)
+    #   - disapu ulang pada 86 video CAS(ME)^2: 3% adaptif paling baik dan
+    #     konsisten di validasi split subjek (F1 test 0,315-0,320 vs 0,213).
+    # 3% adaptif dipilih daripada window tetap karena ikut menyesuaikan panjang
+    # video (60 fps vs 30 fps, segmen pendek vs panjang).
+    WINDOW_LENGTH_PERCENTAGE = 0.03
+    MIN_WINDOW_LENGTH = 5
 
     @staticmethod
     def calculate_window_length(length: int) -> int:
         """
-        Menghitung panjang window yang sesuai untuk melakukan perataan pada magnitudo sinyal.
-
-        Args:
-            length (int): Panjang sinyal input.
-
-        Returns:
-            int: Panjang window yang digunakan untuk perataan.
+        Menghitung panjang window smoothing: 3% panjang sinyal (ganjil),
+        minimal MIN_WINDOW_LENGTH, dan selalu lebih kecil dari panjang sinyal
+        (syarat savgol_filter).
         """
-
         window_length = int(length * ApexSmoother.WINDOW_LENGTH_PERCENTAGE)
 
-        # Jika panjang window genap, tambahkan 1 agar menjadi ganjil
-        # Hal ini untuk savgol filter yang memerlukan panjang window ganjil
-        if window_length % 2 == 0: window_length += 1
+        # savgol_filter memerlukan panjang window ganjil
+        if window_length % 2 == 0:
+            window_length += 1
 
-        # Membatasi panjang window antara 5 hingga MAX_WINDOW_LENGTH
-        # Strategi ini untuk menghindari over-smoothing pada sinyal pendek
-        window_length = max(5, min(window_length, ApexSmoother.MAX_WINDOW_LENGTH))
+        window_length = max(ApexSmoother.MIN_WINDOW_LENGTH, window_length)
+
+        # Jaga window tetap lebih kecil dari sinyal (kalau tidak, savgol error)
+        if window_length >= length:
+            window_length = length - 1 if length % 2 == 0 else length - 2
 
         return window_length
 

@@ -1,0 +1,5 @@
+{
+  "name": "Pipeline Desk",
+  "identifier": "id.my.finny.pipelinedesk",
+  "out": "build"
+}

@@ -1,0 +1,7 @@
+Orang total     : 56
+Strata          : {'tinggi_both': 24, 'changed': 18, 'rendah_both': 14}
+Holdout test    : 12 orang (changed=4/18, rendah_both=3/14, tinggi_both=5/24)
+Train pool      : 44 orang
+Seed            : 42
+
+Tertulis: /home/finny/projects/Skripsi/output/presplit/split.csv, train_persons.txt, test_persons.txt, summary.md

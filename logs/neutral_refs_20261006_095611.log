@@ -1,0 +1,18 @@
+Raw    : /run/media/finny/New Volume/dataset/anxiety_raw
+Klip   : /home/finny/projects/Skripsi/output/apex/dataset
+Sample : 560 | workers: 4 | frames: 10
+neutral:   0%|          | 0/560 [00:00<?, ?sample/s]neutral: 100%|██████████| 560/560 [00:00<00:00, 5812.35sample/s]
+Hasil: {'no-video': 560}
+PERINGATAN: 560 sample tanpa acuan netral (akan fallback ke onset):
+  after/anxiety/aaisyah_nursalsabiil_ni_patriarti_1765170495474/q1/answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec (no-video)
+  after/anxiety/aaisyah_nursalsabiil_ni_patriarti_1765170495474/q5/answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec (no-video)
+  after/anxiety/aaisyah_nursalsabiil_ni_patriarti_1765170495474/q2/answer_2_490a0a4a-d935-4509-9a4e-fb0a393be5b9_sec (no-video)
+  after/anxiety/aaisyah_nursalsabiil_ni_patriarti_1765170495474/q4/answer_4_497eb431-dd00-4530-858f-e8ec710014e7_sec (no-video)
+  after/anxiety/abdillah_agil_arbiansyah_1765270077268/q1/answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec (no-video)
+  after/anxiety/aaisyah_nursalsabiil_ni_patriarti_1765170495474/q3/answer_3_ce8ef7e8-63e6-46c1-a510-1b8269c27ce7_sec (no-video)
+  after/anxiety/abdillah_agil_arbiansyah_1765270077268/q4/answer_4_497eb431-dd00-4530-858f-e8ec710014e7_sec (no-video)
+  after/anxiety/abdillah_agil_arbiansyah_1765270077268/q3/answer_3_ce8ef7e8-63e6-46c1-a510-1b8269c27ce7_sec (no-video)
+  after/anxiety/abdillah_agil_arbiansyah_1765270077268/q2/answer_2_490a0a4a-d935-4509-9a4e-fb0a393be5b9_sec (no-video)
+  after/anxiety/abdillah_agil_arbiansyah_1765270077268/q5/answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec (no-video)
+  ... dan 550 lagi
+Daftar lengkap: /home/finny/projects/Skripsi/output/apex/neutral_missing.txt

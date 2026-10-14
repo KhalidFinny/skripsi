@@ -1,0 +1,7 @@
+DATASET_ROOT = /home/finny/datasets/anxiety_raw
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/event_signals
+MAX_WORKERS = 4
+Found 560 video files
+Spotting:   0%|          | 0/560 [00:00<?, ?video/s]Spotting:   0%|          | 1/560 [00:00<09:01,  1.03video/s]Spotting:   1%|          | 3/560 [00:14<47:45,  5.14s/video]Spotting:   1%|          | 4/560 [00:14<32:43,  3.53s/video]Spotting:   1%|          | 5/560 [00:24<52:04,  5.63s/video]Spotting:   1%|          | 6/560 [00:27<43:57,  4.76s/video]Spotting:   1%|▏         | 7/560 [00:29<36:39,  3.98s/video]Spotting:   1%|▏         | 8/560 [00:38<49:27,  5.38s/video]Spotting:   2%|▏         | 9/560 [00:38<36:03,  3.93s/video]Spotting:   2%|▏         | 10/560 [00:39<26:17,  2.87s/video]Spotting:   2%|▏         | 11/560 [00:44<33:40,  3.68s/video]Spotting:   2%|▏         | 12/560 [00:45<24:55,  2.73s/video]Spotting:   2%|▏         | 13/560 [00:49<29:54,  3.28s/video]Spotting:   2%|▎         | 14/560 [00:50<21:28,  2.36s/video]Spotting:   3%|▎         | 15/560 [00:54<25:45,  2.84s/video]Spotting:   3%|▎         | 16/560 [00:58<29:12,  3.22s/video]Spotting:   3%|▎         | 17/560 [01:00<27:50,  3.08s/video]Spotting:   3%|▎         | 18/560 [01:06<33:46,  3.74s/video]Spotting:   3%|▎         | 19/560 [01:06<24:36,  2.73s/video]

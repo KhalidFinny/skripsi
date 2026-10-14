@@ -1,0 +1,853 @@
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal.pkl
+label unit = person: 53161 baris "before" dibuang, sisa 44647 baris (sesi "after", 1 label per subjek)
+drop fitur /_max_m$/ (pra-agregasi): 5 dibuang -> ['mulut_max_m', 'mata_kiri_max_m', 'mata_kanan_max_m', 'alis_kiri_max_m', 'alis_kanan_max_m']
+agregasi subject: 44647 baris frame -> 56 baris, 660 fitur (mean+std)
+drop fitur /_max_m$/ (pasca-agregasi): 0 dibuang
+Total baris=56 subjek=56 fitur=660
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+Config  : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+Score   : accuracy (default TabR)  <- dipakai untuk early stopping (best_epoch)
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+Fitur   : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal.pkl (sidik jari run b52f68eddf19eab8)
+[0/56] ulang aaisyah_nursalsabiil_ni_patriarti (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_000/0-evaluation seeds=3
+2026-10-08 16:19:35.938 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:36.103 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:36.955 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:40.465 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:40.468 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:40.983 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:42.220 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:42.222 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:42.750 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[0] OK aaisyah_nursalsabiil_ni_patriarti seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:02.211399'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.130397'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.188067'}]
+[1/56] ulang abdillah_agil_arbiansyah (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_001/0-evaluation seeds=3
+2026-10-08 16:19:44.076 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:44.078 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:44.569 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:45.937 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:45.938 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:46.448 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:47.580 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:47.581 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:48.086 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[1] OK abdillah_agil_arbiansyah seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:01.262170'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.026810'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 4, 'time': '0:00:01.374312'}]
+[2/56] ulang abdul_aziz (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_002/0-evaluation seeds=3
+2026-10-08 16:19:49.608 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:49.609 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:50.127 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:51.278 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:51.280 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:51.800 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:53.125 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:53.127 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:53.630 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[2] OK abdul_aziz seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.050690'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.216157'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.220845'}]
+[3/56] ulang achmad_anfasa_rabbany (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_003/0-evaluation seeds=3
+2026-10-08 16:19:54.991 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:54.993 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:55.511 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:56.947 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:56.948 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:57.464 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:19:58.647 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:19:58.648 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:19:59.138 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[3] OK achmad_anfasa_rabbany seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 5, 'time': '0:00:01.325429'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.078803'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.362779'}]
+[4/56] ulang adham_baskara (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_004/0-evaluation seeds=3
+2026-10-08 16:20:00.677 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:00.679 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:01.264 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:02.754 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:02.756 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:03.298 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:04.561 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:04.563 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:05.083 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[4] OK adham_baskara seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:01.378590'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.153319'}, {'seed': 2, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.117983'}]
+[5/56] ulang ahmad_rifqi_hendriansyah (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_005/0-evaluation seeds=3
+2026-10-08 16:20:06.342 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:06.344 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:06.855 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:08.153 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:08.154 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:08.681 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:10.016 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:10.017 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:10.505 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[5] OK ahmad_rifqi_hendriansyah seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.190077'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.230791'}, {'seed': 2, 'val_score': 0.36363636363636365, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.168117'}]
+[6/56] ulang aida_rahma_fadhila (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_006/0-evaluation seeds=3
+2026-10-08 16:20:11.836 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:11.838 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:12.364 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:13.657 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:13.659 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:14.181 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:15.417 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:15.419 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:15.943 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[6] OK aida_rahma_fadhila seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.186613'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.134557'}, {'seed': 2, 'val_score': 0.36363636363636365, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.148128'}]
+[7/56] ulang akhmad_aakhif_athallah (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_007/0-evaluation seeds=3
+2026-10-08 16:20:17.229 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:17.231 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:17.746 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:18.991 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:18.994 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:19.483 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:20.814 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:20.816 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:21.330 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[7] OK akhmad_aakhif_athallah seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.138329'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.222123'}, {'seed': 2, 'val_score': 0.36363636363636365, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.301624'}]
+[8/56] ulang ananda_satria_putra_nugraha (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_008/0-evaluation seeds=3
+2026-10-08 16:20:22.771 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:22.773 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:23.273 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:24.585 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:24.587 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:25.103 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:26.385 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:26.387 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:26.929 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[8] OK ananda_satria_putra_nugraha seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.202617'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.173575'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:01.400267'}]
+[9/56] ulang aryan_saputra_rahmad (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_009/0-evaluation seeds=3
+2026-10-08 16:20:28.461 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:28.463 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:28.966 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:30.233 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:30.235 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:30.740 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:32.087 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:32.089 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:32.616 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[9] OK aryan_saputra_rahmad seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.161445'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.229623'}, {'seed': 2, 'val_score': 0.36363636363636365, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.128110'}]
+[10/56] ulang ashrul_rifki_ardiyhasa (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_010/0-evaluation seeds=3
+2026-10-08 16:20:33.883 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:33.884 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:34.406 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:35.679 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:35.681 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:36.205 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:37.449 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:37.451 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:37.951 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[10] OK ashrul_rifki_ardiyhasa seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.166784'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.141002'}, {'seed': 2, 'val_score': 0.36363636363636365, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:01.227191'}]
+[11/56] ulang ayleen_ruhul_qisthy (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_011/0-evaluation seeds=3
+2026-10-08 16:20:39.316 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:39.318 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:39.839 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:41.120 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:41.122 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:41.661 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:42.927 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:42.929 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:43.451 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[11] OK ayleen_ruhul_qisthy seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.169379'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.162420'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.237050'}]
+[12/56] ulang billy_maulana_ferdinan (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_012/0-evaluation seeds=3
+2026-10-08 16:20:44.824 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:44.826 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:45.308 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:46.519 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:46.521 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:47.014 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:48.271 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:48.273 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:48.767 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[12] OK billy_maulana_ferdinan seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.110231'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.152956'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.190514'}]
+[13/56] ulang danendra_adhipramana (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_013/0-evaluation seeds=3
+2026-10-08 16:20:50.111 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:50.112 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:50.621 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:51.950 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:51.953 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:52.471 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:53.731 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:53.733 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:54.232 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[13] OK danendra_adhipramana seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.216929'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.157392'}, {'seed': 2, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.165634'}]
+[14/56] ulang dewita_anggraini (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_014/0-evaluation seeds=3
+2026-10-08 16:20:55.539 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:55.541 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:56.072 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:57.312 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:57.314 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:57.795 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:20:59.014 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:20:59.016 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:20:59.524 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[14] OK dewita_anggraini seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.135128'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.112733'}, {'seed': 2, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.310359'}]
+[15/56] ulang dika_arie_arrifky (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_015/0-evaluation seeds=3
+2026-10-08 16:21:00.987 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:00.989 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:01.506 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:02.837 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:02.838 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:03.362 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:04.705 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:04.706 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:05.207 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[15] OK dika_arie_arrifky seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.218105'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.236722'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.200814'}]
+[16/56] ulang duta_kurnia_ardhani (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_016/0-evaluation seeds=3
+2026-10-08 16:21:06.552 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:06.554 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:07.085 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:08.359 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:08.360 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:08.859 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:10.084 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:10.086 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:10.604 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[16] OK duta_kurnia_ardhani seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.164177'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.123182'}, {'seed': 2, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:01.424791'}]
+[17/56] ulang ericha_rizki_wardani (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_017/0-evaluation seeds=3
+2026-10-08 16:21:12.174 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:12.176 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:12.730 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:14.169 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:14.172 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:14.695 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:16.013 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:16.015 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:16.521 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[17] OK ericha_rizki_wardani seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.324189'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.210303'}, {'seed': 2, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.232999'}]
+[18/56] ulang esa_pratama_putri (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_018/0-evaluation seeds=3
+2026-10-08 16:21:17.903 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:17.905 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:18.421 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:19.646 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:19.648 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:20.152 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:21.421 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:21.423 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:21.926 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[18] OK esa_pratama_putri seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.112412'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.166963'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.394873'}]
+[19/56] ulang fabian_ananda_merdana (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_019/0-evaluation seeds=3
+2026-10-08 16:21:23.503 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:23.505 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:24.043 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:25.382 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:25.384 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:25.923 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:27.221 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:27.222 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:27.744 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[19] OK fabian_ananda_merdana seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.227910'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.192437'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 4, 'time': '0:00:01.506481'}]
+[20/56] ulang fahmi_yahya (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_020/0-evaluation seeds=3
+2026-10-08 16:21:29.401 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:29.402 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:29.945 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:31.244 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:31.245 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:31.789 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:33.265 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:33.267 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:33.810 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[20] OK fahmi_yahya seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.193110'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:01.364524'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.358716'}]
+[21/56] ulang fahri_zanuar_pradian (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_021/0-evaluation seeds=3
+2026-10-08 16:21:35.318 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:35.320 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:35.834 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:37.092 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:37.094 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:37.618 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:38.879 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:38.881 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:39.383 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[21] OK fahri_zanuar_pradian seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.146400'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.150572'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.347330'}]
+[22/56] ulang fandy_wahyu_hanzura (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_022/0-evaluation seeds=3
+2026-10-08 16:21:40.880 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:40.882 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:41.402 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:42.735 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:42.737 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:43.258 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:44.637 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:44.639 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:45.161 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[22] OK fandy_wahyu_hanzura seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.224135'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.269949'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.122115'}]
+[23/56] ulang fiera_ziadattun_nisa_ (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_023/0-evaluation seeds=3
+2026-10-08 16:21:46.429 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:46.431 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:46.946 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:48.362 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:48.364 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:48.878 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:50.182 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:50.184 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:50.728 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[23] OK fiera_ziadattun_nisa_ seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.304782'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.196008'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.224611'}]
+[24/56] ulang ghetsa_ramadhani_riska_arryanti (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_024/0-evaluation seeds=3
+2026-10-08 16:21:52.102 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:52.104 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:52.648 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:54.065 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:54.067 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:54.592 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:55.930 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:55.932 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:56.464 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[24] OK ghetsa_ramadhani_riska_arryanti seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.310414'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.229264'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.186625'}]
+[25/56] ulang haikal_muhammad_rafli (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_025/0-evaluation seeds=3
+2026-10-08 16:21:57.799 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:57.801 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:21:58.342 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:21:59.595 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:21:59.597 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:00.134 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:01.468 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:01.470 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:01.981 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[25] OK haikal_muhammad_rafli seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.141821'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.229585'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.198812'}]
+[26/56] ulang hanifah_kurniasari (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_026/0-evaluation seeds=3
+2026-10-08 16:22:03.326 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:03.328 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:03.858 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:05.075 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:05.077 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:05.592 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:06.890 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:06.892 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:07.396 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[26] OK hanifah_kurniasari seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.112142'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.187452'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.168923'}]
+[27/56] ulang hizkia_elsadanta (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_027/0-evaluation seeds=3
+2026-10-08 16:22:08.713 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:08.715 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:09.241 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:10.525 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:10.527 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:11.050 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:12.409 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:12.411 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:12.979 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[27] OK hizkia_elsadanta seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.179097'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.252831'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.328879'}]
+[28/56] ulang ivansyah_eka_oktaviadi_santoso (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_028/0-evaluation seeds=3
+2026-10-08 16:22:14.483 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:14.485 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:15.020 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:16.365 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:16.366 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:16.912 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:18.262 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:18.264 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:18.761 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[28] OK ivansyah_eka_oktaviadi_santoso seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.237643'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.243595'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.098478'}]
+[29/56] ulang jiha_ramdhan (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_029/0-evaluation seeds=3
+2026-10-08 16:22:20.003 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:20.005 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:20.559 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:21.846 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:21.848 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:22.403 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:23.778 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:23.780 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:24.442 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[29] OK jiha_ramdhan seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.172456'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.243220'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.255303'}]
+[30/56] ulang kamila_habiba_putri_ananta (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_030/0-evaluation seeds=3
+2026-10-08 16:22:25.851 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:25.853 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:26.413 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:27.777 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:27.779 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:28.305 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:29.666 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:29.667 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:30.190 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[30] OK kamila_habiba_putri_ananta seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.254195'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.252509'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.109627'}]
+[31/56] ulang key_firdausi_alfarel (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_031/0-evaluation seeds=3
+2026-10-08 16:22:31.444 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:31.446 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:31.993 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:33.460 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:33.461 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:33.991 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:35.217 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:35.218 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:35.752 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[31] OK key_firdausi_alfarel seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.356074'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.116603'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.153242'}]
+[32/56] ulang luqman_ananta_abdul_hakim (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_032/0-evaluation seeds=3
+2026-10-08 16:22:37.052 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:37.054 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:37.585 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:38.854 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:38.856 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:39.389 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:40.676 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:40.677 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:41.195 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[32] OK luqman_ananta_abdul_hakim seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.159083'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.168197'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.068452'}]
+[33/56] ulang luthfi_triaswangga (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_033/0-evaluation seeds=3
+2026-10-08 16:22:42.412 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:42.413 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:42.935 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:44.238 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:44.240 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:44.741 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:46.144 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:46.146 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:46.654 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[33] OK luthfi_triaswangga seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.199206'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.295123'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.225180'}]
+[34/56] ulang m__firmansyah (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_034/0-evaluation seeds=3
+2026-10-08 16:22:48.025 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:48.027 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:48.573 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:49.948 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:49.949 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:50.468 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:51.847 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:51.849 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:52.366 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[34] OK m__firmansyah seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.266919'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.258695'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.282410'}]
+[35/56] ulang mohammad_adri_favian (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_035/0-evaluation seeds=3
+2026-10-08 16:22:53.797 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:53.799 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:54.331 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:55.655 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:55.657 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:56.187 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:22:57.632 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:57.635 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:22:58.171 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[35] OK mohammad_adri_favian seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.214935'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:01.334975'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.231992'}]
+[36/56] ulang muhammad_farrel_caesarian (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_036/0-evaluation seeds=3
+2026-10-08 16:22:59.550 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:22:59.552 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:00.089 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:01.666 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:01.668 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:02.204 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:03.689 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:03.691 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:04.235 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[36] OK muhammad_farrel_caesarian seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:01.470381'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.374281'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.253004'}]
+[37/56] ulang muhammad_khalid_atthoriq (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_037/0-evaluation seeds=3
+2026-10-08 16:23:05.629 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:05.631 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:06.128 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:07.536 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:07.538 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:08.061 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:09.616 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:09.618 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:10.140 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[37] OK muhammad_khalid_atthoriq seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.298758'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:01.447619'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.282176'}]
+[38/56] ulang muhammad_rifqi_rizqullah (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_038/0-evaluation seeds=3
+2026-10-08 16:23:11.593 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:11.595 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:12.091 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:13.549 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:13.551 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:14.081 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:15.435 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:15.436 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:15.938 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[38] OK muhammad_rifqi_rizqullah seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.349990'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.246672'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.272070'}]
+[39/56] ulang muhammad_syahrul_gunawan (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_039/0-evaluation seeds=3
+2026-10-08 16:23:17.361 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:17.363 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:17.894 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:19.174 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:19.176 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:19.681 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:21.119 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:21.121 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:21.650 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[39] OK muhammad_syahrul_gunawan seeds=[{'seed': 0, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.170139'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.325571'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.204095'}]
+[40/56] ulang muhammad_zaki (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_040/0-evaluation seeds=3
+2026-10-08 16:23:23.008 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:23.010 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:23.546 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:25.040 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:25.042 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:25.535 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:26.785 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:26.787 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:27.323 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[40] OK muhammad_zaki seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 5, 'time': '0:00:01.388887'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.144433'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.098911'}]
+[41/56] ulang nabeel_nizam (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_041/0-evaluation seeds=3
+2026-10-08 16:23:28.560 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:28.561 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:29.066 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:30.278 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:30.280 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:30.784 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:32.155 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:32.157 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:32.674 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[41] OK nabeel_nizam seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.107699'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.262605'}, {'seed': 2, 'val_score': 0.5454545454545454, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.303529'}]
+[42/56] ulang nahdia_putri_safira (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_042/0-evaluation seeds=3
+2026-10-08 16:23:34.122 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:34.123 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:34.640 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:35.981 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:35.982 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:36.535 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:37.881 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:37.884 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:38.463 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[42] OK nahdia_putri_safira seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.228972'}, {'seed': 1, 'val_score': 0.5454545454545454, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.215672'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.321509'}]
+[43/56] ulang nakita_gayuh_cakrawala (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_043/0-evaluation seeds=3
+2026-10-08 16:23:39.955 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:39.958 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:40.539 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:41.815 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:41.817 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:42.381 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:44.731 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:44.733 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:45.344 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[43] OK nakita_gayuh_cakrawala seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.152924'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 17, 'time': '0:00:02.203675'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.361707'}]
+[44/56] ulang nova_eliza_maharani (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_044/0-evaluation seeds=3
+2026-10-08 16:23:46.864 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:46.866 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:47.395 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:48.772 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:48.775 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:49.334 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:51.575 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:51.577 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:52.093 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[44] OK nova_eliza_maharani seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.244679'}, {'seed': 1, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 17, 'time': '0:00:02.128262'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 5, 'time': '0:00:01.476957'}]
+[45/56] ulang oltha_rosyeda_al_haq (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_045/0-evaluation seeds=3
+2026-10-08 16:23:53.722 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:53.724 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:54.280 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:55.797 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:55.798 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:56.377 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:23:57.851 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:57.854 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:23:58.375 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[45] OK oltha_rosyeda_al_haq seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.402154'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.358242'}, {'seed': 2, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.283663'}]
+[46/56] ulang rafiqo_adib_destarachmad (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_046/0-evaluation seeds=3
+2026-10-08 16:23:59.811 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:23:59.814 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:00.339 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:01.673 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:01.675 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:02.184 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:03.663 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:03.665 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:04.173 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[46] OK rafiqo_adib_destarachmad seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.225825'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.367562'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 10, 'time': '0:00:01.798171'}]
+[47/56] ulang rahmad_dwi_ferdyan (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_047/0-evaluation seeds=3
+2026-10-08 16:24:06.122 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:06.124 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:06.628 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:08.024 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:08.025 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:08.531 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:09.958 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:09.959 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:10.484 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[47] OK rahmad_dwi_ferdyan seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.286179'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 3, 'time': '0:00:01.315926'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 2, 'time': '0:00:01.289185'}]
+[48/56] ulang rizkya_salsabila (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_048/0-evaluation seeds=3
+2026-10-08 16:24:11.917 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:11.919 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:12.418 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:13.862 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:13.863 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:14.423 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:16.368 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:16.370 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:16.930 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[48] OK rizkya_salsabila seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.332325'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 12, 'time': '0:00:01.836001'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 10, 'time': '0:00:01.834511'}]
+[49/56] ulang rocky_alessandro_kristanto (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_049/0-evaluation seeds=3
+2026-10-08 16:24:18.921 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:18.923 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:19.418 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:20.665 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:20.667 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:21.175 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:22.643 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:22.644 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:23.157 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[49] OK rocky_alessandro_kristanto seeds=[{'seed': 0, 'val_score': 0.45454545454545453, 'test_score': 1.0, 'best_epoch': 0, 'time': '0:00:01.137145'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 4, 'time': '0:00:01.362376'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 6, 'time': '0:00:01.597357'}]
+[50/56] ulang satria_wiguna (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_050/0-evaluation seeds=3
+2026-10-08 16:24:24.947 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:24.950 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:25.608 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:27.289 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:27.292 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:27.823 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:29.175 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:29.177 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:29.742 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[50] OK satria_wiguna seeds=[{'seed': 0, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 5, 'time': '0:00:01.562996'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.248476'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 9, 'time': '0:00:01.993329'}]
+[51/56] ulang tomi_martino_affandi (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_051/0-evaluation seeds=3
+2026-10-08 16:24:31.914 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:31.917 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:32.546 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:34.098 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:34.101 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:34.687 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:36.207 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:36.209 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:36.802 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[51] OK tomi_martino_affandi seeds=[{'seed': 0, 'val_score': 0.9090909090909091, 'test_score': 0.0, 'best_epoch': 1, 'time': '0:00:01.428373'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.394038'}, {'seed': 2, 'val_score': 0.9090909090909091, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.462883'}]
+[52/56] ulang tora_digda_kristiawan (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_052/0-evaluation seeds=3
+2026-10-08 16:24:38.417 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:38.419 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:38.916 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:40.293 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:40.295 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:40.882 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:42.501 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:42.503 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:43.033 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[52] OK tora_digda_kristiawan seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.265493'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.509000'}, {'seed': 2, 'val_score': 0.9090909090909091, 'test_score': 1.0, 'best_epoch': 3, 'time': '0:00:01.554724'}]
+[53/56] ulang valentina_santi_grehasta (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_053/0-evaluation seeds=3
+2026-10-08 16:24:44.745 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:44.746 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:45.331 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:46.774 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:46.776 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:47.362 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:48.910 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:48.912 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:49.463 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[53] OK valentina_santi_grehasta seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.321106'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.420818'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 1.0, 'best_epoch': 6, 'time': '0:00:01.492646'}]
+[54/56] ulang vincentius_leonanda_prabowo (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_054/0-evaluation seeds=3
+2026-10-08 16:24:51.100 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:51.102 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:51.596 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:53.617 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:53.619 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:54.146 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:24:56.372 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:56.375 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:56.982 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[54] OK vincentius_leonanda_prabowo seeds=[{'seed': 0, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 12, 'time': '0:00:01.900550'}, {'seed': 1, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 14, 'time': '0:00:02.079874'}, {'seed': 2, 'val_score': 0.7272727272727273, 'test_score': 0.0, 'best_epoch': 8, 'time': '0:00:01.568205'}]
+[55/56] ulang vira_alfita_yunia (konfigurasi run berubah: tidak tercatat -> b52f68eddf19eab8)
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_055/0-evaluation seeds=3
+2026-10-08 16:24:58.693 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:24:58.694 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:24:59.221 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:25:00.446 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:25:00.448 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:25:00.944 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-08 16:25:02.182 | INFO     | lib.util:start:130 - Creating the output
+2026-10-08 16:25:02.184 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg)
+2026-10-08 16:25:02.686 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[55] OK vira_alfita_yunia seeds=[{'seed': 0, 'val_score': 0.6363636363636364, 'test_score': 0.0, 'best_epoch': 0, 'time': '0:00:01.117779'}, {'seed': 1, 'val_score': 0.6363636363636364, 'test_score': 1.0, 'best_epoch': 1, 'time': '0:00:01.126526'}, {'seed': 2, 'val_score': 0.8181818181818182, 'test_score': 0.0, 'best_epoch': 2, 'time': '0:00:01.318342'}]
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_roi25_reg/fold_*/

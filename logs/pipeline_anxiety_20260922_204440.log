@@ -1,0 +1,9 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/3 : SPOTTING (mencari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw  (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : LAMA (jam) - progress bar live; resume otomatis (sample yang sudah ada dilewati)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-09-22 20:44:40] SPOTTING GAGAL - detail di /home/finny/projects/Skripsi/logs/stage1_spotting_20260922_204440.log (tail):
+[2026-09-22 20:44:40] GAGAL: SPOTTING GAGAL

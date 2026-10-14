@@ -1,0 +1,7 @@
+Fitur : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (62955 baris, 335 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/335 | kontrol: 0/335
+Klasifikasi dalam-subjek LOSO: bal-acc 0.6389 (null 0.4969, p 0.1045)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4806, p 0.8657) | naik=1 turun=17
+
+Keluaran: output/training/within_subject_v3fixed_geo_temporal

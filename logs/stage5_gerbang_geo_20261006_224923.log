@@ -1,0 +1,6 @@
+Fitur : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_geo.xlsx (100817 baris, 21 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/21 | kontrol: 0/21
+Klasifikasi dalam-subjek LOSO: acc 0.4722 (null 0.4928, p 0.6269)
+
+Keluaran: output/training/within_subject_v3_geo

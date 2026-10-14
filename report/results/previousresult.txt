@@ -1,0 +1,29 @@
+Ringkasan hasil yang dipakai sekarang:
+
+1. Baseline lama (SEBELUM perbaikan, split bocor subjek):
+   TabR resmi baseline (convat_apex_anxiety, 392 fitur POC-ABS, seed 11)
+   train acc       : 0.973574 (97.4%)
+   val acc         : 0.756537 (75.7%)
+   external test   : 0.742826 (74.3%), n=906 frame
+   threshold 0.555 : test 0.748344
+   Sumber          : notebooks/tabr_final_analysis.ipynb
+
+2. Run 1 jujur (hasil pagi, split subjek-disjoint lama):
+   split           : train 23.742 / val 8.922 / test 9.190 frame
+   best seed       : 3
+   val / test      : 0.6027 / 0.6123
+   macroF1 / bal   : 0.5358 / 0.5516
+   ROC-AUC         : 0.5839
+
+3. Run 2 jujur (hasil sekarang, setelah spotting baru + re-export):
+   split           : train 34.530 / val 14.668 / test 14.962 frame
+   Optuna best     : trial 11 -> val 0.7610 / test 0.6242
+   best eval seed  : 13
+   val / test      : 0.7574 / 0.6271
+   macroF1 / bal   : 0.5067 / 0.5440
+   ROC-AUC         : 0.5906
+
+Catatan:
+   Run 2 menaikkan accuracy test sedikit, tetapi macroF1 dan balanced
+   accuracy lebih buruk daripada run 1. Jadi untuk evaluasi skripsi,
+   run 1 masih lebih sehat bila metrik utama = generalisasi seimbang.

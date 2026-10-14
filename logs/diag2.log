@@ -1,0 +1,18 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+=== jarak apex GT ke deteksi TERDEKAT (frame), top_k=1
+  p25: 32
+  p50: 131
+  p75: 324
+  p90: 677
+  <=7 frame: 0.110 | <=20: 0.195 | >100: 0.542
+
+=== posisi relatif GT dalam video: mean=0.537 (0,5 = tengah kalau seragam)
+  proporsi GT di 10% pertama: 0.068 | 25% pertama: 0.169
+
+=== drift sinyal 'mulut' (mean 20% terakhir - 20% pertama):
+  median=+0.1993  mean=+0.2518  positif=0.93 dari 86 video
+  durasi video median = 2305 frame (77 s)

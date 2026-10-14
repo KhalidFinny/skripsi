@@ -1,0 +1,27 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+GT: 308 ekspresi pada 86 video | budget 3.6 deteksi/video
+puncak kandidat total: 53600 (623 per video)
+
+| skor | precision | recall | F1 | TP | FP | FN |
+|---|---|---|---|---|---|---|
+| width | 0.1657 | 0.1851 | 0.1748 | 57 | 287 | 251 |
+| z | 0.1570 | 0.1753 | 0.1656 | 54 | 290 | 254 |
+| val_x_sup | 0.1453 | 0.1623 | 0.1534 | 50 | 294 | 258 |
+| prom_rel | 0.1337 | 0.1494 | 0.1411 | 46 | 298 | 262 |
+| val | 0.1250 | 0.1396 | 0.1319 | 43 | 301 | 265 |
+| sup | 0.1076 | 0.1201 | 0.1135 | 37 | 307 | 271 |
+| prom | 0.1017 | 0.1136 | 0.1074 | 35 | 309 | 273 |
+
+Skor:
+- `val` = nilai sinyal mentah pada puncak (yang dipakai sekarang).
+- `prom` / `prom_rel` = prominence absolut / relatif terhadap rentang sinyal.
+- `z` = z-score puncak di dalam ROI-nya.
+- `width` = lebar puncak pada setengah prominence.
+- `sup` = jumlah ROI lain yang punya puncak dalam +/-10 frame.
+- `val_x_sup` = prominence relatif dikali (1 + sup).
+
+Keluaran: /home/finny/projects/Skripsi/output/training/rank_casme2/summary.md

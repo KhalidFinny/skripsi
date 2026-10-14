@@ -1,0 +1,104 @@
+# Tuning Optuna LOSO, dijalankan pada data fold 0 yang sudah di-stage.
+#
+# Sama dengan experiments/configs/tabr_loso_roi25_tuning.toml, dengan dua
+# perbedaan yang disengaja:
+#   - path menunjuk dataset fold 0 yang di-stage terpisah
+#     (scripts/run_loso.py --dataset exp4_stage_fold0 --fold 0 --seeds 0),
+#     supaya tidak bertabrakan dengan run LOSO lain yang menimpa
+#     data/convat_apex_anxiety_loso_roi25 tiap fold.
+#   - n_trials 20 (bukan 30) karena tuning jalan di CPU sementara LOSO
+#     frame-balanced masih memakai GPU.
+#
+# 1 fold saja (test = subjek pertama) tidak cukup untuk memilih hyperparameter
+# final; hasilnya dipakai sebagai titik awal, bukan angka akhir.
+#
+# Cara pakai:
+#   PROJECT_DIR=$PWD/third_party/tabular-dl-tabr-official \
+#     CUDA_VISIBLE_DEVICES= .venv/bin/python \
+#     third_party/tabular-dl-tabr-official/bin/tune.py \
+#     experiments/configs/tabr_loso_roi25_tuning_fold0.toml
+
+seed = 72
+function = "bin.tabr.main"
+n_trials = 20
+timeout = "__null__"
+
+[sampler]
+
+[space]
+seed = 72
+batch_size = 128
+patience = [
+    "_tune_",
+    "int",
+    10,
+    40,
+]
+n_epochs = inf
+context_size = [
+    "_tune_",
+    "int",
+    7,
+    24,
+]
+
+[space.data]
+seed = 72
+cache = false
+path = ":data/exp4_stage_fold0"
+num_policy = "standard"
+cat_policy = "__null__"
+y_policy = "__null__"
+
+[space.model]
+num_embeddings = "__null__"
+d_main = [
+    "_tune_",
+    "int",
+    96,
+    384,
+]
+context_dropout = [
+    "_tune_",
+    "uniform",
+    0.0,
+    0.5,
+]
+d_multiplier = 2.0
+encoder_n_blocks = 0
+predictor_n_blocks = [
+    "_tune_",
+    "int",
+    1,
+    3,
+]
+mixer_normalization = "auto"
+dropout0 = [
+    "_tune_",
+    "uniform",
+    0.0,
+    0.5,
+]
+dropout1 = [
+    "_tune_",
+    "uniform",
+    0.0,
+    0.4,
+]
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[space.optimizer]
+type = "AdamW"
+lr = [
+    "_tune_",
+    "loguniform",
+    1e-04,
+    0.005,
+]
+weight_decay = [
+    "_tune_",
+    "loguniform",
+    1e-06,
+    1e-03,
+]

@@ -1,0 +1,30 @@
+[2026-10-13 21:08:02] ══════════════════════════════════════════════════════════
+[2026-10-13 21:08:02] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-13 21:08:02]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-13 21:08:02]   OUT        : /home/finny/projects/Skripsi/output/apex_v2
+[2026-10-13 21:08:02]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+[2026-10-13 21:08:02]   DATASET    : convat_apex_anxiety_loso_roi25_reg
+[2026-10-13 21:08:02]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-13 21:08:02]   seeds/fold : 3
+[2026-10-13 21:08:02]   FOLD-FIRST : AKTIF — split per orang SEBELUM spotting
+[2026-10-13 21:08:02]   presplit   : /tmp/presplit_nonexist (train pool -> stage 1-7, holdout -> stage 8)
+[2026-10-13 21:08:02]   holdout out: /home/finny/projects/Skripsi/output/apex_v2_holdout
+[2026-10-13 21:08:02]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261013_210802.log
+[2026-10-13 21:08:02] ══════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 0/8 : PRE-SPLIT PER ORANG (sebelum spotting)
+  APA YANG DILAKUKAN : Bagi 56 orang -> train pool + 12 holdout test (strata label-pair, seed 42). Holdout TIDAK dibaca pipeline sampai stage 8.
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (nama direktori saja, video tidak dibuka)
+  OUTPUT             : /tmp/presplit_nonexist/{split.csv,train_persons.txt,test_persons.txt,summary.md}
+  ESTIMASI WAKTU     : CEPAT (detik)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/split_persons_presplit.py --raw-root '/run/media/finny/New Volume/dataset/anxiety_raw' --out /tmp/presplit_nonexist --test-people 12 --seed 42
+[2026-10-13 21:08:02] ══════════════════════════════════════════════════════════
+[2026-10-13 21:08:02] PIPELINE v3 SELESAI
+[2026-10-13 21:08:02]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+[2026-10-13 21:08:02]   Hasil    : output/training/convat_apex_anxiety_loso_roi25_reg/summary.md
+[2026-10-13 21:08:02]   Holdout  : output/training/convat_apex_anxiety_loso_roi25_reg_holdout/summary.md (12 orang, pertama kali dibaca di stage 8)
+[2026-10-13 21:08:02]   Split    : /tmp/presplit_nonexist/split.csv
+[2026-10-13 21:08:02]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261013_210802.log
+[2026-10-13 21:08:02]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup
+[2026-10-13 21:08:02] ══════════════════════════════════════════════════════════

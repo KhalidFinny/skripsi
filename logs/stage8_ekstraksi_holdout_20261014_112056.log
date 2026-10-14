@@ -1,0 +1,42 @@
+Project root: /home/finny/projects/Skripsi
+Dataset root: /home/finny/projects/Skripsi/output/apex_v2_holdout/dataset
+Metadata:     /home/finny/projects/Skripsi/output/apex_v2_holdout/metadata.xlsx
+Output xlsx:  /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_holdout.xlsx
+Max workers:  3
+Regions:      ['mulut', 'mata_kiri', 'mata_kanan', 'alis_kiri', 'alis_kanan']
+Target size:  {'mulut': (70, 35), 'mata_kiri': (48, 32), 'mata_kanan': (48, 32), 'alis_kiri': (64, 24), 'alis_kanan': (64, 24)}
+Block size:   9
+Metadata rows: 125
+Event clips: 21
+Ekspor fitur:   0%|          | 0/21 [00:00<?, ?clip/s]Ekspor fitur:   5%|▍         | 1/21 [00:02<00:54,  2.71s/clip]Ekspor fitur:  19%|█▉        | 4/21 [00:03<00:12,  1.41clip/s]Ekspor fitur:  24%|██▍       | 5/21 [00:03<00:10,  1.52clip/s]Ekspor fitur:  29%|██▊       | 6/21 [00:04<00:08,  1.84clip/s]Ekspor fitur:  33%|███▎      | 7/21 [00:04<00:07,  1.84clip/s]Ekspor fitur:  38%|███▊      | 8/21 [00:04<00:05,  2.22clip/s]Ekspor fitur:  43%|████▎     | 9/21 [00:05<00:04,  2.43clip/s]Ekspor fitur:  48%|████▊     | 10/21 [00:05<00:04,  2.44clip/s]Ekspor fitur:  52%|█████▏    | 11/21 [00:06<00:04,  2.44clip/s]Ekspor fitur:  57%|█████▋    | 12/21 [00:06<00:03,  2.26clip/s]Ekspor fitur:  62%|██████▏   | 13/21 [00:07<00:03,  2.30clip/s]Ekspor fitur:  67%|██████▋   | 14/21 [00:07<00:03,  2.29clip/s]Ekspor fitur:  71%|███████▏  | 15/21 [00:07<00:02,  2.87clip/s]Ekspor fitur:  76%|███████▌  | 16/21 [00:08<00:02,  2.11clip/s]Ekspor fitur:  81%|████████  | 17/21 [00:08<00:02,  1.98clip/s]Ekspor fitur:  90%|█████████ | 19/21 [00:09<00:00,  2.10clip/s]Ekspor fitur:  95%|█████████▌| 20/21 [00:10<00:00,  2.25clip/s]Ekspor fitur: 100%|██████████| 21/21 [00:10<00:00,  2.66clip/s]Ekspor fitur: 100%|██████████| 21/21 [00:10<00:00,  2.02clip/s]
+Rows collected: 627
+Errors: 0
+Saved: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_holdout.xlsx (POC-ABS saja, 73 kolom)
+Shape: (627, 73)
+Saved apex per area: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_holdout_apex.xlsx
+Apex rows: 105
+{'alis_kanan': 21, 'alis_kiri': 21, 'mata_kanan': 21, 'mata_kiri': 21, 'mulut': 21}
+participant          label question  phase                                              clip                    event_clip  event_no  frame
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      1
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      2
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      3
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      4
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      5
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      6
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      7
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      8
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1      9
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     10
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     11
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     12
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     13
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     14
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     15
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     16
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     17
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     18
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     19
+ abdul_aziz anxiety_tinggi       q5 before answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751_sec event_00242-00276_of_fd_proxy         1     20
+
+{'before': 432, 'after': 195}
+{'anxiety_tinggi': 460, 'anxiety_rendah': 167}

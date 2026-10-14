@@ -1,0 +1,8 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 0/3 : PRA-SYARAT
+  APA YANG DILAKUKAN : Cek semua yang dibutuhkan sebelum pipeline dimulai
+  INPUT              : -
+  OUTPUT             : -
+  ESTIMASI WAKTU     : sebentar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-09-24 19:33:10] GAGAL: dataset tidak ditemukan: /home/finny/datasets/anxiety_raw

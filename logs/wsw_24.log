@@ -1,0 +1,15 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+jendela: 17561 | positif: 1057 (0.0602) | fitur: 150 | video: 14
+window=24 stride=2
+AUC (level jendela) = 0.7486
+  thr=0.3: P=0.3472 R=0.4098 F1=0.3759 (TP 25, FP 47, FN 36)
+  thr=0.5: P=0.3182 R=0.2295 F1=0.2667 (TP 14, FP 30, FN 47)
+  thr=0.7: P=0.3636 R=0.0656 F1=0.1111 (TP 4, FP 7, FN 57)
+  thr=0.9: P=1.0000 R=0.0164 F1=0.0323 (TP 1, FP 0, FN 60)
+
+F1 terbaik = 0.3759 (threshold 0.3)
+Keluaran: /tmp/wsw_24/summary.md

@@ -1,0 +1,125 @@
+Fold: 32, seeds/fold: 3
+Grup subjek: {'before_berubah': 16, 'hanya_after': 8, 'before_sama': 8}
+seed 0: subjek acc 0.5312 (sens 0.471 / spec 0.600) | frame acc 0.4889
+seed 1: subjek acc 0.5312 (sens 0.941 / spec 0.067) | frame acc 0.5556
+seed 2: subjek acc 0.4375 (sens 0.235 / spec 0.667) | frame acc 0.3778
+
+# Hasil LOSO TabR - convat_apex_anxiety_loso_roi25_reg
+
+32 fold (1 subjek/fold), 3 seed per fold. Tiap subjek jadi test tepat sekali; model tidak pernah lihat dia.
+
+**Metrik utama = level subjek.** Label di data ini milik subjek/sesi, jadi test set tiap fold cuma satu kelas: metrik klasifikasi per fold tidak terdefinisi. Yang bisa ditafsirkan hanya keputusan per subjek.
+
+## Train / Val / Test (akurasi, persen)
+
+Dari `summary.json` tiap fold-seed (96 fold-seed, epoch terbaik median 1; 47.9% berhenti di epoch 0).
+
+| split | akurasi | std antar fold-seed | jumlah baris/split |
+|---|---|---|---|
+| train | **69.50%** | ±10.42 | ~43 subjek (dipotong val) |
+| val | **69.66%** | ±9.36 | ~11 subjek |
+| test | **47.40%** | ±42.92 | 1 subjek/fold |
+
+Gap train − val = **-0.16 poin**. Gap besar berarti model menghafal data latih, bukan belajar pola yang berlaku di subjek baru.
+
+Catatan: test tiap fold hanya SATU subjek, jadi skor test per fold bernilai 0% atau 100% dan std-nya besar (±). Yang bermakna adalah rata-ratanya, yang sama dengan baris `accuracy` di tabel bawah.
+
+**PERINGATAN: training tidak berjalan.** 47.9% fold-seed punya `best_epoch` = 0, artinya skor validasi TIDAK PERNAH membaik setelah epoch pertama. Model praktis tidak terlatih, jadi angka di bawah mengukur model yang nyaris tidak belajar, bukan batas kemampuan fiturnya. Periksa learning rate, kapasitas, dan skema pemilihan epoch sebelum menyimpulkan apa pun.
+
+## Level subjek (1 keputusan per subjek)
+
+| metrik | nilai (mean ± std antar seed) | 95% CI (seed-ensemble) |
+|---|---|---|
+| accuracy | 0.5000 ± 0.0541 | 0.3933–0.7183 |
+| balanced accuracy | 0.4967 ± 0.0426 | – |
+| MCC | -0.0072 ± 0.0922 | – |
+| AUC (proba level subjek) | 0.5229 ± 0.1020 | – |
+| sensitivity (anxiety_tinggi) | 0.5490 ± 0.3594 | 0.4687–0.8672 |
+| specificity | 0.4444 ± 0.3289 | 0.1982–0.6425 |
+| PPV | 0.5164 ± 0.0652 | 0.3655–0.7553 |
+| NPV | 0.4783 ± 0.0377 | 0.2801–0.7873 |
+| baseline mayoritas | 0.5312 ± 0.0000 | – |
+| subjek / kelas positif | 32 / 17 | – |
+
+CI = Wilson 95% pada seed-ensemble: proba dirata-rata antar seed per subjek, lalu di-threshold 0.5. Bukan rata-rata CI per seed.
+Bandingkan accuracy dengan baseline mayoritas: kalau CI memuat baseline, model tidak terbukti lebih baik dari menebak kelas mayoritas.
+
+AUC dihitung dari proba LEVEL SUBJEK (1 proba/subjek dari model yang tidak pernah melihat subjek itu), jadi bebas-bocor dan tetap terdefinisi walau test per fold cuma satu kelas. AUC TIDAK bergantung ambang 0.5, jadi ia mengukur kemampuan MERANKING subjek cemas di atas subjek tidak cemas. Acuan: 0.5 = acak. Kalau AUC ~0.5 walau accuracy terlihat di atas baseline, keunggulan accuracy itu artefak ambang/komposisi, bukan kemampuan memisahkan.
+
+### Confusion (dijumlahkan antar seed)
+
+| | pred 0 (rendah) | pred 1 (tinggi) |
+|---|---|---|
+| true 0 (rendah) | TN 20 | FP 25 |
+| true 1 (tinggi) | FN 23 | TP 28 |
+
+Pooling seed-ensemble: accuracy 0.5625, sensitivity 0.7059, specificity 0.4000, AUC 0.5451
+
+## Akuntansi bias
+
+Empat bias yang harus dibaca bersama accuracy, supaya angka headline tidak menyesatkan di data tak seimbang (56 subjek, 25 positif).
+
+### 1. Bias prediksi (model condong ke kelas mana)
+
+| | nilai |
+|---|---|
+| laju positif SEBENARNYA | 0.5312 |
+| laju positif yang DIPREDIKSI | 0.6562 |
+| bias (prediksi - sebenarnya) | +0.1250 |
+
+Bias negatif = model kurang berani menebak kelas positif. Cek juga sensitivity vs specificity: selisih besar = ambang 0.5 belum cocok untuk data ini (ambang sebaiknya dipilih di val, bukan di test).
+
+### 2. Bias metrik (accuracy vs ukuran tahan-imbalance)
+
+- accuracy pooled 0.5625, balanced accuracy 0.5529, MCC +0.1112, AUC 0.5451.
+- Kalau balanced accuracy dan MCC jauh lebih rendah dari accuracy, keunggulan accuracy datang dari menebak kelas mayoritas.
+- MCC 0 = setara tebak acak, jadi tanda +1/-1 yang penting, bukan besarnya accuracy.
+- AUC 0.5451 (acak 0.5) mengukur perankingan tanpa ambang. Kalau AUC ~0.5 sementara accuracy di atas baseline, yang diukur accuracy adalah ambang + komposisi kelas, bukan kemampuan memisahkan.
+
+### 3. Bias komposisi / paradoks Simpson (uji per grup)
+
+Accuracy pooled bisa lebih tinggi dari baseline mayoritas global, padahal di SETIAP grup fase model kalah dari baseline mayoritas grup itu sendiri. Itu paradoks Simpson: keunggulan pooled cuma artefak komposisi kelas.
+Bandingkan kolom `accuracy` dengan `baseline grup` dan lihat `selisih`.
+
+### 4. Bias ambang keputusan (0.5 itu arbitrer)
+
+Ambang Youden dipilih di **val tiap fold**, lalu diterapkan ke test fold itu (bukan dipilih di test).
+
+| | ambang 0.5 | ambang dari val |
+|---|---|---|
+| accuracy | 0.5000 ± 0.0541 | 0.4815 ± 0.0339 |
+| balanced accuracy | 0.4967 ± 0.0426 | 0.4877 ± 0.0351 |
+| laju positif prediksi | 0.5521 ± 0.3428 | 0.4667 ± 0.0969 |
+| ambang terpilih (rata-rata) | 0.5000 | 0.5247 ± 0.0623 |
+
+Kalau ambang dari val lebih baik, angka di kolom 0.5 bukan kemampuan model — itu cuma ambang yang belum disetel.
+
+## Per grup fase subjek (uji paradoks Simpson)
+
+`baseline grup` = baseline mayoritas DIHITUNG DI GRUP ITU SENDIRI, bukan baseline global. Kalau selisih negatif di semua grup, keunggulan pooled tidak bisa dipercaya.
+
+| grup | n | n positif | accuracy | baseline grup | selisih | MCC |
+|---|---|---|---|---|---|---|
+| hanya_after | 8 | 4 | 0.6250 | 0.5000 | +0.1250 | +0.2582 |
+| before_sama | 8 | 5 | 0.5000 | 0.6250 | -0.1250 | -0.2928 |
+| before_berubah | 16 | 8 | 0.5625 | 0.5000 | +0.0625 | +0.1348 |
+
+Catatan: `group` diturunkan dari kolom `condition`, yang MERUPAKAN label. Jadi grup ini hanya alat diagnosis, tidak boleh dipakai sebagai fitur atau untuk koreksi prior — itu kebocoran label.
+
+## Level frame (diagnostik komposisi, BUKAN performa)
+
+Angka di bawah menghitung frame, tapi label milik subjek: tiap fold LOSO menahan satu subjek sehingga test-nya satu kelas. Tabel ini hanya menggambarkan komposisi kelas di dalam subjek, bukan kemampuan model.
+
+| metrik | nilai |
+|---|---|
+| accuracy | 0.4741 ± 0.0898 |
+| macroF1 | 0.4289 ± 0.0575 |
+| balanced accuracy | 0.4630 ± 0.0404 |
+| recall kelas rendah / tinggi | 0.4074 ± 0.2625 / 0.5185 ± 0.3164 |
+| baris | 45 |
+
+Catatan:
+- 32 fold punya test set satu kelas.
+- Satuan baris training: `subject` (tidak mengubah tabel frame di atas).
+- Subjek dengan label ambigu (test-nya memuat 2 kelas): 15 (0 kalau label unit = person; > 0 berarti run memakai label unit = session).
+- File: summary.csv (per seed), per_subject.csv (per seed x subjek).

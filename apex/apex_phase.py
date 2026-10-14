@@ -1,5 +1,5 @@
 import numpy as np
-from scipy.signal import find_peaks
+from scipy.signal import find_peaks, peak_prominences
 
 
 class ApexPhase:
@@ -59,16 +59,26 @@ class ApexPhase:
         return peaks.tolist()
 
 
-    def find_top_k_apex(self, signal: list, k: int = 0, height: float = None) -> list:
+    def find_top_k_apex(self, signal: list, k: int = 0, height: float = None,
+                        ranking: str = 'value') -> list:
         """
-        Mendeteksi top-K titik puncak berdasarkan prominence tertinggi.
-        Otomatis menggabungkan puncak-puncak yang terlalu berdekatan
-        menggunakan self.merge_distance sebelum dikembalikan.
+        Mendeteksi top-K titik puncak, lalu menggabungkan puncak yang terlalu
+        berdekatan menggunakan self.merge_distance sebelum dikembalikan.
 
         Args:
             signal (list): Sinyal input yang akan dianalisis.
             k (int): Jumlah maksimal apex yang dikembalikan (0 = semua).
             height (float): Ambang batas tinggi minimum untuk peak.
+            ranking (str): Dasar pemilihan K puncak.
+                'value'      -> nilai sinyal tertinggi (perilaku lama)
+                'prominence' -> puncak paling menonjol secara lokal. Untuk
+                    spotting, ini lebih tepat daripada nilai absolut karena
+                    puncak ekspresi sering tidak setinggi puncak drift.
+                    Desain ini diambil dari notebook asli
+                    (micro_expression_spotting.ipynb: find_peaks(prominence=0)
+                    lalu urut menurun menurut prominence). Diukur pada 86 video
+                    CAS(ME)^2: F1 0,266 -> 0,314 (lihat
+                    report/findings/audit-spotting-casme2.md).
 
         Returns:
             list: Indeks titik puncak (setelah merge), diurutkan secara ascending.
@@ -83,12 +93,19 @@ class ApexPhase:
         # ── Auto-merge: gabungkan puncak yang terlalu berdekatan ──
         peaks = self.merge_nearby_peaks(signal, peaks, merge_distance=self.merge_distance)
 
-        # ── Top-K filter: ambil k puncak dengan nilai sinyal tertinggi ──
+        # ── Top-K filter: ambil k puncak teratas ──
         # k=0 → kembalikan semua (skip filter)
         if k > 0 and len(peaks) > k:
-            # Gunakan signal Python list langsung (bukan numpy) agar type-safe
-            peaks = sorted(peaks, key=lambda p: signal[p], reverse=True)[:k]
-            peaks = sorted(peaks)  # kembalikan ke urutan kronologis (ascending)
+            if ranking == 'prominence':
+                # Prominence dihitung ulang untuk puncak HASIL MERGE (nilai
+                # prominence dari find_peaks mengacu ke puncak sebelum merge).
+                prominence = peak_prominences(np.asarray(signal, dtype=float), peaks)[0]
+                top = np.argsort(-prominence)[:k]
+                peaks = sorted(peaks[i] for i in top)
+            else:
+                # Gunakan signal Python list langsung (bukan numpy) agar type-safe
+                peaks = sorted(peaks, key=lambda p: signal[p], reverse=True)[:k]
+                peaks = sorted(peaks)  # kembalikan ke urutan kronologis (ascending)
 
         return peaks
 

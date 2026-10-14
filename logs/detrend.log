@@ -1,0 +1,7 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+asli (tanpa detrend)        : coverage=0.2403 (74/308) | jarak apex median=131
+detrend rolling-median 101  : coverage=0.2078 (64/308) | jarak apex median=154

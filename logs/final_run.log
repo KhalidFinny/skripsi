@@ -1,0 +1,35 @@
+cache akhir: 86/86
+=== 1. window sweep (SEMUA video) ===
+### window=12
+jendela: 110361 | positif: 5285 (0.0479) | fitur: 150 | video: 86
+AUC (level jendela) = 0.6005
+  thr=0.3: P=0.1045 R=0.1429 F1=0.1207 (TP 44, FP 377, FN 264)
+  thr=0.5: P=0.0779 R=0.0195 F1=0.0312 (TP 6, FP 71, FN 302)
+  thr=0.7: P=0.2500 R=0.0032 F1=0.0064 (TP 1, FP 3, FN 307)
+  thr=0.9: P=nan R=0.0000 F1=0.0000 (TP 0, FP 0, FN 308)
+F1 terbaik = 0.1207 (threshold 0.3)
+### window=16
+jendela: 110189 | positif: 5283 (0.0479) | fitur: 150 | video: 86
+AUC (level jendela) = 0.6048
+  thr=0.3: P=0.1593 R=0.1981 F1=0.1766 (TP 61, FP 322, FN 247)
+  thr=0.5: P=0.1828 R=0.0552 F1=0.0848 (TP 17, FP 76, FN 291)
+  thr=0.7: P=0.0714 R=0.0032 F1=0.0062 (TP 1, FP 13, FN 307)
+  thr=0.9: P=nan R=0.0000 F1=0.0000 (TP 0, FP 0, FN 308)
+F1 terbaik = 0.1766 (threshold 0.3)
+### window=24
+jendela: 109845 | positif: 5277 (0.0480) | fitur: 150 | video: 86
+AUC (level jendela) = 0.6186
+  thr=0.3: P=0.2205 R=0.2305 F1=0.2254 (TP 71, FP 251, FN 237)
+  thr=0.5: P=0.1803 R=0.0714 F1=0.1023 (TP 22, FP 100, FN 286)
+  thr=0.7: P=0.1500 R=0.0195 F1=0.0345 (TP 6, FP 34, FN 302)
+  thr=0.9: P=0.0000 R=0.0000 F1=0.0000 (TP 0, FP 2, FN 308)
+F1 terbaik = 0.2254 (threshold 0.3)
+=== 2. per-puncak fitur kaya (SEMUA video) ===
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+  [1/86] 15_0101disgustingteeth.avi: kandidat=435 positif=28
+  [2/86] 15_0102eatingworms.avi: kandidat=193 positif=28
+ALLDONE

@@ -1,0 +1,15 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+n GT dgn sinyal: 308
+
+=== persentil nilai sinyal pada frame apex GT (max antar ROI, jendela +/-5)
+  median persentil = 0.988   (acak = 0.50)
+  proporsi > 0.90 = 0.929   (kalau sinyal bagus, harus tinggi)
+  proporsi > 0.95 = 0.812
+
+=== z-score sinyal pada frame apex GT
+  median z = 1.683  mean z = 1.839
+  proporsi z > 1.0 = 0.756

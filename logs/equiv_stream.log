@@ -1,0 +1,12 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+frames: 1075 | ROI: ['mulut', 'mata_kiri', 'mata_kanan', 'alis_kiri', 'alis_kanan']
+IDENTICAL (stream vs list): True
+   mulut: len 1074 vs 1074 maxdiff=0.0
+   mata_kiri: len 1074 vs 1074 maxdiff=0.0
+   mata_kanan: len 1074 vs 1074 maxdiff=0.0
+   alis_kiri: len 1074 vs 1074 maxdiff=0.0
+   alis_kanan: len 1074 vs 1074 maxdiff=0.0

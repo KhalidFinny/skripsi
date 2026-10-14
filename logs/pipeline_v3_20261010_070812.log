@@ -1,0 +1,18 @@
+[2026-10-10 07:08:12] ══════════════════════════════════════════════════════════
+[2026-10-10 07:08:12] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-10 07:08:12]   RAW        : /home/finny/datasets/anxiety_avi
+[2026-10-10 07:08:12]   OUT        : /home/finny/projects/Skripsi/output/apex_fixed
+[2026-10-10 07:08:12]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+[2026-10-10 07:08:12]   DATASET    : convat_apex_anxiety_loso_v3fixed
+[2026-10-10 07:08:12]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-10 07:08:12]   seeds/fold : 3
+[2026-10-10 07:08:12]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261010_070812.log
+[2026-10-10 07:08:12] ══════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/7 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /home/finny/datasets/anxiety_avi (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_fixed/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 07:08:12]   log: /home/finny/projects/Skripsi/logs/stage1_spotting_20261010_070812.log

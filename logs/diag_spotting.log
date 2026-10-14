@@ -1,0 +1,13 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video dengan sinyal: 86
+
+GT=308  deteksi=370  det/video=4.3
+frame total=221627  frame GT=10573  proporsi GT=0.0477
+-> kalau deteksi acak, precision harapan ~ 0.0477
+-> F1 maksimum mungkin (kasar): 0.9086 (kalau semua deteksi kena GT)
+
+UPPER BOUND recall (GT punya MINIMAL satu deteksi beririsan): 0.2370 (73/308)

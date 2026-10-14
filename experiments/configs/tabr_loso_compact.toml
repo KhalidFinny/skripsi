@@ -1,0 +1,59 @@
+# Config TabR KAPASITAS MINIMAL untuk rezim d >> n (project-owned).
+#
+# Dasar literatur: di rezim "high-dimensional low-sample-size" (jumlah fitur
+# jauh melebihi jumlah sampel), model deep learning kesulitan dan pendekatan
+# yang dominan adalah pengurangan dimensi, seleksi fitur, regularisasi kuat,
+# dan ensemble model lemah (Feature dimensionality reduction review 2021;
+# GRACES, Bioinformatics 2023; PLATO d>>n 2022).
+#
+# Kondisi kita: 237 fitur, 44 baris train -> d/n = 5,4. Termasuk d >> n.
+# Config ini memangkas kapasitas seagresif mungkin:
+#   d_main 96 -> 32, d_multiplier 2.0 -> 1.0, context_size 16 -> 4,
+#   weight_decay 1e-3 -> 1e-2, dropout naik. Total 13.089 parameter.
+#
+# HASIL (2026-10-06, LOSO 56 fold x 3 seed, tabel POC netral+temporal 237 fitur):
+#   AUC      0,6142  <- IDENTIK dengan config reg (kapasitas 4x lebih besar)
+#   accuracy 0,5714  (baseline mayoritas 0,5536)
+#   gap train-val  -0,0055  (train < val -> nol hafalan)
+#   gap train-test  0,1909  (terendah dari semua config)
+#   sebaran antar seed 5,4 poin (reg: 17,9 poin)
+# Bacaan: kapasitas ekstra config `reg` TIDAK membeli apa pun (AUC sama), tapi
+# ia menambah hafalan dan varians. Config ini yang dipakai sebagai headline.
+# CATATAN: peringkat ini TIDAK boleh diklaim dari accuracy - selisih 2,4 poin
+# dari reg lebih kecil dari derau antar seed.
+#
+# Pemakaian:
+#   ./run loso --dataset <nama> --features <tabel> --aggregate subject \
+#     --subject-norm none --config experiments/configs/tabr_loso_compact.toml
+
+seed = 13
+batch_size = 8
+patience = 16
+n_epochs = inf
+context_size = 4       # 4 dari 44 kandidat (9%)
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_roi25_reg"
+num_policy = "quantile"
+cat_policy = "__null__"
+y_policy = "__null__"
+
+[model]
+num_embeddings = "__null__"
+d_main = 32            # resmi 96-384; ini 3x lebih kecil
+context_dropout = 0.4
+d_multiplier = 1.0     # resmi 2.0
+encoder_n_blocks = 0
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.4
+dropout1 = 0.2
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 1e-3
+weight_decay = 1e-2    # 10x lebih kuat dari config reg

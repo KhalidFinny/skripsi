@@ -1,0 +1,32 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+  [1/15] 15_0101disgustingteeth.avi: kandidat=435 positif=28
+  [2/15] 15_0102eatingworms.avi: kandidat=193 positif=28
+  [3/15] 15_0401girlcrashing.avi: kandidat=840 positif=4
+  [4/15] 15_0402beatingpregnantwoman.avi: kandidat=1029 positif=24
+  [5/15] 15_0502funnyerrors.avi: kandidat=490 positif=15
+  [6/15] 15_0503unnyfarting.avi: kandidat=727 positif=34
+  [7/15] 15_0505funnyinnovations.avi: kandidat=533 positif=9
+  [8/15] 16_0101disgustingteeth.avi: kandidat=515 positif=69
+  [9/15] 16_0102eatingworms.avi: kandidat=227 positif=63
+  [10/15] 16_0401girlcrashing.avi: kandidat=666 positif=66
+  [11/15] 16_0402beatingpregnantwoman.avi: kandidat=892 positif=91
+  [12/15] 16_0502funnyerrors.avi: kandidat=485 positif=88
+  [13/15] 16_0505funnyinnovations.avi: kandidat=551 positif=115
+  [14/15] 16_0507climbingthewall.avi: kandidat=731 positif=90
+  [15/15] 19_0102eatingworms.avi: kandidat=266 positif=23
+
+kandidat=8580 positif=747 (0.0871) fitur=61
+gbdt AUC (fitur kaya) = 0.7183   [pembanding magnitudo-5-ROI: 0,6706]
+  budget   3.6/video: precision=0.5185 recall=0.0375 F1=0.0699
+  budget  10.0/video: precision=0.4333 recall=0.0870 F1=0.1449
+  budget  20.0/video: precision=0.3800 recall=0.1526 F1=0.2178
+  budget  40.0/video: precision=0.2900 recall=0.2329 F1=0.2584
+  budget  80.0/video: precision=0.2192 recall=0.3521 F1=0.2702
+  budget 160.0/video: precision=0.1758 recall=0.5649 F1=0.2682
+
+F1 terbaik (fitur kaya) = 0.2702 pada 80/video [pembanding magnitudo: 0,2047]
+Keluaran: /home/finny/projects/Skripsi/output/training/rich_rank_casme2/candidates.csv

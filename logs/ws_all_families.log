@@ -1,0 +1,20 @@
+### poc_abs_roi_signals_v3_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.5556 (null 0.4908, p 0.2388)
+
+Keluaran: output/training/ws_v3_35
+### poc_e3only_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.6111 (null 0.5035, p 0.1692)
+
+Keluaran: output/training/ws_e3only_25
+### poc_abs_roi_signals_e3_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.5833 (null 0.4971, p 0.1940)
+
+Keluaran: output/training/ws_e3_30
+### poc_abs_roi_signals_v3_poc_temporal.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.3889 (null 0.4979, p 0.9353)
+
+Keluaran: output/training/ws_temporal_185
+### poc_dynamics_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.4722 (null 0.4925, p 0.5871)
+
+Keluaran: output/training/ws_dynamics_90

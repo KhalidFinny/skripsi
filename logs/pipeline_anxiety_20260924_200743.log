@@ -1,0 +1,18 @@
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 0/3 : PRA-SYARAT
+  APA YANG DILAKUKAN : Cek semua yang dibutuhkan sebelum pipeline dimulai
+  INPUT              : -
+  OUTPUT             : -
+  ESTIMASI WAKTU     : sebentar
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-09-24 20:07:43] PRA-SYARAT OK: .venv, dlib model, dataset, TabR repo, nbconvert
+[2026-09-24 20:07:43] STAGE 1/DILEWATI: spotting sudah selesai (metadata.xlsx ada). Pakai --force untuk ulang total.
+[2026-09-24 20:07:43] STAGE 2/DILEWATI: output fitur sudah ada (/home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals.xlsx). Pakai --force untuk jalankan ulang.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3/3 : TRAINING LOSO (Leave-One-Subject-Out)
+  APA YANG DILAKUKAN : Per fold: test = 1 subjek (unseen), val/train subjek-disjoint -> TabR
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals.xlsx
+  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25/fold_*/
+  ESTIMASI WAKTU     : LAMA (jam) - progress bar live; GPU 4GB, resume otomatis per fold (DONE.json)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-09-24 20:07:43] Menjalankan training LOSO (log: /home/finny/projects/Skripsi/logs/stage3_loso_20260924_200743.log)...

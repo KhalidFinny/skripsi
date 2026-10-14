@@ -1,0 +1,7 @@
+Fitur : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl (2484 baris, 60 fitur)
+Subjek label berubah: 5 | kontrol (label sama): 8
+Fitur signifikan (FDR 5%) - berubah: 0/60 | kontrol: 0/60
+Klasifikasi dalam-subjek LOSO: bal-acc 0.6000 (null 0.5220, p 0.4229)
+Deteksi PERUBAHAN (selisih after-before): bal-acc nan (acc nan, MCC +nan, baseline nan, null nan, p nan) | naik=0 turun=0
+
+Keluaran: output/training/within_subject_v3_poc

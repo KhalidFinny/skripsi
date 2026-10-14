@@ -1,0 +1,45 @@
+# Eksperimen B — per-frame (60 fitur, TANPA agregasi) + official TabR + lr 3e-4.
+# Regime n>>d (~19k baris train x 60 fitur): retrieval TabR punya context nyata,
+# batch bisa 128 seperti aslinya. Kapasitas tetap kecil (overfit mudah di data
+# wajah yang sama). Val tetap subjek-disjoint (jujur).
+# Jalankan:
+#   .venv/bin/python scripts/run_loso.py \
+#     --dataset convat_apex_anxiety_loso_run2_perframe_lr3e4 \
+#     --features experiments/features/apex/poc_abs_run2_full.pkl \
+#     --aggregate none --subject-norm none --drop-features "_max_m$" \
+#     --config experiments/configs/tabr_loso_perframe_lr3e4.toml \
+#     --seeds 1 --epochs-trace 40 --quiet
+# CATATAN: label per-frame diambil dari label sesi; hasil test dibaca
+# level frame (collect akan menandai row-unit bila diminta).
+
+seed = 13
+batch_size = 128      # n besar: resep asli kembali masuk akal
+patience = 16
+n_epochs = inf
+context_size = 96     # resep paper (ribuan baris), bukan 4/44
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_run2_perframe_lr3e4"
+num_policy = "quantile"
+cat_policy = "__null__"
+y_policy = "__null__"
+
+[model]
+num_embeddings = "__null__"
+d_main = 32
+context_dropout = 0.4
+d_multiplier = 1.0
+encoder_n_blocks = 0
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.4
+dropout1 = 0.2
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 3e-4
+weight_decay = 1e-2

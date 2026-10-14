@@ -1,0 +1,121 @@
+{
+  "pipelines": [
+    {
+      "id": "pipeline_v3",
+      "name": "Pipeline v3",
+      "description": "Main pipeline: spotting, POC-ABS extraction, temporal features, gate, LOSO training, and collection.",
+      "command": ["pipeline/run.sh"],
+      "working_dir": ".",
+      "supports": { "dry_run": true, "force": true, "fresh": true, "resume": true, "presplit": true },
+      "stages": [
+        { "number": 1, "id": "spotting", "name": "SPOTTING/APEX", "description": "Find events and apex frames.", "log_pattern": "logs/stage1_spotting_*.log" },
+        { "number": 2, "id": "extraction", "name": "EXTRACTION", "description": "Extract POC-ABS feature rows.", "log_pattern": "logs/stage2_ekstraksi_*.log" },
+        { "number": 3, "id": "cache", "name": "CACHE", "description": "Build cached feature table.", "log_pattern": "logs/stage3_cache_*.log" },
+        { "number": 4, "id": "temporal", "name": "TEMPORAL", "description": "Build onset-to-apex temporal descriptors.", "log_pattern": "logs/stage4_temporal_*.log" },
+        { "number": 5, "id": "gate", "name": "GATE", "description": "Run within-subject signal gate.", "log_pattern": "logs/stage5_gerbang_*.log" },
+        { "number": 6, "id": "training", "name": "TRAINING", "description": "Run LOSO TabR training.", "log_pattern": "logs/stage6_loso_*.log" },
+        { "number": 7, "id": "collect", "name": "COLLECT", "description": "Collect training results and baseline.", "log_pattern": "logs/stage7_collect_*.log" }
+      ],
+      "fields": [
+        { "key": "LOSO_DATASET", "label": "Dataset", "kind": "text", "default": "convat_apex_anxiety_loso_roi25_reg" },
+        { "key": "TRAIN_CONFIG", "label": "Training config", "kind": "path", "default": "experiments/configs/tabr_loso_compact.toml" },
+        { "key": "V3_SPOT_SIGNAL", "label": "Spot signal", "kind": "select", "default": "mean_m", "options": ["mean_m", "combo", "mdmd", "hpoc"] }
+      ],
+      "presets": [
+        { "id": "default", "name": "Default v3", "description": "Current stable mean_m pipeline.", "args": [], "env": { "V3_SPOT_SIGNAL": "mean_m" } },
+        { "id": "fresh", "name": "Fresh v3", "description": "Rebuild v3 outputs from scratch.", "args": ["--fresh"], "env": { "V3_SPOT_SIGNAL": "mean_m" }, "dangerous": true }
+      ],
+      "reports": [
+        { "label": "Training summary", "path": "output/training/convat_apex_anxiety_loso_roi25_reg/summary.md", "kind": "markdown" }
+      ],
+      "artifacts": [
+        { "label": "Pipeline logs", "path": "logs", "kind": "folder" },
+        { "label": "Feature table", "path": "experiments/features/apex", "kind": "folder" }
+      ]
+    },
+    {
+      "id": "pipeline_v3_presplit",
+      "name": "Fold-first v3",
+      "description": "Split people before spotting, train on 44 people, hold out 12 people until final evaluation.",
+      "command": ["pipeline/run.sh"],
+      "working_dir": ".",
+      "supports": { "dry_run": true, "force": true, "fresh": true, "resume": true, "presplit": true },
+      "stages": [
+        { "number": 0, "id": "presplit", "name": "SPLIT", "description": "Split people into train pool and holdout.", "log_pattern": "output/presplit/summary.md" },
+        { "number": 1, "id": "spotting", "name": "SPOTTING/APEX", "description": "Find events on train people only.", "log_pattern": "logs/stage1_spotting_*.log" },
+        { "number": 2, "id": "extraction", "name": "EXTRACTION", "description": "Extract POC-ABS feature rows.", "log_pattern": "logs/stage2_ekstraksi_*.log" },
+        { "number": 3, "id": "cache", "name": "CACHE", "description": "Build cached feature table.", "log_pattern": "logs/stage3_cache_*.log" },
+        { "number": 4, "id": "temporal", "name": "TEMPORAL", "description": "Build temporal descriptors.", "log_pattern": "logs/stage4_temporal_*.log" },
+        { "number": 5, "id": "gate", "name": "GATE", "description": "Run within-subject signal gate.", "log_pattern": "logs/stage5_gerbang_*.log" },
+        { "number": 6, "id": "training", "name": "TRAINING", "description": "Run LOSO on train pool.", "log_pattern": "logs/stage6_loso_*.log" },
+        { "number": 7, "id": "collect", "name": "COLLECT", "description": "Collect LOSO and baseline results.", "log_pattern": "logs/stage7_collect_*.log" },
+        { "number": 8, "id": "holdout", "name": "HOLDOUT", "description": "Evaluate 12 holdout people for the first time.", "log_pattern": "logs/stage8_*_holdout_*.log", "optional": true }
+      ],
+      "fields": [
+        { "key": "LOSO_DATASET", "label": "Dataset", "kind": "text", "default": "convat_apex_anxiety_loso_roi25_reg" },
+        { "key": "V3_EXTRA_CONFIGS", "label": "Extra configs", "kind": "path", "default": "experiments/configs/tabr_loso_roi25_reg.toml" },
+        { "key": "V3_SPOT_SIGNAL", "label": "Spot signal", "kind": "select", "default": "mean_m", "options": ["mean_m", "combo", "mdmd", "hpoc"] }
+      ],
+      "presets": [
+        { "id": "fold-first", "name": "Fold-first mean_m", "description": "Structural holdout split using current stable signal.", "args": [], "env": { "V3_PRESPLIT": "1", "V3_SPOT_SIGNAL": "mean_m" } },
+        { "id": "fold-first-roi25", "name": "Fold-first + ROI25 compare", "description": "Fold-first with extra roi25 regularized config.", "args": [], "env": { "V3_PRESPLIT": "1", "V3_SPOT_SIGNAL": "mean_m", "V3_EXTRA_CONFIGS": "experiments/configs/tabr_loso_roi25_reg.toml" } },
+        { "id": "fold-first-combo", "name": "Fold-first combo", "description": "CAS(ME)2-proven combo signal, anxiety-side A/B.", "args": [], "env": { "V3_PRESPLIT": "1", "V3_SPOT_SIGNAL": "combo", "V3_EXTRA_CONFIGS": "experiments/configs/tabr_loso_roi25_reg.toml" } },
+        { "id": "fresh-fold-first", "name": "Fresh fold-first", "description": "Full fresh fold-first command. Requires confirmation in UI.", "args": ["--fresh"], "env": { "V3_PRESPLIT": "1", "V3_SPOT_SIGNAL": "mean_m", "V3_EXTRA_CONFIGS": "experiments/configs/tabr_loso_roi25_reg.toml" }, "dangerous": true }
+      ],
+      "reports": [
+        { "label": "LOSO summary", "path": "output/training/convat_apex_anxiety_loso_roi25_reg/summary.md", "kind": "markdown" },
+        { "label": "Holdout summary", "path": "output/training/convat_apex_anxiety_loso_roi25_reg_holdout/summary.md", "kind": "markdown" },
+        { "label": "Presplit summary", "path": "output/presplit/summary.md", "kind": "markdown" }
+      ],
+      "artifacts": [
+        { "label": "Pipeline logs", "path": "logs", "kind": "folder" },
+        { "label": "Apex output", "path": "output/apex_v2", "kind": "folder" }
+      ]
+    },
+    {
+      "id": "loso_only",
+      "name": "LOSO only",
+      "description": "Run LOSO training from an existing feature table.",
+      "command": [".venv/bin/python", "pipeline/stages/stage_6_train_loso.py"],
+      "working_dir": ".",
+      "supports": { "dry_run": false, "force": true, "fresh": false, "resume": true, "presplit": false },
+      "stages": [
+        { "number": 6, "id": "training", "name": "TRAINING", "description": "Run LOSO TabR training.", "log_pattern": "logs/stage6_loso_*.log" },
+        { "number": 7, "id": "collect", "name": "COLLECT", "description": "Collect finished folds.", "log_pattern": "logs/stage7_collect_*.log" }
+      ],
+      "fields": [
+        { "key": "dataset", "label": "Dataset", "kind": "text", "default": "convat_apex_anxiety_loso_roi25_reg" },
+        { "key": "config", "label": "Config", "kind": "path", "default": "experiments/configs/tabr_loso_compact.toml" }
+      ],
+      "presets": [
+        { "id": "compact", "name": "Compact config", "description": "Compact TabR config used as the current default.", "args": ["--dataset", "convat_apex_anxiety_loso_roi25_reg", "--config", "experiments/configs/tabr_loso_compact.toml", "--seeds", "1"] }
+      ],
+      "reports": [
+        { "label": "Training summary", "path": "output/training/convat_apex_anxiety_loso_roi25_reg/summary.md", "kind": "markdown" }
+      ],
+      "artifacts": []
+    },
+    {
+      "id": "casme2_spotting_eval",
+      "name": "CAS(ME)2 spotting eval",
+      "description": "Evaluate the spotting stage against CAS(ME)2 ground truth.",
+      "command": [".venv/bin/python", "research/casme2/eval_spotting_casme2.py"],
+      "working_dir": ".",
+      "supports": { "dry_run": false, "force": false, "fresh": false, "resume": false, "presplit": false },
+      "stages": [
+        { "number": 1, "id": "spotting_eval", "name": "SPOTTING EVAL", "description": "Evaluate detector outputs against CAS(ME)2.", "log_pattern": "logs/spotting_casme2_*.log" }
+      ],
+      "fields": [
+        { "key": "limit", "label": "Limit", "kind": "text", "default": "3" },
+        { "key": "workers", "label": "Workers", "kind": "text", "default": "2" }
+      ],
+      "presets": [
+        { "id": "quick", "name": "Quick limit 3", "description": "Small evaluator run for wiring checks.", "args": ["--limit", "3", "--workers", "2"] }
+      ],
+      "reports": [
+        { "label": "CASME2 summary", "path": "output/training/spotting_casme2/summary.md", "kind": "markdown" }
+      ],
+      "artifacts": []
+    }
+  ]
+}

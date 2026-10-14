@@ -1,0 +1,15 @@
+[2026-10-13 19:11:47] ══════════════════════════════════════════════════════════
+[2026-10-13 19:11:47] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-13 19:11:47]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-13 19:11:47]   OUT        : /home/finny/projects/Skripsi/output/apex_v2
+[2026-10-13 19:11:47]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+[2026-10-13 19:11:47]   DATASET    : convat_apex_anxiety_loso_roi25_reg
+[2026-10-13 19:11:47]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-13 19:11:47]   seeds/fold : 3
+[2026-10-13 19:11:47]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261013_191147.log
+[2026-10-13 19:11:47] ══════════════════════════════════════════════════════════
+[2026-10-13 19:11:47] FRESH: driv mentah TIDAK ada (/run/media/finny/New Volume/dataset/anxiety_raw).
+[2026-10-13 19:11:47]   Klip event TIDAK dihapus - kalau dihapus, tidak ada cara membuatnya ulang.
+[2026-10-13 19:11:47]   Metadata dibangun ulang dari klip yang ada (stage 1 resume).
+[2026-10-13 19:11:47] FRESH: fitur v3 + hasil training + exp/tabr + data/convat_apex_anxiety_loso_roi25_reg dibersihkan.
+[2026-10-13 19:11:47] GAGAL: dataset mentah tidak ditemukan: /run/media/finny/New Volume/dataset/anxiety_raw (set V3_RAW_ROOT) dan tidak ada klip lama untuk dipakai ulang

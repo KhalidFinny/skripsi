@@ -23,4 +23,9 @@ dataset/
 __pycache__/
 .claude/
 AGENTS.md
-*.md
+
+# --- Cakupan push: kode + dokumen + config. Bukan dataset/output besar. ---
+experiments/features/
+.amp/
+.eleanore/
+desktop/pipelinedesk/.mygo/

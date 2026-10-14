@@ -1,0 +1,26 @@
+### poc_abs_roi_signals_v3_full.pkl
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/60 | kontrol: 0/60
+Klasifikasi dalam-subjek LOSO: bal-acc 0.5833 (null 0.4971, p 0.1642)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4657, p 0.7264) | naik=1 turun=17
+### poc_abs_roi_signals_e3_full.pkl
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/60 | kontrol: 0/60
+Klasifikasi dalam-subjek LOSO: bal-acc 0.5833 (null 0.4971, p 0.1642)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4657, p 0.7264) | naik=1 turun=17
+### poc_abs_roi_signals_v3_poc_temporal.pkl
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/335 | kontrol: 0/335
+Klasifikasi dalam-subjek LOSO: bal-acc 0.5000 (null 0.5019, p 0.5970)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4762, p 0.8657) | naik=1 turun=17
+### poc_dynamics_full.pkl
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/95 | kontrol: 0/95
+Klasifikasi dalam-subjek LOSO: bal-acc 0.4722 (null 0.4925, p 0.5871)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4749, p 0.8209) | naik=1 turun=17
+### poc_e3only_full.pkl
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/30 | kontrol: 0/30
+Klasifikasi dalam-subjek LOSO: bal-acc 0.6111 (null 0.5035, p 0.1692)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.4412 (acc 0.8333, MCC -0.0857, baseline 0.9444, null 0.4616, p 0.9005) | naik=1 turun=17
+ALLDONE

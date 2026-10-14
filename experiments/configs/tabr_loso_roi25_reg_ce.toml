@@ -1,0 +1,82 @@
+# Config training TabR untuk LOSO roi25 — varian PEMILIHAN EPOCH.
+#
+# ⚠️  HASIL NEGATIF — JANGAN DIPAKAI TANPA PERBAIKAN (diukur 2026-10-06).
+#     Di setup ini, memilih epoch dengan cross-entropy membuat early stopping
+#     berhenti di epoch 0-1:
+#         seed 0: 13/56 fold berhenti di epoch <= 1
+#         seed 1: 40/56 fold berhenti di epoch <= 1
+#         seed 2: 48/56 fold berhenti di epoch <= 1
+#     Akibatnya model praktis TIDAK TERLATIH dan diskriminasi runtuh:
+#         MCC pooled -0.2195 | balAcc 0.5054 | accuracy 0.5238
+#     (bandingkan config akurasi: MCC +0.1706 | accuracy 0.5952)
+#     Sebabnya: val cross-entropy paling rendah di AWAL lalu NAIK begitu model
+#     mulai menghafal 44 baris train, jadi "minimize val CE" memilih model yang
+#     nyaris belum belajar. CE itu proper scoring rule secara teori, tapi
+#     sebagai KRITERIA EARLY STOPPING ia terlalu agresif di N=44 baris.
+#     Kalau tetap ingin CE: butuh lantai epoch minimum (mis. tidak boleh < 10)
+#     atau patience yang tidak memilih checkpoint pertama.
+#
+# Sisa isi berkas ini disimpan sebagai catatan percobaan, bukan rekomendasi.
+#
+# ALASAN AWAL (masih valid sebagai teori, gugur sebagai praktik di sini):
+#   `best_epoch` dipilih dari skor di VAL. Kalau skornya accuracy, pemilihan itu
+#   sendiri bias ke kelas mayoritas -- masalah yang sama dengan bias prediksi
+#   yang sudah terukur (laju positif diprediksi 0.3274 vs sebenarnya 0.4464).
+#   Cross-entropy adalah proper scoring rule: ia menghukum probabilitas yang
+#   salah dengan tegas, bukan cuma menghitung tebakan benar/salah.
+#
+#   TabR SUDAH mendukung ini tanpa ubah kode:
+#     lib/data.py:20    _SCORE_SHOULD_BE_MAXIMIZED['cross-entropy'] = False
+#     lib/metrics.py    metrics['cross-entropy'] = log_loss(y_true, probs, labels=...)
+#
+# CATATAN TEKNIS:
+#   - `cross-entropy` dihitung untuk SEMUA part. Di LOSO, TEST tiap fold cuma
+#     1 subjek = 1 kelas. lib/metrics.py memakai `labels` eksplisit supaya
+#     log_loss tetap terdefinisi untuk y_true satu kelas (tanpa itu -> KeyError
+#     di lib/data.py yang membaca part_metrics[self.score]).
+#   - Skor ini di-minimize (score = -cross-entropy), jadi "val_score" yang
+#     dilaporkan bernilai NEGATIF. Itu benar, bukan error.
+#
+# Cara pakai (untuk mereproduksi hasil negatif di atas):
+#   ./run loso --dataset <nama> --features <tabel> --aggregate subject \
+#              --subject-norm none \
+#              --config experiments/configs/tabr_loso_roi25_reg_ce.toml
+#
+# Wasit A/B (bandingkan terhadap run reg):
+#   1. MCC pooled + MCC per seed  -> harus naik atau setidaknya tidak turun
+#   2. selisih accuracy vs baseline mayoritas PER GRUP -> tidak boleh negatif
+#   3. laju positif prediksi vs sebenarnya -> bias harus mengecil dari -0.1786
+#   Selisih < ~10 poin tidak bisa dibedakan dari derau (varians seed 17,9 poin).
+
+seed = 13
+batch_size = 8
+patience = 40
+n_epochs = inf
+context_size = 8
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_roi25"
+num_policy = "standard"
+cat_policy = "__null__"
+y_policy = "__null__"
+score = "cross-entropy"   # <-- satu-satunya beda dari tabr_loso_roi25_reg.toml
+
+[model]
+num_embeddings = "__null__"
+d_main = 64
+context_dropout = 0.3
+d_multiplier = 1.0
+encoder_n_blocks = 1
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.3
+dropout1 = 0.1
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 1e-3
+weight_decay = 1e-3

@@ -1,0 +1,40 @@
+### window=48 (final, threshold halus, max_gap=8)
+AUC (level jendela) = 0.6516
+  thr=0.10: P=0.2621 R=0.5292 F1=0.3505 (TP 163, FP 459, FN 145)
+         recall macro=137/251 micro=26/57
+  thr=0.15: P=0.2457 R=0.4221 F1=0.3106 (TP 130, FP 399, FN 178)
+         recall macro=111/251 micro=19/57
+  thr=0.20: P=0.2857 R=0.3571 F1=0.3175 (TP 110, FP 275, FN 198)
+         recall macro=95/251 micro=15/57
+  thr=0.25: P=0.2981 R=0.3117 F1=0.3048 (TP 96, FP 226, FN 212)
+         recall macro=83/251 micro=13/57
+  thr=0.30: P=0.3118 R=0.2662 F1=0.2872 (TP 82, FP 181, FN 226)
+         recall macro=71/251 micro=11/57
+F1 terbaik = 0.3505 (threshold 0.10)
+### window=64 (final, threshold halus, max_gap=8)
+AUC (level jendela) = 0.6485
+  thr=0.10: P=0.2826 R=0.4643 F1=0.3514 (TP 143, FP 363, FN 165)
+         recall macro=120/251 micro=23/57
+  thr=0.15: P=0.2793 R=0.3636 F1=0.3159 (TP 112, FP 289, FN 196)
+         recall macro=98/251 micro=14/57
+  thr=0.20: P=0.3228 R=0.3312 F1=0.3269 (TP 102, FP 214, FN 206)
+         recall macro=90/251 micro=12/57
+  thr=0.25: P=0.3471 R=0.2727 F1=0.3055 (TP 84, FP 158, FN 224)
+         recall macro=76/251 micro=8/57
+  thr=0.30: P=0.3833 R=0.2240 F1=0.2828 (TP 69, FP 111, FN 239)
+         recall macro=61/251 micro=8/57
+F1 terbaik = 0.3514 (threshold 0.10)
+### window=80 (final, threshold halus, max_gap=8)
+AUC (level jendela) = 0.6548
+  thr=0.10: P=0.3413 R=0.4643 F1=0.3934 (TP 143, FP 276, FN 165)
+         recall macro=119/251 micro=24/57
+  thr=0.15: P=0.3093 R=0.3344 F1=0.3214 (TP 103, FP 230, FN 205)
+         recall macro=89/251 micro=14/57
+  thr=0.20: P=0.3618 R=0.2890 F1=0.3213 (TP 89, FP 157, FN 219)
+         recall macro=76/251 micro=13/57
+  thr=0.25: P=0.3850 R=0.2500 F1=0.3031 (TP 77, FP 123, FN 231)
+         recall macro=66/251 micro=11/57
+  thr=0.30: P=0.4000 R=0.1948 F1=0.2620 (TP 60, FP 90, FN 248)
+         recall macro=52/251 micro=8/57
+F1 terbaik = 0.3934 (threshold 0.10)
+ALLDONE

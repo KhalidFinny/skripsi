@@ -1,0 +1,7 @@
+DATASET_ROOT = /home/finny/datasets/anxiety_raw
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/event_signals
+MAX_WORKERS = 4
+Found 560 video files
+Spotting:   0%|          | 0/560 [00:00<?, ?video/s]Spotting:   0%|          | 1/560 [00:04<43:59,  4.72s/video]

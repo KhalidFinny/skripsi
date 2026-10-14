@@ -1,0 +1,16 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video: 86 | cache: /home/finny/projects/Skripsi/output/training/casme2_rich_signals
+  [10/86] 16_0502funnyerrors.avi: 2273 frame
+  [20/86] 21_0101disgustingteeth.avi: 2052 frame
+  [30/86] 24_0502funnyerrors.avi: 2272 frame
+  [40/86] 27_0101disgustingteeth.avi: 2051 frame
+  [50/86] 29_0502funnyerrors.avi: 2274 frame
+  [60/86] 31_0505funnyinnovations.avi: 2302 frame
+  [70/86] 32_0505funnyinnovations.avi: 2303 frame
+  [80/86] 37_0508funnydunkey.avi: 659 frame
+
+Selesai: 86 ok, 0 gagal

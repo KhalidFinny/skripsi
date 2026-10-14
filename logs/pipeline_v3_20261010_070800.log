@@ -1,0 +1,54 @@
+[2026-10-10 07:08:00] ══════════════════════════════════════════════════════════
+[2026-10-10 07:08:00] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-10 07:08:00]   RAW        : /home/finny/datasets/anxiety_avi
+[2026-10-10 07:08:00]   OUT        : /home/finny/projects/Skripsi/output/apex_fixed
+[2026-10-10 07:08:00]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+[2026-10-10 07:08:00]   DATASET    : convat_apex_anxiety_loso_v3fixed
+[2026-10-10 07:08:00]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-10 07:08:00]   seeds/fold : 3
+[2026-10-10 07:08:00]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261010_070800.log
+[2026-10-10 07:08:00] ══════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/7 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /home/finny/datasets/anxiety_avi (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_fixed/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] SPOT_DATASET_ROOT=/home/finny/datasets/anxiety_avi SPOT_OUTPUT_ROOT=/home/finny/projects/Skripsi/output/apex_fixed SPOT_REBUILD_METADATA_ONLY=0 /home/finny/projects/Skripsi/.venv/bin/python scripts/process_spotting_pipeline.py
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 2/7 : EKSTRAKSI FITUR POC-ABS
+  APA YANG DILAKUKAN : POC-ABS per frame vs acuan NETRAL per orang (5 ROI). Arah + magnitudo motion vector per blok.
+  INPUT              : /home/finny/projects/Skripsi/output/apex_fixed/dataset/... + metadata.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+  ESTIMASI WAKTU     : SEDANG (~30 menit) - 3 worker (4 worker pernah menyentuh 95C)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] FEAT_DATASET_ROOT=/home/finny/projects/Skripsi/output/apex_fixed/dataset /home/finny/projects/Skripsi/.venv/bin/python scripts/extract_features_poc_abs.py --roi-signals --baseline neutral
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3/7 : CACHE PKL
+  APA YANG DILAKUKAN : Konversi xlsx -> pkl (bit-identik) supaya pembacaan turun dari ~90s ke <1s
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+  ESTIMASI WAKTU     : CEPAT (~3 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_feature_cache.py --xlsx /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx --pkl /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 4/7 : FITUR TEMPORAL
+  APA YANG DILAKUKAN : Ringkas tiap lintasan onset->apex->offset jadi peak/ttp/rise/fall/auc untuk sinyal POC-ABS (diagregasi mean+std saat training)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+  ESTIMASI WAKTU     : CEPAT (detik)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_temporal_features.py --input /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl --output /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl --no-xlsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)
+  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal.
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (temporal)
+  OUTPUT             : output/training/within_subject_v3fixed_{poc,geo_temporal}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl --out output/training/within_subject_v3fixed_poc
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl --out output/training/within_subject_v3fixed_geo_temporal
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6/7 : TRAINING LOSO TabR
+  APA YANG DILAKUKAN : 56 fold (1 subjek = test), 3 seed/fold, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold)

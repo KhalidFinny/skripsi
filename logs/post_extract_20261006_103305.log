@@ -1,0 +1,34 @@
+[10:33:05] menunggu ekstraksi neutral (pid 103463)
+[11:06:45] ekstraksi neutral selesai
+[11:06:45] pkl neutral
+xlsx: (97317, 38) in 58.2s
+wrote poc_abs_roi_signals_neutral_full.pkl: 25.4 MB
+pkl : (97317, 38) in 0.03s
+IDENTIK bit-per-bit: 38 kolom, 97317 baris
+[11:07:44] fitur temporal: onset
+Input : experiments/features/apex/poc_abs_roi_signals_full.pkl (97303 baris, 38 kolom)
+Sinyal dasar: 20 (5 ROI x 4 sinyal), 5 deskriptor -> 100 kolom baru
+Event: 6877 lintasan
+Keluaran: experiments/features/apex/poc_abs_roi_signals_temporal.pkl (97303 baris, 138 kolom)
+Kolom baru: 100 (contoh: ['mulut_mean_m_peak', 'mulut_mean_m_ttp', 'mulut_mean_m_rise', 'mulut_mean_m_fall', 'mulut_mean_m_auc'])
+[11:07:54] fitur temporal: neutral
+Input : experiments/features/apex/poc_abs_roi_signals_neutral_full.pkl (97317 baris, 38 kolom)
+Sinyal dasar: 20 (5 ROI x 4 sinyal), 5 deskriptor -> 100 kolom baru
+Event: 6878 lintasan
+Keluaran: experiments/features/apex/poc_abs_roi_signals_neutral_temporal.pkl (97317 baris, 138 kolom)
+Kolom baru: 100 (contoh: ['mulut_mean_m_peak', 'mulut_mean_m_ttp', 'mulut_mean_m_rise', 'mulut_mean_m_fall', 'mulut_mean_m_auc'])
+[11:08:03] uji berpasangan dalam-subjek: onset
+Fitur : experiments/features/apex/poc_abs_roi_signals_full.pkl (97303 baris, 25 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 20/25 | kontrol: 25/25
+Klasifikasi dalam-subjek LOSO: acc 0.5833 (null 0.4921, p 0.2637)
+
+Keluaran: output/training/within_subject_onset
+[11:08:30] uji berpasangan dalam-subjek: neutral
+Fitur : experiments/features/apex/poc_abs_roi_signals_neutral_full.pkl (97317 baris, 25 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/25 | kontrol: 0/25
+Klasifikasi dalam-subjek LOSO: acc 0.5278 (null 0.4981, p 0.4726)
+
+Keluaran: output/training/within_subject_neutral
+[11:08:53] SELESAI

@@ -1,0 +1,11 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+GT: 5 ekspresi pada 2 video (micro 1, macro 4)
+[1/2] 15_0102eatingworms.avi: gt=4 det=14
+[2/2] 15_0101disgustingteeth.avi: gt=1 det=19
+Spotting selesai: 2 video, 0 gagal
+
+Keluaran: output/training/spotting_casme2_smoke/summary.md

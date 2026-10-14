@@ -1,0 +1,6 @@
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc20_temporal.pkl
+label unit = person: 53161 baris "before" dibuang, sisa 44647 baris (sesi "after", 1 label per subjek)
+drop fitur /_max_m$/ (pra-agregasi): 0 dibuang (tidak ada yang cocok di tahap ini)
+agregasi subject: 44647 baris frame -> 56 baris, 240 fitur (mean+std)
+drop fitur /_max_m$/ (pasca-agregasi): 0 dibuang
+--drop-features "_max_m$" tidak cocok dengan kolom mana pun. Periksa regex-nya (mis. "_std$" untuk membuang blok std, "_max_m$" untuk max_m).

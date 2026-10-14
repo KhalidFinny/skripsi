@@ -1,0 +1,11 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+kandidat: 53600 | positif: 3494 (0.0652) | fitur: 31 | video: 86
+  logistic : AUC=0.6776 | pada 1% skor teratas: precision=0.2705 recall=0.0415
+  gbdt     : AUC=0.6706 | pada 1% skor teratas: precision=0.3302 recall=0.0507
+
+Keluaran: /home/finny/projects/Skripsi/output/training/learned_rank_casme2/
+Bacaan: AUC 0,5 = tidak ada informasi pembeda. Bandingkan precision@top1% (0,00058 = tebak acak, karena hanya 0,058% kandidat yang ekspresi).

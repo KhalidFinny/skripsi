@@ -1,0 +1,28 @@
+[2026-10-14 10:13:09] ══════════════════════════════════════════════════════════
+[2026-10-14 10:13:09] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-14 10:13:09]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-14 10:13:09]   OUT        : /home/finny/projects/Skripsi/output/apex_v2
+[2026-10-14 10:13:09]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+[2026-10-14 10:13:09]   DATASET    : convat_apex_anxiety_loso_roi25_reg
+[2026-10-14 10:13:09]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-14 10:13:09]   seeds/fold : 3
+[2026-10-14 10:13:09]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_101309.log
+[2026-10-14 10:13:09] ══════════════════════════════════════════════════════════
+[2026-10-14 10:13:09] PERINGATAN: driv mentah tidak ada (/run/media/finny/New Volume/dataset/anxiety_raw).
+[2026-10-14 10:13:09]   Stage 1 akan MEMBANGUN ULANG metadata dari klip yang sudah ada (tanpa spotting ulang).
+[2026-10-14 10:13:09]   Set V3_RAW_ROOT kalau memang ingin re-spotting dari video.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/7 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] SPOT_DATASET_ROOT=/run/media/finny/New Volume/dataset/anxiety_raw SPOT_OUTPUT_ROOT=/home/finny/projects/Skripsi/output/apex_v2  SPOT_ALGO=of_fd_proxy SPOT_SIGNAL=mean_m SPOT_MOTION_COMP=0 SPOT_MDMD=0 SPOT_MDMD_K=5 SPOT_REBUILD_METADATA_ONLY=1 /home/finny/projects/Skripsi/.venv/bin/python scripts/process_spotting_pipeline.py
+[2026-10-14 10:13:09] ══════════════════════════════════════════════════════════
+[2026-10-14 10:13:09] PIPELINE v3 SELESAI
+[2026-10-14 10:13:09]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+[2026-10-14 10:13:09]   Hasil    : output/training/convat_apex_anxiety_loso_roi25_reg/summary.md
+[2026-10-14 10:13:09]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_101309.log
+[2026-10-14 10:13:09]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup
+[2026-10-14 10:13:09] ══════════════════════════════════════════════════════════

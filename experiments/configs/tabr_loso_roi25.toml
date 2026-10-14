@@ -1,0 +1,50 @@
+# Config training TabR untuk LOSO roi25 (project-owned).
+#
+# Dipakai scripts/run_loso.py sebagai template tiap fold (--config).
+# Nilai di sini = titik awal yang WAJAR, BUKAN hasil tuning. Config lama
+# (exp/tabr/convat_apex_anxiety/0-evaluation/13.toml) adalah trial Optuna ke-13
+# dari 30 yang di-tuning di dataset & split yang BERBEDA, dan semua nilainya
+# mentok di tepi ruang pencarian (lr minimum, dropout maksimum, patience maksimum,
+# context_size minimum) -> itu yang bikin best_epoch=0 dan model cuma belajar prior.
+#
+# Re-tune di protokol LOSO: lihat experiments/configs/tabr_loso_roi25_tuning.toml
+# (space-nya sudah dilebarkan; objektif tetap accuracy seperti protokol asli).
+
+seed = 13
+batch_size = 128
+patience = 20          # was 6  (berhenti sebelum sempat belajar)
+n_epochs = inf
+context_size = 12      # was 7  (minimum ruang tuning lama)
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_roi25"
+num_policy = "standard"
+cat_policy = "__null__"
+y_policy = "__null__"
+# Seleksi best_epoch TIDAK di-set: TabR default binclass = "accuracy", sama
+# seperti protokol asli. Perubahan yang disengaja cuma dua - protokol LOSO dan
+# fitur ROI25 - jadi metrik pemilihan tidak ikut diubah supaya perbandingan
+# dengan angka lama tetap apple-to-apple.
+#
+# AUC sudah DIHAPUS dari pipeline (bukan bagian protokol asli): lib/metrics.py
+# tidak lagi menghitung metrik AUC, jadi tidak ada lagi patch lokal di sana.
+
+[model]
+num_embeddings = "__null__"
+d_main = 192           # was 109
+context_dropout = 0.1  # was 0.5963 (maksimum)
+d_multiplier = 2.0
+encoder_n_blocks = 0
+predictor_n_blocks = 2
+mixer_normalization = "auto"
+dropout0 = 0.1         # was 0.5973 (maksimum)
+dropout1 = 0.0         # was 0.1811
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 3e-4              # was 3.033e-5 (minimum ruang tuning lama, 10x lebih kecil)
+weight_decay = 1e-5    # was 3.058e-5

@@ -1,0 +1,19 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+  [1/4] 15_0101disgustingteeth.avi gt=1 | abs/mean:0.170(435) abs/max:0.138(582) abs/count:0.107(438) seq/mean:0.212(450) seq/max:0.065(574) seq/count:0.274(506)
+  [2/4] 15_0102eatingworms.avi gt=4 | abs/mean:0.154(193) abs/max:0.108(330) abs/count:0.167(226) seq/mean:0.194(220) seq/max:0.174(304) seq/count:0.124(262)
+  [3/4] 15_0401girlcrashing.avi gt=1 | abs/mean:0.240(840) abs/max:0.151(1154) abs/count:0.512(848) seq/mean:0.348(887) seq/max:0.440(1153) seq/count:0.397(914)
+  [4/4] 15_0402beatingpregnantwoman.avi gt=4 | abs/mean:0.261(1029) abs/max:0.294(1465) abs/count:0.416(1015) seq/mean:0.212(1036) seq/max:0.248(1318) seq/count:0.185(1065)
+
+=== median peringkat relatif puncak ekspresi (0=terbaik, 0,5=acak)
+  abs / max  : 0.145
+  abs / mean : 0.205
+  seq / max  : 0.211
+  seq / mean : 0.212
+  seq / count: 0.229
+  abs / count: 0.291
+
+Baseline sekarang = abs / mean.

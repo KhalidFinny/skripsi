@@ -1,0 +1,14 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video terpetakan: 97 | baris blink: 1185
+
+GT ekspresi yg beririsan dgn blink: 83/308 = 0.269
+
+puncak DI DALAM blink :   3280 (TP 469, FP 2811) -> rate 0.1430
+puncak DI LUAR blink  :  50320 (TP 3025, FP 47295) -> rate 0.0601
+
+proporsi puncak yg di dalam blink: 0.061
+proporsi FP yg di dalam blink    : 0.056

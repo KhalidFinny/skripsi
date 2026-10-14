@@ -1,0 +1,31 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video: 86
+
+total puncak: 53600 | TP: 3494 | FP: 50106
+
+=== median fitur: TP vs FP
+  val   : TP=1.2056  FP=1.1425
+  prom  : TP=0.3674  FP=0.4170
+  width : TP=3.9155  FP=4.1529
+  sup   : TP=3.0000  FP=3.0000
+
+=== AUC per fitur (TP vs FP)
+  val   : AUC=0.5297
+  prom  : AUC=0.4699
+  width : AUC=0.4821
+  sup   : AUC=0.6052
+
+=== puncak TP per ROI vs total
+                n   tp    rate
+roi                           
+alis_kanan  11583  741  0.0640
+alis_kiri   11705  776  0.0663
+mata_kanan  10150  638  0.0629
+mata_kiri   10130  621  0.0613
+mulut       10032  718  0.0716
+
+montage ditulis: /tmp/gt_montage.png

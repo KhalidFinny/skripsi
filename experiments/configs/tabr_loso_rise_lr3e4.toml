@@ -1,0 +1,43 @@
+# Eksperimen A — `rise` (55 fitur, agregat subjek) + lr 3e-4.
+# Satu-satunya perubahan dari tabr_loso_compact.toml: optimizer.lr 1e-3 -> 3e-4
+# (nilai notebook asli check_freeze_tabr.ipynb). Diagnosis epochs-trace:
+# train loss turun, val loss naik SEJAK EPOCH 0 -> langkah terlalu besar.
+# Jalankan:
+#   .venv/bin/python scripts/run_loso.py \
+#     --dataset convat_apex_anxiety_loso_run2_rise_lr3e4 \
+#     --features experiments/features/apex/poc_abs_run2_poc_temporal_rise.pkl \
+#     --aggregate subject --subject-norm none --drop-features "" \
+#     --config experiments/configs/tabr_loso_rise_lr3e4.toml \
+#     --seeds 3 --epochs-trace 40 --quiet
+
+seed = 13
+batch_size = 8
+patience = 16
+n_epochs = inf
+context_size = 4
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_run2_rise_lr3e4"
+num_policy = "quantile"
+cat_policy = "__null__"
+y_policy = "__null__"
+
+[model]
+num_embeddings = "__null__"
+d_main = 32
+context_dropout = 0.4
+d_multiplier = 1.0
+encoder_n_blocks = 0
+predictor_n_blocks = 1
+mixer_normalization = "auto"
+dropout0 = 0.4
+dropout1 = 0.2
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 3e-4
+weight_decay = 1e-2

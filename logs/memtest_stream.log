@@ -1,0 +1,7 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video 4370 frame: 19 deteksi, 127s
+PEAK RSS: 0.27 GB  (sebelumnya: list 4.0 GB + salinan grayscale 1.3 GB)

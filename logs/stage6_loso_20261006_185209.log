@@ -1,0 +1,2307 @@
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_temporal.pkl
+label unit = person: 54820 baris "before" dibuang, sisa 45997 baris (sesi "after", 1 label per subjek)
+drop fitur /_max_m$/: 5 dibuang -> ['mulut_max_m', 'mata_kiri_max_m', 'mata_kanan_max_m', 'alis_kiri_max_m', 'alis_kanan_max_m']
+agregasi subject: 45997 baris frame -> 56 baris, 360 fitur (mean+std)
+Total baris=56 subjek=56 fitur=360
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+Config  : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_roi25_reg_ce.toml
+Score   : cross-entropy  <- dipakai untuk early stopping (best_epoch)
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+
+[1/56] fold: test subjek = aaisyah_nursalsabiil_ni_patriarti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_000/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_000/0-evaluation/0 | 2026-10-06 18:53:19.195751
+2026-10-06 18:53:19.195 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:19.366 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:19.585 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_000/0-evaluation/0 | 0:00:00.000179
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:03,  1.64it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00,  9.37it/s]
+[0] GAGAL fold aaisyah_nursalsabiil_ni_patriarti: KeyError('cross-entropy')
+
+[2/56] fold: test subjek = abdillah_agil_arbiansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_001/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_001/0-evaluation/0 | 2026-10-06 18:53:21.085222
+2026-10-06 18:53:21.085 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:21.093 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:21.099 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_001/0-evaluation/0 | 0:00:00.000238
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.43it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 27.56it/s]
+[1] GAGAL fold abdillah_agil_arbiansyah: KeyError('cross-entropy')
+
+[3/56] fold: test subjek = abdul_aziz
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_002/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_002/0-evaluation/0 | 2026-10-06 18:53:21.429332
+2026-10-06 18:53:21.429 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:21.431 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:21.436 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_002/0-evaluation/0 | 0:00:00.000195
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.29it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.25it/s]
+[2] GAGAL fold abdul_aziz: KeyError('cross-entropy')
+
+[4/56] fold: test subjek = achmad_anfasa_rabbany
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_003/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_003/0-evaluation/0 | 2026-10-06 18:53:21.775348
+2026-10-06 18:53:21.775 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:21.777 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:21.781 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_003/0-evaluation/0 | 0:00:00.000197
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.30it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.69it/s]
+[3] GAGAL fold achmad_anfasa_rabbany: KeyError('cross-entropy')
+
+[5/56] fold: test subjek = adham_baskara
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_004/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_004/0-evaluation/0 | 2026-10-06 18:53:22.124134
+2026-10-06 18:53:22.124 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:22.126 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:22.131 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_004/0-evaluation/0 | 0:00:00.000204
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.28it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.65it/s]
+[4] GAGAL fold adham_baskara: KeyError('cross-entropy')
+
+[6/56] fold: test subjek = ahmad_rifqi_hendriansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_005/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_005/0-evaluation/0 | 2026-10-06 18:53:22.466972
+2026-10-06 18:53:22.467 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:22.468 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:22.473 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_005/0-evaluation/0 | 0:00:00.000210
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.22it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.66it/s]
+[5] GAGAL fold ahmad_rifqi_hendriansyah: KeyError('cross-entropy')
+
+[7/56] fold: test subjek = aida_rahma_fadhila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_006/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_006/0-evaluation/0 | 2026-10-06 18:53:22.825499
+2026-10-06 18:53:22.825 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:22.828 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:22.832 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_006/0-evaluation/0 | 0:00:00.000233
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.35it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 27.05it/s]
+[6] GAGAL fold aida_rahma_fadhila: KeyError('cross-entropy')
+
+[8/56] fold: test subjek = akhmad_aakhif_athallah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 357 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_007/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_007/0-evaluation/0 | 2026-10-06 18:53:23.175148
+2026-10-06 18:53:23.175 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:23.177 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:23.182 | INFO     | bin.tabr:main:349 - n_parameters = 52545
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_007/0-evaluation/0 | 0:00:00.000244
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.38it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.95it/s]
+[7] GAGAL fold akhmad_aakhif_athallah: KeyError('cross-entropy')
+
+[9/56] fold: test subjek = ananda_satria_putra_nugraha
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_008/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_008/0-evaluation/0 | 2026-10-06 18:53:23.523899
+2026-10-06 18:53:23.523 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:23.526 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:23.531 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_008/0-evaluation/0 | 0:00:00.000198
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.93it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.73it/s]
+[8] GAGAL fold ananda_satria_putra_nugraha: KeyError('cross-entropy')
+
+[10/56] fold: test subjek = aryan_saputra_rahmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_009/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_009/0-evaluation/0 | 2026-10-06 18:53:23.890101
+2026-10-06 18:53:23.890 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:23.892 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:23.897 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_009/0-evaluation/0 | 0:00:00.000186
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.93it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.13it/s]
+[9] GAGAL fold aryan_saputra_rahmad: KeyError('cross-entropy')
+
+[11/56] fold: test subjek = ashrul_rifki_ardiyhasa
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_010/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_010/0-evaluation/0 | 2026-10-06 18:53:24.251840
+2026-10-06 18:53:24.251 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:24.254 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:24.258 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_010/0-evaluation/0 | 0:00:00.000214
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.99it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.24it/s]
+[10] GAGAL fold ashrul_rifki_ardiyhasa: KeyError('cross-entropy')
+
+[12/56] fold: test subjek = ayleen_ruhul_qisthy
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_011/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_011/0-evaluation/0 | 2026-10-06 18:53:24.623107
+2026-10-06 18:53:24.623 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:24.624 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:24.630 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_011/0-evaluation/0 | 0:00:00.000160
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.15it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.68it/s]
+[11] GAGAL fold ayleen_ruhul_qisthy: KeyError('cross-entropy')
+
+[13/56] fold: test subjek = billy_maulana_ferdinan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 358 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_012/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_012/0-evaluation/0 | 2026-10-06 18:53:24.974393
+2026-10-06 18:53:24.974 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:24.976 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:24.982 | INFO     | bin.tabr:main:349 - n_parameters = 52609
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_012/0-evaluation/0 | 0:00:00.000212
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.86it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.27it/s]
+[12] GAGAL fold billy_maulana_ferdinan: KeyError('cross-entropy')
+
+[14/56] fold: test subjek = danendra_adhipramana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_013/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_013/0-evaluation/0 | 2026-10-06 18:53:25.362556
+2026-10-06 18:53:25.362 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:25.364 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:25.368 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_013/0-evaluation/0 | 0:00:00.000259
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.13it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.12it/s]
+[13] GAGAL fold danendra_adhipramana: KeyError('cross-entropy')
+
+[15/56] fold: test subjek = dewita_anggraini
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_014/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_014/0-evaluation/0 | 2026-10-06 18:53:25.724393
+2026-10-06 18:53:25.724 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:25.726 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:25.731 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_014/0-evaluation/0 | 0:00:00.000205
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.20it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.45it/s]
+[14] GAGAL fold dewita_anggraini: KeyError('cross-entropy')
+
+[16/56] fold: test subjek = dika_arie_arrifky
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_015/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_015/0-evaluation/0 | 2026-10-06 18:53:26.078983
+2026-10-06 18:53:26.079 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:26.081 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:26.086 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_015/0-evaluation/0 | 0:00:00.000195
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.85it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.31it/s]
+[15] GAGAL fold dika_arie_arrifky: KeyError('cross-entropy')
+
+[17/56] fold: test subjek = duta_kurnia_ardhani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_016/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_016/0-evaluation/0 | 2026-10-06 18:53:26.444631
+2026-10-06 18:53:26.444 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:26.446 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:26.450 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_016/0-evaluation/0 | 0:00:00.000190
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.17it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.01it/s]
+[16] GAGAL fold duta_kurnia_ardhani: KeyError('cross-entropy')
+
+[18/56] fold: test subjek = ericha_rizki_wardani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_017/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_017/0-evaluation/0 | 2026-10-06 18:53:26.794479
+2026-10-06 18:53:26.794 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:26.796 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:26.802 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_017/0-evaluation/0 | 0:00:00.000198
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.92it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.34it/s]
+[17] GAGAL fold ericha_rizki_wardani: KeyError('cross-entropy')
+
+[19/56] fold: test subjek = esa_pratama_putri
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_018/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_018/0-evaluation/0 | 2026-10-06 18:53:27.159789
+2026-10-06 18:53:27.159 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:27.161 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:27.166 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_018/0-evaluation/0 | 0:00:00.000199
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.20it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.60it/s]
+[18] GAGAL fold esa_pratama_putri: KeyError('cross-entropy')
+
+[20/56] fold: test subjek = fabian_ananda_merdana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_019/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_019/0-evaluation/0 | 2026-10-06 18:53:27.511501
+2026-10-06 18:53:27.511 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:27.513 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:27.518 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_019/0-evaluation/0 | 0:00:00.000180
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.33it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.85it/s]
+[19] GAGAL fold fabian_ananda_merdana: KeyError('cross-entropy')
+
+[21/56] fold: test subjek = fahmi_yahya
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_020/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_020/0-evaluation/0 | 2026-10-06 18:53:27.850688
+2026-10-06 18:53:27.850 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:27.852 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:27.857 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_020/0-evaluation/0 | 0:00:00.000301
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.27it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.15it/s]
+[20] GAGAL fold fahmi_yahya: KeyError('cross-entropy')
+
+[22/56] fold: test subjek = fahri_zanuar_pradian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_021/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_021/0-evaluation/0 | 2026-10-06 18:53:28.200646
+2026-10-06 18:53:28.200 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:28.202 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:28.207 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_021/0-evaluation/0 | 0:00:00.000242
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.91it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.14it/s]
+[21] GAGAL fold fahri_zanuar_pradian: KeyError('cross-entropy')
+
+[23/56] fold: test subjek = fandy_wahyu_hanzura
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_022/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_022/0-evaluation/0 | 2026-10-06 18:53:28.568755
+2026-10-06 18:53:28.568 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:28.570 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:28.576 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_022/0-evaluation/0 | 0:00:00.000180
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.08it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.80it/s]
+[22] GAGAL fold fandy_wahyu_hanzura: KeyError('cross-entropy')
+
+[24/56] fold: test subjek = fiera_ziadattun_nisa_
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_023/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_023/0-evaluation/0 | 2026-10-06 18:53:28.921852
+2026-10-06 18:53:28.921 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:28.924 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:28.929 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_023/0-evaluation/0 | 0:00:00.000206
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.08it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.70it/s]
+[23] GAGAL fold fiera_ziadattun_nisa_: KeyError('cross-entropy')
+
+[25/56] fold: test subjek = ghetsa_ramadhani_riska_arryanti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_024/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_024/0-evaluation/0 | 2026-10-06 18:53:29.283564
+2026-10-06 18:53:29.283 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:29.285 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:29.289 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_024/0-evaluation/0 | 0:00:00.000240
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.95it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 23.98it/s]
+[24] GAGAL fold ghetsa_ramadhani_riska_arryanti: KeyError('cross-entropy')
+
+[26/56] fold: test subjek = haikal_muhammad_rafli
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_025/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_025/0-evaluation/0 | 2026-10-06 18:53:29.651513
+2026-10-06 18:53:29.651 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:29.653 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:29.658 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_025/0-evaluation/0 | 0:00:00.000194
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.42it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 27.77it/s]
+[25] GAGAL fold haikal_muhammad_rafli: KeyError('cross-entropy')
+
+[27/56] fold: test subjek = hanifah_kurniasari
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_026/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_026/0-evaluation/0 | 2026-10-06 18:53:29.984191
+2026-10-06 18:53:29.984 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:29.985 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:29.990 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_026/0-evaluation/0 | 0:00:00.000187
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.45it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 27.73it/s]
+[26] GAGAL fold hanifah_kurniasari: KeyError('cross-entropy')
+
+[28/56] fold: test subjek = hizkia_elsadanta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_027/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_027/0-evaluation/0 | 2026-10-06 18:53:30.330139
+2026-10-06 18:53:30.330 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:30.332 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:30.336 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_027/0-evaluation/0 | 0:00:00.000322
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.19it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.64it/s]
+[27] GAGAL fold hizkia_elsadanta: KeyError('cross-entropy')
+
+[29/56] fold: test subjek = ivansyah_eka_oktaviadi_santoso
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_028/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_028/0-evaluation/0 | 2026-10-06 18:53:30.685975
+2026-10-06 18:53:30.686 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:30.687 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:30.692 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_028/0-evaluation/0 | 0:00:00.000272
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.23it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.42it/s]
+[28] GAGAL fold ivansyah_eka_oktaviadi_santoso: KeyError('cross-entropy')
+
+[30/56] fold: test subjek = jiha_ramdhan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_029/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_029/0-evaluation/0 | 2026-10-06 18:53:31.041405
+2026-10-06 18:53:31.041 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:31.044 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:31.050 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_029/0-evaluation/0 | 0:00:00.000210
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.27it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.54it/s]
+[29] GAGAL fold jiha_ramdhan: KeyError('cross-entropy')
+
+[31/56] fold: test subjek = kamila_habiba_putri_ananta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_030/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_030/0-evaluation/0 | 2026-10-06 18:53:31.397332
+2026-10-06 18:53:31.397 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:31.399 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:31.403 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_030/0-evaluation/0 | 0:00:00.000175
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.14it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.45it/s]
+[30] GAGAL fold kamila_habiba_putri_ananta: KeyError('cross-entropy')
+
+[32/56] fold: test subjek = key_firdausi_alfarel
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_031/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_031/0-evaluation/0 | 2026-10-06 18:53:31.739361
+2026-10-06 18:53:31.739 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:31.741 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:31.747 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_031/0-evaluation/0 | 0:00:00.000229
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.41it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.71it/s]
+[31] GAGAL fold key_firdausi_alfarel: KeyError('cross-entropy')
+
+[33/56] fold: test subjek = luqman_ananta_abdul_hakim
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_032/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_032/0-evaluation/0 | 2026-10-06 18:53:32.101011
+2026-10-06 18:53:32.101 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:32.103 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:32.107 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_032/0-evaluation/0 | 0:00:00.000279
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.34it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 27.20it/s]
+[32] GAGAL fold luqman_ananta_abdul_hakim: KeyError('cross-entropy')
+
+[34/56] fold: test subjek = luthfi_triaswangga
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_033/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_033/0-evaluation/0 | 2026-10-06 18:53:32.436133
+2026-10-06 18:53:32.436 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:32.438 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:32.443 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_033/0-evaluation/0 | 0:00:00.000205
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.09it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.90it/s]
+[33] GAGAL fold luthfi_triaswangga: KeyError('cross-entropy')
+
+[35/56] fold: test subjek = m__firmansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_034/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_034/0-evaluation/0 | 2026-10-06 18:53:32.818002
+2026-10-06 18:53:32.818 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:32.820 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:32.824 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_034/0-evaluation/0 | 0:00:00.000197
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.15it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.51it/s]
+[34] GAGAL fold m__firmansyah: KeyError('cross-entropy')
+
+[36/56] fold: test subjek = mohammad_adri_favian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_035/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_035/0-evaluation/0 | 2026-10-06 18:53:33.172115
+2026-10-06 18:53:33.172 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:33.174 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:33.180 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_035/0-evaluation/0 | 0:00:00.000217
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.28it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.43it/s]
+[35] GAGAL fold mohammad_adri_favian: KeyError('cross-entropy')
+
+[37/56] fold: test subjek = muhammad_farrel_caesarian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_036/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_036/0-evaluation/0 | 2026-10-06 18:53:33.529017
+2026-10-06 18:53:33.529 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:33.530 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:33.535 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_036/0-evaluation/0 | 0:00:00.000216
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.04it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.77it/s]
+[36] GAGAL fold muhammad_farrel_caesarian: KeyError('cross-entropy')
+
+[38/56] fold: test subjek = muhammad_khalid_atthoriq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_037/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_037/0-evaluation/0 | 2026-10-06 18:53:33.877739
+2026-10-06 18:53:33.877 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:33.879 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:33.883 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_037/0-evaluation/0 | 0:00:00.000193
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.02it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.04it/s]
+[37] GAGAL fold muhammad_khalid_atthoriq: KeyError('cross-entropy')
+
+[39/56] fold: test subjek = muhammad_rifqi_rizqullah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_038/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_038/0-evaluation/0 | 2026-10-06 18:53:34.243399
+2026-10-06 18:53:34.243 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:34.245 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:34.249 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_038/0-evaluation/0 | 0:00:00.000207
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.09it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.55it/s]
+[38] GAGAL fold muhammad_rifqi_rizqullah: KeyError('cross-entropy')
+
+[40/56] fold: test subjek = muhammad_syahrul_gunawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_039/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_039/0-evaluation/0 | 2026-10-06 18:53:34.604606
+2026-10-06 18:53:34.604 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:34.606 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:34.611 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_039/0-evaluation/0 | 0:00:00.000195
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.26it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.51it/s]
+[39] GAGAL fold muhammad_syahrul_gunawan: KeyError('cross-entropy')
+
+[41/56] fold: test subjek = muhammad_zaki
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_040/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_040/0-evaluation/0 | 2026-10-06 18:53:34.955669
+2026-10-06 18:53:34.955 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:34.958 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:34.965 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_040/0-evaluation/0 | 0:00:00.000191
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.12it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.05it/s]
+[40] GAGAL fold muhammad_zaki: KeyError('cross-entropy')
+
+[42/56] fold: test subjek = nabeel_nizam
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_041/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_041/0-evaluation/0 | 2026-10-06 18:53:35.312994
+2026-10-06 18:53:35.313 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:35.314 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:35.320 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_041/0-evaluation/0 | 0:00:00.000174
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.12it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.13it/s]
+[41] GAGAL fold nabeel_nizam: KeyError('cross-entropy')
+
+[43/56] fold: test subjek = nahdia_putri_safira
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_042/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_042/0-evaluation/0 | 2026-10-06 18:53:35.673727
+2026-10-06 18:53:35.673 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:35.676 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:35.682 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_042/0-evaluation/0 | 0:00:00.000171
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.96it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.48it/s]
+[42] GAGAL fold nahdia_putri_safira: KeyError('cross-entropy')
+
+[44/56] fold: test subjek = nakita_gayuh_cakrawala
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_043/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_043/0-evaluation/0 | 2026-10-06 18:53:36.051718
+2026-10-06 18:53:36.051 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:36.053 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:36.058 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_043/0-evaluation/0 | 0:00:00.000210
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.06it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.41it/s]
+[43] GAGAL fold nakita_gayuh_cakrawala: KeyError('cross-entropy')
+
+[45/56] fold: test subjek = nova_eliza_maharani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_044/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_044/0-evaluation/0 | 2026-10-06 18:53:36.417538
+2026-10-06 18:53:36.417 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:36.419 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:36.424 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_044/0-evaluation/0 | 0:00:00.000225
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.15it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.87it/s]
+[44] GAGAL fold nova_eliza_maharani: KeyError('cross-entropy')
+
+[46/56] fold: test subjek = oltha_rosyeda_al_haq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_045/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_045/0-evaluation/0 | 2026-10-06 18:53:36.778574
+2026-10-06 18:53:36.778 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:36.780 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:36.784 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_045/0-evaluation/0 | 0:00:00.000250
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.28it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.02it/s]
+[45] GAGAL fold oltha_rosyeda_al_haq: KeyError('cross-entropy')
+
+[47/56] fold: test subjek = rafiqo_adib_destarachmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_046/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_046/0-evaluation/0 | 2026-10-06 18:53:37.135893
+2026-10-06 18:53:37.135 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:37.137 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:37.142 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_046/0-evaluation/0 | 0:00:00.000190
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.08it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.37it/s]
+[46] GAGAL fold rafiqo_adib_destarachmad: KeyError('cross-entropy')
+
+[48/56] fold: test subjek = rahmad_dwi_ferdyan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_047/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_047/0-evaluation/0 | 2026-10-06 18:53:37.494569
+2026-10-06 18:53:37.494 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:37.496 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:37.501 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_047/0-evaluation/0 | 0:00:00.000211
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.93it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.19it/s]
+[47] GAGAL fold rahmad_dwi_ferdyan: KeyError('cross-entropy')
+
+[49/56] fold: test subjek = rizkya_salsabila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_048/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_048/0-evaluation/0 | 2026-10-06 18:53:37.859299
+2026-10-06 18:53:37.859 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:37.861 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:37.866 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_048/0-evaluation/0 | 0:00:00.000173
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.02it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.26it/s]
+[48] GAGAL fold rizkya_salsabila: KeyError('cross-entropy')
+
+[50/56] fold: test subjek = rocky_alessandro_kristanto
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_049/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_049/0-evaluation/0 | 2026-10-06 18:53:38.223642
+2026-10-06 18:53:38.223 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:38.225 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:38.231 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_049/0-evaluation/0 | 0:00:00.000255
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.05it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.26it/s]
+[49] GAGAL fold rocky_alessandro_kristanto: KeyError('cross-entropy')
+
+[51/56] fold: test subjek = satria_wiguna
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_050/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_050/0-evaluation/0 | 2026-10-06 18:53:38.584828
+2026-10-06 18:53:38.584 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:38.586 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:38.591 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_050/0-evaluation/0 | 0:00:00.000228
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.16it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.89it/s]
+[50] GAGAL fold satria_wiguna: KeyError('cross-entropy')
+
+[52/56] fold: test subjek = tomi_martino_affandi
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_051/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_051/0-evaluation/0 | 2026-10-06 18:53:38.954724
+2026-10-06 18:53:38.954 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:38.957 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:38.962 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_051/0-evaluation/0 | 0:00:00.000284
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.17it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.14it/s]
+[51] GAGAL fold tomi_martino_affandi: KeyError('cross-entropy')
+
+[53/56] fold: test subjek = tora_digda_kristiawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_052/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_052/0-evaluation/0 | 2026-10-06 18:53:39.301803
+2026-10-06 18:53:39.301 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:39.303 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:39.308 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_052/0-evaluation/0 | 0:00:00.000183
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.16it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 26.02it/s]
+[52] GAGAL fold tora_digda_kristiawan: KeyError('cross-entropy')
+
+[54/56] fold: test subjek = valentina_santi_grehasta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_053/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_053/0-evaluation/0 | 2026-10-06 18:53:39.682759
+2026-10-06 18:53:39.682 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:39.685 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:39.690 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_053/0-evaluation/0 | 0:00:00.000222
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:00,  5.14it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 25.81it/s]
+[53] GAGAL fold valentina_santi_grehasta: KeyError('cross-entropy')
+
+[55/56] fold: test subjek = vincentius_leonanda_prabowo
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_054/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_054/0-evaluation/0 | 2026-10-06 18:53:40.045982
+2026-10-06 18:53:40.046 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:40.047 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:40.052 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_054/0-evaluation/0 | 0:00:00.000176
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  5.00it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.90it/s]
+[54] GAGAL fold vincentius_leonanda_prabowo: KeyError('cross-entropy')
+
+[56/56] fold: test subjek = vira_alfita_yunia
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      static-feature prune: 360 -> 359 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3/fold_055/0-evaluation seeds=3
+================================================================================
+[>>>] exp/tabr/convat_apex_anxiety_loso_v3/fold_055/0-evaluation/0 | 2026-10-06 18:53:40.402454
+2026-10-06 18:53:40.402 | INFO     | lib.util:start:130 - Creating the output
+--------------------------------------------------------------------------------
+{'seed': 0,
+ 'data': {'seed': 72,
+          'cache': False,
+          'path': ':data/convat_apex_anxiety_loso_v3',
+          'num_policy': 'standard',
+          'cat_policy': None,
+          'y_policy': None,
+          'score': 'cross-entropy'},
+ 'model': {'num_embeddings': None,
+           'd_main': 64,
+           'context_dropout': 0.3,
+           'd_multiplier': 1.0,
+           'encoder_n_blocks': 1,
+           'predictor_n_blocks': 1,
+           'mixer_normalization': 'auto',
+           'dropout0': 0.3,
+           'dropout1': 0.1,
+           'normalization': 'LayerNorm',
+           'activation': 'ReLU'},
+ 'context_size': 8,
+ 'optimizer': {'type': 'AdamW', 'lr': 0.001, 'weight_decay': 0.001},
+ 'batch_size': 8,
+ 'patience': 40,
+ 'n_epochs': inf}
+--------------------------------------------------------------------------------
+2026-10-06 18:53:40.404 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3)
+2026-10-06 18:53:40.409 | INFO     | bin.tabr:main:349 - n_parameters = 52673
+
+[...] exp/tabr/convat_apex_anxiety_loso_v3/fold_055/0-evaluation/0 | 0:00:00.000169
+Epoch 0:   0%|          | 0/6 [00:00<?, ?it/s]Epoch 0:  17%|█▋        | 1/6 [00:00<00:01,  4.99it/s]Epoch 0: 100%|██████████| 6/6 [00:00<00:00, 24.92it/s]
+[55] GAGAL fold vira_alfita_yunia: KeyError('cross-entropy')
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_v3/fold_*/

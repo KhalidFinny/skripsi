@@ -1,0 +1,43 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+klip diuji: 16
+  [1/16] answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751 frames=195
+  [2/16] answer_3_ce8ef7e8-63e6-46c1-a510-1b8269c27ce7 frames=268
+  [3/16] answer_2_490a0a4a-d935-4509-9a4e-fb0a393be5b9 frames=472
+  [4/16] answer_4_497eb431-dd00-4530-858f-e8ec710014e7 frames=291
+  [5/16] answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751 frames=321
+  [6/16] answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7 frames=573
+  [7/16] answer_3_ce8ef7e8-63e6-46c1-a510-1b8269c27ce7 frames=497
+  [8/16] answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7 frames=950
+  [9/16] answer_4_497eb431-dd00-4530-858f-e8ec710014e7 frames=221
+  [10/16] answer_3_ce8ef7e8-63e6-46c1-a510-1b8269c27ce7 frames=149
+  [11/16] answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7 frames=256
+  [12/16] answer_5_e1e6b3e5-a2d1-4832-a1fc-e03673252751 frames=178
+  [13/16] answer_2_490a0a4a-d935-4509-9a4e-fb0a393be5b9 frames=240
+  [14/16] answer_2_490a0a4a-d935-4509-9a4e-fb0a393be5b9 frames=624
+  [15/16] answer_4_497eb431-dd00-4530-858f-e8ec710014e7 frames=368
+  [16/16] answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7 frames=390
+
+berhasil: 16 klip
+
+=== 1. DRIFT: energi frekuensi tinggi vs rendah (rendah = didominasi tren) ===
+acuan       hi/lo  corr_trend
+abs         4.087       0.239
+lag30       3.891       0.266
+lag60       3.827       0.233
+
+=== 2. WINDOW: jumlah puncak & event top_k=5 ===
+window    puncak/klip  event/klip
+fix7               73         5.0
+pct3               71         5.0
+pct5               64         5.0
+
+=== 3. DURASI event (micro-expression 60fps = 2,4-12 frame) ===
+fix7     median=   10  p25=    7  p75=   17  (n=80)
+pct3     median=   14  p25=    8  p75=   20  (n=80)
+pct5     median=   15  p25=   10  p75=   35  (n=80)
+
+Keluaran: /home/finny/projects/Skripsi/output/training/audit_anxiety_regime/summary.md

@@ -1,0 +1,22 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+video dgn sinyal cache: 86 | GT: 308
+  win=  7 hk=1.0: puncak/video=  736.0 coverage=0.987 median_rank=0.044
+  win=  7 hk=2.0: puncak/video=  165.4 coverage=0.870 median_rank=0.169
+  win=  7 hk=3.0: puncak/video=   33.2 coverage=0.490 median_rank=0.219
+  win= 15 hk=1.0: puncak/video=  526.9 coverage=0.968 median_rank=0.061
+  win= 15 hk=2.0: puncak/video=  106.8 coverage=0.750 median_rank=0.186
+  win= 15 hk=3.0: puncak/video=   20.3 coverage=0.377 median_rank=0.178
+  win= 25 hk=1.0: puncak/video=  471.9 coverage=0.938 median_rank=0.088
+  win= 25 hk=2.0: puncak/video=   85.7 coverage=0.640 median_rank=0.212
+  win= 25 hk=3.0: puncak/video=   15.6 coverage=0.321 median_rank=0.133
+  win= 41 hk=1.0: puncak/video=  436.0 coverage=0.893 median_rank=0.134
+  win= 41 hk=2.0: puncak/video=   72.8 coverage=0.558 median_rank=0.209
+  win= 41 hk=3.0: puncak/video=   12.1 coverage=0.276 median_rank=0.167
+
+Keluaran: /home/finny/projects/Skripsi/output/training/probe_smooth_casme2/summary.csv
+
+Bacaan: makin kecil median_rank_pct makin baik (0 = puncak ekspresi selalu peringkat 1). Perhatikan juga puncak/video -- kalau turun tanpa menurunkan coverage, derau berhasil dibuang.

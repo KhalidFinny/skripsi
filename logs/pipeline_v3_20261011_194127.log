@@ -1,0 +1,47 @@
+[2026-10-11 19:41:27] ══════════════════════════════════════════════════════════
+[2026-10-11 19:41:27] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-11 19:41:27]   RAW        : /home/finny/datasets/anxiety_avi
+[2026-10-11 19:41:27]   OUT        : /home/finny/projects/Skripsi/output/apex_fixed
+[2026-10-11 19:41:27]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+[2026-10-11 19:41:27]   DATASET    : convat_apex_anxiety_loso_v3fixed_rise
+[2026-10-11 19:41:27]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-11 19:41:27]   seeds/fold : 3
+[2026-10-11 19:41:27]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261011_194127.log
+[2026-10-11 19:41:27] ══════════════════════════════════════════════════════════
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)
+  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal.
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal_rise.pkl (temporal)
+  OUTPUT             : output/training/within_subject_v3fixed_rise_{poc,geo_temporal}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-11 19:41:27]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_poc_20261011_194127.log
+[2026-10-11 19:42:20]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_gabungan_20261011_194127.log
+[2026-10-11 19:43:18] STAGE 5 SELESAI. Ringkasan:
+[2026-10-11 19:43:18]   output/training/within_subject_v3fixed_rise_poc/summary.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6/7 : TRAINING LOSO TabR
+  APA YANG DILAKUKAN : 56 fold (1 subjek = test), 3 seed/fold, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal_rise.pkl
+  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed_rise/fold_*/
+  ESTIMASI WAKTU     : LAMA (~1-2 jam) - resume otomatis per fold (DONE.json)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-11 19:43:18]   log: /home/finny/projects/Skripsi/logs/stage6_loso_20261011_194127.log
+[2026-10-11 19:46:26] STAGE 6 SELESAI. fold selesai: 56
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 7/7 : KUMPULKAN HASIL + BASELINE PEMBANDING
+  APA YANG DILAKUKAN : collect (MCC, balanced accuracy, bias prediksi, per-grup vs baseline grup, ambang dari val) + logistik/GBDT
+  INPUT              : third_party/.../exp/tabr/convat_apex_anxiety_loso_v3fixed_rise/
+  OUTPUT             : output/training/convat_apex_anxiety_loso_v3fixed_rise{,_baseline}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-11 19:46:26]   log: /home/finny/projects/Skripsi/logs/stage7_collect_20261011_194127.log
+[2026-10-11 19:46:39]   baseline pembanding selesai (/home/finny/projects/Skripsi/logs/stage7_baseline_20261011_194127.log)
+[2026-10-11 19:46:39] STAGE 7 SELESAI.
+[2026-10-11 19:46:39] ══════════════════════════════════════════════════════════
+[2026-10-11 19:46:39] PIPELINE v3 SELESAI
+[2026-10-11 19:46:39]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal_rise.pkl
+[2026-10-11 19:46:39]   Hasil    : output/training/convat_apex_anxiety_loso_v3fixed_rise/summary.md
+[2026-10-11 19:46:39]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261011_194127.log
+[2026-10-11 19:46:39]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup
+[2026-10-11 19:46:39] ══════════════════════════════════════════════════════════

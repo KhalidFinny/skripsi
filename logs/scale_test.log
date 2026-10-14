@@ -1,0 +1,10 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+  scale=1 15_0101disgustingteeth.avi: coverage=1.000 persentil_apex=0.999 puncak=435
+  scale=1 15_0102eatingworms.avi: coverage=1.000 persentil_apex=0.986 puncak=193
+SCALE 1: coverage=1.0000 | median persentil apex=0.993 | puncak total=628
+
+  scale=3 15_0101disgustingteeth.avi: coverage=1.000 persentil_apex=0.977 puncak=472

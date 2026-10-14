@@ -1,0 +1,95 @@
+{"time":"2026-10-14T12:18:03.891882569+07:00","type":"run_started","message":"scripts/run_pipeline_v3.sh --fresh --dry-run"}
+{"time":"2026-10-14T12:18:03.920721981+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03] ══════════════════════════════════════════════════════════"}
+{"time":"2026-10-14T12:18:03.923327479+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda"}
+{"time":"2026-10-14T12:18:03.927346075+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw"}
+{"time":"2026-10-14T12:18:03.930122824+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   OUT        : /home/finny/projects/Skripsi/output/apex_v2"}
+{"time":"2026-10-14T12:18:03.932347827+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx"}
+{"time":"2026-10-14T12:18:03.934610474+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   DATASET    : convat_apex_anxiety_loso_roi25_reg"}
+{"time":"2026-10-14T12:18:03.937447077+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml"}
+{"time":"2026-10-14T12:18:03.940329286+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   seeds/fold : 3"}
+{"time":"2026-10-14T12:18:03.942613793+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_121803.log"}
+{"time":"2026-10-14T12:18:03.944858491+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03] ══════════════════════════════════════════════════════════"}
+{"time":"2026-10-14T12:18:03.948849221+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03] FRESH: menghapus /home/finny/projects/Skripsi/output/apex_v2 (klip + metadata) dan fitur v3"}
+{"time":"2026-10-14T12:18:03.951294224+07:00","type":"log","stage":1,"message":"[2026-10-14 12:18:03] FRESH: fitur v3 + hasil training + exp/tabr + data dibersihkan (1 config)."}
+{"time":"2026-10-14T12:18:03.952094465+07:00","type":"log","stage":1}
+{"time":"2026-10-14T12:18:03.95345183+07:00","type":"log","stage":1,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.955412833+07:00","type":"stage_seen","stage":1,"message":"STAGE 1/7 : SPOTTING (cari apex/event)"}
+{"time":"2026-10-14T12:18:03.95545809+07:00","type":"log","stage":1,"message":"STAGE 1/7 : SPOTTING (cari apex/event)"}
+{"time":"2026-10-14T12:18:03.956888648+07:00","type":"log","stage":1,"message":"  APA YANG DILAKUKAN : Deteksi wajah (dlib) -\u003e POC-ABS per frame -\u003e cari apex -\u003e simpan klip event + neutral.png"}
+{"time":"2026-10-14T12:18:03.958465594+07:00","type":"log","stage":1,"message":"  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (*.avi)"}
+{"time":"2026-10-14T12:18:03.960023543+07:00","type":"log","stage":1,"message":"  OUTPUT             : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx"}
+{"time":"2026-10-14T12:18:03.961500686+07:00","type":"log","stage":1,"message":"  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati"}
+{"time":"2026-10-14T12:18:03.9633248+07:00","type":"log","stage":1,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.964937853+07:00","type":"log","stage":1,"message":"  [dry-run] SPOT_DATASET_ROOT=/run/media/finny/New Volume/dataset/anxiety_raw SPOT_OUTPUT_ROOT=/home/finny/projects/Skripsi/output/apex_v2  SPOT_ALGO=phase SPOT_SIGNAL=mean_m SPOT_MOTION_COMP=0 SPOT_MDMD=0 SPOT_MDMD_K=5 SPOT_REBUILD_METADATA_ONLY=0 /home/finny/projects/Skripsi/.venv/bin/python scripts/process_spotting_pipeline.py"}
+{"time":"2026-10-14T12:18:03.965668463+07:00","type":"log","stage":1}
+{"time":"2026-10-14T12:18:03.967624786+07:00","type":"log","stage":1,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.969230507+07:00","type":"stage_seen","stage":2,"message":"STAGE 2/7 : EKSTRAKSI FITUR POC-ABS"}
+{"time":"2026-10-14T12:18:03.969253973+07:00","type":"log","stage":2,"message":"STAGE 2/7 : EKSTRAKSI FITUR POC-ABS"}
+{"time":"2026-10-14T12:18:03.970898945+07:00","type":"log","stage":2,"message":"  APA YANG DILAKUKAN : POC-ABS per frame vs acuan NETRAL per orang (5 ROI). Arah + magnitudo motion vector per blok."}
+{"time":"2026-10-14T12:18:03.973490684+07:00","type":"log","stage":2,"message":"  INPUT              : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx"}
+{"time":"2026-10-14T12:18:03.975265909+07:00","type":"log","stage":2,"message":"  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx"}
+{"time":"2026-10-14T12:18:03.976877287+07:00","type":"log","stage":2,"message":"  ESTIMASI WAKTU     : SEDANG (~30 menit) - 3 worker (4 worker pernah menyentuh 95C)"}
+{"time":"2026-10-14T12:18:03.978686245+07:00","type":"log","stage":2,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.980398124+07:00","type":"log","stage":2,"message":"  [dry-run] FEAT_DATASET_ROOT=/home/finny/projects/Skripsi/output/apex_v2/dataset /home/finny/projects/Skripsi/.venv/bin/python scripts/extract_features_poc_abs.py --roi-signals --baseline neutral"}
+{"time":"2026-10-14T12:18:03.980821641+07:00","type":"log","stage":2}
+{"time":"2026-10-14T12:18:03.982319457+07:00","type":"log","stage":2,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.984783317+07:00","type":"stage_seen","stage":3,"message":"STAGE 3/7 : CACHE PKL"}
+{"time":"2026-10-14T12:18:03.984814327+07:00","type":"log","stage":3,"message":"STAGE 3/7 : CACHE PKL"}
+{"time":"2026-10-14T12:18:03.986579704+07:00","type":"log","stage":3,"message":"  APA YANG DILAKUKAN : Konversi xlsx -\u003e pkl (bit-identik) supaya pembacaan turun dari ~90s ke \u003c1s"}
+{"time":"2026-10-14T12:18:03.988297939+07:00","type":"log","stage":3,"message":"  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx"}
+{"time":"2026-10-14T12:18:03.990297494+07:00","type":"log","stage":3,"message":"  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl"}
+{"time":"2026-10-14T12:18:03.992237824+07:00","type":"log","stage":3,"message":"  ESTIMASI WAKTU     : CEPAT (~3 menit)"}
+{"time":"2026-10-14T12:18:03.993826014+07:00","type":"log","stage":3,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.995578471+07:00","type":"log","stage":3,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_feature_cache.py --xlsx /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx --pkl /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl"}
+{"time":"2026-10-14T12:18:03.996090338+07:00","type":"log","stage":3}
+{"time":"2026-10-14T12:18:03.997472426+07:00","type":"log","stage":3,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:03.999020877+07:00","type":"stage_seen","stage":4,"message":"STAGE 4/7 : FITUR TEMPORAL"}
+{"time":"2026-10-14T12:18:03.999073258+07:00","type":"log","stage":4,"message":"STAGE 4/7 : FITUR TEMPORAL"}
+{"time":"2026-10-14T12:18:04.000755105+07:00","type":"log","stage":4,"message":"  APA YANG DILAKUKAN : Ringkas tiap lintasan onset-\u003eapex-\u003eoffset jadi deskriptor (rise) untuk sinyal POC-ABS (diagregasi mean+std saat training)"}
+{"time":"2026-10-14T12:18:04.002346368+07:00","type":"log","stage":4,"message":"  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl"}
+{"time":"2026-10-14T12:18:04.003954463+07:00","type":"log","stage":4,"message":"  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl"}
+{"time":"2026-10-14T12:18:04.005731574+07:00","type":"log","stage":4,"message":"  ESTIMASI WAKTU     : CEPAT (detik)"}
+{"time":"2026-10-14T12:18:04.007399244+07:00","type":"log","stage":4,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.009275459+07:00","type":"log","stage":4,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_temporal_features.py --input /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl --output /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --descriptors rise --only-descriptors --no-xlsx"}
+{"time":"2026-10-14T12:18:04.009695764+07:00","type":"log","stage":4}
+{"time":"2026-10-14T12:18:04.011034481+07:00","type":"log","stage":4,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.0127993+07:00","type":"stage_seen","stage":5,"message":"STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)"}
+{"time":"2026-10-14T12:18:04.01282591+07:00","type":"log","stage":5,"message":"STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)"}
+{"time":"2026-10-14T12:18:04.014446017+07:00","type":"log","stage":5,"message":"  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal."}
+{"time":"2026-10-14T12:18:04.01623982+07:00","type":"log","stage":5,"message":"  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl (temporal)"}
+{"time":"2026-10-14T12:18:04.017914334+07:00","type":"log","stage":5,"message":"  OUTPUT             : output/training/within_subject_v3_{poc,geo_temporal}/"}
+{"time":"2026-10-14T12:18:04.019426398+07:00","type":"log","stage":5,"message":"  ESTIMASI WAKTU     : CEPAT (menit)"}
+{"time":"2026-10-14T12:18:04.020888594+07:00","type":"log","stage":5,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.022752518+07:00","type":"log","stage":5,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl --out output/training/within_subject_v3_poc"}
+{"time":"2026-10-14T12:18:04.024537451+07:00","type":"log","stage":5,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --out output/training/within_subject_v3_geo_temporal"}
+{"time":"2026-10-14T12:18:04.025244593+07:00","type":"log","stage":5}
+{"time":"2026-10-14T12:18:04.026676269+07:00","type":"log","stage":5,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.028269698+07:00","type":"stage_seen","stage":6,"message":"STAGE 6/7 : TRAINING LOSO TabR (1 config)"}
+{"time":"2026-10-14T12:18:04.028292117+07:00","type":"log","stage":6,"message":"STAGE 6/7 : TRAINING LOSO TabR (1 config)"}
+{"time":"2026-10-14T12:18:04.029863405+07:00","type":"log","stage":6,"message":"  APA YANG DILAKUKAN : fold LOSO (1 subjek = test) x 3 seed, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold); diulang per config: convat_apex_anxiety_loso_roi25_reg"}
+{"time":"2026-10-14T12:18:04.032010675+07:00","type":"log","stage":6,"message":"  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl"}
+{"time":"2026-10-14T12:18:04.033530491+07:00","type":"log","stage":6,"message":"  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/\u003cdataset\u003e/fold_*/"}
+{"time":"2026-10-14T12:18:04.035156605+07:00","type":"log","stage":6,"message":"  ESTIMASI WAKTU     : LAMA (~1-2 jam per config) - resume otomatis per fold (DONE.json)"}
+{"time":"2026-10-14T12:18:04.03661915+07:00","type":"log","stage":6,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.039372572+07:00","type":"log","stage":6,"message":"[2026-10-14 12:18:04]   config 1/1: /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml -\u003e dataset convat_apex_anxiety_loso_roi25_reg"}
+{"time":"2026-10-14T12:18:04.043164254+07:00","type":"log","stage":6,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/run_loso.py --dataset convat_apex_anxiety_loso_roi25_reg --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --aggregate subject --subject-norm none --label-unit session --drop-features '' --config /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml --seeds 3 --epochs-trace 40 --device cpu --epochs-log --quiet"}
+{"time":"2026-10-14T12:18:04.043814895+07:00","type":"log","stage":6}
+{"time":"2026-10-14T12:18:04.045345048+07:00","type":"log","stage":6,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.047232298+07:00","type":"stage_seen","stage":7,"message":"STAGE 7/7 : KUMPULKAN HASIL + BASELINE PEMBANDING (1 config)"}
+{"time":"2026-10-14T12:18:04.047258489+07:00","type":"log","stage":7,"message":"STAGE 7/7 : KUMPULKAN HASIL + BASELINE PEMBANDING (1 config)"}
+{"time":"2026-10-14T12:18:04.048861276+07:00","type":"log","stage":7,"message":"  APA YANG DILAKUKAN : collect per config (MCC, balanced accuracy, bias prediksi, per-grup vs baseline grup, ambang dari val) + logistik/GBDT (sekali, fitur identik)"}
+{"time":"2026-10-14T12:18:04.050851402+07:00","type":"log","stage":7,"message":"  INPUT              : third_party/.../exp/tabr/\u003cdataset\u003e/"}
+{"time":"2026-10-14T12:18:04.052494278+07:00","type":"log","stage":7,"message":"  OUTPUT             : output/training/\u003cdataset\u003e{,_baseline}/"}
+{"time":"2026-10-14T12:18:04.054015141+07:00","type":"log","stage":7,"message":"  ESTIMASI WAKTU     : CEPAT (menit)"}
+{"time":"2026-10-14T12:18:04.055734214+07:00","type":"log","stage":7,"message":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"}
+{"time":"2026-10-14T12:18:04.057446722+07:00","type":"log","stage":7,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/collect_loso_results.py --exp convat_apex_anxiety_loso_roi25_reg --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --row-unit subject"}
+{"time":"2026-10-14T12:18:04.059152734+07:00","type":"log","stage":7,"message":"  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/run_loso_baseline.py --dataset convat_apex_anxiety_loso_roi25_reg_baseline --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --aggregate subject --subject-norm none"}
+{"time":"2026-10-14T12:18:04.059718798+07:00","type":"log","stage":7}
+{"time":"2026-10-14T12:18:04.06177262+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04] ══════════════════════════════════════════════════════════"}
+{"time":"2026-10-14T12:18:04.064178442+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04] PIPELINE v3 SELESAI"}
+{"time":"2026-10-14T12:18:04.066408822+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl"}
+{"time":"2026-10-14T12:18:04.068703387+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04]   Hasil    : output/training/convat_apex_anxiety_loso_roi25_reg/summary.md"}
+{"time":"2026-10-14T12:18:04.07113072+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_121803.log"}
+{"time":"2026-10-14T12:18:04.073871919+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup"}
+{"time":"2026-10-14T12:18:04.07646743+07:00","type":"log","stage":7,"message":"[2026-10-14 12:18:04] ══════════════════════════════════════════════════════════"}
+{"time":"2026-10-14T12:18:04.077265646+07:00","type":"run_success"}

@@ -1,0 +1,31 @@
+### window=64 JUJUR (ambang dipilih inner, tidak lihat uji)
+  fold 1/5: ambang dipilih = 0.030
+  fold 2/5: ambang dipilih = 0.030
+  fold 3/5: ambang dipilih = 0.100
+  fold 4/5: ambang dipilih = 0.030
+  fold 5/5: ambang dipilih = 0.050
+AUC (level jendela) = 0.6521
+  ambang per-fold (inner): P=0.3589 R=0.4870 F1=0.4132 (TP 150, FP 268, FN 158)
+         recall macro=124/251 micro=26/57
+F1 = 0.4132
+### window=96 JUJUR (ambang dipilih inner, tidak lihat uji)
+  fold 1/5: ambang dipilih = 0.030
+  fold 2/5: ambang dipilih = 0.050
+  fold 3/5: ambang dipilih = 0.100
+  fold 4/5: ambang dipilih = 0.075
+  fold 5/5: ambang dipilih = 0.100
+AUC (level jendela) = 0.6513
+  ambang per-fold (inner): P=0.4080 R=0.4318 F1=0.4196 (TP 133, FP 193, FN 175)
+         recall macro=109/251 micro=24/57
+F1 = 0.4196
+### window=128 JUJUR (ambang dipilih inner, tidak lihat uji)
+  fold 1/5: ambang dipilih = 0.030
+  fold 2/5: ambang dipilih = 0.030
+  fold 3/5: ambang dipilih = 0.030
+  fold 4/5: ambang dipilih = 0.075
+  fold 5/5: ambang dipilih = 0.075
+AUC (level jendela) = 0.6296
+  ambang per-fold (inner): P=0.4296 R=0.3864 F1=0.4068 (TP 119, FP 158, FN 189)
+         recall macro=103/251 micro=16/57
+F1 = 0.4068
+ALLDONE

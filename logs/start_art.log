@@ -1,0 +1,10 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+GT di 5% pertama video : 3/308 = 0.010
+puncak di 5% pertama   : 1601/53600 = 0.030
+puncak 5% TERKUAT di 5% pertama: 144/2876 = 0.050
+
+(kalau rasio puncak-awal >> rasio GT-awal, maka awal video adalah artefak)

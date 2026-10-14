@@ -1,0 +1,14 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+Traceback (most recent call last):
+  File "/home/finny/projects/Skripsi/scripts/diag_roi_signal_casme2.py", line 158, in <module>
+    main()
+  File "/home/finny/projects/Skripsi/scripts/diag_roi_signal_casme2.py", line 90, in main
+    save_roi_montage(Path(v), int(apex), args.out / f'roi_{Path(v).stem}.png')
+  File "/home/finny/projects/Skripsi/scripts/diag_roi_signal_casme2.py", line 55, in save_roi_montage
+    pts = lm[idx].astype(int)
+          ~~^^^^^
+TypeError: '_dlib_pybind11.full_object_detection' object is not subscriptable

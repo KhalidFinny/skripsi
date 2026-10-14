@@ -1,0 +1,51 @@
+# Config TabR gaya RESMI, diskalakan untuk N kecil (project-owned).
+#
+# Dasar: config resmi TabR repo ini (exp/tabr/california/0-tuning.toml) memakai
+#   num_policy = "quantile", encoder_n_blocks = 0, predictor_n_blocks = 1,
+#   d_multiplier = 2.0, dropout1 = 0.0, context_size = 96, batch_size = 256.
+# Config kita sebelumnya (tabr_loso_roi25_reg.toml) menyimpang di beberapa titik
+# yang tidak didukung literatur: num_policy "standard" dan encoder_n_blocks 1.
+# Config ini mengembalikan ke default resmi, HANYA mengecilkan yang mustahil
+# dipakai di N=44:
+#   - batch_size 256 -> 8   (44 baris train; 256 > jumlah baris)
+#   - context_size 96 -> 16 (kandidat retrieval cuma 44 baris)
+#
+# Yang TIDAK dipakai: num_embeddings. Config resmi TabR sendiri memakai
+# "__null__"; embeddings menambah parameter (Gorishniy 2022) dan di 44 baris
+# itu menambah overfitting. TabR‡ (dengan embeddings) hanya varian di paper TabM.
+#
+# Pemakaian:
+#   ./run loso --dataset <nama> --features <tabel> --aggregate subject \
+#     --subject-norm none --config experiments/configs/tabr_loso_official_style.toml
+
+seed = 13
+batch_size = 8         # resmi 256; mustahil di 44 baris train
+patience = 16          # resmi
+n_epochs = inf
+context_size = 16      # resmi 96; kandidat retrieval cuma 44 baris
+
+[data]
+seed = 72
+cache = false
+path = ":data/convat_apex_anxiety_loso_roi25_reg"
+num_policy = "quantile"   # RESMI (config kita sebelumnya: "standard")
+cat_policy = "__null__"
+y_policy = "__null__"
+
+[model]
+num_embeddings = "__null__"  # resmi; embeddings TIDAK dipakai
+d_main = 96                  # batas bawah ruang tuning resmi
+context_dropout = 0.3
+d_multiplier = 2.0           # resmi
+encoder_n_blocks = 0         # RESMI (TabR-S; kita sebelumnya 1)
+predictor_n_blocks = 1       # resmi
+mixer_normalization = "auto"
+dropout0 = 0.3
+dropout1 = 0.0               # resmi
+normalization = "LayerNorm"
+activation = "ReLU"
+
+[optimizer]
+type = "AdamW"
+lr = 1e-3
+weight_decay = 1e-3

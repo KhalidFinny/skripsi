@@ -1,0 +1,11 @@
+[2026-10-12 13:49:30] ══════════════════════════════════════════════════════════
+[2026-10-12 13:49:30] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-12 13:49:30]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-12 13:49:30]   OUT        : output/apex_state
+[2026-10-12 13:49:30]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_state.xlsx
+[2026-10-12 13:49:30]   DATASET    : convat_apex_anxiety_loso_state_session
+[2026-10-12 13:49:30]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-12 13:49:30]   seeds/fold : 3
+[2026-10-12 13:49:30]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261012_134930.log
+[2026-10-12 13:49:30] ══════════════════════════════════════════════════════════
+[2026-10-12 13:49:30] GAGAL: dataset mentah tidak ditemukan: /run/media/finny/New Volume/dataset/anxiety_raw (set V3_RAW_ROOT) dan tidak ada klip lama untuk dipakai ulang

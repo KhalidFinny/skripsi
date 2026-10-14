@@ -1,0 +1,86 @@
+[2026-10-14 12:18:08] ══════════════════════════════════════════════════════════
+[2026-10-14 12:18:08] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-14 12:18:08]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-14 12:18:08]   OUT        : /home/finny/projects/Skripsi/output/apex_v2
+[2026-10-14 12:18:08]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+[2026-10-14 12:18:08]   DATASET    : convat_apex_anxiety_loso_roi25_reg
+[2026-10-14 12:18:08]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-14 12:18:08]   seeds/fold : 3
+[2026-10-14 12:18:08]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_121808.log
+[2026-10-14 12:18:08] ══════════════════════════════════════════════════════════
+[2026-10-14 12:18:08] FRESH: menghapus /home/finny/projects/Skripsi/output/apex_v2 (klip + metadata) dan fitur v3
+[2026-10-14 12:18:08] FRESH: fitur v3 + hasil training + exp/tabr + data dibersihkan (1 config).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/7 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] SPOT_DATASET_ROOT=/run/media/finny/New Volume/dataset/anxiety_raw SPOT_OUTPUT_ROOT=/home/finny/projects/Skripsi/output/apex_v2  SPOT_ALGO=phase SPOT_SIGNAL=mean_m SPOT_MOTION_COMP=0 SPOT_MDMD=0 SPOT_MDMD_K=5 SPOT_REBUILD_METADATA_ONLY=0 /home/finny/projects/Skripsi/.venv/bin/python scripts/process_spotting_pipeline.py
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 2/7 : EKSTRAKSI FITUR POC-ABS
+  APA YANG DILAKUKAN : POC-ABS per frame vs acuan NETRAL per orang (5 ROI). Arah + magnitudo motion vector per blok.
+  INPUT              : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+  ESTIMASI WAKTU     : SEDANG (~30 menit) - 3 worker (4 worker pernah menyentuh 95C)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] FEAT_DATASET_ROOT=/home/finny/projects/Skripsi/output/apex_v2/dataset /home/finny/projects/Skripsi/.venv/bin/python scripts/extract_features_poc_abs.py --roi-signals --baseline neutral
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3/7 : CACHE PKL
+  APA YANG DILAKUKAN : Konversi xlsx -> pkl (bit-identik) supaya pembacaan turun dari ~90s ke <1s
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+  ESTIMASI WAKTU     : CEPAT (~3 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_feature_cache.py --xlsx /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx --pkl /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 4/7 : FITUR TEMPORAL
+  APA YANG DILAKUKAN : Ringkas tiap lintasan onset->apex->offset jadi deskriptor (rise) untuk sinyal POC-ABS (diagregasi mean+std saat training)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+  ESTIMASI WAKTU     : CEPAT (detik)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/build_temporal_features.py --input /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl --output /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --descriptors rise --only-descriptors --no-xlsx
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)
+  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal.
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl (temporal)
+  OUTPUT             : output/training/within_subject_v3_{poc,geo_temporal}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl --out output/training/within_subject_v3_poc
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/within_subject_test.py --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --out output/training/within_subject_v3_geo_temporal
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6/7 : TRAINING LOSO TabR (1 config)
+  APA YANG DILAKUKAN : fold LOSO (1 subjek = test) x 3 seed, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold); diulang per config: convat_apex_anxiety_loso_roi25_reg
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/<dataset>/fold_*/
+  ESTIMASI WAKTU     : LAMA (~1-2 jam per config) - resume otomatis per fold (DONE.json)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 12:18:08]   config 1/1: /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml -> dataset convat_apex_anxiety_loso_roi25_reg
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/run_loso.py --dataset convat_apex_anxiety_loso_roi25_reg --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --aggregate subject --subject-norm none --label-unit session --drop-features '' --config /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml --seeds 3 --epochs-trace 40 --device cpu --epochs-log --quiet
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 7/7 : KUMPULKAN HASIL + BASELINE PEMBANDING (1 config)
+  APA YANG DILAKUKAN : collect per config (MCC, balanced accuracy, bias prediksi, per-grup vs baseline grup, ambang dari val) + logistik/GBDT (sekali, fitur identik)
+  INPUT              : third_party/.../exp/tabr/<dataset>/
+  OUTPUT             : output/training/<dataset>{,_baseline}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/collect_loso_results.py --exp convat_apex_anxiety_loso_roi25_reg --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --row-unit subject
+  [dry-run] /home/finny/projects/Skripsi/.venv/bin/python scripts/run_loso_baseline.py --dataset convat_apex_anxiety_loso_roi25_reg_baseline --features /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl --aggregate subject --subject-norm none
+
+[2026-10-14 12:18:08] ══════════════════════════════════════════════════════════
+[2026-10-14 12:18:08] PIPELINE v3 SELESAI
+[2026-10-14 12:18:08]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+[2026-10-14 12:18:08]   Hasil    : output/training/convat_apex_anxiety_loso_roi25_reg/summary.md
+[2026-10-14 12:18:08]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_121808.log
+[2026-10-14 12:18:08]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup
+[2026-10-14 12:18:08] ══════════════════════════════════════════════════════════

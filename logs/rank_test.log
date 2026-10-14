@@ -1,0 +1,10 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+nilai mentah          : median peringkat relatif=0.173 | dalam 4% teratas=0.219 | 10%=0.369 | n=1264
+prominence lokal 15   : median peringkat relatif=0.171 | dalam 4% teratas=0.209 | 10%=0.368 | n=1264
+z lokal 101           : median peringkat relatif=0.168 | dalam 4% teratas=0.145 | 10%=0.316 | n=1264
+
+(peringkat relatif 0 = puncak dengan skor TERTINGGI. Kalau skor bagus, puncak ekspresi harus dekat 0.)

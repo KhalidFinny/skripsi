@@ -1,0 +1,913 @@
+Device  : cpu (CUDA disembunyikan dari torch)
+Baca tabel fitur (pkl cache): experiments/features/apex/poc_abs_rise_v3fixed.pkl
+label unit = person: 35019 baris "before" dibuang, sisa 27936 baris (sesi "after", 1 label per subjek)
+agregasi subject: 27936 baris frame -> 56 baris, 110 fitur (mean+std)
+Total baris=56 subjek=56 fitur=110
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+Config  : experiments/configs/tabr_loso_compact.toml
+Score   : accuracy (default TabR)  <- dipakai untuk early stopping (best_epoch)
+
+!! PERINGATAN: config menyatakan dataset `convat_apex_anxiety_loso_roi25_reg`, tapi --dataset = `convat_apex_anxiety_loso_rise`.
+   --dataset MENANG, jadi config ini dilatih pada data yang bukan target tuning-nya.
+   Kalau ini tidak disengaja, pakai --dataset convat_apex_anxiety_loso_roi25_reg atau jalankan lewat scripts/run_pipeline_v3.sh (default-nya sudah disamakan).
+
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+Fitur   : experiments/features/apex/poc_abs_rise_v3fixed.pkl (sidik jari run 309e3e93c6819456)
+
+[1/56] fold: test subjek = aaisyah_nursalsabiil_ni_patriarti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_000/0-evaluation seeds=3
+2026-10-10 11:47:02.928 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:03.001 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:03.186 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:05.945 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:05.948 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:06.094 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:08.063 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:08.066 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:08.205 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[0] OK aaisyah_nursalsabiil_ni_patriarti | s0 ep4 tr0.93 va0.55 | s1 ep19 tr1.00 va0.64 | s2 ep0 tr0.57 va0.55
+
+[2/56] fold: test subjek = abdillah_agil_arbiansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_001/0-evaluation seeds=3
+2026-10-10 11:47:09.200 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:09.202 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:09.331 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:10.330 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:10.332 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:10.415 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:11.493 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:11.495 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:11.582 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[1] OK abdillah_agil_arbiansyah | s0 ep7 tr0.95 va0.73 | s1 ep13 tr1.00 va0.73 | s2 ep0 tr0.55 va0.55
+
+[3/56] fold: test subjek = abdul_aziz
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_002/0-evaluation seeds=3
+2026-10-10 11:47:12.222 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:12.223 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:12.312 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:12.949 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:12.950 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:13.037 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:14.409 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:14.411 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:14.499 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[2] OK abdul_aziz | s0 ep0 tr0.59 va0.55 | s1 ep22 tr1.00 va0.64 | s2 ep14 tr1.00 va0.73
+
+[4/56] fold: test subjek = achmad_anfasa_rabbany
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_003/0-evaluation seeds=3
+2026-10-10 11:47:15.605 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:15.607 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:15.689 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:16.384 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:16.386 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:16.473 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:17.431 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:17.433 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:17.522 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[3] OK achmad_anfasa_rabbany | s0 ep2 tr0.77 va0.55 | s1 ep10 tr0.98 va0.64 | s2 ep0 tr0.52 va0.55
+
+[5/56] fold: test subjek = adham_baskara
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_004/0-evaluation seeds=3
+2026-10-10 11:47:18.191 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:18.193 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:18.280 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:18.935 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:18.937 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:19.021 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:19.982 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:19.984 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:20.073 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[4] OK adham_baskara | s0 ep0 tr0.61 va0.55 | s1 ep9 tr0.95 va0.55 | s2 ep0 tr0.55 va0.55
+
+[6/56] fold: test subjek = ahmad_rifqi_hendriansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_005/0-evaluation seeds=3
+2026-10-10 11:47:20.705 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:20.707 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:20.788 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:21.418 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:21.420 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:21.509 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:22.413 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:22.415 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:22.503 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[5] OK ahmad_rifqi_hendriansyah | s0 ep0 tr0.61 va0.45 | s1 ep8 tr0.95 va0.55 | s2 ep4 tr0.86 va0.55
+
+[7/56] fold: test subjek = aida_rahma_fadhila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_006/0-evaluation seeds=3
+2026-10-10 11:47:23.297 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:23.298 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:23.383 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:24.030 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:24.031 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:24.118 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:25.002 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:25.003 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:25.092 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[6] OK aida_rahma_fadhila | s0 ep0 tr0.59 va0.45 | s1 ep7 tr0.93 va0.55 | s2 ep5 tr0.91 va0.64
+
+[8/56] fold: test subjek = akhmad_aakhif_athallah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_007/0-evaluation seeds=3
+2026-10-10 11:47:25.915 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:25.917 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:26.005 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:26.650 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:26.651 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:26.740 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:27.640 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:27.642 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:27.732 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[7] OK akhmad_aakhif_athallah | s0 ep0 tr0.59 va0.45 | s1 ep7 tr0.93 va0.55 | s2 ep5 tr0.91 va0.64
+
+[9/56] fold: test subjek = ananda_satria_putra_nugraha
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_008/0-evaluation seeds=3
+2026-10-10 11:47:28.574 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:28.576 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:28.664 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:29.309 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:29.311 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:29.396 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:30.267 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:30.268 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:30.353 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[8] OK ananda_satria_putra_nugraha | s0 ep0 tr0.64 va0.55 | s1 ep7 tr0.91 va0.55 | s2 ep0 tr0.57 va0.45
+
+[10/56] fold: test subjek = aryan_saputra_rahmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_009/0-evaluation seeds=3
+2026-10-10 11:47:30.982 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:30.983 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:31.068 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:31.696 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:31.698 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:31.787 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:32.776 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:32.778 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:32.867 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[9] OK aryan_saputra_rahmad | s0 ep0 tr0.64 va0.55 | s1 ep10 tr1.00 va0.64 | s2 ep14 tr1.00 va0.55
+
+[11/56] fold: test subjek = ashrul_rifki_ardiyhasa
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_010/0-evaluation seeds=3
+2026-10-10 11:47:33.980 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:33.981 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:34.067 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:34.706 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:34.708 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:34.794 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:35.759 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:35.760 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:35.844 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[10] OK ashrul_rifki_ardiyhasa | s0 ep0 tr0.64 va0.55 | s1 ep10 tr1.00 va0.64 | s2 ep15 tr1.00 va0.55
+
+[12/56] fold: test subjek = ayleen_ruhul_qisthy
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_011/0-evaluation seeds=3
+2026-10-10 11:47:36.978 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:36.980 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:37.068 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:37.706 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:37.708 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:37.792 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:38.765 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:38.767 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:38.857 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[11] OK ayleen_ruhul_qisthy | s0 ep0 tr0.66 va0.64 | s1 ep9 tr0.93 va0.55 | s2 ep0 tr0.55 va0.45
+
+[13/56] fold: test subjek = billy_maulana_ferdinan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_012/0-evaluation seeds=3
+2026-10-10 11:47:39.505 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:39.506 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:39.592 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:40.210 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:40.212 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:40.296 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:41.232 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:41.234 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:41.322 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[12] OK billy_maulana_ferdinan | s0 ep0 tr0.66 va0.64 | s1 ep9 tr0.93 va0.45 | s2 ep0 tr0.55 va0.45
+
+[14/56] fold: test subjek = danendra_adhipramana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_013/0-evaluation seeds=3
+2026-10-10 11:47:41.964 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:41.966 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:42.051 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:42.683 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:42.684 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:42.773 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:43.409 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:43.411 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:43.499 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[13] OK danendra_adhipramana | s0 ep0 tr0.64 va0.45 | s1 ep0 tr0.55 va0.45 | s2 ep0 tr0.57 va0.45
+
+[15/56] fold: test subjek = dewita_anggraini
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_014/0-evaluation seeds=3
+2026-10-10 11:47:44.159 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:44.161 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:44.247 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:44.883 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:44.884 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:44.972 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:45.600 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:45.602 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:45.687 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[14] OK dewita_anggraini | s0 ep0 tr0.64 va0.45 | s1 ep0 tr0.52 va0.45 | s2 ep0 tr0.57 va0.45
+
+[16/56] fold: test subjek = dika_arie_arrifky
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_015/0-evaluation seeds=3
+2026-10-10 11:47:46.340 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:46.342 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:46.432 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:47.079 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:47.081 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:47.167 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:47.810 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:47.812 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:47.900 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[15] OK dika_arie_arrifky | s0 ep0 tr0.66 va0.55 | s1 ep0 tr0.52 va0.45 | s2 ep0 tr0.57 va0.45
+
+[17/56] fold: test subjek = duta_kurnia_ardhani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_016/0-evaluation seeds=3
+2026-10-10 11:47:48.551 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:48.553 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:48.639 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:49.278 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:49.279 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:49.365 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:50.010 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:50.012 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:50.098 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[16] OK duta_kurnia_ardhani | s0 ep0 tr0.66 va0.45 | s1 ep0 tr0.52 va0.45 | s2 ep0 tr0.55 va0.45
+
+[18/56] fold: test subjek = ericha_rizki_wardani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_017/0-evaluation seeds=3
+2026-10-10 11:47:50.760 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:50.762 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:50.846 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:51.474 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:51.476 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:51.558 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:52.201 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:52.203 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:52.290 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[17] OK ericha_rizki_wardani | s0 ep0 tr0.64 va0.55 | s1 ep0 tr0.55 va0.45 | s2 ep0 tr0.55 va0.45
+
+[19/56] fold: test subjek = esa_pratama_putri
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_018/0-evaluation seeds=3
+2026-10-10 11:47:52.951 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:52.953 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:53.038 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:53.669 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:53.671 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:53.759 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:54.686 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:54.687 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:54.773 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[18] OK esa_pratama_putri | s0 ep0 tr0.66 va0.45 | s1 ep9 tr0.95 va0.55 | s2 ep0 tr0.57 va0.45
+
+[20/56] fold: test subjek = fabian_ananda_merdana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_019/0-evaluation seeds=3
+2026-10-10 11:47:55.410 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:55.411 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:55.500 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:56.146 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:56.148 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:56.228 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:56.855 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:56.857 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:56.943 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[19] OK fabian_ananda_merdana | s0 ep0 tr0.66 va0.45 | s1 ep0 tr0.55 va0.45 | s2 ep0 tr0.57 va0.45
+
+[21/56] fold: test subjek = fahmi_yahya
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_020/0-evaluation seeds=3
+2026-10-10 11:47:57.585 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:57.586 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:57.676 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:58.320 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:58.321 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:58.408 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:47:59.521 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:47:59.523 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:47:59.609 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[20] OK fahmi_yahya | s0 ep0 tr0.66 va0.45 | s1 ep14 tr1.00 va0.45 | s2 ep0 tr0.57 va0.45
+
+[22/56] fold: test subjek = fahri_zanuar_pradian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_021/0-evaluation seeds=3
+2026-10-10 11:48:00.248 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:00.250 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:00.335 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:00.956 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:00.957 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:01.039 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:01.764 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:01.765 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:01.851 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[21] OK fahri_zanuar_pradian | s0 ep0 tr0.66 va0.45 | s1 ep3 tr0.84 va0.36 | s2 ep0 tr0.57 va0.45
+
+[23/56] fold: test subjek = fandy_wahyu_hanzura
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_022/0-evaluation seeds=3
+2026-10-10 11:48:02.462 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:02.463 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:02.548 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:03.269 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:03.270 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:03.355 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:04.117 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:04.119 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:04.207 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[22] OK fandy_wahyu_hanzura | s0 ep3 tr0.93 va0.55 | s1 ep4 tr0.86 va0.36 | s2 ep0 tr0.55 va0.45
+
+[24/56] fold: test subjek = fiera_ziadattun_nisa_
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_023/0-evaluation seeds=3
+2026-10-10 11:48:04.884 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:04.886 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:04.974 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:05.618 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:05.620 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:05.704 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:06.455 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:06.457 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:06.543 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[23] OK fiera_ziadattun_nisa_ | s0 ep0 tr0.66 va0.55 | s1 ep3 tr0.84 va0.45 | s2 ep0 tr0.55 va0.45
+
+[25/56] fold: test subjek = ghetsa_ramadhani_riska_arryanti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_024/0-evaluation seeds=3
+2026-10-10 11:48:07.191 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:07.193 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:07.278 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:07.955 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:07.956 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:08.041 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:08.663 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:08.666 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:08.747 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[24] OK ghetsa_ramadhani_riska_arryanti | s0 ep1 tr0.80 va0.55 | s1 ep0 tr0.57 va0.45 | s2 ep0 tr0.57 va0.45
+
+[26/56] fold: test subjek = haikal_muhammad_rafli
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_025/0-evaluation seeds=3
+2026-10-10 11:48:09.391 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:09.393 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:09.479 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:10.104 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:10.105 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:10.193 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:10.833 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:10.835 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:10.923 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[25] OK haikal_muhammad_rafli | s0 ep0 tr0.64 va0.45 | s1 ep0 tr0.57 va0.36 | s2 ep0 tr0.55 va0.45
+
+[27/56] fold: test subjek = hanifah_kurniasari
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_026/0-evaluation seeds=3
+2026-10-10 11:48:11.573 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:11.574 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:11.659 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:12.801 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:12.803 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:12.892 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:13.958 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:13.960 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:14.047 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[26] OK hanifah_kurniasari | s0 ep15 tr1.00 va0.55 | s1 ep13 tr1.00 va0.55 | s2 ep0 tr0.55 va0.45
+
+[28/56] fold: test subjek = hizkia_elsadanta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_027/0-evaluation seeds=3
+2026-10-10 11:48:14.757 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:14.759 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:14.848 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:15.539 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:15.540 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:15.628 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:16.399 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:16.400 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:16.491 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[27] OK hizkia_elsadanta | s0 ep1 tr0.80 va0.55 | s1 ep0 tr0.57 va0.36 | s2 ep6 tr0.93 va0.55
+
+[29/56] fold: test subjek = ivansyah_eka_oktaviadi_santoso
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_028/0-evaluation seeds=3
+2026-10-10 11:48:17.365 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:17.367 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:17.456 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:18.136 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:18.138 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:18.225 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:18.870 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:18.872 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:18.960 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[28] OK ivansyah_eka_oktaviadi_santoso | s0 ep1 tr0.80 va0.55 | s1 ep0 tr0.57 va0.36 | s2 ep6 tr0.93 va0.64
+
+[30/56] fold: test subjek = jiha_ramdhan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_029/0-evaluation seeds=3
+2026-10-10 11:48:19.825 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:19.826 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:19.914 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:20.586 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:20.588 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:20.674 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:21.467 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:21.468 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:21.553 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[29] OK jiha_ramdhan | s0 ep1 tr0.73 va0.55 | s1 ep4 tr0.91 va0.36 | s2 ep0 tr0.57 va0.55
+
+[31/56] fold: test subjek = kamila_habiba_putri_ananta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_030/0-evaluation seeds=3
+2026-10-10 11:48:22.217 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:22.219 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:22.307 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:23.017 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:23.018 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:23.106 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:23.746 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:23.748 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:23.833 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[30] OK kamila_habiba_putri_ananta | s0 ep2 tr0.86 va0.55 | s1 ep0 tr0.55 va0.27 | s2 ep3 tr0.68 va0.64
+
+[32/56] fold: test subjek = key_firdausi_alfarel
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_031/0-evaluation seeds=3
+2026-10-10 11:48:24.583 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:24.585 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:24.678 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:25.392 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:25.393 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:25.480 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:27.031 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:27.033 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:27.122 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[31] OK key_firdausi_alfarel | s0 ep2 tr0.80 va0.55 | s1 ep27 tr1.00 va0.55 | s2 ep4 tr0.82 va0.64
+
+[33/56] fold: test subjek = luqman_ananta_abdul_hakim
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_032/0-evaluation seeds=3
+2026-10-10 11:48:27.917 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:27.918 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:28.005 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:28.669 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:28.670 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:28.755 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:29.698 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:29.699 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:29.781 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[32] OK luqman_ananta_abdul_hakim | s0 ep1 tr0.80 va0.55 | s1 ep9 tr0.95 va0.45 | s2 ep0 tr0.55 va0.55
+
+[34/56] fold: test subjek = luthfi_triaswangga
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_033/0-evaluation seeds=3
+2026-10-10 11:48:30.426 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:30.427 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:30.513 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:31.147 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:31.149 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:31.239 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:31.861 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:31.862 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:31.947 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[33] OK luthfi_triaswangga | s0 ep0 tr0.68 va0.45 | s1 ep0 tr0.55 va0.27 | s2 ep5 tr0.91 va0.64
+
+[35/56] fold: test subjek = m__firmansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_034/0-evaluation seeds=3
+2026-10-10 11:48:32.767 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:32.769 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:32.855 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:33.502 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:33.504 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:33.593 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:34.252 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:34.254 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:34.344 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[34] OK m__firmansyah | s0 ep0 tr0.68 va0.45 | s1 ep0 tr0.55 va0.27 | s2 ep5 tr0.91 va0.73
+
+[36/56] fold: test subjek = mohammad_adri_favian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_035/0-evaluation seeds=3
+2026-10-10 11:48:35.169 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:35.170 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:35.257 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:35.954 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:35.956 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:36.038 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:36.695 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:36.697 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:36.781 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[35] OK mohammad_adri_favian | s0 ep1 tr0.82 va0.36 | s1 ep0 tr0.57 va0.45 | s2 ep1 tr0.57 va0.64
+
+[37/56] fold: test subjek = muhammad_farrel_caesarian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_036/0-evaluation seeds=3
+2026-10-10 11:48:37.481 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:37.483 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:37.567 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:38.251 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:38.253 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:38.333 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:38.958 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:38.960 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:39.043 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[36] OK muhammad_farrel_caesarian | s0 ep1 tr0.82 va0.36 | s1 ep0 tr0.55 va0.36 | s2 ep1 tr0.55 va0.64
+
+[38/56] fold: test subjek = muhammad_khalid_atthoriq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_037/0-evaluation seeds=3
+2026-10-10 11:48:39.724 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:39.726 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:39.813 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:40.515 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:40.516 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:40.604 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:41.238 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:41.239 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:41.327 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[37] OK muhammad_khalid_atthoriq | s0 ep2 tr0.84 va0.45 | s1 ep0 tr0.55 va0.27 | s2 ep0 tr0.57 va0.55
+
+[39/56] fold: test subjek = muhammad_rifqi_rizqullah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_038/0-evaluation seeds=3
+2026-10-10 11:48:41.977 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:41.979 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:42.065 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:42.744 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:42.745 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:42.833 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:43.472 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:43.474 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:43.561 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[38] OK muhammad_rifqi_rizqullah | s0 ep1 tr0.82 va0.36 | s1 ep0 tr0.55 va0.27 | s2 ep2 tr0.64 va0.64
+
+[40/56] fold: test subjek = muhammad_syahrul_gunawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_039/0-evaluation seeds=3
+2026-10-10 11:48:44.315 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:44.317 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:44.409 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:45.109 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:45.111 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:45.206 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:45.865 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:45.867 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:45.955 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[39] OK muhammad_syahrul_gunawan | s0 ep1 tr0.82 va0.36 | s1 ep0 tr0.55 va0.36 | s2 ep2 tr0.64 va0.55
+
+[41/56] fold: test subjek = muhammad_zaki
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_040/0-evaluation seeds=3
+2026-10-10 11:48:46.698 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:46.700 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:46.787 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:47.470 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:47.471 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:47.564 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:48.202 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:48.204 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:48.288 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[40] OK muhammad_zaki | s0 ep1 tr0.80 va0.45 | s1 ep0 tr0.57 va0.36 | s2 ep0 tr0.59 va0.45
+
+[42/56] fold: test subjek = nabeel_nizam
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_041/0-evaluation seeds=3
+2026-10-10 11:48:48.924 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:48.926 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:49.006 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:49.670 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:49.671 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:49.754 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:50.377 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:50.379 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:50.461 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[41] OK nabeel_nizam | s0 ep1 tr0.82 va0.45 | s1 ep0 tr0.59 va0.36 | s2 ep0 tr0.59 va0.45
+
+[43/56] fold: test subjek = nahdia_putri_safira
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_042/0-evaluation seeds=3
+2026-10-10 11:48:51.101 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:51.102 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:51.191 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:51.860 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:51.861 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:51.947 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:52.766 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:52.767 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:52.857 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[42] OK nahdia_putri_safira | s0 ep1 tr0.82 va0.55 | s1 ep5 tr0.86 va0.36 | s2 ep0 tr0.59 va0.55
+
+[44/56] fold: test subjek = nakita_gayuh_cakrawala
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_043/0-evaluation seeds=3
+2026-10-10 11:48:53.518 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:53.520 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:53.603 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:54.282 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:54.284 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:54.371 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:55.169 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:55.170 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:55.258 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[43] OK nakita_gayuh_cakrawala | s0 ep1 tr0.73 va0.64 | s1 ep4 tr0.86 va0.36 | s2 ep2 tr0.61 va0.64
+
+[45/56] fold: test subjek = nova_eliza_maharani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_044/0-evaluation seeds=3
+2026-10-10 11:48:55.991 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:55.992 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:56.080 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:56.760 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:56.761 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:56.849 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:57.687 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:57.689 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:57.778 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[44] OK nova_eliza_maharani | s0 ep1 tr0.73 va0.55 | s1 ep5 tr0.91 va0.45 | s2 ep2 tr0.61 va0.64
+
+[46/56] fold: test subjek = oltha_rosyeda_al_haq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_045/0-evaluation seeds=3
+2026-10-10 11:48:58.531 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:58.532 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:58.621 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:48:59.309 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:48:59.311 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:48:59.397 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:00.038 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:00.039 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:00.128 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[45] OK oltha_rosyeda_al_haq | s0 ep1 tr0.77 va0.45 | s1 ep0 tr0.52 va0.36 | s2 ep2 tr0.61 va0.64
+
+[47/56] fold: test subjek = rafiqo_adib_destarachmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_046/0-evaluation seeds=3
+2026-10-10 11:49:00.865 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:00.866 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:00.953 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:01.665 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:01.667 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:01.749 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:02.598 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:02.600 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:02.687 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[46] OK rafiqo_adib_destarachmad | s0 ep2 tr0.84 va0.45 | s1 ep6 tr0.89 va0.36 | s2 ep2 tr0.59 va0.64
+
+[48/56] fold: test subjek = rahmad_dwi_ferdyan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_047/0-evaluation seeds=3
+2026-10-10 11:49:03.404 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:03.406 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:03.487 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:04.153 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:04.155 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:04.241 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:05.074 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:05.075 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:05.161 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[47] OK rahmad_dwi_ferdyan | s0 ep1 tr0.80 va0.45 | s1 ep5 tr0.89 va0.36 | s2 ep2 tr0.61 va0.64
+
+[49/56] fold: test subjek = rizkya_salsabila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_048/0-evaluation seeds=3
+2026-10-10 11:49:05.889 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:05.890 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:05.977 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:06.627 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:06.628 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:06.714 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:07.658 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:07.660 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:07.744 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[48] OK rizkya_salsabila | s0 ep0 tr0.70 va0.45 | s1 ep9 tr0.93 va0.45 | s2 ep2 tr0.59 va0.64
+
+[50/56] fold: test subjek = rocky_alessandro_kristanto
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_049/0-evaluation seeds=3
+2026-10-10 11:49:08.454 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:08.455 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:08.541 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:09.177 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:09.179 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:09.263 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:10.046 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:10.048 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:10.135 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[49] OK rocky_alessandro_kristanto | s0 ep0 tr0.68 va0.36 | s1 ep4 tr0.89 va0.45 | s2 ep2 tr0.61 va0.64
+
+[51/56] fold: test subjek = satria_wiguna
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_050/0-evaluation seeds=3
+2026-10-10 11:49:10.860 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:10.862 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:10.949 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:11.613 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:11.615 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:11.699 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:12.752 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:12.753 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:12.838 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[50] OK satria_wiguna | s0 ep0 tr0.70 va0.36 | s1 ep12 tr1.00 va0.45 | s2 ep2 tr0.61 va0.64
+
+[52/56] fold: test subjek = tomi_martino_affandi
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_051/0-evaluation seeds=3
+2026-10-10 11:49:13.540 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:13.542 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:13.625 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:14.240 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:14.241 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:14.326 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:15.182 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:15.184 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:15.271 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[51] OK tomi_martino_affandi | s0 ep0 tr0.68 va0.36 | s1 ep6 tr0.89 va0.45 | s2 ep0 tr0.55 va0.55
+
+[53/56] fold: test subjek = tora_digda_kristiawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_052/0-evaluation seeds=3
+2026-10-10 11:49:15.943 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:15.945 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:16.031 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:16.673 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:16.675 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:16.758 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:17.584 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:17.585 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:17.670 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[52] OK tora_digda_kristiawan | s0 ep0 tr0.68 va0.45 | s1 ep5 tr0.89 va0.45 | s2 ep0 tr0.55 va0.55
+
+[54/56] fold: test subjek = valentina_santi_grehasta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_053/0-evaluation seeds=3
+2026-10-10 11:49:18.330 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:18.332 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:18.416 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:19.059 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:19.061 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:19.146 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:20.070 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:20.072 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:20.160 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[53] OK valentina_santi_grehasta | s0 ep0 tr0.64 va0.55 | s1 ep8 tr0.91 va0.45 | s2 ep2 tr0.59 va0.64
+
+[55/56] fold: test subjek = vincentius_leonanda_prabowo
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_054/0-evaluation seeds=3
+2026-10-10 11:49:20.893 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:20.895 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:20.984 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:21.617 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:21.619 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:21.705 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:22.625 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:22.627 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:22.710 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[54] OK vincentius_leonanda_prabowo | s0 ep0 tr0.68 va0.45 | s1 ep8 tr0.93 va0.45 | s2 ep2 tr0.61 va0.64
+
+[56/56] fold: test subjek = vira_alfita_yunia
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_rise/fold_055/0-evaluation seeds=3
+2026-10-10 11:49:23.429 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:23.430 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:23.518 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:24.149 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:24.151 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:24.252 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+2026-10-10 11:49:25.581 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 11:49:25.583 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_rise)
+2026-10-10 11:49:25.672 | INFO     | bin.tabr:main:349 - n_parameters = 9025
+[55] OK vira_alfita_yunia | s0 ep0 tr0.64 va0.55 | s1 ep20 tr1.00 va0.45 | s2 ep0 tr0.55 va0.55
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_rise/fold_*/

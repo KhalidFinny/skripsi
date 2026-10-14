@@ -1,0 +1,48 @@
+Device  : cpu (CUDA disembunyikan dari torch)
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_combined_rise.pkl
+agregasi subject: 40637 baris frame -> 112 baris, 110 fitur (mean+std)
+Total baris=112 subjek=56 fitur=110
+Kelas: {'anxiety_tinggi': 66, 'anxiety_rendah': 46}
+Mode HOLDOUT: 1 fold, test = 12 orang dari /home/finny/projects/Skripsi/output/presplit/test_persons.txt
+Config  : experiments/configs/tabr_loso_roi25_reg.toml
+Score   : accuracy (default TabR)  <- dipakai untuk early stopping (best_epoch)
+
+!! PERINGATAN: config menyatakan dataset `convat_apex_anxiety_loso_roi25`, tapi --dataset = `convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout`.
+   --dataset MENANG, jadi config ini dilatih pada data yang bukan target tuning-nya.
+   Kalau ini tidak disengaja, pakai --dataset convat_apex_anxiety_loso_roi25 atau jalankan lewat scripts/run_pipeline_v3.sh (default-nya sudah disamakan).
+
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+Fitur   : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_combined_rise.pkl (sidik jari run 9116d4955842ca70)
+
+[1/56] fold: test subjek = 12 orang (holdout)
+      subjek train=35 val=9 test=12
+      baris train=70 (1 baris/subjek, tanpa balance) val=18 test=24
+      constant-feature prune: 110 -> 110 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout/fold_000/0-evaluation seeds=3
+2026-10-14 01:24:18.641 | INFO     | lib.util:start:130 - Creating the output
+2026-10-14 01:24:18.691 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout)
+2026-10-14 01:24:18.698 | INFO     | bin.tabr:main:349 - n_parameters = 36737
+2026-10-14 01:24:25.379 | INFO     | lib.util:start:130 - Creating the output
+2026-10-14 01:24:25.382 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout)
+2026-10-14 01:24:25.387 | INFO     | bin.tabr:main:349 - n_parameters = 36737
+2026-10-14 01:24:30.033 | INFO     | lib.util:start:130 - Creating the output
+2026-10-14 01:24:30.036 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout)
+2026-10-14 01:24:30.041 | INFO     | bin.tabr:main:349 - n_parameters = 36737
+[0] OK 12 orang (holdout) | s0 ep32 tr1.00 va0.83 | s1 ep18 tr1.00 va0.78 | s2 ep1 tr0.84 va0.67
+      s0 val_acc%/epoch  : 67 61 67 67 61 56 44 56 56 50 50 50 56 72 61 78 67 67 72 78 78 78 78 78 78 78 78 78 78 78 78 78 83 83 83 83 83 83 78 67 ...(+34 ep)
+      s0 train_loss/epoch: 0.73 0.65 0.61 0.57 0.49 0.44 0.41 0.35 0.27 0.25 0.19 0.18 0.15 0.17 0.18 0.18 0.27 0.15 0.20 0.15 0.12 0.10 0.08 0.05 0.07 0.07 0.05 0.04 0.04 0.02 0.07 0.02 0.03 0.02 0.07 0.03 0.04 0.01 0.06 0.03 ...(+34 ep)
+      s0 val_loss/epoch  : 0.67 0.63 0.61 0.61 0.65 0.68 0.70 0.69 0.73 0.90 0.99 0.87 0.76 0.68 0.85 0.61 0.62 0.52 0.52 0.55 0.58 0.56 0.51 0.49 0.50 0.54 0.56 0.60 0.64 0.67 0.64 0.58 0.52 0.51 0.53 0.56 0.54 0.54 0.60 1.08 ...(+34 ep)
+      s0 -> best ep32 = 83% | 74 epoch total
+      s0 !! OVERFIT: train loss -0.68 (turun) tapi val loss +1.83 (naik) -> model menghafal, tidak menambah kemampuan generalisasi.
+      s1 val_acc%/epoch  : 50 61 67 61 67 56 56 56 61 67 61 56 56 56 50 67 67 72 78 56 61 61 61 61 67 67 67 67 67 61 56 61 61 67 67 67 61 61 50 50 ...(+20 ep)
+      s1 train_loss/epoch: 0.69 0.63 0.61 0.54 0.50 0.44 0.41 0.38 0.33 0.29 0.23 0.22 0.17 0.18 0.20 0.16 0.17 0.12 0.15 0.12 0.11 0.13 0.09 0.15 0.08 0.08 0.05 0.08 0.11 0.08 0.05 0.09 0.05 0.04 0.03 0.03 0.05 0.03 0.07 0.10 ...(+20 ep)
+      s1 val_loss/epoch  : 0.69 0.66 0.66 0.65 0.65 0.64 0.63 0.63 0.68 0.57 0.69 0.74 0.62 0.79 0.95 0.96 0.92 0.73 0.65 1.02 1.10 1.21 1.13 1.08 1.18 1.21 1.21 1.22 1.23 1.33 1.50 1.43 1.37 1.37 1.39 1.45 1.63 1.65 1.74 1.75 ...(+20 ep)
+      s1 -> best ep18 = 78% | 60 epoch total
+      s1 !! OVERFIT: train loss -0.56 (turun) tapi val loss +1.31 (naik) -> model menghafal, tidak menambah kemampuan generalisasi.
+      s2 val_acc%/epoch  : 61 67 67 67 67 61 61 61 61 50 56 56 50 56 56 61 56 56 50 61 56 50 50 50 50 44 56 56 56 56 56 50 56 61 61 61 61 61 61 61 ...(+3 ep)
+      s2 train_loss/epoch: 0.72 0.63 0.57 0.48 0.47 0.38 0.33 0.32 0.33 0.23 0.23 0.20 0.21 0.21 0.19 0.16 0.22 0.19 0.16 0.12 0.18 0.13 0.09 0.10 0.09 0.12 0.07 0.06 0.06 0.05 0.05 0.06 0.06 0.04 0.04 0.04 0.04 0.04 0.03 0.06 ...(+3 ep)
+      s2 val_loss/epoch  : 0.69 0.67 0.65 0.66 0.69 0.70 0.72 0.80 0.83 1.01 1.06 1.16 1.28 1.22 1.20 1.17 1.20 1.22 1.26 1.22 1.27 1.39 1.45 1.51 1.55 1.56 1.54 1.54 1.58 1.65 1.69 1.71 1.67 1.67 1.71 1.75 1.78 1.82 1.84 1.60 ...(+3 ep)
+      s2 -> best ep1 = 67% | 43 epoch total
+      s2 !! OVERFIT: train loss -0.70 (turun) tapi val loss +0.94 (naik) -> model menghafal, tidak menambah kemampuan generalisasi.
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg_holdout/fold_*/

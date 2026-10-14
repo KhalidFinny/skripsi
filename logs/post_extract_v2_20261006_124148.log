@@ -1,0 +1,17 @@
+[12:41:48] menunggu ekstraksi neutral v2 (pid 249171)
+[13:09:28] ekstraksi neutral v2 selesai
+[13:09:28] pkl v2
+xlsx: (104194, 48) in 97.1s
+wrote poc_abs_roi_signals_neutral_v2_full.pkl: 35.4 MB
+pkl : (104194, 48) in 0.06s
+IDENTIK bit-per-bit: 48 kolom, 104194 baris
+[13:11:07] fitur temporal v2
+Input : experiments/features/apex/poc_abs_roi_signals_neutral_v2_full.pkl (104194 baris, 48 kolom)
+Sinyal dasar: 30 (5 ROI x 6 sinyal), 5 deskriptor -> 150 kolom baru
+Event: 6878 lintasan
+Keluaran: experiments/features/apex/poc_abs_roi_signals_neutral_v2_temporal.pkl (104194 baris, 198 kolom)
+Kolom baru: 150 (contoh: ['mulut_mean_m_peak', 'mulut_mean_m_ttp', 'mulut_mean_m_rise', 'mulut_mean_m_fall', 'mulut_mean_m_auc'])
+[13:11:24] ringkasan
+poc_abs_roi_signals_neutral_v2_full.pkl: (104194, 48) | subjek 56 | frame min 1 | event 6878
+poc_abs_roi_signals_neutral_v2_temporal.pkl: (104194, 198) | subjek 56 | frame min 1 | event 6878
+[13:11:25] SELESAI

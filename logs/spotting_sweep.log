@@ -1,0 +1,107 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+GT: 308 ekspresi pada 86 video (micro 57, macro 251)
+Grid: top_k=[1, 2, 3, 4, 5] x prom_rel=[0.04] x thresh=['meanstd', 'mad'] (10 kombinasi) | default pipeline: top_k=5, prom_rel=0.04, thresh=meanstd
+[1/86] 15_0102eatingworms.avi: gt=4 frames=1074
+[2/86] 15_0101disgustingteeth.avi: gt=1 frames=2051
+[3/86] 15_0502funnyerrors.avi: gt=2 frames=2272
+[4/86] 15_0401girlcrashing.avi: gt=1 frames=3710
+[5/86] 15_0402beatingpregnantwoman.avi: gt=4 frames=4369
+[6/86] 15_0503unnyfarting.avi: gt=1 frames=2810
+[7/86] 15_0505funnyinnovations.avi: gt=1 frames=2303
+[8/86] 16_0102eatingworms.avi: gt=9 frames=1074
+[9/86] 16_0101disgustingteeth.avi: gt=7 frames=2050
+[10/86] 16_0502funnyerrors.avi: gt=7 frames=2273
+[11/86] 16_0401girlcrashing.avi: gt=4 frames=3710
+[12/86] 16_0402beatingpregnantwoman.avi: gt=8 frames=4369
+[13/86] 16_0505funnyinnovations.avi: gt=10 frames=2302
+[14/86] 19_0102eatingworms.avi: gt=2 frames=1069
+[15/86] 16_0507climbingthewall.avi: gt=6 frames=3263
+[16/86] 19_0505funnyinnovations.avi: gt=1 frames=2303
+[17/86] 19_0402beatingpregnantwoman.avi: gt=1 frames=4370
+[18/86] 20_0502funnyerrors.avi: gt=3 frames=2273
+[19/86] 19_0507climbingthewall.avi: gt=1 frames=3264
+[20/86] 21_0101disgustingteeth.avi: gt=1 frames=2052
+[21/86] 22_0101disgustingteeth.avi: gt=6 frames=2051
+[22/86] 22_0102eatingworms.avi: gt=1 frames=1071
+[23/86] 23_0102eatingworms.avi: gt=5 frames=1070
+[24/86] 21_0401girlcrashing.avi: gt=1 frames=3715
+[25/86] 23_0502funnyerrors.avi: gt=2 frames=2272
+[26/86] 23_0402beatingpregnantwoman.avi: gt=3 frames=4373
+[27/86] 23_0507climbingthewall.avi: gt=1 frames=3264
+[28/86] 24_0101disgustingteeth.avi: gt=2 frames=2051
+[29/86] 24_0502funnyerrors.avi: gt=4 frames=2272
+[30/86] 24_0401girlcrashing.avi: gt=11 frames=3716
+[31/86] 24_0402beatingpregnantwoman.avi: gt=2 frames=4370
+[32/86] 25_0102eatingworms.avi: gt=4 frames=1074
+[33/86] 25_0101disgustingteeth.avi: gt=1 frames=2053
+[34/86] 24_0507climbingthewall.avi: gt=11 frames=3264
+[35/86] 25_0508funnydunkey.avi: gt=1 frames=659
+[36/86] 26_0102eatingworms.avi: gt=2 frames=1069
+[37/86] 25_0502funnyerrors.avi: gt=2 frames=2273
+[38/86] 26_0101disgustingteeth.avi: gt=1 frames=2051
+[39/86] 27_0101disgustingteeth.avi: gt=5 frames=2051
+[40/86] 26_0503unnyfarting.avi: gt=1 frames=2810
+[41/86] 26_0401girlcrashing.avi: gt=1 frames=3713
+[42/86] 27_0102eatingworms.avi: gt=9 frames=1075
+[43/86] 27_0502funnyerrors.avi: gt=6 frames=2272
+[44/86] 27_0401girlcrashing.avi: gt=8 frames=3711
+[45/86] 27_0402beatingpregnantwoman.avi: gt=2 frames=4370
+[46/86] 27_0503unnyfarting.avi: gt=3 frames=2809
+[47/86] 27_0505funnyinnovations.avi: gt=3 frames=2303
+[48/86] 27_0508funnydunkey.avi: gt=1 frames=659
+[49/86] 27_0507climbingthewall.avi: gt=4 frames=3264
+[50/86] 29_0502funnyerrors.avi: gt=1 frames=2274
+[51/86] 30_0101disgustingteeth.avi: gt=1 frames=2050
+[52/86] 30_0102eatingworms.avi: gt=2 frames=1068
+[53/86] 30_0502funnyerrors.avi: gt=5 frames=2273
+[54/86] 30_0505funnyinnovations.avi: gt=1 frames=2302
+[55/86] 30_0401girlcrashing.avi: gt=4 frames=3715
+[56/86] 31_0101disgustingteeth.avi: gt=8 frames=2050
+[57/86] 30_0507climbingthewall.avi: gt=1 frames=3263
+[58/86] 31_0401girlcrashing.avi: gt=3 frames=3711
+[59/86] 31_0502funnyerrors.avi: gt=1 frames=2272
+[60/86] 31_0402beatingpregnantwoman.avi: gt=10 frames=4370
+[61/86] 31_0505funnyinnovations.avi: gt=2 frames=2302
+[62/86] 32_0102eatingworms.avi: gt=1 frames=1070
+[63/86] 31_0507climbingthewall.avi: gt=4 frames=3264
+[64/86] 32_0101disgustingteeth.avi: gt=2 frames=2052
+[65/86] 32_0502funnyerrors.avi: gt=7 frames=2273
+[66/86] 32_0401girlcrashing.avi: gt=14 frames=3716
+[67/86] 32_0402beatingpregnantwoman.avi: gt=6 frames=4373
+[68/86] 32_0505funnyinnovations.avi: gt=4 frames=2303
+[69/86] 32_0503unnyfarting.avi: gt=14 frames=2810
+[70/86] 32_0508funnydunkey.avi: gt=1 frames=659
+[71/86] 33_0102eatingworms.avi: gt=2 frames=1071
+[72/86] 32_0507climbingthewall.avi: gt=2 frames=3264
+[73/86] 35_0102eatingworms.avi: gt=2 frames=1080
+[74/86] 34_0503unnyfarting.avi: gt=1 frames=2810
+[75/86] 33_0402beatingpregnantwoman.avi: gt=2 frames=4373
+[76/86] 36_0505funnyinnovations.avi: gt=1 frames=2305
+[77/86] 36_0401girlcrashing.avi: gt=1 frames=3719
+[78/86] 37_0101disgustingteeth.avi: gt=1 frames=2051
+[79/86] 37_0502funnyerrors.avi: gt=1 frames=2269
+[80/86] 37_0505funnyinnovations.avi: gt=4 frames=2305
+[81/86] 37_0508funnydunkey.avi: gt=2 frames=659
+[82/86] 37_0402beatingpregnantwoman.avi: gt=5 frames=4370
+[83/86] 38_0502funnyerrors.avi: gt=3 frames=2276
+[84/86] 37_0507climbingthewall.avi: gt=4 frames=3263
+[85/86] 38_0507climbingthewall.avi: gt=6 frames=3263
+[86/86] 40_0401girlcrashing.avi: gt=2 frames=3713
+Sinyal selesai: 86 video, 0 gagal
+  top_k=1 prom_rel=0.04 thresh=meanstd: P=0.1838 R=0.2208 F1=0.2006 (det/video 4.3)
+  top_k=1 prom_rel=0.04 thresh=mad: P=0.1862 R=0.2110 F1=0.1979 (det/video 4.1)
+  top_k=2 prom_rel=0.04 thresh=meanstd: P=0.1386 R=0.3182 F1=0.1931 (det/video 8.2)
+  top_k=2 prom_rel=0.04 thresh=mad: P=0.1433 R=0.3052 F1=0.1950 (det/video 7.6)
+  top_k=3 prom_rel=0.04 thresh=meanstd: P=0.1158 R=0.3929 F1=0.1789 (det/video 12.2)
+  top_k=3 prom_rel=0.04 thresh=mad: P=0.1229 R=0.3799 F1=0.1857 (det/video 11.1)
+  top_k=4 prom_rel=0.04 thresh=meanstd: P=0.1001 R=0.4416 F1=0.1632 (det/video 15.8)
+  top_k=4 prom_rel=0.04 thresh=mad: P=0.1077 R=0.4253 F1=0.1719 (det/video 14.1)
+  top_k=5 prom_rel=0.04 thresh=meanstd: P=0.0971 R=0.5195 F1=0.1637 (det/video 19.2)
+  top_k=5 prom_rel=0.04 thresh=mad: P=0.1040 R=0.4935 F1=0.1718 (det/video 17.0)
+
+Terbaik: top_k=1, prom_rel=0.04, thresh=meanstd -> F1 0.2006
+Keluaran: /home/finny/projects/Skripsi/output/training/spotting_casme2/summary.md

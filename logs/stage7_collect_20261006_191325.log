@@ -1,0 +1,12 @@
+Fold: 56, seeds/fold: 3
+Grup subjek: {'before_sama': 38, 'before_berubah': 18}
+Traceback (most recent call last):
+  File "/home/finny/projects/Skripsi/scripts/collect_loso_results.py", line 460, in <module>
+    main()
+  File "/home/finny/projects/Skripsi/scripts/collect_loso_results.py", line 282, in main
+    vm = val_threshold_metrics(pool)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/finny/projects/Skripsi/scripts/collect_loso_results.py", line 107, in val_threshold_metrics
+    preds = np.concatenate([(p >= t).astype(int) for p, t in zip(probs, thresholds)])
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: zero-dimensional arrays cannot be concatenated

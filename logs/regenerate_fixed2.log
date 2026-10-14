@@ -1,0 +1,1196 @@
+[2026-10-10 09:31:22] ══════════════════════════════════════════════════════════
+[2026-10-10 09:31:22] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-10 09:31:22]   RAW        : /home/finny/datasets/anxiety_avi
+[2026-10-10 09:31:22]   OUT        : /home/finny/projects/Skripsi/output/apex_fixed
+[2026-10-10 09:31:22]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+[2026-10-10 09:31:22]   DATASET    : convat_apex_anxiety_loso_v3fixed
+[2026-10-10 09:31:22]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-10 09:31:22]   seeds/fold : 3
+[2026-10-10 09:31:22]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261010_093122.log
+[2026-10-10 09:31:22] ══════════════════════════════════════════════════════════
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/7 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /home/finny/datasets/anxiety_avi (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_fixed/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 09:31:22]   log: /home/finny/projects/Skripsi/logs/stage1_spotting_20261010_093122.log
+DATASET_ROOT = /home/finny/datasets/anxiety_avi
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex_fixed/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex_fixed/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex_fixed/event_signals
+MAX_WORKERS = 4
+Found 560 video files
+Spotting:   0%|          | 0/560 [00:00<?, ?video/s]Spotting:   0%|          | 1/560 [00:00<07:50,  1.19video/s]Spotting:  55%|█████▌    | 310/560 [00:13<00:11, 22.64video/s]Spotting:  56%|█████▌    | 313/560 [00:19<00:17, 14.46video/s]Spotting:  56%|█████▌    | 314/560 [00:30<00:33,  7.33video/s]Spotting:  56%|█████▋    | 315/560 [00:33<00:41,  5.95video/s]Spotting:  56%|█████▋    | 316/560 [00:36<00:49,  4.88video/s]Spotting:  57%|█████▋    | 317/560 [00:37<00:51,  4.74video/s]Spotting:  57%|█████▋    | 318/560 [00:44<01:36,  2.51video/s]Spotting:  57%|█████▋    | 319/560 [00:48<01:59,  2.02video/s]Spotting:  57%|█████▋    | 320/560 [00:52<02:47,  1.43video/s]Spotting:  57%|█████▋    | 321/560 [00:56<03:38,  1.09video/s]Spotting:  57%|█████▊    | 322/560 [01:06<06:34,  1.66s/video]Spotting:  58%|█████▊    | 323/560 [01:15<09:29,  2.40s/video]Spotting:  58%|█████▊    | 324/560 [01:17<09:24,  2.39s/video]Spotting:  58%|█████▊    | 325/560 [01:27<14:02,  3.59s/video]Spotting:  58%|█████▊    | 326/560 [01:32<15:06,  3.87s/video]Spotting:  58%|█████▊    | 327/560 [01:33<12:41,  3.27s/video]Spotting:  59%|█████▊    | 328/560 [01:34<10:03,  2.60s/video]Spotting:  59%|█████▉    | 329/560 [01:38<11:26,  2.97s/video]Spotting:  59%|█████▉    | 330/560 [01:44<14:45,  3.85s/video]Spotting:  59%|█████▉    | 331/560 [01:52<18:58,  4.97s/video]Spotting:  59%|█████▉    | 332/560 [01:59<20:33,  5.41s/video]Spotting:  59%|█████▉    | 333/560 [02:01<17:04,  4.51s/video]Spotting:  60%|█████▉    | 334/560 [02:10<21:29,  5.70s/video]Spotting:  60%|█████▉    | 335/560 [02:18<23:59,  6.40s/video]Spotting:  60%|██████    | 336/560 [02:24<23:30,  6.30s/video]Spotting:  60%|██████    | 337/560 [02:27<20:04,  5.40s/video]Spotting:  60%|██████    | 338/560 [02:31<18:28,  4.99s/video]Spotting:  61%|██████    | 339/560 [02:37<19:00,  5.16s/video]Spotting:  61%|██████    | 340/560 [02:38<15:10,  4.14s/video]Spotting:  61%|██████    | 341/560 [02:49<21:55,  6.01s/video]Spotting:  61%|██████    | 342/560 [02:49<15:59,  4.40s/video]Spotting:  61%|██████▏   | 343/560 [02:55<16:54,  4.68s/video]Spotting:  61%|██████▏   | 344/560 [02:58<15:43,  4.37s/video]Spotting:  62%|██████▏   | 345/560 [03:00<12:21,  3.45s/video]Spotting:  62%|██████▏   | 346/560 [03:03<11:52,  3.33s/video]Spotting:  62%|██████▏   | 347/560 [03:08<13:26,  3.79s/video]Spotting:  62%|██████▏   | 348/560 [03:09<10:32,  2.98s/video]Spotting:  62%|██████▏   | 349/560 [03:09<07:38,  2.17s/video]Spotting:  62%|██████▎   | 350/560 [03:11<07:26,  2.13s/video]Spotting:  63%|██████▎   | 351/560 [03:19<14:05,  4.05s/video]Spotting:  63%|██████▎   | 352/560 [03:23<13:20,  3.85s/video]Spotting:  63%|██████▎   | 353/560 [03:25<11:27,  3.32s/video]Spotting:  63%|██████▎   | 354/560 [03:34<17:11,  5.01s/video]Spotting:  63%|██████▎   | 355/560 [03:37<15:17,  4.47s/video]Spotting:  64%|██████▎   | 356/560 [03:41<14:07,  4.16s/video]Spotting:  64%|██████▍   | 357/560 [03:54<23:07,  6.84s/video]Spotting:  64%|██████▍   | 358/560 [04:01<23:08,  6.87s/video]Spotting:  64%|██████▍   | 359/560 [04:01<16:44,  5.00s/video]Spotting:  64%|██████▍   | 360/560 [04:04<14:10,  4.25s/video]Spotting:  64%|██████▍   | 361/560 [04:16<21:50,  6.59s/video]Spotting:  65%|██████▍   | 362/560 [04:17<16:19,  4.94s/video]Spotting:  65%|██████▍   | 363/560 [04:21<15:33,  4.74s/video]Spotting:  65%|██████▌   | 364/560 [04:28<17:54,  5.48s/video]Spotting:  65%|██████▌   | 365/560 [04:30<13:53,  4.28s/video]Spotting:  65%|██████▌   | 366/560 [04:38<17:28,  5.40s/video]Spotting:  66%|██████▌   | 367/560 [04:46<19:43,  6.13s/video]Spotting:  66%|██████▌   | 368/560 [04:46<14:10,  4.43s/video]Spotting:  66%|██████▌   | 369/560 [04:53<16:19,  5.13s/video]Spotting:  66%|██████▌   | 370/560 [04:59<17:25,  5.50s/video]Spotting:  66%|██████▋   | 371/560 [05:02<14:40,  4.66s/video]Spotting:  66%|██████▋   | 372/560 [05:06<14:26,  4.61s/video]Spotting:  67%|██████▋   | 373/560 [05:09<12:49,  4.11s/video]Spotting:  67%|██████▋   | 374/560 [05:15<13:57,  4.50s/video]Spotting:  67%|██████▋   | 375/560 [05:23<17:31,  5.69s/video]Spotting:  67%|██████▋   | 376/560 [05:24<13:02,  4.25s/video]Spotting:  67%|██████▋   | 377/560 [05:34<17:55,  5.88s/video]Spotting:  68%|██████▊   | 378/560 [05:40<18:12,  6.00s/video]Spotting:  68%|██████▊   | 379/560 [05:49<20:43,  6.87s/video]Spotting:  68%|██████▊   | 380/560 [05:50<15:22,  5.12s/video]Spotting:  68%|██████▊   | 381/560 [05:51<11:32,  3.87s/video]Spotting:  68%|██████▊   | 382/560 [05:57<13:47,  4.65s/video]Spotting:  68%|██████▊   | 383/560 [06:00<12:07,  4.11s/video]Spotting:  69%|██████▊   | 384/560 [06:02<09:27,  3.22s/video]Spotting:  69%|██████▉   | 385/560 [06:08<12:34,  4.31s/video]Spotting:  69%|██████▉   | 386/560 [06:09<09:24,  3.24s/video]Spotting:  69%|██████▉   | 387/560 [06:12<09:05,  3.15s/video]Spotting:  69%|██████▉   | 388/560 [06:13<07:28,  2.61s/video]Spotting:  69%|██████▉   | 389/560 [06:15<06:37,  2.32s/video]Spotting:  70%|██████▉   | 390/560 [06:17<06:00,  2.12s/video]Spotting:  70%|██████▉   | 391/560 [06:33<18:17,  6.49s/video]Spotting:  70%|███████   | 392/560 [06:37<15:44,  5.62s/video]Spotting:  70%|███████   | 393/560 [06:41<14:12,  5.11s/video]Spotting:  70%|███████   | 394/560 [06:46<14:16,  5.16s/video]Spotting:  71%|███████   | 395/560 [06:49<12:32,  4.56s/video]Spotting:  71%|███████   | 396/560 [07:01<18:05,  6.62s/video]Spotting:  71%|███████   | 397/560 [07:07<17:46,  6.54s/video]Spotting:  71%|███████   | 398/560 [07:23<24:53,  9.22s/video]Spotting:  71%|███████▏  | 399/560 [07:33<25:50,  9.63s/video]Spotting:  71%|███████▏  | 400/560 [07:34<18:36,  6.98s/video]Spotting:  72%|███████▏  | 401/560 [07:34<13:21,  5.04s/video]Spotting:  72%|███████▏  | 402/560 [07:40<13:55,  5.29s/video]Spotting:  72%|███████▏  | 403/560 [07:43<12:07,  4.63s/video]Spotting:  72%|███████▏  | 404/560 [07:46<10:23,  3.99s/video]Spotting:  72%|███████▏  | 405/560 [07:52<11:33,  4.48s/video]Spotting:  72%|███████▎  | 406/560 [07:53<08:53,  3.47s/video]Spotting:  73%|███████▎  | 407/560 [07:56<09:04,  3.56s/video]Spotting:  73%|███████▎  | 408/560 [07:58<07:50,  3.09s/video]Spotting:  73%|███████▎  | 409/560 [08:01<07:15,  2.88s/video]Spotting:  73%|███████▎  | 410/560 [08:07<09:58,  3.99s/video]Spotting:  73%|███████▎  | 411/560 [08:12<10:33,  4.25s/video]Spotting:  74%|███████▎  | 412/560 [08:13<07:57,  3.23s/video]Spotting:  74%|███████▍  | 413/560 [08:15<06:46,  2.77s/video]Spotting:  74%|███████▍  | 414/560 [08:19<08:01,  3.30s/video]Spotting:  74%|███████▍  | 415/560 [08:22<07:37,  3.15s/video]Spotting:  74%|███████▍  | 416/560 [08:35<14:42,  6.13s/video]Spotting:  75%|███████▍  | 418/560 [08:37<08:45,  3.70s/video]Spotting:  75%|███████▍  | 419/560 [08:43<09:51,  4.19s/video]Spotting:  75%|███████▌  | 420/560 [08:47<10:04,  4.32s/video]Spotting:  75%|███████▌  | 421/560 [08:57<13:26,  5.80s/video]Spotting:  75%|███████▌  | 422/560 [09:03<13:11,  5.74s/video]Spotting:  76%|███████▌  | 423/560 [09:06<11:20,  4.96s/video]Spotting:  76%|███████▌  | 424/560 [09:07<08:56,  3.95s/video]Spotting:  76%|███████▌  | 425/560 [09:14<10:38,  4.73s/video]Spotting:  76%|███████▌  | 426/560 [09:19<10:37,  4.75s/video]Spotting:  76%|███████▋  | 427/560 [09:20<08:29,  3.83s/video]Spotting:  76%|███████▋  | 428/560 [09:21<06:34,  2.99s/video]Spotting:  77%|███████▋  | 429/560 [09:31<10:39,  4.88s/video]Spotting:  77%|███████▋  | 430/560 [09:35<10:16,  4.74s/video]Spotting:  77%|███████▋  | 431/560 [09:46<14:11,  6.60s/video]Spotting:  77%|███████▋  | 432/560 [09:46<10:13,  4.79s/video]Spotting:  77%|███████▋  | 433/560 [09:54<12:04,  5.70s/video]Spotting:  78%|███████▊  | 434/560 [10:02<13:30,  6.43s/video]Spotting:  78%|███████▊  | 435/560 [10:04<10:32,  5.06s/video]Spotting:  78%|███████▊  | 436/560 [10:05<07:51,  3.80s/video]Spotting:  78%|███████▊  | 437/560 [10:10<08:37,  4.21s/video]Spotting:  78%|███████▊  | 438/560 [10:12<07:09,  3.52s/video]Spotting:  78%|███████▊  | 439/560 [10:15<06:43,  3.33s/video]Spotting:  79%|███████▊  | 440/560 [10:19<06:46,  3.39s/video]Spotting:  79%|███████▉  | 441/560 [10:22<06:52,  3.46s/video]Spotting:  79%|███████▉  | 442/560 [10:23<05:09,  2.62s/video]Spotting:  79%|███████▉  | 443/560 [10:37<11:48,  6.06s/video]Spotting:  79%|███████▉  | 444/560 [10:38<09:02,  4.68s/video]Spotting:  79%|███████▉  | 445/560 [10:41<07:58,  4.16s/video]Spotting:  80%|███████▉  | 446/560 [10:48<09:01,  4.75s/video]Spotting:  80%|███████▉  | 447/560 [10:52<08:32,  4.54s/video]Spotting:  80%|████████  | 448/560 [10:52<06:07,  3.28s/video]Spotting:  80%|████████  | 449/560 [10:53<04:45,  2.58s/video]Spotting:  80%|████████  | 450/560 [10:55<04:39,  2.54s/video]Spotting:  81%|████████  | 451/560 [11:04<07:54,  4.35s/video]Spotting:  81%|████████  | 452/560 [11:06<06:20,  3.52s/video]Spotting:  81%|████████  | 453/560 [11:08<05:32,  3.10s/video]Spotting:  81%|████████  | 454/560 [11:10<05:18,  3.00s/video]Spotting:  81%|████████▏ | 455/560 [11:14<05:40,  3.24s/video]Spotting:  81%|████████▏ | 456/560 [11:20<07:10,  4.14s/video]Spotting:  82%|████████▏ | 458/560 [11:22<04:27,  2.62s/video]Spotting:  82%|████████▏ | 459/560 [11:27<05:25,  3.23s/video]Spotting:  82%|████████▏ | 460/560 [11:29<04:42,  2.83s/video]Spotting:  82%|████████▏ | 461/560 [11:39<08:05,  4.90s/video]Spotting:  82%|████████▎ | 462/560 [11:45<08:21,  5.12s/video]Spotting:  83%|████████▎ | 463/560 [11:47<06:52,  4.26s/video]Spotting:  83%|████████▎ | 464/560 [11:49<05:41,  3.56s/video]Spotting:  83%|████████▎ | 465/560 [12:02<09:57,  6.29s/video]Spotting:  83%|████████▎ | 466/560 [12:08<09:36,  6.13s/video]Spotting:  83%|████████▎ | 467/560 [12:11<08:10,  5.28s/video]Spotting:  84%|████████▎ | 468/560 [12:15<07:39,  4.99s/video]Spotting:  84%|████████▍ | 470/560 [12:16<04:15,  2.84s/video]Spotting:  84%|████████▍ | 471/560 [12:39<11:36,  7.83s/video]Spotting:  84%|████████▍ | 472/560 [12:50<12:35,  8.59s/video]Spotting:  84%|████████▍ | 473/560 [12:54<10:59,  7.58s/video]Spotting:  85%|████████▍ | 474/560 [13:04<11:29,  8.02s/video]Spotting:  85%|████████▍ | 475/560 [13:08<09:46,  6.90s/video]Spotting:  85%|████████▌ | 476/560 [13:14<09:33,  6.83s/video]Spotting:  85%|████████▌ | 477/560 [13:15<07:05,  5.12s/video]Spotting:  85%|████████▌ | 478/560 [13:23<08:01,  5.87s/video]Spotting:  86%|████████▌ | 479/560 [13:27<07:01,  5.21s/video]Spotting:  86%|████████▌ | 480/560 [13:36<08:38,  6.48s/video]Spotting:  86%|████████▌ | 481/560 [13:41<07:48,  5.93s/video]Spotting:  86%|████████▌ | 482/560 [13:48<08:16,  6.37s/video]Spotting:  86%|████████▋ | 483/560 [13:52<07:19,  5.71s/video]Spotting:  86%|████████▋ | 484/560 [13:57<06:46,  5.35s/video]Spotting:  87%|████████▋ | 485/560 [14:02<06:37,  5.29s/video]Spotting:  87%|████████▋ | 486/560 [14:06<06:12,  5.03s/video]Spotting:  87%|████████▋ | 487/560 [14:13<06:41,  5.51s/video]Spotting:  87%|████████▋ | 488/560 [14:15<05:14,  4.36s/video]Spotting:  87%|████████▋ | 489/560 [14:17<04:23,  3.70s/video]Spotting:  88%|████████▊ | 491/560 [14:23<03:53,  3.38s/video]Spotting:  88%|████████▊ | 492/560 [14:25<03:27,  3.05s/video]Spotting:  88%|████████▊ | 493/560 [14:27<03:10,  2.84s/video]Spotting:  88%|████████▊ | 494/560 [14:29<02:49,  2.56s/video]Spotting:  88%|████████▊ | 495/560 [14:31<02:42,  2.50s/video]Spotting:  89%|████████▊ | 496/560 [14:39<04:18,  4.03s/video]Spotting:  89%|████████▉ | 497/560 [14:42<03:59,  3.80s/video]Spotting:  89%|████████▉ | 498/560 [14:43<03:04,  2.98s/video]Spotting:  89%|████████▉ | 499/560 [14:46<02:59,  2.93s/video]Spotting:  89%|████████▉ | 500/560 [14:51<03:19,  3.33s/video]Spotting:  89%|████████▉ | 501/560 [14:54<03:17,  3.35s/video]Spotting:  90%|████████▉ | 502/560 [14:56<02:45,  2.85s/video]Spotting:  90%|█████████ | 504/560 [15:00<02:25,  2.59s/video]Spotting:  90%|█████████ | 505/560 [15:11<04:12,  4.60s/video]Spotting:  90%|█████████ | 506/560 [15:13<03:28,  3.87s/video]Spotting:  91%|█████████ | 507/560 [15:15<02:57,  3.34s/video]Spotting:  91%|█████████ | 509/560 [15:21<02:46,  3.26s/video]Spotting:  91%|█████████ | 510/560 [15:22<02:16,  2.73s/video]Spotting:  91%|█████████▏| 511/560 [15:28<03:00,  3.69s/video]Spotting:  91%|█████████▏| 512/560 [15:35<03:32,  4.42s/video]Spotting:  92%|█████████▏| 513/560 [15:36<02:43,  3.48s/video]Spotting:  92%|█████████▏| 514/560 [15:40<02:50,  3.70s/video]Spotting:  92%|█████████▏| 515/560 [15:42<02:20,  3.13s/video]Spotting:  92%|█████████▏| 516/560 [15:48<02:54,  3.97s/video]Spotting:  92%|█████████▏| 517/560 [15:49<02:16,  3.17s/video]Spotting:  92%|█████████▎| 518/560 [15:56<02:57,  4.23s/video]Spotting:  93%|█████████▎| 519/560 [15:59<02:41,  3.95s/video]Spotting:  93%|█████████▎| 520/560 [16:02<02:23,  3.58s/video]Spotting:  93%|█████████▎| 521/560 [16:05<02:14,  3.46s/video]Spotting:  93%|█████████▎| 522/560 [16:06<01:39,  2.61s/video]Spotting:  93%|█████████▎| 523/560 [16:11<02:07,  3.44s/video]Spotting:  94%|█████████▎| 524/560 [16:13<01:43,  2.87s/video]Spotting:  94%|█████████▍| 525/560 [16:17<01:54,  3.28s/video]Spotting:  94%|█████████▍| 526/560 [16:26<02:55,  5.15s/video]Spotting:  94%|█████████▍| 527/560 [16:34<03:09,  5.76s/video]Spotting:  94%|█████████▍| 528/560 [16:38<02:48,  5.25s/video]Spotting:  94%|█████████▍| 529/560 [16:41<02:21,  4.55s/video]Spotting:  95%|█████████▍| 530/560 [16:44<02:07,  4.25s/video]Spotting:  95%|█████████▍| 531/560 [16:49<02:10,  4.50s/video]Spotting:  95%|█████████▌| 532/560 [16:55<02:16,  4.88s/video]Spotting:  95%|█████████▌| 533/560 [16:59<02:05,  4.65s/video]Spotting:  95%|█████████▌| 534/560 [16:59<01:27,  3.36s/video]Spotting:  96%|█████████▌| 535/560 [17:05<01:40,  4.03s/video]Spotting:  96%|█████████▌| 536/560 [17:05<01:08,  2.86s/video]Spotting:  96%|█████████▌| 537/560 [17:08<01:03,  2.76s/video]Spotting:  96%|█████████▌| 538/560 [17:13<01:15,  3.43s/video]Spotting:  96%|█████████▋| 539/560 [17:15<01:04,  3.08s/video]Spotting:  96%|█████████▋| 540/560 [17:17<00:53,  2.68s/video]Spotting:  97%|█████████▋| 541/560 [17:20<00:51,  2.73s/video]Spotting:  97%|█████████▋| 542/560 [17:20<00:39,  2.17s/video]Spotting:  97%|█████████▋| 543/560 [17:23<00:40,  2.38s/video]Spotting:  97%|█████████▋| 544/560 [17:25<00:33,  2.08s/video]Spotting:  97%|█████████▋| 545/560 [17:26<00:28,  1.90s/video]Spotting:  98%|█████████▊| 546/560 [17:33<00:46,  3.32s/video]Spotting:  98%|█████████▊| 547/560 [17:40<00:57,  4.40s/video]Spotting:  98%|█████████▊| 548/560 [17:41<00:42,  3.53s/video]Spotting:  98%|█████████▊| 549/560 [17:43<00:32,  2.95s/video]Spotting:  98%|█████████▊| 550/560 [17:44<00:25,  2.59s/video]Spotting:  98%|█████████▊| 551/560 [18:13<01:32, 10.26s/video]Spotting:  99%|█████████▊| 552/560 [18:16<01:04,  8.05s/video]Spotting:  99%|█████████▉| 553/560 [18:16<00:40,  5.80s/video]Spotting:  99%|█████████▉| 554/560 [18:18<00:28,  4.67s/video]Spotting:  99%|█████████▉| 555/560 [18:32<00:37,  7.56s/video]Spotting:  99%|█████████▉| 556/560 [18:37<00:26,  6.69s/video]Spotting:  99%|█████████▉| 557/560 [18:42<00:18,  6.29s/video]Spotting: 100%|█████████▉| 558/560 [18:51<00:13,  6.85s/video]Spotting: 100%|█████████▉| 559/560 [19:07<00:09,  9.74s/video]Spotting: 100%|██████████| 560/560 [19:11<00:00,  7.93s/video]Spotting: 100%|██████████| 560/560 [19:11<00:00,  2.06s/video]
+Saved metadata: /home/finny/projects/Skripsi/output/apex_fixed/metadata.xlsx
+                                     relative_sample  ...                                           clip_dir
+0  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+1  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+2  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+3  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+4  after/anxiety/aaisyah_nursalsabiil_ni_patriart...  ...  dataset/after/anxiety/aaisyah_nursalsabiil_ni_...
+
+[5 rows x 16 columns]
+Event signals: SKIPPED (SPOT_NO_EVENT_SIGNAL=1)
+[2026-10-10 09:50:39] STAGE 1 SELESAI. metadata baris: 2647
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 2/7 : EKSTRAKSI FITUR POC-ABS
+  APA YANG DILAKUKAN : POC-ABS per frame vs acuan NETRAL per orang (5 ROI). Arah + magnitudo motion vector per blok.
+  INPUT              : /home/finny/projects/Skripsi/output/apex_fixed/dataset/... + metadata.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+  ESTIMASI WAKTU     : SEDANG (~30 menit) - 3 worker (4 worker pernah menyentuh 95C)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 09:50:39]   log: /home/finny/projects/Skripsi/logs/stage2_ekstraksi_20261010_093122.log
+Project root: /home/finny/projects/Skripsi
+Dataset root: /home/finny/projects/Skripsi/output/apex_fixed/dataset
+Metadata:     /home/finny/projects/Skripsi/output/apex_fixed/metadata.xlsx
+Output xlsx:  /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+Max workers:  3
+Regions:      ['mulut', 'mata_kiri', 'mata_kanan', 'alis_kiri', 'alis_kanan']
+Target size:  {'mulut': (70, 35), 'mata_kiri': (48, 32), 'mata_kanan': (48, 32), 'alis_kiri': (64, 24), 'alis_kanan': (64, 24)}
+Block size:   9
+Metadata rows: 2647
+Event clips: 2647
+Ekspor fitur:   0%|          | 0/2647 [00:00<?, ?clip/s]Ekspor fitur:   0%|          | 1/2647 [00:01<1:10:31,  1.60s/clip]Ekspor fitur:   0%|          | 2/2647 [00:02<41:25,  1.06clip/s]  Ekspor fitur:   0%|          | 3/2647 [00:02<25:59,  1.70clip/s]Ekspor fitur:   0%|          | 5/2647 [00:02<15:20,  2.87clip/s]Ekspor fitur:   0%|          | 6/2647 [00:03<26:36,  1.65clip/s]Ekspor fitur:   0%|          | 10/2647 [00:03<11:15,  3.90clip/s]Ekspor fitur:   0%|          | 11/2647 [00:04<15:24,  2.85clip/s]Ekspor fitur:   0%|          | 12/2647 [00:05<17:56,  2.45clip/s]Ekspor fitur:   0%|          | 13/2647 [00:06<27:31,  1.60clip/s]Ekspor fitur:   1%|          | 16/2647 [00:08<26:48,  1.64clip/s]Ekspor fitur:   1%|          | 20/2647 [00:08<15:26,  2.84clip/s]Ekspor fitur:   1%|          | 21/2647 [00:09<20:17,  2.16clip/s]Ekspor fitur:   1%|          | 25/2647 [00:11<16:41,  2.62clip/s]Ekspor fitur:   1%|          | 30/2647 [00:12<14:21,  3.04clip/s]Ekspor fitur:   1%|          | 32/2647 [00:13<16:17,  2.68clip/s]Ekspor fitur:   1%|          | 33/2647 [00:13<15:33,  2.80clip/s]Ekspor fitur:   1%|▏         | 35/2647 [00:14<15:44,  2.76clip/s]Ekspor fitur:   1%|▏         | 36/2647 [00:15<18:42,  2.33clip/s]Ekspor fitur:   1%|▏         | 38/2647 [00:16<19:46,  2.20clip/s]Ekspor fitur:   2%|▏         | 40/2647 [00:16<16:02,  2.71clip/s]Ekspor fitur:   2%|▏         | 43/2647 [00:16<10:21,  4.19clip/s]Ekspor fitur:   2%|▏         | 44/2647 [00:17<16:01,  2.71clip/s]Ekspor fitur:   2%|▏         | 45/2647 [00:18<19:56,  2.17clip/s]Ekspor fitur:   2%|▏         | 50/2647 [00:19<12:30,  3.46clip/s]Ekspor fitur:   2%|▏         | 54/2647 [00:20<10:06,  4.27clip/s]Ekspor fitur:   2%|▏         | 55/2647 [00:21<16:00,  2.70clip/s]Ekspor fitur:   2%|▏         | 56/2647 [00:22<20:51,  2.07clip/s]Ekspor fitur:   2%|▏         | 62/2647 [00:22<09:33,  4.51clip/s]Ekspor fitur:   2%|▏         | 64/2647 [00:23<09:45,  4.42clip/s]Ekspor fitur:   2%|▏         | 66/2647 [00:24<14:46,  2.91clip/s]Ekspor fitur:   3%|▎         | 68/2647 [00:25<15:00,  2.86clip/s]Ekspor fitur:   3%|▎         | 70/2647 [00:25<11:57,  3.59clip/s]Ekspor fitur:   3%|▎         | 72/2647 [00:25<11:15,  3.81clip/s]Ekspor fitur:   3%|▎         | 74/2647 [00:26<08:57,  4.79clip/s]Ekspor fitur:   3%|▎         | 75/2647 [00:26<11:09,  3.84clip/s]Ekspor fitur:   3%|▎         | 77/2647 [00:26<09:00,  4.75clip/s]Ekspor fitur:   3%|▎         | 78/2647 [00:27<08:51,  4.83clip/s]Ekspor fitur:   3%|▎         | 79/2647 [00:27<08:31,  5.02clip/s]Ekspor fitur:   3%|▎         | 81/2647 [00:27<07:11,  5.95clip/s]Ekspor fitur:   3%|▎         | 82/2647 [00:27<07:04,  6.04clip/s]Ekspor fitur:   3%|▎         | 83/2647 [00:27<06:42,  6.36clip/s]Ekspor fitur:   3%|▎         | 84/2647 [00:28<10:45,  3.97clip/s]Ekspor fitur:   3%|▎         | 85/2647 [00:28<09:50,  4.34clip/s]Ekspor fitur:   3%|▎         | 87/2647 [00:28<09:07,  4.68clip/s]Ekspor fitur:   3%|▎         | 89/2647 [00:29<07:24,  5.76clip/s]Ekspor fitur:   3%|▎         | 91/2647 [00:29<05:42,  7.47clip/s]Ekspor fitur:   3%|▎         | 92/2647 [00:29<07:14,  5.88clip/s]Ekspor fitur:   4%|▎         | 93/2647 [00:30<11:24,  3.73clip/s]Ekspor fitur:   4%|▎         | 95/2647 [00:30<08:23,  5.07clip/s]Ekspor fitur:   4%|▎         | 96/2647 [00:30<07:55,  5.37clip/s]Ekspor fitur:   4%|▎         | 99/2647 [00:30<07:16,  5.84clip/s]Ekspor fitur:   4%|▍         | 100/2647 [00:31<09:39,  4.40clip/s]Ekspor fitur:   4%|▍         | 102/2647 [00:31<09:37,  4.41clip/s]Ekspor fitur:   4%|▍         | 103/2647 [00:31<09:03,  4.68clip/s]Ekspor fitur:   4%|▍         | 104/2647 [00:32<11:54,  3.56clip/s]Ekspor fitur:   4%|▍         | 107/2647 [00:32<07:20,  5.77clip/s]Ekspor fitur:   4%|▍         | 108/2647 [00:33<11:01,  3.84clip/s]Ekspor fitur:   4%|▍         | 110/2647 [00:33<08:28,  4.99clip/s]Ekspor fitur:   4%|▍         | 112/2647 [00:33<06:45,  6.25clip/s]Ekspor fitur:   4%|▍         | 114/2647 [00:33<05:43,  7.37clip/s]Ekspor fitur:   4%|▍         | 115/2647 [00:33<05:36,  7.52clip/s]Ekspor fitur:   4%|▍         | 116/2647 [00:34<05:24,  7.81clip/s]Ekspor fitur:   4%|▍         | 117/2647 [00:34<06:55,  6.08clip/s]Ekspor fitur:   4%|▍         | 118/2647 [00:35<12:39,  3.33clip/s]Ekspor fitur:   5%|▍         | 120/2647 [00:35<08:23,  5.02clip/s]Ekspor fitur:   5%|▍         | 122/2647 [00:35<06:44,  6.25clip/s]Ekspor fitur:   5%|▍         | 123/2647 [00:35<10:18,  4.08clip/s]Ekspor fitur:   5%|▍         | 126/2647 [00:36<07:12,  5.83clip/s]Ekspor fitur:   5%|▍         | 129/2647 [00:36<08:57,  4.69clip/s]Ekspor fitur:   5%|▍         | 132/2647 [00:37<10:33,  3.97clip/s]Ekspor fitur:   5%|▌         | 135/2647 [00:38<10:16,  4.08clip/s]Ekspor fitur:   5%|▌         | 138/2647 [00:39<09:03,  4.61clip/s]Ekspor fitur:   5%|▌         | 141/2647 [00:40<11:19,  3.69clip/s]Ekspor fitur:   6%|▌         | 146/2647 [00:41<10:26,  3.99clip/s]Ekspor fitur:   6%|▌         | 150/2647 [00:42<10:40,  3.90clip/s]Ekspor fitur:   6%|▌         | 152/2647 [00:42<10:32,  3.95clip/s]Ekspor fitur:   6%|▌         | 153/2647 [00:43<13:47,  3.01clip/s]Ekspor fitur:   6%|▌         | 155/2647 [00:44<12:38,  3.29clip/s]Ekspor fitur:   6%|▌         | 163/2647 [00:44<05:52,  7.04clip/s]Ekspor fitur:   6%|▌         | 165/2647 [00:44<06:12,  6.67clip/s]Ekspor fitur:   6%|▋         | 167/2647 [00:45<05:48,  7.11clip/s]Ekspor fitur:   6%|▋         | 170/2647 [00:45<05:27,  7.57clip/s]Ekspor fitur:   6%|▋         | 171/2647 [00:46<08:23,  4.92clip/s]Ekspor fitur:   7%|▋         | 173/2647 [00:47<15:54,  2.59clip/s]Ekspor fitur:   7%|▋         | 177/2647 [00:48<10:46,  3.82clip/s]Ekspor fitur:   7%|▋         | 178/2647 [00:48<11:18,  3.64clip/s]Ekspor fitur:   7%|▋         | 180/2647 [00:49<10:53,  3.78clip/s]Ekspor fitur:   7%|▋         | 183/2647 [00:49<07:33,  5.43clip/s]Ekspor fitur:   7%|▋         | 184/2647 [00:51<21:23,  1.92clip/s]Ekspor fitur:   7%|▋         | 193/2647 [00:52<08:54,  4.59clip/s]Ekspor fitur:   7%|▋         | 195/2647 [00:53<10:58,  3.72clip/s]Ekspor fitur:   8%|▊         | 199/2647 [00:53<08:38,  4.72clip/s]Ekspor fitur:   8%|▊         | 201/2647 [00:54<11:30,  3.54clip/s]Ekspor fitur:   8%|▊         | 204/2647 [00:56<13:46,  2.96clip/s]Ekspor fitur:   8%|▊         | 209/2647 [00:57<12:36,  3.22clip/s]Ekspor fitur:   8%|▊         | 212/2647 [00:58<14:07,  2.87clip/s]Ekspor fitur:   8%|▊         | 217/2647 [00:59<10:22,  3.90clip/s]Ekspor fitur:   8%|▊         | 218/2647 [00:59<10:39,  3.80clip/s]Ekspor fitur:   8%|▊         | 220/2647 [01:00<10:16,  3.94clip/s]Ekspor fitur:   8%|▊         | 223/2647 [01:00<07:59,  5.05clip/s]Ekspor fitur:   9%|▊         | 226/2647 [01:00<06:24,  6.30clip/s]Ekspor fitur:   9%|▊         | 228/2647 [01:00<05:45,  7.01clip/s]Ekspor fitur:   9%|▊         | 229/2647 [01:01<07:40,  5.25clip/s]Ekspor fitur:   9%|▉         | 232/2647 [01:01<05:32,  7.27clip/s]Ekspor fitur:   9%|▉         | 234/2647 [01:01<05:01,  8.00clip/s]Ekspor fitur:   9%|▉         | 236/2647 [01:02<06:50,  5.87clip/s]Ekspor fitur:   9%|▉         | 237/2647 [01:02<08:31,  4.71clip/s]Ekspor fitur:   9%|▉         | 239/2647 [01:03<08:25,  4.76clip/s]Ekspor fitur:   9%|▉         | 240/2647 [01:03<10:39,  3.76clip/s]Ekspor fitur:   9%|▉         | 242/2647 [01:04<14:56,  2.68clip/s]Ekspor fitur:   9%|▉         | 248/2647 [01:05<07:41,  5.20clip/s]Ekspor fitur:   9%|▉         | 249/2647 [01:05<07:25,  5.38clip/s]Ekspor fitur:   9%|▉         | 251/2647 [01:05<07:11,  5.55clip/s]Ekspor fitur:  10%|▉         | 253/2647 [01:05<05:46,  6.90clip/s]Ekspor fitur:  10%|▉         | 255/2647 [01:06<07:21,  5.42clip/s]Ekspor fitur:  10%|▉         | 256/2647 [01:06<07:11,  5.54clip/s]Ekspor fitur:  10%|▉         | 257/2647 [01:06<07:37,  5.22clip/s]Ekspor fitur:  10%|▉         | 259/2647 [01:07<08:24,  4.73clip/s]Ekspor fitur:  10%|▉         | 262/2647 [01:08<11:30,  3.45clip/s]Ekspor fitur:  10%|█         | 265/2647 [01:09<14:05,  2.82clip/s]Ekspor fitur:  10%|█         | 269/2647 [01:09<08:44,  4.53clip/s]Ekspor fitur:  10%|█         | 271/2647 [01:11<11:41,  3.39clip/s]Ekspor fitur:  10%|█         | 273/2647 [01:12<17:18,  2.29clip/s]Ekspor fitur:  11%|█         | 279/2647 [01:13<10:14,  3.85clip/s]Ekspor fitur:  11%|█         | 280/2647 [01:13<10:50,  3.64clip/s]Ekspor fitur:  11%|█         | 281/2647 [01:14<11:09,  3.53clip/s]Ekspor fitur:  11%|█         | 284/2647 [01:14<08:03,  4.88clip/s]Ekspor fitur:  11%|█         | 285/2647 [01:14<10:51,  3.63clip/s]Ekspor fitur:  11%|█         | 286/2647 [01:16<19:05,  2.06clip/s]Ekspor fitur:  11%|█         | 292/2647 [01:16<09:15,  4.24clip/s]Ekspor fitur:  11%|█         | 293/2647 [01:18<13:55,  2.82clip/s]Ekspor fitur:  11%|█         | 295/2647 [01:19<15:12,  2.58clip/s]Ekspor fitur:  11%|█▏        | 298/2647 [01:19<10:27,  3.74clip/s]Ekspor fitur:  11%|█▏        | 299/2647 [01:20<16:01,  2.44clip/s]Ekspor fitur:  11%|█▏        | 303/2647 [01:20<11:10,  3.50clip/s]Ekspor fitur:  11%|█▏        | 304/2647 [01:22<16:56,  2.31clip/s]Ekspor fitur:  12%|█▏        | 305/2647 [01:22<16:50,  2.32clip/s]Ekspor fitur:  12%|█▏        | 307/2647 [01:23<13:54,  2.80clip/s]Ekspor fitur:  12%|█▏        | 309/2647 [01:23<10:38,  3.66clip/s]Ekspor fitur:  12%|█▏        | 310/2647 [01:23<12:22,  3.15clip/s]Ekspor fitur:  12%|█▏        | 312/2647 [01:24<13:06,  2.97clip/s]Ekspor fitur:  12%|█▏        | 313/2647 [01:26<21:46,  1.79clip/s]Ekspor fitur:  12%|█▏        | 320/2647 [01:26<08:32,  4.54clip/s]Ekspor fitur:  12%|█▏        | 322/2647 [01:26<07:16,  5.32clip/s]Ekspor fitur:  12%|█▏        | 324/2647 [01:26<06:31,  5.93clip/s]Ekspor fitur:  12%|█▏        | 326/2647 [01:27<07:47,  4.96clip/s]Ekspor fitur:  12%|█▏        | 328/2647 [01:27<08:33,  4.51clip/s]Ekspor fitur:  12%|█▏        | 329/2647 [01:28<08:16,  4.67clip/s]Ekspor fitur:  13%|█▎        | 331/2647 [01:28<08:38,  4.46clip/s]Ekspor fitur:  13%|█▎        | 333/2647 [01:28<06:36,  5.83clip/s]Ekspor fitur:  13%|█▎        | 334/2647 [01:29<09:18,  4.14clip/s]Ekspor fitur:  13%|█▎        | 335/2647 [01:29<09:43,  3.96clip/s]Ekspor fitur:  13%|█▎        | 339/2647 [01:29<05:59,  6.42clip/s]Ekspor fitur:  13%|█▎        | 340/2647 [01:30<11:34,  3.32clip/s]Ekspor fitur:  13%|█▎        | 343/2647 [01:31<09:04,  4.23clip/s]Ekspor fitur:  13%|█▎        | 344/2647 [01:31<08:48,  4.36clip/s]Ekspor fitur:  13%|█▎        | 346/2647 [01:32<11:33,  3.32clip/s]Ekspor fitur:  13%|█▎        | 349/2647 [01:33<12:27,  3.07clip/s]Ekspor fitur:  13%|█▎        | 353/2647 [01:33<08:55,  4.29clip/s]Ekspor fitur:  13%|█▎        | 356/2647 [01:34<08:08,  4.69clip/s]Ekspor fitur:  13%|█▎        | 357/2647 [01:35<10:23,  3.67clip/s]Ekspor fitur:  14%|█▎        | 359/2647 [01:35<08:35,  4.44clip/s]Ekspor fitur:  14%|█▎        | 360/2647 [01:35<08:53,  4.29clip/s]Ekspor fitur:  14%|█▎        | 361/2647 [01:35<08:41,  4.38clip/s]Ekspor fitur:  14%|█▎        | 363/2647 [01:36<09:50,  3.87clip/s]Ekspor fitur:  14%|█▍        | 365/2647 [01:36<09:47,  3.88clip/s]Ekspor fitur:  14%|█▍        | 366/2647 [01:37<10:02,  3.79clip/s]Ekspor fitur:  14%|█▍        | 370/2647 [01:37<07:50,  4.84clip/s]Ekspor fitur:  14%|█▍        | 373/2647 [01:38<07:08,  5.31clip/s]Ekspor fitur:  14%|█▍        | 374/2647 [01:39<10:53,  3.48clip/s]Ekspor fitur:  14%|█▍        | 376/2647 [01:39<09:45,  3.88clip/s]Ekspor fitur:  14%|█▍        | 378/2647 [01:40<09:47,  3.86clip/s]Ekspor fitur:  14%|█▍        | 379/2647 [01:42<22:43,  1.66clip/s]Ekspor fitur:  15%|█▍        | 385/2647 [01:42<09:50,  3.83clip/s]Ekspor fitur:  15%|█▍        | 387/2647 [01:43<10:49,  3.48clip/s]Ekspor fitur:  15%|█▍        | 388/2647 [01:43<10:57,  3.44clip/s]Ekspor fitur:  15%|█▍        | 389/2647 [01:43<10:19,  3.65clip/s]Ekspor fitur:  15%|█▍        | 390/2647 [01:44<12:49,  2.93clip/s]Ekspor fitur:  15%|█▍        | 393/2647 [01:45<12:49,  2.93clip/s]Ekspor fitur:  15%|█▍        | 395/2647 [01:45<10:51,  3.45clip/s]Ekspor fitur:  15%|█▍        | 397/2647 [01:47<18:09,  2.07clip/s]Ekspor fitur:  15%|█▌        | 402/2647 [01:48<12:27,  3.00clip/s]Ekspor fitur:  15%|█▌        | 403/2647 [01:48<11:46,  3.18clip/s]Ekspor fitur:  15%|█▌        | 405/2647 [01:49<12:40,  2.95clip/s]Ekspor fitur:  15%|█▌        | 406/2647 [01:49<12:25,  3.01clip/s]Ekspor fitur:  15%|█▌        | 408/2647 [01:50<10:06,  3.69clip/s]Ekspor fitur:  15%|█▌        | 409/2647 [01:51<14:11,  2.63clip/s]Ekspor fitur:  16%|█▌        | 412/2647 [01:51<10:19,  3.61clip/s]Ekspor fitur:  16%|█▌        | 414/2647 [01:51<09:38,  3.86clip/s]Ekspor fitur:  16%|█▌        | 415/2647 [01:53<15:27,  2.41clip/s]Ekspor fitur:  16%|█▌        | 417/2647 [01:53<12:08,  3.06clip/s]Ekspor fitur:  16%|█▌        | 418/2647 [01:53<11:41,  3.18clip/s]Ekspor fitur:  16%|█▌        | 419/2647 [01:53<10:07,  3.67clip/s]Ekspor fitur:  16%|█▌        | 420/2647 [01:53<08:54,  4.17clip/s]Ekspor fitur:  16%|█▌        | 421/2647 [01:54<13:15,  2.80clip/s]Ekspor fitur:  16%|█▌        | 422/2647 [01:54<12:42,  2.92clip/s]Ekspor fitur:  16%|█▌        | 424/2647 [01:55<12:10,  3.04clip/s]Ekspor fitur:  16%|█▌        | 426/2647 [01:57<20:33,  1.80clip/s]Ekspor fitur:  16%|█▋        | 432/2647 [01:57<08:27,  4.36clip/s]Ekspor fitur:  16%|█▋        | 434/2647 [01:58<10:47,  3.42clip/s]Ekspor fitur:  17%|█▋        | 438/2647 [01:58<07:12,  5.10clip/s]Ekspor fitur:  17%|█▋        | 440/2647 [01:59<07:22,  4.98clip/s]Ekspor fitur:  17%|█▋        | 442/2647 [01:59<08:04,  4.55clip/s]Ekspor fitur:  17%|█▋        | 444/2647 [02:00<08:40,  4.23clip/s]Ekspor fitur:  17%|█▋        | 448/2647 [02:00<07:04,  5.18clip/s]Ekspor fitur:  17%|█▋        | 451/2647 [02:01<06:17,  5.82clip/s]Ekspor fitur:  17%|█▋        | 455/2647 [02:01<04:53,  7.47clip/s]Ekspor fitur:  17%|█▋        | 456/2647 [02:01<05:11,  7.03clip/s]Ekspor fitur:  17%|█▋        | 457/2647 [02:02<08:06,  4.50clip/s]Ekspor fitur:  17%|█▋        | 461/2647 [02:03<07:26,  4.90clip/s]Ekspor fitur:  17%|█▋        | 463/2647 [02:03<06:13,  5.85clip/s]Ekspor fitur:  18%|█▊        | 465/2647 [02:03<06:10,  5.90clip/s]Ekspor fitur:  18%|█▊        | 466/2647 [02:03<05:53,  6.17clip/s]Ekspor fitur:  18%|█▊        | 467/2647 [02:04<10:18,  3.52clip/s]Ekspor fitur:  18%|█▊        | 472/2647 [02:05<06:48,  5.32clip/s]Ekspor fitur:  18%|█▊        | 473/2647 [02:05<09:23,  3.85clip/s]Ekspor fitur:  18%|█▊        | 478/2647 [02:06<06:10,  5.85clip/s]Ekspor fitur:  18%|█▊        | 479/2647 [02:06<07:13,  5.00clip/s]Ekspor fitur:  18%|█▊        | 482/2647 [02:07<07:14,  4.98clip/s]Ekspor fitur:  18%|█▊        | 483/2647 [02:08<11:09,  3.23clip/s]Ekspor fitur:  18%|█▊        | 489/2647 [02:08<06:02,  5.96clip/s]Ekspor fitur:  19%|█▊        | 491/2647 [02:08<06:05,  5.90clip/s]Ekspor fitur:  19%|█▊        | 493/2647 [02:10<11:03,  3.25clip/s]Ekspor fitur:  19%|█▉        | 498/2647 [02:10<07:14,  4.95clip/s]Ekspor fitur:  19%|█▉        | 499/2647 [02:11<07:54,  4.53clip/s]Ekspor fitur:  19%|█▉        | 501/2647 [02:13<15:48,  2.26clip/s]Ekspor fitur:  19%|█▉        | 504/2647 [02:14<16:46,  2.13clip/s]Ekspor fitur:  19%|█▉        | 509/2647 [02:15<09:49,  3.63clip/s]Ekspor fitur:  19%|█▉        | 513/2647 [02:15<07:06,  5.00clip/s]Ekspor fitur:  19%|█▉        | 515/2647 [02:15<06:43,  5.28clip/s]Ekspor fitur:  20%|█▉        | 517/2647 [02:15<06:09,  5.77clip/s]Ekspor fitur:  20%|█▉        | 519/2647 [02:16<05:42,  6.21clip/s]Ekspor fitur:  20%|█▉        | 521/2647 [02:16<05:16,  6.72clip/s]Ekspor fitur:  20%|█▉        | 523/2647 [02:16<05:37,  6.30clip/s]Ekspor fitur:  20%|█▉        | 527/2647 [02:17<07:23,  4.78clip/s]Ekspor fitur:  20%|██        | 530/2647 [02:18<06:18,  5.60clip/s]Ekspor fitur:  20%|██        | 532/2647 [02:18<07:10,  4.91clip/s]Ekspor fitur:  20%|██        | 533/2647 [02:19<07:34,  4.65clip/s]Ekspor fitur:  20%|██        | 535/2647 [02:19<06:59,  5.03clip/s]Ekspor fitur:  20%|██        | 536/2647 [02:19<06:28,  5.43clip/s]Ekspor fitur:  20%|██        | 537/2647 [02:19<06:38,  5.30clip/s]Ekspor fitur:  20%|██        | 538/2647 [02:20<08:11,  4.29clip/s]Ekspor fitur:  20%|██        | 540/2647 [02:20<05:45,  6.10clip/s]Ekspor fitur:  20%|██        | 541/2647 [02:20<08:41,  4.04clip/s]Ekspor fitur:  21%|██        | 543/2647 [02:21<07:56,  4.42clip/s]Ekspor fitur:  21%|██        | 544/2647 [02:21<07:54,  4.43clip/s]Ekspor fitur:  21%|██        | 545/2647 [02:22<13:59,  2.50clip/s]Ekspor fitur:  21%|██        | 549/2647 [02:22<08:09,  4.28clip/s]Ekspor fitur:  21%|██        | 550/2647 [02:22<08:03,  4.34clip/s]Ekspor fitur:  21%|██        | 552/2647 [02:23<07:01,  4.98clip/s]Ekspor fitur:  21%|██        | 553/2647 [02:23<09:05,  3.84clip/s]Ekspor fitur:  21%|██        | 556/2647 [02:25<13:18,  2.62clip/s]Ekspor fitur:  21%|██        | 561/2647 [02:25<08:15,  4.21clip/s]Ekspor fitur:  21%|██▏       | 564/2647 [02:27<10:54,  3.18clip/s]Ekspor fitur:  21%|██▏       | 569/2647 [02:28<09:37,  3.60clip/s]Ekspor fitur:  22%|██▏       | 571/2647 [02:29<12:21,  2.80clip/s]Ekspor fitur:  22%|██▏       | 572/2647 [02:30<14:29,  2.39clip/s]Ekspor fitur:  22%|██▏       | 577/2647 [02:31<09:57,  3.46clip/s]Ekspor fitur:  22%|██▏       | 578/2647 [02:33<15:56,  2.16clip/s]Ekspor fitur:  22%|██▏       | 582/2647 [02:33<10:58,  3.14clip/s]Ekspor fitur:  22%|██▏       | 583/2647 [02:33<10:26,  3.30clip/s]Ekspor fitur:  22%|██▏       | 584/2647 [02:33<09:50,  3.49clip/s]Ekspor fitur:  22%|██▏       | 585/2647 [02:34<09:35,  3.58clip/s]Ekspor fitur:  22%|██▏       | 586/2647 [02:34<11:24,  3.01clip/s]Ekspor fitur:  22%|██▏       | 587/2647 [02:35<13:08,  2.61clip/s]Ekspor fitur:  22%|██▏       | 590/2647 [02:36<11:08,  3.08clip/s]Ekspor fitur:  22%|██▏       | 592/2647 [02:36<09:16,  3.69clip/s]Ekspor fitur:  22%|██▏       | 594/2647 [02:38<15:47,  2.17clip/s]Ekspor fitur:  23%|██▎       | 596/2647 [02:38<13:07,  2.61clip/s]Ekspor fitur:  23%|██▎       | 597/2647 [02:40<22:53,  1.49clip/s]Ekspor fitur:  23%|██▎       | 602/2647 [02:40<11:18,  3.02clip/s]Ekspor fitur:  23%|██▎       | 604/2647 [02:41<09:11,  3.70clip/s]Ekspor fitur:  23%|██▎       | 605/2647 [02:41<10:02,  3.39clip/s]Ekspor fitur:  23%|██▎       | 608/2647 [02:42<08:57,  3.79clip/s]Ekspor fitur:  23%|██▎       | 611/2647 [02:42<07:43,  4.39clip/s]Ekspor fitur:  23%|██▎       | 612/2647 [02:43<12:20,  2.75clip/s]Ekspor fitur:  23%|██▎       | 614/2647 [02:44<11:10,  3.03clip/s]Ekspor fitur:  23%|██▎       | 617/2647 [02:44<08:52,  3.82clip/s]Ekspor fitur:  23%|██▎       | 619/2647 [02:45<10:03,  3.36clip/s]Ekspor fitur:  24%|██▎       | 624/2647 [02:45<06:03,  5.57clip/s]Ekspor fitur:  24%|██▎       | 625/2647 [02:45<05:56,  5.67clip/s]Ekspor fitur:  24%|██▎       | 626/2647 [02:46<06:19,  5.33clip/s]Ekspor fitur:  24%|██▎       | 627/2647 [02:46<07:17,  4.62clip/s]Ekspor fitur:  24%|██▎       | 628/2647 [02:46<07:17,  4.61clip/s]Ekspor fitur:  24%|██▍       | 631/2647 [02:47<09:33,  3.52clip/s]Ekspor fitur:  24%|██▍       | 635/2647 [02:49<09:34,  3.50clip/s]Ekspor fitur:  24%|██▍       | 639/2647 [02:49<07:13,  4.63clip/s]Ekspor fitur:  24%|██▍       | 642/2647 [02:49<05:54,  5.66clip/s]Ekspor fitur:  24%|██▍       | 645/2647 [02:50<06:06,  5.46clip/s]Ekspor fitur:  24%|██▍       | 647/2647 [02:51<09:14,  3.60clip/s]Ekspor fitur:  24%|██▍       | 648/2647 [02:54<22:08,  1.51clip/s]Ekspor fitur:  25%|██▍       | 657/2647 [02:55<08:51,  3.74clip/s]Ekspor fitur:  25%|██▍       | 658/2647 [02:55<08:45,  3.79clip/s]Ekspor fitur:  25%|██▍       | 660/2647 [02:56<11:10,  2.96clip/s]Ekspor fitur:  25%|██▌       | 665/2647 [02:58<12:15,  2.69clip/s]Ekspor fitur:  25%|██▌       | 672/2647 [02:59<08:01,  4.10clip/s]Ekspor fitur:  25%|██▌       | 673/2647 [02:59<08:03,  4.08clip/s]Ekspor fitur:  26%|██▌       | 675/2647 [03:01<12:37,  2.60clip/s]Ekspor fitur:  26%|██▌       | 682/2647 [03:01<06:58,  4.69clip/s]Ekspor fitur:  26%|██▌       | 684/2647 [03:01<06:10,  5.29clip/s]Ekspor fitur:  26%|██▌       | 686/2647 [03:02<06:34,  4.97clip/s]Ekspor fitur:  26%|██▌       | 687/2647 [03:02<06:18,  5.18clip/s]Ekspor fitur:  26%|██▌       | 688/2647 [03:03<09:54,  3.29clip/s]Ekspor fitur:  26%|██▌       | 690/2647 [03:04<10:35,  3.08clip/s]Ekspor fitur:  26%|██▌       | 693/2647 [03:05<11:52,  2.74clip/s]Ekspor fitur:  26%|██▌       | 694/2647 [03:06<14:00,  2.32clip/s]Ekspor fitur:  26%|██▋       | 697/2647 [03:08<17:32,  1.85clip/s]Ekspor fitur:  27%|██▋       | 702/2647 [03:08<09:31,  3.40clip/s]Ekspor fitur:  27%|██▋       | 704/2647 [03:10<13:49,  2.34clip/s]Ekspor fitur:  27%|██▋       | 710/2647 [03:10<07:38,  4.22clip/s]Ekspor fitur:  27%|██▋       | 712/2647 [03:11<08:22,  3.85clip/s]Ekspor fitur:  27%|██▋       | 716/2647 [03:12<08:03,  4.00clip/s]Ekspor fitur:  27%|██▋       | 717/2647 [03:12<10:11,  3.16clip/s]Ekspor fitur:  27%|██▋       | 720/2647 [03:13<09:58,  3.22clip/s]Ekspor fitur:  27%|██▋       | 723/2647 [03:14<08:39,  3.70clip/s]Ekspor fitur:  27%|██▋       | 725/2647 [03:14<07:31,  4.26clip/s]Ekspor fitur:  27%|██▋       | 727/2647 [03:15<08:07,  3.94clip/s]Ekspor fitur:  28%|██▊       | 730/2647 [03:16<09:12,  3.47clip/s]Ekspor fitur:  28%|██▊       | 735/2647 [03:16<05:38,  5.64clip/s]Ekspor fitur:  28%|██▊       | 737/2647 [03:17<07:42,  4.13clip/s]Ekspor fitur:  28%|██▊       | 741/2647 [03:19<10:02,  3.16clip/s]Ekspor fitur:  28%|██▊       | 744/2647 [03:19<08:20,  3.80clip/s]Ekspor fitur:  28%|██▊       | 746/2647 [03:20<08:57,  3.54clip/s]Ekspor fitur:  28%|██▊       | 751/2647 [03:20<06:23,  4.94clip/s]Ekspor fitur:  28%|██▊       | 753/2647 [03:21<07:11,  4.39clip/s]Ekspor fitur:  28%|██▊       | 754/2647 [03:21<07:11,  4.39clip/s]Ekspor fitur:  29%|██▊       | 756/2647 [03:22<06:43,  4.68clip/s]Ekspor fitur:  29%|██▊       | 757/2647 [03:23<13:42,  2.30clip/s]Ekspor fitur:  29%|██▉       | 763/2647 [03:23<06:13,  5.04clip/s]Ekspor fitur:  29%|██▉       | 765/2647 [03:24<06:43,  4.66clip/s]Ekspor fitur:  29%|██▉       | 767/2647 [03:24<05:31,  5.67clip/s]Ekspor fitur:  29%|██▉       | 769/2647 [03:24<05:23,  5.81clip/s]Ekspor fitur:  29%|██▉       | 771/2647 [03:25<08:20,  3.75clip/s]Ekspor fitur:  29%|██▉       | 776/2647 [03:26<04:52,  6.40clip/s]Ekspor fitur:  29%|██▉       | 778/2647 [03:26<04:20,  7.18clip/s]Ekspor fitur:  29%|██▉       | 780/2647 [03:26<05:42,  5.45clip/s]Ekspor fitur:  30%|██▉       | 782/2647 [03:27<05:14,  5.92clip/s]Ekspor fitur:  30%|██▉       | 786/2647 [03:27<04:31,  6.85clip/s]Ekspor fitur:  30%|██▉       | 788/2647 [03:27<04:44,  6.54clip/s]Ekspor fitur:  30%|██▉       | 790/2647 [03:29<08:26,  3.67clip/s]Ekspor fitur:  30%|██▉       | 794/2647 [03:30<10:02,  3.08clip/s]Ekspor fitur:  30%|███       | 801/2647 [03:31<05:52,  5.24clip/s]Ekspor fitur:  30%|███       | 803/2647 [03:31<06:00,  5.12clip/s]Ekspor fitur:  30%|███       | 807/2647 [03:31<04:21,  7.03clip/s]Ekspor fitur:  31%|███       | 809/2647 [03:32<06:14,  4.90clip/s]Ekspor fitur:  31%|███       | 812/2647 [03:33<06:30,  4.70clip/s]Ekspor fitur:  31%|███       | 815/2647 [03:34<08:37,  3.54clip/s]Ekspor fitur:  31%|███       | 820/2647 [03:35<05:52,  5.18clip/s]Ekspor fitur:  31%|███       | 821/2647 [03:36<08:21,  3.64clip/s]Ekspor fitur:  31%|███       | 825/2647 [03:36<05:52,  5.17clip/s]Ekspor fitur:  31%|███       | 826/2647 [03:36<06:19,  4.80clip/s]Ekspor fitur:  31%|███▏      | 828/2647 [03:36<05:35,  5.42clip/s]Ekspor fitur:  31%|███▏      | 829/2647 [03:37<05:29,  5.52clip/s]Ekspor fitur:  31%|███▏      | 832/2647 [03:37<05:13,  5.79clip/s]Ekspor fitur:  31%|███▏      | 833/2647 [03:38<06:47,  4.45clip/s]Ekspor fitur:  32%|███▏      | 837/2647 [03:39<09:08,  3.30clip/s]Ekspor fitur:  32%|███▏      | 842/2647 [03:39<05:40,  5.30clip/s]Ekspor fitur:  32%|███▏      | 843/2647 [03:40<07:32,  3.99clip/s]Ekspor fitur:  32%|███▏      | 846/2647 [03:41<06:28,  4.64clip/s]Ekspor fitur:  32%|███▏      | 847/2647 [03:41<06:36,  4.54clip/s]Ekspor fitur:  32%|███▏      | 848/2647 [03:41<07:33,  3.97clip/s]Ekspor fitur:  32%|███▏      | 849/2647 [03:42<08:47,  3.41clip/s]Ekspor fitur:  32%|███▏      | 850/2647 [03:42<07:46,  3.86clip/s]Ekspor fitur:  32%|███▏      | 852/2647 [03:43<11:16,  2.65clip/s]Ekspor fitur:  32%|███▏      | 855/2647 [03:43<08:22,  3.56clip/s]Ekspor fitur:  32%|███▏      | 858/2647 [03:44<06:52,  4.33clip/s]Ekspor fitur:  32%|███▏      | 859/2647 [03:44<08:27,  3.52clip/s]Ekspor fitur:  33%|███▎      | 861/2647 [03:45<06:21,  4.68clip/s]Ekspor fitur:  33%|███▎      | 862/2647 [03:45<07:31,  3.96clip/s]Ekspor fitur:  33%|███▎      | 864/2647 [03:46<09:27,  3.14clip/s]Ekspor fitur:  33%|███▎      | 866/2647 [03:46<08:34,  3.46clip/s]Ekspor fitur:  33%|███▎      | 868/2647 [03:47<06:49,  4.34clip/s]Ekspor fitur:  33%|███▎      | 870/2647 [03:47<05:59,  4.94clip/s]Ekspor fitur:  33%|███▎      | 871/2647 [03:47<05:52,  5.03clip/s]Ekspor fitur:  33%|███▎      | 872/2647 [03:47<06:44,  4.39clip/s]Ekspor fitur:  33%|███▎      | 875/2647 [03:48<05:41,  5.19clip/s]Ekspor fitur:  33%|███▎      | 876/2647 [03:48<07:06,  4.16clip/s]Ekspor fitur:  33%|███▎      | 877/2647 [03:48<06:25,  4.59clip/s]Ekspor fitur:  33%|███▎      | 878/2647 [03:49<05:49,  5.07clip/s]Ekspor fitur:  33%|███▎      | 879/2647 [03:49<06:05,  4.83clip/s]Ekspor fitur:  33%|███▎      | 880/2647 [03:51<18:01,  1.63clip/s]Ekspor fitur:  33%|███▎      | 883/2647 [03:51<11:19,  2.60clip/s]Ekspor fitur:  33%|███▎      | 884/2647 [03:53<18:37,  1.58clip/s]Ekspor fitur:  34%|███▎      | 892/2647 [03:53<06:10,  4.74clip/s]Ekspor fitur:  34%|███▍      | 894/2647 [03:54<07:46,  3.76clip/s]Ekspor fitur:  34%|███▍      | 896/2647 [03:55<09:31,  3.06clip/s]Ekspor fitur:  34%|███▍      | 899/2647 [03:55<07:34,  3.85clip/s]Ekspor fitur:  34%|███▍      | 901/2647 [03:56<07:07,  4.09clip/s]Ekspor fitur:  34%|███▍      | 903/2647 [03:56<07:37,  3.81clip/s]Ekspor fitur:  34%|███▍      | 905/2647 [03:57<06:47,  4.28clip/s]Ekspor fitur:  34%|███▍      | 906/2647 [03:57<06:32,  4.43clip/s]Ekspor fitur:  34%|███▍      | 907/2647 [03:57<07:31,  3.86clip/s]Ekspor fitur:  34%|███▍      | 908/2647 [03:58<08:14,  3.52clip/s]Ekspor fitur:  34%|███▍      | 909/2647 [03:58<10:29,  2.76clip/s]Ekspor fitur:  34%|███▍      | 912/2647 [03:59<06:57,  4.15clip/s]Ekspor fitur:  35%|███▍      | 914/2647 [03:59<06:06,  4.73clip/s]Ekspor fitur:  35%|███▍      | 916/2647 [03:59<06:40,  4.33clip/s]Ekspor fitur:  35%|███▍      | 917/2647 [04:00<06:30,  4.43clip/s]Ekspor fitur:  35%|███▍      | 918/2647 [04:02<16:58,  1.70clip/s]Ekspor fitur:  35%|███▍      | 924/2647 [04:02<07:14,  3.96clip/s]Ekspor fitur:  35%|███▌      | 928/2647 [04:06<16:23,  1.75clip/s]Ekspor fitur:  35%|███▌      | 937/2647 [04:07<07:33,  3.77clip/s]Ekspor fitur:  36%|███▌      | 940/2647 [04:07<07:23,  3.85clip/s]Ekspor fitur:  36%|███▌      | 942/2647 [04:08<07:13,  3.93clip/s]Ekspor fitur:  36%|███▌      | 944/2647 [04:08<06:28,  4.38clip/s]Ekspor fitur:  36%|███▌      | 946/2647 [04:09<08:48,  3.22clip/s]Ekspor fitur:  36%|███▌      | 948/2647 [04:10<08:29,  3.33clip/s]Ekspor fitur:  36%|███▌      | 949/2647 [04:10<09:02,  3.13clip/s]Ekspor fitur:  36%|███▌      | 951/2647 [04:12<12:46,  2.21clip/s]Ekspor fitur:  36%|███▌      | 957/2647 [04:12<06:41,  4.21clip/s]Ekspor fitur:  36%|███▌      | 959/2647 [04:12<05:43,  4.92clip/s]Ekspor fitur:  36%|███▋      | 961/2647 [04:12<05:11,  5.42clip/s]Ekspor fitur:  36%|███▋      | 962/2647 [04:13<05:19,  5.27clip/s]Ekspor fitur:  36%|███▋      | 963/2647 [04:13<05:52,  4.77clip/s]Ekspor fitur:  36%|███▋      | 964/2647 [04:13<05:50,  4.80clip/s]Ekspor fitur:  36%|███▋      | 966/2647 [04:14<08:18,  3.37clip/s]Ekspor fitur:  37%|███▋      | 969/2647 [04:14<05:52,  4.75clip/s]Ekspor fitur:  37%|███▋      | 971/2647 [04:15<07:33,  3.70clip/s]Ekspor fitur:  37%|███▋      | 974/2647 [04:15<05:27,  5.11clip/s]Ekspor fitur:  37%|███▋      | 975/2647 [04:16<05:24,  5.15clip/s]Ekspor fitur:  37%|███▋      | 976/2647 [04:17<09:53,  2.81clip/s]Ekspor fitur:  37%|███▋      | 977/2647 [04:17<09:32,  2.92clip/s]Ekspor fitur:  37%|███▋      | 979/2647 [04:17<07:49,  3.55clip/s]Ekspor fitur:  37%|███▋      | 981/2647 [04:17<05:38,  4.91clip/s]Ekspor fitur:  37%|███▋      | 982/2647 [04:19<14:47,  1.88clip/s]Ekspor fitur:  37%|███▋      | 987/2647 [04:20<09:38,  2.87clip/s]Ekspor fitur:  37%|███▋      | 989/2647 [04:21<08:33,  3.23clip/s]Ekspor fitur:  37%|███▋      | 991/2647 [04:22<09:25,  2.93clip/s]Ekspor fitur:  38%|███▊      | 994/2647 [04:22<07:37,  3.61clip/s]Ekspor fitur:  38%|███▊      | 996/2647 [04:23<08:24,  3.27clip/s]Ekspor fitur:  38%|███▊      | 997/2647 [04:24<12:14,  2.25clip/s]Ekspor fitur:  38%|███▊      | 1001/2647 [04:25<09:50,  2.79clip/s]Ekspor fitur:  38%|███▊      | 1005/2647 [04:26<06:42,  4.08clip/s]Ekspor fitur:  38%|███▊      | 1006/2647 [04:26<07:11,  3.80clip/s]Ekspor fitur:  38%|███▊      | 1010/2647 [04:26<04:34,  5.97clip/s]Ekspor fitur:  38%|███▊      | 1012/2647 [04:26<04:37,  5.90clip/s]Ekspor fitur:  38%|███▊      | 1014/2647 [04:27<04:09,  6.54clip/s]Ekspor fitur:  38%|███▊      | 1017/2647 [04:27<04:48,  5.66clip/s]Ekspor fitur:  39%|███▊      | 1022/2647 [04:28<03:31,  7.69clip/s]Ekspor fitur:  39%|███▊      | 1024/2647 [04:28<03:22,  8.02clip/s]Ekspor fitur:  39%|███▊      | 1025/2647 [04:28<04:50,  5.58clip/s]Ekspor fitur:  39%|███▉      | 1026/2647 [04:29<05:52,  4.60clip/s]Ekspor fitur:  39%|███▉      | 1027/2647 [04:30<12:51,  2.10clip/s]Ekspor fitur:  39%|███▉      | 1030/2647 [04:32<13:25,  2.01clip/s]Ekspor fitur:  39%|███▉      | 1036/2647 [04:32<06:17,  4.26clip/s]Ekspor fitur:  39%|███▉      | 1038/2647 [04:33<07:13,  3.71clip/s]Ekspor fitur:  39%|███▉      | 1040/2647 [04:33<06:27,  4.15clip/s]Ekspor fitur:  39%|███▉      | 1042/2647 [04:33<05:37,  4.75clip/s]Ekspor fitur:  39%|███▉      | 1045/2647 [04:34<05:38,  4.74clip/s]Ekspor fitur:  40%|███▉      | 1049/2647 [04:35<06:40,  3.99clip/s]Ekspor fitur:  40%|███▉      | 1055/2647 [04:36<03:55,  6.76clip/s]Ekspor fitur:  40%|███▉      | 1058/2647 [04:36<03:22,  7.84clip/s]Ekspor fitur:  40%|████      | 1060/2647 [04:36<03:33,  7.44clip/s]Ekspor fitur:  40%|████      | 1062/2647 [04:37<04:12,  6.27clip/s]Ekspor fitur:  40%|████      | 1066/2647 [04:37<03:04,  8.55clip/s]Ekspor fitur:  40%|████      | 1069/2647 [04:37<03:04,  8.56clip/s]Ekspor fitur:  40%|████      | 1072/2647 [04:37<02:27, 10.66clip/s]Ekspor fitur:  41%|████      | 1074/2647 [04:41<13:37,  1.93clip/s]Ekspor fitur:  41%|████      | 1087/2647 [04:42<04:57,  5.24clip/s]Ekspor fitur:  41%|████      | 1089/2647 [04:42<05:34,  4.66clip/s]Ekspor fitur:  41%|████      | 1091/2647 [04:43<04:55,  5.26clip/s]Ekspor fitur:  41%|████▏     | 1093/2647 [04:43<05:35,  4.63clip/s]Ekspor fitur:  41%|████▏     | 1095/2647 [04:44<07:43,  3.35clip/s]Ekspor fitur:  42%|████▏     | 1099/2647 [04:45<05:43,  4.50clip/s]Ekspor fitur:  42%|████▏     | 1101/2647 [04:45<05:31,  4.67clip/s]Ekspor fitur:  42%|████▏     | 1102/2647 [04:45<05:14,  4.91clip/s]Ekspor fitur:  42%|████▏     | 1104/2647 [04:46<04:47,  5.37clip/s]Ekspor fitur:  42%|████▏     | 1105/2647 [04:46<05:15,  4.89clip/s]Ekspor fitur:  42%|████▏     | 1107/2647 [04:46<04:11,  6.13clip/s]Ekspor fitur:  42%|████▏     | 1108/2647 [04:46<04:02,  6.34clip/s]Ekspor fitur:  42%|████▏     | 1109/2647 [04:46<04:52,  5.26clip/s]Ekspor fitur:  42%|████▏     | 1110/2647 [04:47<04:57,  5.16clip/s]Ekspor fitur:  42%|████▏     | 1111/2647 [04:47<05:07,  5.00clip/s]Ekspor fitur:  42%|████▏     | 1113/2647 [04:47<04:29,  5.69clip/s]Ekspor fitur:  42%|████▏     | 1114/2647 [04:47<04:47,  5.32clip/s]Ekspor fitur:  42%|████▏     | 1116/2647 [04:48<03:56,  6.47clip/s]Ekspor fitur:  42%|████▏     | 1118/2647 [04:48<04:10,  6.10clip/s]Ekspor fitur:  42%|████▏     | 1119/2647 [04:50<15:18,  1.66clip/s]Ekspor fitur:  43%|████▎     | 1127/2647 [04:50<04:53,  5.17clip/s]Ekspor fitur:  43%|████▎     | 1129/2647 [04:51<05:20,  4.74clip/s]Ekspor fitur:  43%|████▎     | 1131/2647 [04:52<07:22,  3.42clip/s]Ekspor fitur:  43%|████▎     | 1133/2647 [04:54<11:16,  2.24clip/s]Ekspor fitur:  43%|████▎     | 1139/2647 [04:56<10:26,  2.41clip/s]Ekspor fitur:  43%|████▎     | 1141/2647 [04:57<10:11,  2.46clip/s]Ekspor fitur:  43%|████▎     | 1143/2647 [04:59<12:16,  2.04clip/s]Ekspor fitur:  43%|████▎     | 1147/2647 [05:02<15:08,  1.65clip/s]Ekspor fitur:  43%|████▎     | 1151/2647 [05:03<12:09,  2.05clip/s]Ekspor fitur:  44%|████▎     | 1153/2647 [05:04<12:13,  2.04clip/s]Ekspor fitur:  44%|████▎     | 1156/2647 [05:04<09:28,  2.62clip/s]Ekspor fitur:  44%|████▎     | 1157/2647 [05:04<08:46,  2.83clip/s]Ekspor fitur:  44%|████▎     | 1158/2647 [05:05<08:09,  3.04clip/s]Ekspor fitur:  44%|████▍     | 1159/2647 [05:05<09:40,  2.56clip/s]Ekspor fitur:  44%|████▍     | 1163/2647 [05:06<08:13,  3.01clip/s]Ekspor fitur:  44%|████▍     | 1165/2647 [05:07<08:39,  2.85clip/s]Ekspor fitur:  44%|████▍     | 1166/2647 [05:07<07:46,  3.17clip/s]Ekspor fitur:  44%|████▍     | 1167/2647 [05:10<16:46,  1.47clip/s]Ekspor fitur:  44%|████▍     | 1168/2647 [05:11<22:06,  1.11clip/s]Ekspor fitur:  44%|████▍     | 1171/2647 [05:12<14:23,  1.71clip/s]Ekspor fitur:  44%|████▍     | 1175/2647 [05:12<08:36,  2.85clip/s]Ekspor fitur:  44%|████▍     | 1176/2647 [05:13<09:13,  2.66clip/s]Ekspor fitur:  44%|████▍     | 1177/2647 [05:15<16:06,  1.52clip/s]Ekspor fitur:  45%|████▍     | 1182/2647 [05:17<11:19,  2.15clip/s]Ekspor fitur:  45%|████▍     | 1184/2647 [05:19<14:32,  1.68clip/s]Ekspor fitur:  45%|████▍     | 1188/2647 [05:19<09:22,  2.59clip/s]Ekspor fitur:  45%|████▍     | 1189/2647 [05:20<11:41,  2.08clip/s]Ekspor fitur:  45%|████▍     | 1191/2647 [05:21<12:11,  1.99clip/s]Ekspor fitur:  45%|████▌     | 1198/2647 [05:22<06:00,  4.02clip/s]Ekspor fitur:  45%|████▌     | 1200/2647 [05:22<06:01,  4.00clip/s]Ekspor fitur:  45%|████▌     | 1201/2647 [05:23<08:17,  2.91clip/s]Ekspor fitur:  46%|████▌     | 1206/2647 [05:25<07:47,  3.08clip/s]Ekspor fitur:  46%|████▌     | 1210/2647 [05:25<06:07,  3.91clip/s]Ekspor fitur:  46%|████▌     | 1216/2647 [05:25<03:43,  6.41clip/s]Ekspor fitur:  46%|████▌     | 1218/2647 [05:27<06:13,  3.83clip/s]Ekspor fitur:  46%|████▌     | 1220/2647 [05:30<12:33,  1.89clip/s]Ekspor fitur:  46%|████▋     | 1229/2647 [05:31<06:32,  3.62clip/s]Ekspor fitur:  47%|████▋     | 1233/2647 [05:31<05:11,  4.54clip/s]Ekspor fitur:  47%|████▋     | 1235/2647 [05:31<04:55,  4.78clip/s]Ekspor fitur:  47%|████▋     | 1237/2647 [05:33<08:17,  2.83clip/s]Ekspor fitur:  47%|████▋     | 1240/2647 [05:34<08:00,  2.93clip/s]Ekspor fitur:  47%|████▋     | 1244/2647 [05:35<06:02,  3.87clip/s]Ekspor fitur:  47%|████▋     | 1245/2647 [05:35<06:01,  3.88clip/s]Ekspor fitur:  47%|████▋     | 1247/2647 [05:35<05:14,  4.45clip/s]Ekspor fitur:  47%|████▋     | 1248/2647 [05:36<06:37,  3.52clip/s]Ekspor fitur:  47%|████▋     | 1251/2647 [05:36<05:07,  4.54clip/s]Ekspor fitur:  47%|████▋     | 1253/2647 [05:37<06:24,  3.62clip/s]Ekspor fitur:  47%|████▋     | 1255/2647 [05:37<05:00,  4.64clip/s]Ekspor fitur:  47%|████▋     | 1256/2647 [05:37<04:34,  5.06clip/s]Ekspor fitur:  47%|████▋     | 1257/2647 [05:38<05:53,  3.93clip/s]Ekspor fitur:  48%|████▊     | 1259/2647 [05:39<08:36,  2.69clip/s]Ekspor fitur:  48%|████▊     | 1263/2647 [05:39<04:44,  4.86clip/s]Ekspor fitur:  48%|████▊     | 1265/2647 [05:40<05:04,  4.55clip/s]Ekspor fitur:  48%|████▊     | 1268/2647 [05:40<03:48,  6.04clip/s]Ekspor fitur:  48%|████▊     | 1270/2647 [05:40<04:06,  5.58clip/s]Ekspor fitur:  48%|████▊     | 1273/2647 [05:42<08:42,  2.63clip/s]Ekspor fitur:  48%|████▊     | 1281/2647 [05:43<05:09,  4.41clip/s]Ekspor fitur:  49%|████▊     | 1284/2647 [05:44<05:07,  4.43clip/s]Ekspor fitur:  49%|████▊     | 1286/2647 [05:45<06:39,  3.41clip/s]Ekspor fitur:  49%|████▊     | 1290/2647 [05:45<04:49,  4.69clip/s]Ekspor fitur:  49%|████▉     | 1291/2647 [05:48<10:04,  2.24clip/s]Ekspor fitur:  49%|████▉     | 1300/2647 [05:48<04:42,  4.77clip/s]Ekspor fitur:  49%|████▉     | 1302/2647 [05:50<07:34,  2.96clip/s]Ekspor fitur:  49%|████▉     | 1305/2647 [05:51<06:37,  3.38clip/s]Ekspor fitur:  50%|████▉     | 1311/2647 [05:52<05:36,  3.97clip/s]Ekspor fitur:  50%|████▉     | 1315/2647 [05:52<04:25,  5.01clip/s]Ekspor fitur:  50%|████▉     | 1316/2647 [05:53<04:57,  4.47clip/s]Ekspor fitur:  50%|████▉     | 1319/2647 [05:53<05:15,  4.21clip/s]Ekspor fitur:  50%|████▉     | 1322/2647 [05:54<04:42,  4.69clip/s]Ekspor fitur:  50%|█████     | 1324/2647 [05:55<05:16,  4.18clip/s]Ekspor fitur:  50%|█████     | 1326/2647 [05:55<04:20,  5.08clip/s]Ekspor fitur:  50%|█████     | 1327/2647 [05:55<05:36,  3.92clip/s]Ekspor fitur:  50%|█████     | 1329/2647 [05:56<06:47,  3.23clip/s]Ekspor fitur:  50%|█████     | 1334/2647 [05:57<04:18,  5.09clip/s]Ekspor fitur:  51%|█████     | 1339/2647 [05:58<04:31,  4.82clip/s]Ekspor fitur:  51%|█████     | 1343/2647 [05:58<04:13,  5.14clip/s]Ekspor fitur:  51%|█████     | 1347/2647 [05:59<03:29,  6.21clip/s]Ekspor fitur:  51%|█████     | 1349/2647 [06:00<05:28,  3.95clip/s]Ekspor fitur:  51%|█████     | 1353/2647 [06:00<04:28,  4.81clip/s]Ekspor fitur:  51%|█████▏    | 1357/2647 [06:02<06:00,  3.58clip/s]Ekspor fitur:  51%|█████▏    | 1361/2647 [06:03<06:16,  3.41clip/s]Ekspor fitur:  52%|█████▏    | 1366/2647 [06:04<04:26,  4.82clip/s]Ekspor fitur:  52%|█████▏    | 1367/2647 [06:04<05:26,  3.92clip/s]Ekspor fitur:  52%|█████▏    | 1371/2647 [06:05<04:43,  4.50clip/s]Ekspor fitur:  52%|█████▏    | 1377/2647 [06:05<03:04,  6.88clip/s]Ekspor fitur:  52%|█████▏    | 1379/2647 [06:06<03:00,  7.03clip/s]Ekspor fitur:  52%|█████▏    | 1381/2647 [06:06<02:43,  7.75clip/s]Ekspor fitur:  52%|█████▏    | 1383/2647 [06:06<03:14,  6.51clip/s]Ekspor fitur:  52%|█████▏    | 1385/2647 [06:07<03:26,  6.10clip/s]Ekspor fitur:  52%|█████▏    | 1387/2647 [06:07<04:08,  5.07clip/s]Ekspor fitur:  52%|█████▏    | 1388/2647 [06:07<04:04,  5.15clip/s]Ekspor fitur:  53%|█████▎    | 1390/2647 [06:08<05:33,  3.77clip/s]Ekspor fitur:  53%|█████▎    | 1396/2647 [06:08<02:43,  7.64clip/s]Ekspor fitur:  53%|█████▎    | 1398/2647 [06:09<02:23,  8.68clip/s]Ekspor fitur:  53%|█████▎    | 1400/2647 [06:09<02:46,  7.47clip/s]Ekspor fitur:  53%|█████▎    | 1403/2647 [06:09<02:17,  9.08clip/s]Ekspor fitur:  53%|█████▎    | 1405/2647 [06:15<15:46,  1.31clip/s]Ekspor fitur:  53%|█████▎    | 1415/2647 [06:15<06:35,  3.12clip/s]Ekspor fitur:  54%|█████▎    | 1417/2647 [06:16<06:34,  3.12clip/s]Ekspor fitur:  54%|█████▎    | 1419/2647 [06:17<06:26,  3.18clip/s]Ekspor fitur:  54%|█████▍    | 1423/2647 [06:17<04:38,  4.40clip/s]Ekspor fitur:  54%|█████▍    | 1425/2647 [06:17<04:49,  4.22clip/s]Ekspor fitur:  54%|█████▍    | 1426/2647 [06:18<06:18,  3.23clip/s]Ekspor fitur:  54%|█████▍    | 1430/2647 [06:19<04:15,  4.77clip/s]Ekspor fitur:  54%|█████▍    | 1431/2647 [06:19<04:28,  4.53clip/s]Ekspor fitur:  54%|█████▍    | 1433/2647 [06:19<03:40,  5.51clip/s]Ekspor fitur:  54%|█████▍    | 1434/2647 [06:19<04:32,  4.45clip/s]Ekspor fitur:  54%|█████▍    | 1435/2647 [06:20<04:38,  4.35clip/s]Ekspor fitur:  54%|█████▍    | 1437/2647 [06:20<03:39,  5.50clip/s]Ekspor fitur:  54%|█████▍    | 1438/2647 [06:21<06:17,  3.20clip/s]Ekspor fitur:  54%|█████▍    | 1441/2647 [06:21<03:46,  5.32clip/s]Ekspor fitur:  55%|█████▍    | 1443/2647 [06:21<03:56,  5.09clip/s]Ekspor fitur:  55%|█████▍    | 1444/2647 [06:24<12:00,  1.67clip/s]Ekspor fitur:  55%|█████▍    | 1454/2647 [06:25<04:37,  4.30clip/s]Ekspor fitur:  55%|█████▌    | 1457/2647 [06:25<04:03,  4.90clip/s]Ekspor fitur:  55%|█████▌    | 1459/2647 [06:25<04:13,  4.69clip/s]Ekspor fitur:  55%|█████▌    | 1460/2647 [06:26<04:34,  4.33clip/s]Ekspor fitur:  55%|█████▌    | 1462/2647 [06:26<04:56,  3.99clip/s]Ekspor fitur:  55%|█████▌    | 1466/2647 [06:27<03:49,  5.15clip/s]Ekspor fitur:  55%|█████▌    | 1469/2647 [06:28<04:05,  4.79clip/s]Ekspor fitur:  56%|█████▌    | 1472/2647 [06:28<03:15,  6.00clip/s]Ekspor fitur:  56%|█████▌    | 1474/2647 [06:28<02:45,  7.11clip/s]Ekspor fitur:  56%|█████▌    | 1476/2647 [06:29<04:04,  4.79clip/s]Ekspor fitur:  56%|█████▌    | 1479/2647 [06:30<04:36,  4.22clip/s]Ekspor fitur:  56%|█████▌    | 1485/2647 [06:30<02:44,  7.05clip/s]Ekspor fitur:  56%|█████▌    | 1487/2647 [06:30<02:46,  6.95clip/s]Ekspor fitur:  56%|█████▋    | 1489/2647 [06:32<06:16,  3.07clip/s]Ekspor fitur:  57%|█████▋    | 1496/2647 [06:32<03:09,  6.06clip/s]Ekspor fitur:  57%|█████▋    | 1499/2647 [06:34<04:17,  4.45clip/s]Ekspor fitur:  57%|█████▋    | 1503/2647 [06:35<05:36,  3.40clip/s]Ekspor fitur:  57%|█████▋    | 1509/2647 [06:37<04:52,  3.88clip/s]Ekspor fitur:  57%|█████▋    | 1513/2647 [06:37<04:22,  4.32clip/s]Ekspor fitur:  57%|█████▋    | 1516/2647 [06:38<04:27,  4.23clip/s]Ekspor fitur:  57%|█████▋    | 1519/2647 [06:39<04:24,  4.26clip/s]Ekspor fitur:  57%|█████▋    | 1521/2647 [06:39<04:05,  4.59clip/s]Ekspor fitur:  57%|█████▋    | 1522/2647 [06:39<04:10,  4.49clip/s]Ekspor fitur:  58%|█████▊    | 1523/2647 [06:39<03:57,  4.73clip/s]Ekspor fitur:  58%|█████▊    | 1524/2647 [06:40<03:51,  4.86clip/s]Ekspor fitur:  58%|█████▊    | 1525/2647 [06:40<03:52,  4.83clip/s]Ekspor fitur:  58%|█████▊    | 1527/2647 [06:40<03:16,  5.70clip/s]Ekspor fitur:  58%|█████▊    | 1528/2647 [06:42<10:58,  1.70clip/s]Ekspor fitur:  58%|█████▊    | 1533/2647 [06:43<06:38,  2.80clip/s]Ekspor fitur:  58%|█████▊    | 1535/2647 [06:44<06:39,  2.78clip/s]Ekspor fitur:  58%|█████▊    | 1537/2647 [06:46<09:58,  1.86clip/s]Ekspor fitur:  58%|█████▊    | 1544/2647 [06:46<04:39,  3.95clip/s]Ekspor fitur:  58%|█████▊    | 1546/2647 [06:46<03:58,  4.62clip/s]Ekspor fitur:  58%|█████▊    | 1548/2647 [06:47<03:57,  4.64clip/s]Ekspor fitur:  59%|█████▊    | 1549/2647 [06:47<03:56,  4.65clip/s]Ekspor fitur:  59%|█████▊    | 1550/2647 [06:47<04:06,  4.45clip/s]Ekspor fitur:  59%|█████▊    | 1552/2647 [06:49<08:00,  2.28clip/s]Ekspor fitur:  59%|█████▊    | 1553/2647 [06:50<08:35,  2.12clip/s]Ekspor fitur:  59%|█████▊    | 1555/2647 [06:50<06:04,  3.00clip/s]Ekspor fitur:  59%|█████▉    | 1556/2647 [06:52<12:56,  1.41clip/s]Ekspor fitur:  59%|█████▉    | 1557/2647 [06:53<14:50,  1.22clip/s]Ekspor fitur:  59%|█████▉    | 1561/2647 [06:54<07:22,  2.45clip/s]Ekspor fitur:  59%|█████▉    | 1562/2647 [06:55<09:33,  1.89clip/s]Ekspor fitur:  59%|█████▉    | 1564/2647 [06:58<16:14,  1.11clip/s]Ekspor fitur:  59%|█████▉    | 1569/2647 [06:59<08:41,  2.07clip/s]Ekspor fitur:  59%|█████▉    | 1573/2647 [06:59<05:41,  3.14clip/s]Ekspor fitur:  59%|█████▉    | 1574/2647 [06:59<05:14,  3.42clip/s]Ekspor fitur:  60%|█████▉    | 1575/2647 [06:59<04:45,  3.76clip/s]Ekspor fitur:  60%|█████▉    | 1576/2647 [06:59<04:32,  3.93clip/s]Ekspor fitur:  60%|█████▉    | 1578/2647 [07:00<05:52,  3.03clip/s]Ekspor fitur:  60%|█████▉    | 1581/2647 [07:01<04:18,  4.13clip/s]Ekspor fitur:  60%|█████▉    | 1582/2647 [07:02<06:28,  2.74clip/s]Ekspor fitur:  60%|█████▉    | 1585/2647 [07:03<06:14,  2.83clip/s]Ekspor fitur:  60%|█████▉    | 1586/2647 [07:04<08:33,  2.07clip/s]Ekspor fitur:  60%|██████    | 1591/2647 [07:04<04:27,  3.95clip/s]Ekspor fitur:  60%|██████    | 1592/2647 [07:05<06:34,  2.67clip/s]Ekspor fitur:  60%|██████    | 1593/2647 [07:06<07:42,  2.28clip/s]Ekspor fitur:  60%|██████    | 1597/2647 [07:09<09:47,  1.79clip/s]Ekspor fitur:  60%|██████    | 1601/2647 [07:10<07:06,  2.45clip/s]Ekspor fitur:  61%|██████    | 1604/2647 [07:10<05:29,  3.17clip/s]Ekspor fitur:  61%|██████    | 1605/2647 [07:11<06:37,  2.62clip/s]Ekspor fitur:  61%|██████    | 1610/2647 [07:12<05:32,  3.12clip/s]Ekspor fitur:  61%|██████    | 1611/2647 [07:13<06:15,  2.76clip/s]Ekspor fitur:  61%|██████    | 1613/2647 [07:13<05:39,  3.04clip/s]Ekspor fitur:  61%|██████    | 1617/2647 [07:13<03:47,  4.54clip/s]Ekspor fitur:  61%|██████    | 1618/2647 [07:14<03:39,  4.69clip/s]Ekspor fitur:  61%|██████    | 1619/2647 [07:14<05:41,  3.01clip/s]Ekspor fitur:  61%|██████▏   | 1623/2647 [07:15<03:18,  5.15clip/s]Ekspor fitur:  61%|██████▏   | 1625/2647 [07:18<10:12,  1.67clip/s]Ekspor fitur:  62%|██████▏   | 1637/2647 [07:19<03:27,  4.87clip/s]Ekspor fitur:  62%|██████▏   | 1639/2647 [07:19<03:26,  4.89clip/s]Ekspor fitur:  62%|██████▏   | 1641/2647 [07:19<03:11,  5.25clip/s]Ekspor fitur:  62%|██████▏   | 1643/2647 [07:21<05:09,  3.25clip/s]Ekspor fitur:  62%|██████▏   | 1648/2647 [07:22<04:09,  4.01clip/s]Ekspor fitur:  62%|██████▏   | 1651/2647 [07:22<03:29,  4.75clip/s]Ekspor fitur:  62%|██████▏   | 1652/2647 [07:22<03:52,  4.28clip/s]Ekspor fitur:  62%|██████▏   | 1654/2647 [07:22<03:10,  5.22clip/s]Ekspor fitur:  63%|██████▎   | 1656/2647 [07:23<04:23,  3.75clip/s]Ekspor fitur:  63%|██████▎   | 1657/2647 [07:24<06:17,  2.62clip/s]Ekspor fitur:  63%|██████▎   | 1664/2647 [07:25<02:47,  5.89clip/s]Ekspor fitur:  63%|██████▎   | 1666/2647 [07:25<02:45,  5.94clip/s]Ekspor fitur:  63%|██████▎   | 1668/2647 [07:25<03:05,  5.29clip/s]Ekspor fitur:  63%|██████▎   | 1671/2647 [07:26<02:22,  6.83clip/s]Ekspor fitur:  63%|██████▎   | 1674/2647 [07:26<02:08,  7.59clip/s]Ekspor fitur:  63%|██████▎   | 1676/2647 [07:26<02:23,  6.78clip/s]Ekspor fitur:  63%|██████▎   | 1678/2647 [07:27<02:07,  7.63clip/s]Ekspor fitur:  63%|██████▎   | 1680/2647 [07:27<03:01,  5.34clip/s]Ekspor fitur:  64%|██████▎   | 1684/2647 [07:27<02:02,  7.84clip/s]Ekspor fitur:  64%|██████▎   | 1686/2647 [07:28<02:43,  5.86clip/s]Ekspor fitur:  64%|██████▍   | 1688/2647 [07:28<02:56,  5.44clip/s]Ekspor fitur:  64%|██████▍   | 1691/2647 [07:29<02:06,  7.55clip/s]Ekspor fitur:  64%|██████▍   | 1694/2647 [07:31<05:32,  2.87clip/s]Ekspor fitur:  64%|██████▍   | 1703/2647 [07:31<02:29,  6.32clip/s]Ekspor fitur:  64%|██████▍   | 1705/2647 [07:32<02:51,  5.51clip/s]Ekspor fitur:  65%|██████▍   | 1708/2647 [07:32<02:34,  6.09clip/s]Ekspor fitur:  65%|██████▍   | 1711/2647 [07:32<02:18,  6.75clip/s]Ekspor fitur:  65%|██████▍   | 1713/2647 [07:33<02:50,  5.46clip/s]Ekspor fitur:  65%|██████▍   | 1714/2647 [07:33<03:04,  5.05clip/s]Ekspor fitur:  65%|██████▍   | 1715/2647 [07:35<06:18,  2.46clip/s]Ekspor fitur:  65%|██████▌   | 1723/2647 [07:35<02:26,  6.33clip/s]Ekspor fitur:  65%|██████▌   | 1726/2647 [07:35<02:15,  6.78clip/s]Ekspor fitur:  65%|██████▌   | 1728/2647 [07:36<02:15,  6.77clip/s]Ekspor fitur:  65%|██████▌   | 1731/2647 [07:36<01:49,  8.37clip/s]Ekspor fitur:  65%|██████▌   | 1733/2647 [07:37<03:10,  4.79clip/s]Ekspor fitur:  66%|██████▌   | 1736/2647 [07:38<03:34,  4.24clip/s]Ekspor fitur:  66%|██████▌   | 1741/2647 [07:38<02:42,  5.58clip/s]Ekspor fitur:  66%|██████▌   | 1742/2647 [07:39<04:03,  3.72clip/s]Ekspor fitur:  66%|██████▌   | 1747/2647 [07:39<02:25,  6.18clip/s]Ekspor fitur:  66%|██████▌   | 1749/2647 [07:40<02:25,  6.18clip/s]Ekspor fitur:  66%|██████▌   | 1751/2647 [07:40<02:58,  5.03clip/s]Ekspor fitur:  66%|██████▌   | 1753/2647 [07:41<02:34,  5.80clip/s]Ekspor fitur:  66%|██████▋   | 1755/2647 [07:41<02:19,  6.41clip/s]Ekspor fitur:  66%|██████▋   | 1757/2647 [07:41<02:50,  5.21clip/s]Ekspor fitur:  66%|██████▋   | 1759/2647 [07:42<03:57,  3.74clip/s]Ekspor fitur:  67%|██████▋   | 1763/2647 [07:43<02:44,  5.37clip/s]Ekspor fitur:  67%|██████▋   | 1765/2647 [07:43<03:31,  4.17clip/s]Ekspor fitur:  67%|██████▋   | 1768/2647 [07:44<03:33,  4.12clip/s]Ekspor fitur:  67%|██████▋   | 1771/2647 [07:44<02:45,  5.28clip/s]Ekspor fitur:  67%|██████▋   | 1772/2647 [07:45<02:55,  5.00clip/s]Ekspor fitur:  67%|██████▋   | 1774/2647 [07:45<02:33,  5.68clip/s]Ekspor fitur:  67%|██████▋   | 1775/2647 [07:45<02:48,  5.17clip/s]Ekspor fitur:  67%|██████▋   | 1777/2647 [07:45<02:15,  6.42clip/s]Ekspor fitur:  67%|██████▋   | 1778/2647 [07:46<03:19,  4.36clip/s]Ekspor fitur:  67%|██████▋   | 1781/2647 [07:46<02:57,  4.88clip/s]Ekspor fitur:  67%|██████▋   | 1785/2647 [07:47<02:47,  5.14clip/s]Ekspor fitur:  68%|██████▊   | 1787/2647 [07:47<02:21,  6.06clip/s]Ekspor fitur:  68%|██████▊   | 1788/2647 [07:48<02:47,  5.14clip/s]Ekspor fitur:  68%|██████▊   | 1790/2647 [07:48<03:09,  4.52clip/s]Ekspor fitur:  68%|██████▊   | 1793/2647 [07:50<05:01,  2.83clip/s]Ekspor fitur:  68%|██████▊   | 1799/2647 [07:51<03:24,  4.14clip/s]Ekspor fitur:  68%|██████▊   | 1803/2647 [07:52<03:45,  3.75clip/s]Ekspor fitur:  68%|██████▊   | 1809/2647 [07:53<02:46,  5.03clip/s]Ekspor fitur:  68%|██████▊   | 1811/2647 [07:54<03:23,  4.11clip/s]Ekspor fitur:  69%|██████▊   | 1815/2647 [07:54<02:45,  5.03clip/s]Ekspor fitur:  69%|██████▊   | 1817/2647 [07:55<03:32,  3.91clip/s]Ekspor fitur:  69%|██████▉   | 1821/2647 [07:55<02:41,  5.12clip/s]Ekspor fitur:  69%|██████▉   | 1822/2647 [07:56<02:39,  5.16clip/s]Ekspor fitur:  69%|██████▉   | 1823/2647 [07:56<02:43,  5.04clip/s]Ekspor fitur:  69%|██████▉   | 1825/2647 [07:56<02:47,  4.90clip/s]Ekspor fitur:  69%|██████▉   | 1826/2647 [07:57<03:36,  3.80clip/s]Ekspor fitur:  69%|██████▉   | 1827/2647 [07:58<05:06,  2.68clip/s]Ekspor fitur:  69%|██████▉   | 1829/2647 [07:58<03:36,  3.78clip/s]Ekspor fitur:  69%|██████▉   | 1831/2647 [07:59<05:20,  2.54clip/s]Ekspor fitur:  69%|██████▉   | 1833/2647 [07:59<04:09,  3.26clip/s]Ekspor fitur:  69%|██████▉   | 1834/2647 [08:00<05:02,  2.69clip/s]Ekspor fitur:  69%|██████▉   | 1837/2647 [08:00<03:12,  4.21clip/s]Ekspor fitur:  69%|██████▉   | 1838/2647 [08:01<03:38,  3.70clip/s]Ekspor fitur:  70%|██████▉   | 1840/2647 [08:01<03:20,  4.02clip/s]Ekspor fitur:  70%|██████▉   | 1841/2647 [08:01<03:07,  4.31clip/s]Ekspor fitur:  70%|██████▉   | 1843/2647 [08:02<03:47,  3.54clip/s]Ekspor fitur:  70%|██████▉   | 1844/2647 [08:02<04:27,  3.00clip/s]Ekspor fitur:  70%|██████▉   | 1847/2647 [08:03<03:24,  3.91clip/s]Ekspor fitur:  70%|██████▉   | 1849/2647 [08:03<03:02,  4.37clip/s]Ekspor fitur:  70%|██████▉   | 1851/2647 [08:04<03:33,  3.72clip/s]Ekspor fitur:  70%|███████   | 1854/2647 [08:05<03:22,  3.92clip/s]Ekspor fitur:  70%|███████   | 1855/2647 [08:06<04:33,  2.90clip/s]Ekspor fitur:  70%|███████   | 1857/2647 [08:06<03:46,  3.49clip/s]Ekspor fitur:  70%|███████   | 1859/2647 [08:07<05:32,  2.37clip/s]Ekspor fitur:  70%|███████   | 1860/2647 [08:08<06:46,  1.94clip/s]Ekspor fitur:  70%|███████   | 1864/2647 [08:08<03:33,  3.67clip/s]Ekspor fitur:  70%|███████   | 1866/2647 [08:10<05:10,  2.52clip/s]Ekspor fitur:  71%|███████   | 1872/2647 [08:10<02:59,  4.31clip/s]Ekspor fitur:  71%|███████   | 1875/2647 [08:11<02:33,  5.01clip/s]Ekspor fitur:  71%|███████   | 1876/2647 [08:11<03:10,  4.06clip/s]Ekspor fitur:  71%|███████   | 1879/2647 [08:12<02:38,  4.84clip/s]Ekspor fitur:  71%|███████   | 1880/2647 [08:12<02:39,  4.80clip/s]Ekspor fitur:  71%|███████   | 1882/2647 [08:13<04:01,  3.17clip/s]Ekspor fitur:  71%|███████   | 1883/2647 [08:14<06:03,  2.10clip/s]Ekspor fitur:  71%|███████▏  | 1891/2647 [08:15<02:18,  5.46clip/s]Ekspor fitur:  72%|███████▏  | 1893/2647 [08:15<02:15,  5.57clip/s]Ekspor fitur:  72%|███████▏  | 1896/2647 [08:16<02:33,  4.89clip/s]Ekspor fitur:  72%|███████▏  | 1898/2647 [08:16<02:52,  4.35clip/s]Ekspor fitur:  72%|███████▏  | 1899/2647 [08:17<03:56,  3.16clip/s]Ekspor fitur:  72%|███████▏  | 1902/2647 [08:18<03:01,  4.10clip/s]Ekspor fitur:  72%|███████▏  | 1903/2647 [08:18<02:56,  4.21clip/s]Ekspor fitur:  72%|███████▏  | 1904/2647 [08:18<03:23,  3.66clip/s]Ekspor fitur:  72%|███████▏  | 1906/2647 [08:19<02:58,  4.15clip/s]Ekspor fitur:  72%|███████▏  | 1907/2647 [08:19<03:28,  3.55clip/s]Ekspor fitur:  72%|███████▏  | 1909/2647 [08:19<03:01,  4.07clip/s]Ekspor fitur:  72%|███████▏  | 1910/2647 [08:21<06:42,  1.83clip/s]Ekspor fitur:  72%|███████▏  | 1915/2647 [08:21<02:58,  4.09clip/s]Ekspor fitur:  72%|███████▏  | 1917/2647 [08:22<03:45,  3.24clip/s]Ekspor fitur:  72%|███████▏  | 1918/2647 [08:24<07:07,  1.70clip/s]Ekspor fitur:  73%|███████▎  | 1922/2647 [08:26<06:10,  1.96clip/s]Ekspor fitur:  73%|███████▎  | 1927/2647 [08:27<04:45,  2.53clip/s]Ekspor fitur:  73%|███████▎  | 1928/2647 [08:29<06:07,  1.96clip/s]Ekspor fitur:  73%|███████▎  | 1933/2647 [08:29<03:46,  3.15clip/s]Ekspor fitur:  73%|███████▎  | 1934/2647 [08:31<05:08,  2.31clip/s]Ekspor fitur:  73%|███████▎  | 1941/2647 [08:31<02:39,  4.44clip/s]Ekspor fitur:  73%|███████▎  | 1943/2647 [08:31<02:33,  4.59clip/s]Ekspor fitur:  73%|███████▎  | 1945/2647 [08:32<02:43,  4.29clip/s]Ekspor fitur:  74%|███████▎  | 1946/2647 [08:33<03:31,  3.32clip/s]Ekspor fitur:  74%|███████▎  | 1947/2647 [08:34<05:40,  2.06clip/s]Ekspor fitur:  74%|███████▎  | 1950/2647 [08:34<03:51,  3.02clip/s]Ekspor fitur:  74%|███████▎  | 1952/2647 [08:36<04:39,  2.49clip/s]Ekspor fitur:  74%|███████▍  | 1953/2647 [08:37<06:13,  1.86clip/s]Ekspor fitur:  74%|███████▍  | 1958/2647 [08:37<03:36,  3.19clip/s]Ekspor fitur:  74%|███████▍  | 1959/2647 [08:39<05:01,  2.28clip/s]Ekspor fitur:  74%|███████▍  | 1966/2647 [08:39<02:28,  4.58clip/s]Ekspor fitur:  74%|███████▍  | 1968/2647 [08:39<02:24,  4.71clip/s]Ekspor fitur:  74%|███████▍  | 1970/2647 [08:40<02:45,  4.10clip/s]Ekspor fitur:  74%|███████▍  | 1971/2647 [08:41<03:21,  3.36clip/s]Ekspor fitur:  75%|███████▍  | 1973/2647 [08:41<03:01,  3.71clip/s]Ekspor fitur:  75%|███████▍  | 1975/2647 [08:41<02:22,  4.72clip/s]Ekspor fitur:  75%|███████▍  | 1976/2647 [08:42<03:16,  3.42clip/s]Ekspor fitur:  75%|███████▍  | 1978/2647 [08:44<05:55,  1.88clip/s]Ekspor fitur:  75%|███████▌  | 1986/2647 [08:44<02:14,  4.90clip/s]Ekspor fitur:  75%|███████▌  | 1988/2647 [08:45<02:31,  4.36clip/s]Ekspor fitur:  75%|███████▌  | 1991/2647 [08:45<02:04,  5.28clip/s]Ekspor fitur:  75%|███████▌  | 1993/2647 [08:46<02:45,  3.96clip/s]Ekspor fitur:  75%|███████▌  | 1995/2647 [08:47<02:42,  4.01clip/s]Ekspor fitur:  75%|███████▌  | 1996/2647 [08:47<02:38,  4.12clip/s]Ekspor fitur:  75%|███████▌  | 1998/2647 [08:47<02:34,  4.20clip/s]Ekspor fitur:  76%|███████▌  | 2001/2647 [08:48<02:48,  3.84clip/s]Ekspor fitur:  76%|███████▌  | 2004/2647 [08:49<02:15,  4.75clip/s]Ekspor fitur:  76%|███████▌  | 2005/2647 [08:50<03:58,  2.69clip/s]Ekspor fitur:  76%|███████▌  | 2009/2647 [08:50<02:42,  3.92clip/s]Ekspor fitur:  76%|███████▌  | 2011/2647 [08:51<03:05,  3.43clip/s]Ekspor fitur:  76%|███████▌  | 2014/2647 [08:52<02:47,  3.78clip/s]Ekspor fitur:  76%|███████▌  | 2018/2647 [08:52<01:58,  5.30clip/s]Ekspor fitur:  76%|███████▋  | 2019/2647 [08:54<04:08,  2.53clip/s]Ekspor fitur:  77%|███████▋  | 2026/2647 [08:54<02:05,  4.94clip/s]Ekspor fitur:  77%|███████▋  | 2029/2647 [08:55<02:09,  4.78clip/s]Ekspor fitur:  77%|███████▋  | 2033/2647 [08:55<01:40,  6.10clip/s]Ekspor fitur:  77%|███████▋  | 2035/2647 [08:57<03:05,  3.29clip/s]Ekspor fitur:  77%|███████▋  | 2041/2647 [08:57<01:54,  5.29clip/s]Ekspor fitur:  77%|███████▋  | 2044/2647 [08:58<01:53,  5.31clip/s]Ekspor fitur:  77%|███████▋  | 2047/2647 [08:58<01:38,  6.08clip/s]Ekspor fitur:  77%|███████▋  | 2049/2647 [08:59<01:50,  5.40clip/s]Ekspor fitur:  78%|███████▊  | 2052/2647 [08:59<01:30,  6.56clip/s]Ekspor fitur:  78%|███████▊  | 2053/2647 [08:59<01:46,  5.59clip/s]Ekspor fitur:  78%|███████▊  | 2054/2647 [09:00<02:36,  3.78clip/s]Ekspor fitur:  78%|███████▊  | 2057/2647 [09:02<03:57,  2.48clip/s]Ekspor fitur:  78%|███████▊  | 2063/2647 [09:02<02:11,  4.46clip/s]Ekspor fitur:  78%|███████▊  | 2064/2647 [09:04<03:13,  3.01clip/s]Ekspor fitur:  78%|███████▊  | 2068/2647 [09:04<02:12,  4.39clip/s]Ekspor fitur:  78%|███████▊  | 2070/2647 [09:04<02:16,  4.23clip/s]Ekspor fitur:  78%|███████▊  | 2072/2647 [09:05<01:57,  4.88clip/s]Ekspor fitur:  78%|███████▊  | 2073/2647 [09:05<02:45,  3.47clip/s]Ekspor fitur:  78%|███████▊  | 2076/2647 [09:06<02:43,  3.50clip/s]Ekspor fitur:  79%|███████▊  | 2081/2647 [09:07<01:59,  4.75clip/s]Ekspor fitur:  79%|███████▊  | 2084/2647 [09:07<01:47,  5.22clip/s]Ekspor fitur:  79%|███████▉  | 2085/2647 [09:08<01:55,  4.86clip/s]Ekspor fitur:  79%|███████▉  | 2086/2647 [09:08<01:55,  4.86clip/s]Ekspor fitur:  79%|███████▉  | 2087/2647 [09:08<01:58,  4.72clip/s]Ekspor fitur:  79%|███████▉  | 2089/2647 [09:08<01:57,  4.76clip/s]Ekspor fitur:  79%|███████▉  | 2090/2647 [09:09<02:57,  3.14clip/s]Ekspor fitur:  79%|███████▉  | 2091/2647 [09:10<03:49,  2.43clip/s]Ekspor fitur:  79%|███████▉  | 2095/2647 [09:11<02:28,  3.71clip/s]Ekspor fitur:  79%|███████▉  | 2098/2647 [09:11<01:47,  5.09clip/s]Ekspor fitur:  79%|███████▉  | 2099/2647 [09:11<01:51,  4.94clip/s]Ekspor fitur:  79%|███████▉  | 2100/2647 [09:12<02:48,  3.25clip/s]Ekspor fitur:  79%|███████▉  | 2103/2647 [09:12<02:20,  3.88clip/s]Ekspor fitur:  80%|███████▉  | 2106/2647 [09:13<01:44,  5.16clip/s]Ekspor fitur:  80%|███████▉  | 2108/2647 [09:13<01:31,  5.91clip/s]Ekspor fitur:  80%|███████▉  | 2109/2647 [09:13<01:35,  5.63clip/s]Ekspor fitur:  80%|███████▉  | 2110/2647 [09:13<01:40,  5.32clip/s]Ekspor fitur:  80%|███████▉  | 2112/2647 [09:14<01:45,  5.08clip/s]Ekspor fitur:  80%|███████▉  | 2113/2647 [09:14<02:44,  3.24clip/s]Ekspor fitur:  80%|███████▉  | 2115/2647 [09:16<03:48,  2.33clip/s]Ekspor fitur:  80%|████████  | 2119/2647 [09:16<02:10,  4.04clip/s]Ekspor fitur:  80%|████████  | 2121/2647 [09:17<03:16,  2.68clip/s]Ekspor fitur:  80%|████████  | 2126/2647 [09:18<02:04,  4.20clip/s]Ekspor fitur:  80%|████████  | 2129/2647 [09:19<02:14,  3.84clip/s]Ekspor fitur:  81%|████████  | 2132/2647 [09:21<02:57,  2.90clip/s]Ekspor fitur:  81%|████████  | 2142/2647 [09:21<01:21,  6.20clip/s]Ekspor fitur:  81%|████████  | 2144/2647 [09:22<01:40,  5.02clip/s]Ekspor fitur:  81%|████████  | 2148/2647 [09:22<01:26,  5.76clip/s]Ekspor fitur:  81%|████████  | 2150/2647 [09:22<01:25,  5.79clip/s]Ekspor fitur:  81%|████████▏ | 2153/2647 [09:23<01:14,  6.63clip/s]Ekspor fitur:  81%|████████▏ | 2155/2647 [09:23<01:05,  7.48clip/s]Ekspor fitur:  81%|████████▏ | 2157/2647 [09:23<01:15,  6.48clip/s]Ekspor fitur:  82%|████████▏ | 2159/2647 [09:24<01:19,  6.16clip/s]Ekspor fitur:  82%|████████▏ | 2162/2647 [09:25<01:44,  4.63clip/s]Ekspor fitur:  82%|████████▏ | 2164/2647 [09:25<01:37,  4.96clip/s]Ekspor fitur:  82%|████████▏ | 2165/2647 [09:26<02:46,  2.90clip/s]Ekspor fitur:  82%|████████▏ | 2167/2647 [09:26<02:08,  3.73clip/s]Ekspor fitur:  82%|████████▏ | 2171/2647 [09:27<01:29,  5.30clip/s]Ekspor fitur:  82%|████████▏ | 2172/2647 [09:28<03:10,  2.49clip/s]Ekspor fitur:  82%|████████▏ | 2175/2647 [09:29<02:58,  2.64clip/s]Ekspor fitur:  82%|████████▏ | 2180/2647 [09:30<01:49,  4.25clip/s]Ekspor fitur:  82%|████████▏ | 2181/2647 [09:30<02:00,  3.88clip/s]Ekspor fitur:  82%|████████▏ | 2182/2647 [09:32<03:49,  2.03clip/s]Ekspor fitur:  83%|████████▎ | 2186/2647 [09:32<02:15,  3.40clip/s]Ekspor fitur:  83%|████████▎ | 2188/2647 [09:33<02:07,  3.61clip/s]Ekspor fitur:  83%|████████▎ | 2189/2647 [09:33<02:31,  3.02clip/s]Ekspor fitur:  83%|████████▎ | 2192/2647 [09:35<03:35,  2.11clip/s]Ekspor fitur:  83%|████████▎ | 2197/2647 [09:37<02:41,  2.78clip/s]Ekspor fitur:  83%|████████▎ | 2202/2647 [09:37<01:39,  4.46clip/s]Ekspor fitur:  83%|████████▎ | 2204/2647 [09:37<01:26,  5.12clip/s]Ekspor fitur:  83%|████████▎ | 2206/2647 [09:37<01:20,  5.47clip/s]Ekspor fitur:  83%|████████▎ | 2208/2647 [09:38<01:22,  5.31clip/s]Ekspor fitur:  83%|████████▎ | 2209/2647 [09:38<01:28,  4.97clip/s]Ekspor fitur:  83%|████████▎ | 2210/2647 [09:38<01:20,  5.41clip/s]Ekspor fitur:  84%|████████▎ | 2212/2647 [09:40<02:48,  2.59clip/s]Ekspor fitur:  84%|████████▎ | 2216/2647 [09:40<01:39,  4.35clip/s]Ekspor fitur:  84%|████████▍ | 2217/2647 [09:41<02:40,  2.67clip/s]Ekspor fitur:  84%|████████▍ | 2218/2647 [09:41<02:25,  2.96clip/s]Ekspor fitur:  84%|████████▍ | 2221/2647 [09:41<01:29,  4.74clip/s]Ekspor fitur:  84%|████████▍ | 2223/2647 [09:43<02:32,  2.79clip/s]Ekspor fitur:  84%|████████▍ | 2225/2647 [09:43<02:02,  3.45clip/s]Ekspor fitur:  84%|████████▍ | 2226/2647 [09:44<03:19,  2.11clip/s]Ekspor fitur:  84%|████████▍ | 2227/2647 [09:47<06:09,  1.14clip/s]Ekspor fitur:  84%|████████▍ | 2230/2647 [09:49<05:12,  1.33clip/s]Ekspor fitur:  84%|████████▍ | 2232/2647 [09:52<06:57,  1.01s/clip]Ekspor fitur:  85%|████████▍ | 2238/2647 [09:52<03:19,  2.06clip/s]Ekspor fitur:  85%|████████▍ | 2240/2647 [09:53<02:48,  2.42clip/s]Ekspor fitur:  85%|████████▍ | 2241/2647 [09:54<03:21,  2.02clip/s]Ekspor fitur:  85%|████████▍ | 2244/2647 [09:55<02:52,  2.34clip/s]Ekspor fitur:  85%|████████▍ | 2247/2647 [09:56<02:38,  2.53clip/s]Ekspor fitur:  85%|████████▌ | 2250/2647 [09:58<03:07,  2.12clip/s]Ekspor fitur:  85%|████████▌ | 2254/2647 [09:58<02:22,  2.75clip/s]Ekspor fitur:  85%|████████▌ | 2256/2647 [10:00<03:12,  2.03clip/s]Ekspor fitur:  85%|████████▌ | 2259/2647 [10:00<02:18,  2.81clip/s]Ekspor fitur:  85%|████████▌ | 2260/2647 [10:01<02:33,  2.52clip/s]Ekspor fitur:  85%|████████▌ | 2261/2647 [10:09<10:24,  1.62s/clip]Ekspor fitur:  86%|████████▌ | 2271/2647 [10:09<03:10,  1.98clip/s]Ekspor fitur:  86%|████████▌ | 2275/2647 [10:11<02:45,  2.25clip/s]Ekspor fitur:  86%|████████▌ | 2278/2647 [10:12<03:01,  2.03clip/s]Ekspor fitur:  86%|████████▌ | 2280/2647 [10:13<02:41,  2.27clip/s]Ekspor fitur:  86%|████████▌ | 2282/2647 [10:13<02:12,  2.77clip/s]Ekspor fitur:  86%|████████▋ | 2284/2647 [10:13<01:58,  3.07clip/s]Ekspor fitur:  86%|████████▋ | 2286/2647 [10:14<02:09,  2.78clip/s]Ekspor fitur:  86%|████████▋ | 2288/2647 [10:14<01:41,  3.54clip/s]Ekspor fitur:  87%|████████▋ | 2290/2647 [10:17<03:18,  1.80clip/s]Ekspor fitur:  87%|████████▋ | 2296/2647 [10:17<01:42,  3.43clip/s]Ekspor fitur:  87%|████████▋ | 2298/2647 [10:18<01:45,  3.31clip/s]Ekspor fitur:  87%|████████▋ | 2299/2647 [10:18<01:46,  3.28clip/s]Ekspor fitur:  87%|████████▋ | 2301/2647 [10:20<02:21,  2.45clip/s]Ekspor fitur:  87%|████████▋ | 2304/2647 [10:20<01:35,  3.60clip/s]Ekspor fitur:  87%|████████▋ | 2306/2647 [10:21<02:02,  2.78clip/s]Ekspor fitur:  87%|████████▋ | 2309/2647 [10:22<01:42,  3.31clip/s]Ekspor fitur:  87%|████████▋ | 2313/2647 [10:22<01:06,  5.06clip/s]Ekspor fitur:  87%|████████▋ | 2315/2647 [10:22<00:56,  5.93clip/s]Ekspor fitur:  88%|████████▊ | 2317/2647 [10:22<00:47,  6.91clip/s]Ekspor fitur:  88%|████████▊ | 2319/2647 [10:22<00:45,  7.22clip/s]Ekspor fitur:  88%|████████▊ | 2321/2647 [10:23<00:41,  7.82clip/s]Ekspor fitur:  88%|████████▊ | 2323/2647 [10:23<00:43,  7.50clip/s]Ekspor fitur:  88%|████████▊ | 2324/2647 [10:23<00:57,  5.61clip/s]Ekspor fitur:  88%|████████▊ | 2327/2647 [10:24<00:45,  7.05clip/s]Ekspor fitur:  88%|████████▊ | 2329/2647 [10:24<00:42,  7.54clip/s]Ekspor fitur:  88%|████████▊ | 2331/2647 [10:24<00:56,  5.61clip/s]Ekspor fitur:  88%|████████▊ | 2332/2647 [10:25<00:58,  5.40clip/s]Ekspor fitur:  88%|████████▊ | 2334/2647 [10:25<00:48,  6.46clip/s]Ekspor fitur:  88%|████████▊ | 2335/2647 [10:25<01:04,  4.87clip/s]Ekspor fitur:  88%|████████▊ | 2338/2647 [10:26<00:57,  5.33clip/s]Ekspor fitur:  88%|████████▊ | 2341/2647 [10:26<00:45,  6.73clip/s]Ekspor fitur:  88%|████████▊ | 2342/2647 [10:26<00:57,  5.29clip/s]Ekspor fitur:  89%|████████▊ | 2343/2647 [10:27<01:13,  4.16clip/s]Ekspor fitur:  89%|████████▊ | 2345/2647 [10:27<01:15,  4.01clip/s]Ekspor fitur:  89%|████████▊ | 2349/2647 [10:28<00:53,  5.54clip/s]Ekspor fitur:  89%|████████▉ | 2350/2647 [10:28<01:06,  4.45clip/s]Ekspor fitur:  89%|████████▉ | 2353/2647 [10:29<00:57,  5.11clip/s]Ekspor fitur:  89%|████████▉ | 2356/2647 [10:29<00:49,  5.87clip/s]Ekspor fitur:  89%|████████▉ | 2359/2647 [10:29<00:39,  7.31clip/s]Ekspor fitur:  89%|████████▉ | 2360/2647 [10:30<00:53,  5.37clip/s]Ekspor fitur:  89%|████████▉ | 2362/2647 [10:30<00:47,  5.97clip/s]Ekspor fitur:  89%|████████▉ | 2365/2647 [10:31<00:55,  5.09clip/s]Ekspor fitur:  89%|████████▉ | 2367/2647 [10:31<00:48,  5.80clip/s]Ekspor fitur:  89%|████████▉ | 2368/2647 [10:33<02:17,  2.03clip/s]Ekspor fitur:  90%|████████▉ | 2377/2647 [10:34<00:50,  5.31clip/s]Ekspor fitur:  90%|████████▉ | 2379/2647 [10:34<00:47,  5.62clip/s]Ekspor fitur:  90%|████████▉ | 2381/2647 [10:35<01:06,  4.00clip/s]Ekspor fitur:  90%|████████▉ | 2382/2647 [10:36<01:27,  3.03clip/s]Ekspor fitur:  90%|█████████ | 2386/2647 [10:37<01:18,  3.32clip/s]Ekspor fitur:  90%|█████████ | 2390/2647 [10:38<01:13,  3.49clip/s]Ekspor fitur:  90%|█████████ | 2391/2647 [10:38<01:11,  3.58clip/s]Ekspor fitur:  90%|█████████ | 2393/2647 [10:39<01:26,  2.93clip/s]Ekspor fitur:  90%|█████████ | 2395/2647 [10:41<02:00,  2.09clip/s]Ekspor fitur:  91%|█████████ | 2400/2647 [10:42<01:36,  2.57clip/s]Ekspor fitur:  91%|█████████ | 2403/2647 [10:43<01:26,  2.82clip/s]Ekspor fitur:  91%|█████████ | 2404/2647 [10:44<01:54,  2.12clip/s]Ekspor fitur:  91%|█████████ | 2406/2647 [10:45<01:35,  2.54clip/s]Ekspor fitur:  91%|█████████ | 2408/2647 [10:46<01:30,  2.65clip/s]Ekspor fitur:  91%|█████████ | 2409/2647 [10:46<01:26,  2.76clip/s]Ekspor fitur:  91%|█████████ | 2410/2647 [10:47<01:54,  2.07clip/s]Ekspor fitur:  91%|█████████ | 2415/2647 [10:47<00:51,  4.53clip/s]Ekspor fitur:  91%|█████████▏| 2417/2647 [10:47<00:51,  4.46clip/s]Ekspor fitur:  91%|█████████▏| 2419/2647 [10:48<00:59,  3.81clip/s]Ekspor fitur:  92%|█████████▏| 2423/2647 [10:49<00:56,  3.98clip/s]Ekspor fitur:  92%|█████████▏| 2426/2647 [10:51<01:17,  2.84clip/s]Ekspor fitur:  92%|█████████▏| 2427/2647 [10:51<01:20,  2.72clip/s]Ekspor fitur:  92%|█████████▏| 2428/2647 [10:53<02:05,  1.74clip/s]Ekspor fitur:  92%|█████████▏| 2429/2647 [10:54<02:31,  1.44clip/s]Ekspor fitur:  92%|█████████▏| 2431/2647 [10:57<03:35,  1.00clip/s]Ekspor fitur:  92%|█████████▏| 2440/2647 [10:59<01:35,  2.17clip/s]Ekspor fitur:  92%|█████████▏| 2444/2647 [11:00<01:08,  2.94clip/s]Ekspor fitur:  92%|█████████▏| 2446/2647 [11:01<01:14,  2.71clip/s]Ekspor fitur:  93%|█████████▎| 2451/2647 [11:01<00:55,  3.53clip/s]Ekspor fitur:  93%|█████████▎| 2454/2647 [11:03<01:00,  3.17clip/s]Ekspor fitur:  93%|█████████▎| 2457/2647 [11:03<00:51,  3.72clip/s]Ekspor fitur:  93%|█████████▎| 2458/2647 [11:04<00:59,  3.19clip/s]Ekspor fitur:  93%|█████████▎| 2462/2647 [11:04<00:42,  4.38clip/s]Ekspor fitur:  93%|█████████▎| 2463/2647 [11:05<00:50,  3.62clip/s]Ekspor fitur:  93%|█████████▎| 2464/2647 [11:05<00:59,  3.08clip/s]Ekspor fitur:  93%|█████████▎| 2466/2647 [11:06<00:55,  3.28clip/s]Ekspor fitur:  93%|█████████▎| 2467/2647 [11:06<00:49,  3.67clip/s]Ekspor fitur:  93%|█████████▎| 2468/2647 [11:06<00:51,  3.48clip/s]Ekspor fitur:  93%|█████████▎| 2470/2647 [11:08<01:17,  2.27clip/s]Ekspor fitur:  93%|█████████▎| 2474/2647 [11:08<00:51,  3.34clip/s]Ekspor fitur:  94%|█████████▎| 2475/2647 [11:08<00:46,  3.72clip/s]Ekspor fitur:  94%|█████████▎| 2476/2647 [11:09<00:42,  4.02clip/s]Ekspor fitur:  94%|█████████▎| 2477/2647 [11:09<00:53,  3.19clip/s]Ekspor fitur:  94%|█████████▎| 2478/2647 [11:10<01:24,  2.00clip/s]Ekspor fitur:  94%|█████████▎| 2479/2647 [11:11<01:33,  1.80clip/s]Ekspor fitur:  94%|█████████▎| 2481/2647 [11:11<00:58,  2.83clip/s]Ekspor fitur:  94%|█████████▍| 2482/2647 [11:13<01:56,  1.41clip/s]Ekspor fitur:  94%|█████████▍| 2483/2647 [11:13<01:43,  1.58clip/s]Ekspor fitur:  94%|█████████▍| 2486/2647 [11:14<01:07,  2.38clip/s]Ekspor fitur:  94%|█████████▍| 2488/2647 [11:17<01:51,  1.42clip/s]Ekspor fitur:  94%|█████████▍| 2492/2647 [11:18<01:26,  1.80clip/s]Ekspor fitur:  94%|█████████▍| 2496/2647 [11:20<01:17,  1.94clip/s]Ekspor fitur:  94%|█████████▍| 2499/2647 [11:22<01:25,  1.74clip/s]Ekspor fitur:  95%|█████████▍| 2503/2647 [11:24<01:19,  1.81clip/s]Ekspor fitur:  95%|█████████▍| 2509/2647 [11:25<00:47,  2.93clip/s]Ekspor fitur:  95%|█████████▍| 2511/2647 [11:26<00:56,  2.40clip/s]Ekspor fitur:  95%|█████████▌| 2515/2647 [11:26<00:38,  3.47clip/s]Ekspor fitur:  95%|█████████▌| 2517/2647 [11:27<00:37,  3.51clip/s]Ekspor fitur:  95%|█████████▌| 2519/2647 [11:33<01:47,  1.19clip/s]Ekspor fitur:  95%|█████████▌| 2526/2647 [11:33<00:54,  2.23clip/s]Ekspor fitur:  96%|█████████▌| 2528/2647 [11:33<00:45,  2.64clip/s]Ekspor fitur:  96%|█████████▌| 2530/2647 [11:34<00:44,  2.64clip/s]Ekspor fitur:  96%|█████████▌| 2532/2647 [11:35<00:41,  2.77clip/s]Ekspor fitur:  96%|█████████▌| 2533/2647 [11:35<00:38,  2.97clip/s]Ekspor fitur:  96%|█████████▌| 2535/2647 [11:36<00:39,  2.86clip/s]Ekspor fitur:  96%|█████████▌| 2536/2647 [11:36<00:36,  3.06clip/s]Ekspor fitur:  96%|█████████▌| 2538/2647 [11:36<00:30,  3.60clip/s]Ekspor fitur:  96%|█████████▌| 2540/2647 [11:37<00:26,  4.08clip/s]Ekspor fitur:  96%|█████████▌| 2542/2647 [11:37<00:29,  3.55clip/s]Ekspor fitur:  96%|█████████▌| 2543/2647 [11:39<00:56,  1.84clip/s]Ekspor fitur:  96%|█████████▋| 2549/2647 [11:40<00:28,  3.41clip/s]Ekspor fitur:  96%|█████████▋| 2552/2647 [11:40<00:23,  4.04clip/s]Ekspor fitur:  96%|█████████▋| 2554/2647 [11:41<00:29,  3.20clip/s]Ekspor fitur:  97%|█████████▋| 2556/2647 [11:42<00:26,  3.47clip/s]Ekspor fitur:  97%|█████████▋| 2559/2647 [11:46<01:02,  1.40clip/s]Ekspor fitur:  97%|█████████▋| 2560/2647 [11:47<00:57,  1.52clip/s]Ekspor fitur:  97%|█████████▋| 2562/2647 [11:47<00:43,  1.97clip/s]Ekspor fitur:  97%|█████████▋| 2563/2647 [11:49<01:08,  1.23clip/s]Ekspor fitur:  97%|█████████▋| 2568/2647 [11:51<00:43,  1.84clip/s]Ekspor fitur:  97%|█████████▋| 2575/2647 [11:51<00:21,  3.41clip/s]Ekspor fitur:  97%|█████████▋| 2578/2647 [11:52<00:19,  3.60clip/s]Ekspor fitur:  97%|█████████▋| 2580/2647 [11:54<00:26,  2.51clip/s]Ekspor fitur:  98%|█████████▊| 2589/2647 [11:54<00:12,  4.60clip/s]Ekspor fitur:  98%|█████████▊| 2593/2647 [11:55<00:10,  5.38clip/s]Ekspor fitur:  98%|█████████▊| 2596/2647 [11:55<00:07,  6.51clip/s]Ekspor fitur:  98%|█████████▊| 2598/2647 [11:55<00:08,  5.63clip/s]Ekspor fitur:  98%|█████████▊| 2600/2647 [11:56<00:10,  4.49clip/s]Ekspor fitur:  98%|█████████▊| 2603/2647 [11:57<00:08,  5.23clip/s]Ekspor fitur:  98%|█████████▊| 2604/2647 [11:58<00:12,  3.47clip/s]Ekspor fitur:  98%|█████████▊| 2607/2647 [11:58<00:10,  3.72clip/s]Ekspor fitur:  99%|█████████▊| 2610/2647 [11:59<00:07,  4.71clip/s]Ekspor fitur:  99%|█████████▊| 2613/2647 [11:59<00:08,  4.24clip/s]Ekspor fitur:  99%|█████████▉| 2616/2647 [12:00<00:05,  5.44clip/s]Ekspor fitur:  99%|█████████▉| 2617/2647 [12:00<00:05,  5.12clip/s]Ekspor fitur:  99%|█████████▉| 2620/2647 [12:00<00:04,  6.45clip/s]Ekspor fitur:  99%|█████████▉| 2622/2647 [12:00<00:03,  6.73clip/s]Ekspor fitur:  99%|█████████▉| 2623/2647 [12:02<00:07,  3.10clip/s]Ekspor fitur:  99%|█████████▉| 2627/2647 [12:04<00:08,  2.42clip/s]Ekspor fitur:  99%|█████████▉| 2631/2647 [12:04<00:04,  3.39clip/s]Ekspor fitur: 100%|█████████▉| 2634/2647 [12:05<00:03,  4.17clip/s]Ekspor fitur: 100%|█████████▉| 2636/2647 [12:05<00:02,  4.78clip/s]Ekspor fitur: 100%|█████████▉| 2637/2647 [12:06<00:03,  3.28clip/s]Ekspor fitur: 100%|█████████▉| 2639/2647 [12:06<00:01,  4.17clip/s]Ekspor fitur: 100%|█████████▉| 2641/2647 [12:06<00:01,  5.36clip/s]Ekspor fitur: 100%|█████████▉| 2643/2647 [12:07<00:00,  4.23clip/s]Ekspor fitur: 100%|█████████▉| 2645/2647 [12:07<00:00,  4.34clip/s]Ekspor fitur: 100%|█████████▉| 2646/2647 [12:08<00:00,  3.44clip/s]Ekspor fitur: 100%|██████████| 2647/2647 [12:08<00:00,  3.64clip/s]
+Rows collected: 62955
+Errors: 0
+Saved: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx (POC-ABS saja, 73 kolom)
+Shape: (62955, 73)
+Saved apex per area: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_apex.xlsx
+Apex rows: 11724
+{'alis_kanan': 2360, 'alis_kiri': 2340, 'mata_kanan': 2337, 'mata_kiri': 2356, 'mulut': 2331}
+                      participant          label question  phase                                              clip               event_clip  event_no  frame
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      1
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      2
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      3
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      4
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      5
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      6
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      7
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      8
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1      9
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     10
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     11
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     12
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     13
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     14
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     15
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     16
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     17
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     18
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     19
+aaisyah_nursalsabiil_ni_patriarti anxiety_tinggi       q1 before answer_1_15d591ce-051a-47f2-ac38-367c1e6189c7_sec event_00061-00086_global         1     20
+
+{'before': 35019, 'after': 27936}
+{'anxiety_tinggi': 39091, 'anxiety_rendah': 23864}
+[2026-10-10 10:03:29] STAGE 2 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3/7 : CACHE PKL
+  APA YANG DILAKUKAN : Konversi xlsx -> pkl (bit-identik) supaya pembacaan turun dari ~90s ke <1s
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+  ESTIMASI WAKTU     : CEPAT (~3 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 10:03:30]   log: /home/finny/projects/Skripsi/logs/stage3_cache_20261010_093122.log
+xlsx: (62955, 73) in 50.2s
+wrote poc_abs_roi_signals_v3fixed_full.pkl: 33.8 MB
+pkl : (62955, 73) in 0.04s
+IDENTIK bit-per-bit: 73 kolom, 62955 baris
+[2026-10-10 10:04:21] STAGE 3 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 4/7 : FITUR TEMPORAL
+  APA YANG DILAKUKAN : Ringkas tiap lintasan onset->apex->offset jadi peak/ttp/rise/fall/auc untuk sinyal POC-ABS (diagregasi mean+std saat training)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+  ESTIMASI WAKTU     : CEPAT (detik)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 10:04:21]   log: /home/finny/projects/Skripsi/logs/stage4_temporal_20261010_093122.log
+Input : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (62955 baris, 73 kolom)
+Sinyal dasar: 55 (5 ROI x 11 sinyal), 5 deskriptor -> 275 kolom baru
+Event: 2647 lintasan
+Keluaran: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (62955 baris, 348 kolom)
+Kolom baru: 275 (contoh: ['mulut_mean_m_peak', 'mulut_mean_m_ttp', 'mulut_mean_m_rise', 'mulut_mean_m_fall', 'mulut_mean_m_auc'])
+[2026-10-10 10:04:28] STAGE 4 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5/7 : GERBANG WITHIN-SUBJECT (POC-ABS)
+  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal.
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (temporal)
+  OUTPUT             : output/training/within_subject_v3fixed_{poc,geo_temporal}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 10:04:28]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_poc_20261010_093122.log
+Fitur : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_full.pkl (62955 baris, 60 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/60 | kontrol: 0/60
+Klasifikasi dalam-subjek LOSO: bal-acc 0.6111 (null 0.4978, p 0.1244)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4721, p 0.6119) | naik=1 turun=17
+
+Keluaran: output/training/within_subject_v3fixed_poc
+[2026-10-10 10:05:04]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_gabungan_20261010_093122.log
+Fitur : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (62955 baris, 335 fitur)
+Subjek label berubah: 18 | kontrol (label sama): 38
+Fitur signifikan (FDR 5%) - berubah: 0/335 | kontrol: 0/335
+Klasifikasi dalam-subjek LOSO: bal-acc 0.6389 (null 0.4969, p 0.1045)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.5000 (acc 0.9444, MCC +0.0000, baseline 0.9444, null 0.4806, p 0.8657) | naik=1 turun=17
+
+Keluaran: output/training/within_subject_v3fixed_geo_temporal
+[2026-10-10 10:05:49] STAGE 5 SELESAI. Ringkasan:
+[2026-10-10 10:05:49]   output/training/within_subject_v3fixed_poc/summary.md
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6/7 : TRAINING LOSO TabR
+  APA YANG DILAKUKAN : 56 fold (1 subjek = test), 3 seed/fold, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_*/
+  ESTIMASI WAKTU     : LAMA (~1-2 jam) - resume otomatis per fold (DONE.json)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 10:05:49]   log: /home/finny/projects/Skripsi/logs/stage6_loso_20261010_093122.log
+Device  : cpu (CUDA disembunyikan dari torch)
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+label unit = person: 35019 baris "before" dibuang, sisa 27936 baris (sesi "after", 1 label per subjek)
+drop fitur /_max_m$/ (pra-agregasi): 5 dibuang -> ['mulut_max_m', 'mata_kiri_max_m', 'mata_kanan_max_m', 'alis_kiri_max_m', 'alis_kanan_max_m']
+agregasi subject: 27936 baris frame -> 56 baris, 660 fitur (mean+std)
+drop fitur /_max_m$/ (pasca-agregasi): 0 dibuang
+Total baris=56 subjek=56 fitur=660
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+Config  : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+Score   : accuracy (default TabR)  <- dipakai untuk early stopping (best_epoch)
+
+!! PERINGATAN: config menyatakan dataset `convat_apex_anxiety_loso_roi25_reg`, tapi --dataset = `convat_apex_anxiety_loso_v3fixed`.
+   --dataset MENANG, jadi config ini dilatih pada data yang bukan target tuning-nya.
+   Kalau ini tidak disengaja, pakai --dataset convat_apex_anxiety_loso_roi25_reg atau jalankan lewat scripts/run_pipeline_v3.sh (default-nya sudah disamakan).
+
+Imbalance: clips | var-thresh: 0.0001 | aggregate: subject | subject-norm: none
+Fitur   : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl (sidik jari run 8ae23beb73c9c6eb)
+
+[1/56] fold: test subjek = aaisyah_nursalsabiil_ni_patriarti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_000/0-evaluation seeds=3
+2026-10-10 10:05:52.557 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:52.613 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:05:53.161 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:05:54.936 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:54.939 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:05:55.442 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:05:56.079 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:56.081 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:05:56.575 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[0] OK aaisyah_nursalsabiil_ni_patriarti | s0 ep0 tr0.77 va0.55 | s1 ep0 tr0.55 va0.64 | s2 ep0 tr0.86 va0.55
+
+[2/56] fold: test subjek = abdillah_agil_arbiansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_001/0-evaluation seeds=3
+2026-10-10 10:05:57.291 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:57.293 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:05:57.795 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:05:58.469 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:58.470 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:05:58.986 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:05:59.654 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:05:59.655 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:00.156 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[1] OK abdillah_agil_arbiansyah | s0 ep0 tr0.75 va0.55 | s1 ep0 tr0.59 va0.55 | s2 ep0 tr0.82 va0.64
+
+[3/56] fold: test subjek = abdul_aziz
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_002/0-evaluation seeds=3
+2026-10-10 10:06:00.818 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:00.820 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:01.305 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:01.937 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:01.938 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:02.417 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:03.046 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:03.048 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:03.531 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[2] OK abdul_aziz | s0 ep0 tr0.84 va0.55 | s1 ep0 tr0.61 va0.55 | s2 ep0 tr0.80 va0.55
+
+[4/56] fold: test subjek = achmad_anfasa_rabbany
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_003/0-evaluation seeds=3
+2026-10-10 10:06:04.192 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:04.194 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:04.675 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:05.305 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:05.307 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:05.792 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:06.423 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:06.424 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:06.918 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[3] OK achmad_anfasa_rabbany | s0 ep0 tr0.80 va0.55 | s1 ep0 tr0.61 va0.55 | s2 ep0 tr0.82 va0.55
+
+[5/56] fold: test subjek = adham_baskara
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_004/0-evaluation seeds=3
+2026-10-10 10:06:07.590 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:07.592 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:08.091 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:08.744 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:08.746 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:09.242 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:09.901 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:09.902 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:10.403 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[4] OK adham_baskara | s0 ep0 tr0.84 va0.45 | s1 ep0 tr0.64 va0.64 | s2 ep0 tr0.84 va0.64
+
+[6/56] fold: test subjek = ahmad_rifqi_hendriansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_005/0-evaluation seeds=3
+2026-10-10 10:06:11.077 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:11.078 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:11.570 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:12.212 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:12.213 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:12.727 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:13.384 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:13.385 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:13.885 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[5] OK ahmad_rifqi_hendriansyah | s0 ep0 tr0.84 va0.45 | s1 ep0 tr0.64 va0.55 | s2 ep0 tr0.84 va0.64
+
+[7/56] fold: test subjek = aida_rahma_fadhila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_006/0-evaluation seeds=3
+2026-10-10 10:06:14.555 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:14.557 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:15.044 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:15.683 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:15.685 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:16.172 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:16.861 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:16.863 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:17.359 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[6] OK aida_rahma_fadhila | s0 ep0 tr0.84 va0.55 | s1 ep1 tr0.80 va0.55 | s2 ep0 tr0.84 va0.45
+
+[8/56] fold: test subjek = akhmad_aakhif_athallah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_007/0-evaluation seeds=3
+2026-10-10 10:06:18.038 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:18.040 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:18.522 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:19.158 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:19.159 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:19.649 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:20.291 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:20.293 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:20.779 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[7] OK akhmad_aakhif_athallah | s0 ep0 tr0.84 va0.55 | s1 ep0 tr0.59 va0.45 | s2 ep0 tr0.84 va0.45
+
+[9/56] fold: test subjek = ananda_satria_putra_nugraha
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_008/0-evaluation seeds=3
+2026-10-10 10:06:21.456 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:21.457 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:21.948 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:22.604 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:22.606 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:23.109 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:23.758 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:23.759 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:24.250 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[8] OK ananda_satria_putra_nugraha | s0 ep0 tr0.86 va0.64 | s1 ep0 tr0.59 va0.55 | s2 ep0 tr0.84 va0.64
+
+[10/56] fold: test subjek = aryan_saputra_rahmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_009/0-evaluation seeds=3
+2026-10-10 10:06:24.945 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:24.947 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:25.449 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:26.104 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:26.106 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:26.613 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:27.262 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:27.264 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:27.759 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[9] OK aryan_saputra_rahmad | s0 ep0 tr0.91 va0.73 | s1 ep0 tr0.66 va0.55 | s2 ep0 tr0.82 va0.73
+
+[11/56] fold: test subjek = ashrul_rifki_ardiyhasa
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_010/0-evaluation seeds=3
+2026-10-10 10:06:28.421 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:28.423 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:28.912 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:29.535 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:29.537 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:30.033 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:30.678 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:30.680 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:31.169 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[10] OK ashrul_rifki_ardiyhasa | s0 ep0 tr0.91 va0.73 | s1 ep0 tr0.66 va0.55 | s2 ep0 tr0.82 va0.73
+
+[12/56] fold: test subjek = ayleen_ruhul_qisthy
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_011/0-evaluation seeds=3
+2026-10-10 10:06:31.832 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:31.834 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:32.340 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:32.993 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:32.995 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:33.489 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:34.145 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:34.147 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:34.634 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[11] OK ayleen_ruhul_qisthy | s0 ep0 tr0.89 va0.82 | s1 ep0 tr0.66 va0.55 | s2 ep2 tr1.00 va0.64
+
+[13/56] fold: test subjek = billy_maulana_ferdinan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_012/0-evaluation seeds=3
+2026-10-10 10:06:35.389 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:35.391 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:35.885 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:36.517 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:36.519 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:37.005 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:37.635 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:37.637 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:38.121 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[12] OK billy_maulana_ferdinan | s0 ep0 tr0.89 va0.82 | s1 ep0 tr0.66 va0.55 | s2 ep2 tr1.00 va0.64
+
+[14/56] fold: test subjek = danendra_adhipramana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_013/0-evaluation seeds=3
+2026-10-10 10:06:38.897 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:38.898 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:39.371 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:40.008 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:40.010 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:40.499 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:41.412 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:41.413 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:41.913 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[13] OK danendra_adhipramana | s0 ep0 tr0.86 va0.55 | s1 ep8 tr1.00 va0.55 | s2 ep4 tr1.00 va0.55
+
+[15/56] fold: test subjek = dewita_anggraini
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_014/0-evaluation seeds=3
+2026-10-10 10:06:42.749 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:42.751 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:43.250 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:43.895 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:43.897 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:44.374 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:45.005 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:45.007 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:45.514 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[14] OK dewita_anggraini | s0 ep0 tr0.89 va0.73 | s1 ep0 tr0.70 va0.45 | s2 ep6 tr1.00 va0.55
+
+[16/56] fold: test subjek = dika_arie_arrifky
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_015/0-evaluation seeds=3
+2026-10-10 10:06:46.395 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:46.396 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:46.893 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:47.552 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:47.553 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:48.053 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:49.154 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:49.156 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:49.666 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[15] OK dika_arie_arrifky | s0 ep0 tr0.89 va0.64 | s1 ep13 tr1.00 va0.55 | s2 ep2 tr0.98 va0.64
+
+[17/56] fold: test subjek = duta_kurnia_ardhani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_016/0-evaluation seeds=3
+2026-10-10 10:06:50.443 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:50.444 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:50.935 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:51.689 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:51.690 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:52.185 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:52.836 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:52.838 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:53.347 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[16] OK duta_kurnia_ardhani | s0 ep3 tr1.00 va0.55 | s1 ep0 tr0.70 va0.45 | s2 ep9 tr1.00 va0.55
+
+[18/56] fold: test subjek = ericha_rizki_wardani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_017/0-evaluation seeds=3
+2026-10-10 10:06:54.349 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:54.351 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:54.853 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:55.502 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:55.503 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:56.004 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:57.023 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:57.025 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:57.516 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[17] OK ericha_rizki_wardani | s0 ep0 tr0.93 va0.64 | s1 ep11 tr1.00 va0.55 | s2 ep0 tr0.77 va0.55
+
+[19/56] fold: test subjek = esa_pratama_putri
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_018/0-evaluation seeds=3
+2026-10-10 10:06:58.193 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:58.194 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:58.698 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:06:59.387 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:06:59.388 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:06:59.896 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:00.910 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:00.911 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:01.401 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[18] OK esa_pratama_putri | s0 ep1 tr1.00 va0.55 | s1 ep11 tr1.00 va0.55 | s2 ep2 tr0.98 va0.64
+
+[20/56] fold: test subjek = fabian_ananda_merdana
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_019/0-evaluation seeds=3
+2026-10-10 10:07:02.150 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:02.151 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:02.647 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:03.311 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:03.313 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:03.799 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:04.851 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:04.854 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:05.370 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[19] OK fabian_ananda_merdana | s0 ep0 tr0.89 va0.55 | s1 ep7 tr0.98 va0.55 | s2 ep1 tr0.91 va0.55
+
+[21/56] fold: test subjek = fahmi_yahya
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_020/0-evaluation seeds=3
+2026-10-10 10:07:06.188 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:06.189 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:06.778 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:07.558 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:07.560 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:08.058 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:09.009 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:09.011 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:09.517 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[20] OK fahmi_yahya | s0 ep0 tr0.89 va0.55 | s1 ep8 tr1.00 va0.55 | s2 ep1 tr0.98 va0.64
+
+[22/56] fold: test subjek = fahri_zanuar_pradian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_021/0-evaluation seeds=3
+2026-10-10 10:07:10.287 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:10.288 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:10.792 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:11.461 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:11.463 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:11.960 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:12.617 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:12.619 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:13.131 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[21] OK fahri_zanuar_pradian | s0 ep0 tr0.89 va0.55 | s1 ep0 tr0.70 va0.55 | s2 ep1 tr0.98 va0.64
+
+[23/56] fold: test subjek = fandy_wahyu_hanzura
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_022/0-evaluation seeds=3
+2026-10-10 10:07:13.984 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:13.985 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:14.493 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:15.180 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:15.182 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:15.687 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:16.705 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:16.706 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:17.218 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[22] OK fandy_wahyu_hanzura | s0 ep0 tr0.89 va0.55 | s1 ep9 tr1.00 va0.55 | s2 ep4 tr0.98 va0.45
+
+[24/56] fold: test subjek = fiera_ziadattun_nisa_
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_023/0-evaluation seeds=3
+2026-10-10 10:07:18.084 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:18.086 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:18.588 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:19.254 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:19.255 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:19.743 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:20.693 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:20.695 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:21.186 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[23] OK fiera_ziadattun_nisa_ | s0 ep0 tr0.86 va0.55 | s1 ep8 tr1.00 va0.55 | s2 ep2 tr1.00 va0.64
+
+[25/56] fold: test subjek = ghetsa_ramadhani_riska_arryanti
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_024/0-evaluation seeds=3
+2026-10-10 10:07:21.968 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:21.969 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:22.461 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:23.177 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:23.178 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:23.681 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:24.362 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:24.364 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:24.876 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[24] OK ghetsa_ramadhani_riska_arryanti | s0 ep0 tr0.86 va0.55 | s1 ep1 tr0.82 va0.55 | s2 ep2 tr0.98 va0.55
+
+[26/56] fold: test subjek = haikal_muhammad_rafli
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_025/0-evaluation seeds=3
+2026-10-10 10:07:25.661 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:25.663 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:26.171 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:26.846 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:26.848 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:27.358 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:28.082 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:28.084 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:28.585 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[25] OK haikal_muhammad_rafli | s0 ep0 tr0.93 va0.55 | s1 ep1 tr0.77 va0.55 | s2 ep3 tr1.00 va0.45
+
+[27/56] fold: test subjek = hanifah_kurniasari
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_026/0-evaluation seeds=3
+2026-10-10 10:07:29.401 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:29.402 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:29.909 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:30.568 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:30.569 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:31.081 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:31.755 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:31.757 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:32.269 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[26] OK hanifah_kurniasari | s0 ep0 tr0.89 va0.64 | s1 ep0 tr0.66 va0.45 | s2 ep1 tr0.93 va0.55
+
+[28/56] fold: test subjek = hizkia_elsadanta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_027/0-evaluation seeds=3
+2026-10-10 10:07:33.016 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:33.017 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:33.520 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:34.199 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:34.201 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:34.718 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:35.432 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:35.434 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:35.925 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[27] OK hizkia_elsadanta | s0 ep0 tr0.89 va0.55 | s1 ep1 tr0.84 va0.55 | s2 ep0 tr0.80 va0.55
+
+[29/56] fold: test subjek = ivansyah_eka_oktaviadi_santoso
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_028/0-evaluation seeds=3
+2026-10-10 10:07:36.649 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:36.650 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:37.152 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:37.819 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:37.820 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:38.304 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:39.003 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:39.005 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:39.505 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[28] OK ivansyah_eka_oktaviadi_santoso | s0 ep0 tr0.89 va0.45 | s1 ep1 tr0.84 va0.55 | s2 ep0 tr0.80 va0.55
+
+[30/56] fold: test subjek = jiha_ramdhan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_029/0-evaluation seeds=3
+2026-10-10 10:07:40.205 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:40.206 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:40.710 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:41.476 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:41.478 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:41.978 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:42.661 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:42.663 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:43.185 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[29] OK jiha_ramdhan | s0 ep3 tr1.00 va0.45 | s1 ep0 tr0.66 va0.55 | s2 ep0 tr0.80 va0.64
+
+[31/56] fold: test subjek = kamila_habiba_putri_ananta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_030/0-evaluation seeds=3
+2026-10-10 10:07:43.889 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:43.891 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:44.389 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:45.069 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:45.071 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:45.587 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:46.271 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:46.273 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:46.777 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[30] OK kamila_habiba_putri_ananta | s0 ep0 tr0.84 va0.55 | s1 ep0 tr0.70 va0.55 | s2 ep0 tr0.82 va0.64
+
+[32/56] fold: test subjek = key_firdausi_alfarel
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_031/0-evaluation seeds=3
+2026-10-10 10:07:47.509 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:47.511 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:48.016 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:48.694 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:48.695 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:49.223 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:49.906 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:49.907 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:50.404 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[31] OK key_firdausi_alfarel | s0 ep0 tr0.86 va0.64 | s1 ep0 tr0.66 va0.55 | s2 ep0 tr0.80 va0.55
+
+[33/56] fold: test subjek = luqman_ananta_abdul_hakim
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_032/0-evaluation seeds=3
+2026-10-10 10:07:51.094 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:51.096 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:51.594 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:52.262 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:52.264 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:52.768 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:53.488 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:53.491 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:53.994 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[32] OK luqman_ananta_abdul_hakim | s0 ep0 tr0.89 va0.64 | s1 ep1 tr0.80 va0.64 | s2 ep0 tr0.86 va0.55
+
+[34/56] fold: test subjek = luthfi_triaswangga
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_033/0-evaluation seeds=3
+2026-10-10 10:07:54.696 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:54.698 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:55.208 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:55.893 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:55.894 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:56.399 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:57.087 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:57.088 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:57.591 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[33] OK luthfi_triaswangga | s0 ep0 tr0.89 va0.55 | s1 ep1 tr0.77 va0.64 | s2 ep0 tr0.82 va0.64
+
+[35/56] fold: test subjek = m__firmansyah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_034/0-evaluation seeds=3
+2026-10-10 10:07:58.282 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:58.283 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:58.781 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:07:59.457 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:07:59.459 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:07:59.969 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:00.676 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:00.678 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:01.182 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[34] OK m__firmansyah | s0 ep0 tr0.89 va0.55 | s1 ep1 tr0.77 va0.64 | s2 ep0 tr0.82 va0.64
+
+[36/56] fold: test subjek = mohammad_adri_favian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_035/0-evaluation seeds=3
+2026-10-10 10:08:01.918 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:01.920 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:02.423 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:03.067 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:03.068 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:03.563 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:04.253 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:04.255 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:04.762 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[35] OK mohammad_adri_favian | s0 ep0 tr0.89 va0.73 | s1 ep1 tr0.73 va0.64 | s2 ep0 tr0.84 va0.64
+
+[37/56] fold: test subjek = muhammad_farrel_caesarian
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_036/0-evaluation seeds=3
+2026-10-10 10:08:05.484 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:05.486 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:06.010 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:06.742 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:06.744 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:07.269 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:08.008 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:08.010 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:08.525 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[36] OK muhammad_farrel_caesarian | s0 ep1 tr0.98 va0.64 | s1 ep1 tr0.77 va0.64 | s2 ep1 tr0.98 va0.64
+
+[38/56] fold: test subjek = muhammad_khalid_atthoriq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_037/0-evaluation seeds=3
+2026-10-10 10:08:09.274 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:09.276 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:09.782 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:10.444 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:10.446 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:10.932 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:11.994 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:11.996 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:12.500 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[37] OK muhammad_khalid_atthoriq | s0 ep0 tr0.86 va0.64 | s1 ep11 tr1.00 va0.64 | s2 ep0 tr0.82 va0.64
+
+[39/56] fold: test subjek = muhammad_rifqi_rizqullah
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_038/0-evaluation seeds=3
+2026-10-10 10:08:13.210 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:13.212 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:13.706 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:14.450 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:14.451 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:14.964 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:16.071 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:16.073 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:16.568 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[38] OK muhammad_rifqi_rizqullah | s0 ep1 tr0.95 va0.73 | s1 ep11 tr1.00 va0.64 | s2 ep4 tr1.00 va0.64
+
+[40/56] fold: test subjek = muhammad_syahrul_gunawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_039/0-evaluation seeds=3
+2026-10-10 10:08:17.450 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:17.451 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:17.951 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:18.700 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:18.701 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:19.209 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:20.271 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:20.272 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:20.771 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[39] OK muhammad_syahrul_gunawan | s0 ep1 tr0.95 va0.64 | s1 ep11 tr1.00 va0.64 | s2 ep6 tr1.00 va0.64
+
+[41/56] fold: test subjek = muhammad_zaki
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_040/0-evaluation seeds=3
+2026-10-10 10:08:21.689 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:21.691 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:22.187 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:22.844 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:22.846 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:23.339 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:25.071 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:25.073 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:25.565 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[40] OK muhammad_zaki | s0 ep0 tr0.89 va0.64 | s1 ep29 tr1.00 va0.64 | s2 ep8 tr1.00 va0.64
+
+[42/56] fold: test subjek = nabeel_nizam
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_041/0-evaluation seeds=3
+2026-10-10 10:08:26.557 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:26.558 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:27.068 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:27.756 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:27.758 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:28.267 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:29.480 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:29.482 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:29.982 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[41] OK nabeel_nizam | s0 ep0 tr0.93 va0.55 | s1 ep14 tr1.00 va0.64 | s2 ep3 tr1.00 va0.55
+
+[43/56] fold: test subjek = nahdia_putri_safira
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_042/0-evaluation seeds=3
+2026-10-10 10:08:30.791 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:30.793 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:31.292 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:32.009 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:32.011 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:32.499 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:33.706 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:33.707 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:34.203 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[42] OK nahdia_putri_safira | s0 ep1 tr0.98 va0.55 | s1 ep14 tr1.00 va0.64 | s2 ep2 tr1.00 va0.45
+
+[44/56] fold: test subjek = nakita_gayuh_cakrawala
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_043/0-evaluation seeds=3
+2026-10-10 10:08:35.006 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:35.007 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:35.500 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:36.174 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:36.175 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:36.676 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:37.398 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:37.400 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:37.912 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[43] OK nakita_gayuh_cakrawala | s0 ep0 tr0.86 va0.55 | s1 ep1 tr0.80 va0.55 | s2 ep0 tr0.80 va0.45
+
+[45/56] fold: test subjek = nova_eliza_maharani
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_044/0-evaluation seeds=3
+2026-10-10 10:08:38.630 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:38.631 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:39.128 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:39.880 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:39.882 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:40.396 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:41.116 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:41.118 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:41.611 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[44] OK nova_eliza_maharani | s0 ep2 tr0.98 va0.64 | s1 ep1 tr0.80 va0.55 | s2 ep2 tr1.00 va0.45
+
+[46/56] fold: test subjek = oltha_rosyeda_al_haq
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_045/0-evaluation seeds=3
+2026-10-10 10:08:42.387 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:42.389 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:42.881 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:43.552 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:43.553 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:44.065 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:45.286 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:45.288 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:45.806 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[45] OK oltha_rosyeda_al_haq | s0 ep0 tr0.89 va0.64 | s1 ep16 tr1.00 va0.64 | s2 ep9 tr1.00 va0.55
+
+[47/56] fold: test subjek = rafiqo_adib_destarachmad
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_046/0-evaluation seeds=3
+2026-10-10 10:08:47.048 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:47.050 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:47.599 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:48.551 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:48.552 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:49.082 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:49.766 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:49.767 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:50.291 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[46] OK rafiqo_adib_destarachmad | s0 ep1 tr0.98 va0.64 | s1 ep0 tr0.64 va0.55 | s2 ep9 tr1.00 va0.55
+
+[48/56] fold: test subjek = rahmad_dwi_ferdyan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_047/0-evaluation seeds=3
+2026-10-10 10:08:51.479 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:51.480 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:51.982 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:52.747 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:52.749 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:53.243 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:54.771 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:54.772 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:55.273 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[47] OK rahmad_dwi_ferdyan | s0 ep1 tr0.95 va0.64 | s1 ep23 tr1.00 va0.64 | s2 ep2 tr0.98 va0.64
+
+[49/56] fold: test subjek = rizkya_salsabila
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_048/0-evaluation seeds=3
+2026-10-10 10:08:56.086 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:56.088 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:56.602 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:57.407 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:57.408 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:57.907 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:08:58.631 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:58.632 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:08:59.175 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[48] OK rizkya_salsabila | s0 ep3 tr1.00 va0.64 | s1 ep0 tr0.61 va0.55 | s2 ep1 tr0.91 va0.64
+
+[50/56] fold: test subjek = rocky_alessandro_kristanto
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_049/0-evaluation seeds=3
+2026-10-10 10:08:59.929 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:08:59.930 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:00.435 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:01.173 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:01.175 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:01.661 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:02.817 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:02.819 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:03.336 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[49] OK rocky_alessandro_kristanto | s0 ep1 tr0.98 va0.64 | s1 ep13 tr1.00 va0.64 | s2 ep2 tr0.98 va0.55
+
+[51/56] fold: test subjek = satria_wiguna
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_050/0-evaluation seeds=3
+2026-10-10 10:09:04.149 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:04.151 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:04.661 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:05.442 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:05.444 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:05.993 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:07.435 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:07.436 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:07.936 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[50] OK satria_wiguna | s0 ep0 tr0.95 va0.64 | s1 ep17 tr1.00 va0.64 | s2 ep9 tr1.00 va0.64
+
+[52/56] fold: test subjek = tomi_martino_affandi
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_051/0-evaluation seeds=3
+2026-10-10 10:09:08.996 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:08.998 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:09.500 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:10.205 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:10.206 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:10.699 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:11.660 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:11.662 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:12.180 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[51] OK tomi_martino_affandi | s0 ep1 tr0.98 va0.64 | s1 ep8 tr1.00 va0.55 | s2 ep3 tr1.00 va0.55
+
+[53/56] fold: test subjek = tora_digda_kristiawan
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_052/0-evaluation seeds=3
+2026-10-10 10:09:13.004 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:13.005 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:13.494 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:14.231 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:14.233 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:14.734 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:15.666 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:15.667 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:16.168 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[52] OK tora_digda_kristiawan | s0 ep2 tr1.00 va0.64 | s1 ep8 tr1.00 va0.55 | s2 ep3 tr1.00 va0.55
+
+[54/56] fold: test subjek = valentina_santi_grehasta
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_053/0-evaluation seeds=3
+2026-10-10 10:09:16.996 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:16.998 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:17.492 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:18.196 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:18.197 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:18.703 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:19.419 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:19.421 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:19.910 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[53] OK valentina_santi_grehasta | s0 ep1 tr1.00 va0.55 | s1 ep1 tr0.73 va0.55 | s2 ep3 tr1.00 va0.55
+
+[55/56] fold: test subjek = vincentius_leonanda_prabowo
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_054/0-evaluation seeds=3
+2026-10-10 10:09:20.715 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:20.717 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:21.209 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:21.895 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:21.897 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:22.383 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:23.262 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:23.264 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:23.776 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[54] OK vincentius_leonanda_prabowo | s0 ep1 tr0.95 va0.64 | s1 ep6 tr1.00 va0.64 | s2 ep2 tr1.00 va0.64
+
+[56/56] fold: test subjek = vira_alfita_yunia
+      subjek train=44 val=11 test=1
+      baris train=44 (1 baris/subjek, tanpa balance) val=11 test=1
+      constant-feature prune: 660 -> 660 fitur
+      training: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_055/0-evaluation seeds=3
+2026-10-10 10:09:24.592 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:24.594 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:25.093 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:25.865 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:25.867 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:26.385 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+2026-10-10 10:09:27.060 | INFO     | lib.util:start:130 - Creating the output
+2026-10-10 10:09:27.062 | INFO     | lib.data:build_dataset:357 - Building dataset (path: /home/finny/projects/Skripsi/third_party/tabular-dl-tabr-official/data/convat_apex_anxiety_loso_v3fixed)
+2026-10-10 10:09:27.548 | INFO     | bin.tabr:main:349 - n_parameters = 26625
+[55] OK vira_alfita_yunia | s0 ep2 tr1.00 va0.64 | s1 ep0 tr0.70 va0.55 | s2 ep1 tr0.95 va0.64
+
+Selesai. Hasil: exp/tabr/convat_apex_anxiety_loso_v3fixed/fold_*/
+[2026-10-10 10:09:29] STAGE 6 SELESAI. fold selesai: 56
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 7/7 : KUMPULKAN HASIL + BASELINE PEMBANDING
+  APA YANG DILAKUKAN : collect (MCC, balanced accuracy, bias prediksi, per-grup vs baseline grup, ambang dari val) + logistik/GBDT
+  INPUT              : third_party/.../exp/tabr/convat_apex_anxiety_loso_v3fixed/
+  OUTPUT             : output/training/convat_apex_anxiety_loso_v3fixed{,_baseline}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-10 10:09:29]   log: /home/finny/projects/Skripsi/logs/stage7_collect_20261010_093122.log
+Fold: 56, seeds/fold: 3
+Grup subjek: {'before_sama': 38, 'before_berubah': 18}
+seed 0: subjek acc 0.5179 (sens 0.600 / spec 0.452) | frame acc 0.5179
+seed 1: subjek acc 0.5000 (sens 0.160 / spec 0.774) | frame acc 0.5000
+seed 2: subjek acc 0.4286 (sens 0.360 / spec 0.484) | frame acc 0.4286
+
+# Hasil LOSO TabR - convat_apex_anxiety_loso_v3fixed
+
+56 fold (1 subjek/fold), 3 seed per fold. Tiap subjek jadi test tepat sekali; model tidak pernah lihat dia.
+
+**Metrik utama = level subjek.** Label di data ini milik subjek/sesi, jadi test set tiap fold cuma satu kelas: metrik klasifikasi per fold tidak terdefinisi. Yang bisa ditafsirkan hanya keputusan per subjek.
+
+## Level subjek (1 keputusan per subjek)
+
+| metrik | nilai (mean ± std antar seed) | 95% CI (seed-ensemble) |
+|---|---|---|
+| accuracy | 0.4821 ± 0.0472 | 0.3077–0.5586 |
+| balanced accuracy | 0.4716 ± 0.0521 | – |
+| MCC | -0.0622 ± 0.1054 | – |
+| AUC (proba level subjek) | 0.4606 ± 0.0549 | – |
+| sensitivity (anxiety_tinggi) | 0.3733 ± 0.2203 | 0.1150–0.4343 |
+| specificity | 0.5699 ± 0.1777 | 0.4077–0.7358 |
+| PPV | 0.3975 ± 0.0618 | 0.1536–0.5399 |
+| NPV | 0.5335 ± 0.0497 | 0.3345–0.6411 |
+| baseline mayoritas | 0.5536 ± 0.0000 | – |
+| subjek / kelas positif | 56 / 25 | – |
+
+CI = Wilson 95% pada seed-ensemble: proba dirata-rata antar seed per subjek, lalu di-threshold 0.5. Bukan rata-rata CI per seed.
+Bandingkan accuracy dengan baseline mayoritas: kalau CI memuat baseline, model tidak terbukti lebih baik dari menebak kelas mayoritas.
+
+AUC dihitung dari proba LEVEL SUBJEK (1 proba/subjek dari model yang tidak pernah melihat subjek itu), jadi bebas-bocor dan tetap terdefinisi walau test per fold cuma satu kelas. AUC TIDAK bergantung ambang 0.5, jadi ia mengukur kemampuan MERANKING subjek cemas di atas subjek tidak cemas. Acuan: 0.5 = acak. Kalau AUC ~0.5 walau accuracy terlihat di atas baseline, keunggulan accuracy itu artefak ambang/komposisi, bukan kemampuan memisahkan.
+
+### Confusion (dijumlahkan antar seed)
+
+| | pred 0 (rendah) | pred 1 (tinggi) |
+|---|---|---|
+| true 0 (rendah) | TN 53 | FP 40 |
+| true 1 (tinggi) | FN 47 | TP 28 |
+
+Pooling seed-ensemble: accuracy 0.4286, sensitivity 0.2400, specificity 0.5806, AUC 0.4361
+
+## Akuntansi bias
+
+Empat bias yang harus dibaca bersama accuracy, supaya angka headline tidak menyesatkan di data tak seimbang (56 subjek, 25 positif).
+
+### 1. Bias prediksi (model condong ke kelas mana)
+
+| | nilai |
+|---|---|
+| laju positif SEBENARNYA | 0.4464 |
+| laju positif yang DIPREDIKSI | 0.3393 |
+| bias (prediksi - sebenarnya) | -0.1071 |
+
+Bias negatif = model kurang berani menebak kelas positif. Cek juga sensitivity vs specificity: selisih besar = ambang 0.5 belum cocok untuk data ini (ambang sebaiknya dipilih di val, bukan di test).
+
+### 2. Bias metrik (accuracy vs ukuran tahan-imbalance)
+
+- accuracy pooled 0.4286, balanced accuracy 0.4103, MCC -0.1883, AUC 0.4361.
+- Kalau balanced accuracy dan MCC jauh lebih rendah dari accuracy, keunggulan accuracy datang dari menebak kelas mayoritas.
+- MCC 0 = setara tebak acak, jadi tanda +1/-1 yang penting, bukan besarnya accuracy.
+- AUC 0.4361 (acak 0.5) mengukur perankingan tanpa ambang. Kalau AUC ~0.5 sementara accuracy di atas baseline, yang diukur accuracy adalah ambang + komposisi kelas, bukan kemampuan memisahkan.
+
+### 3. Bias komposisi / paradoks Simpson (uji per grup)
+
+Accuracy pooled bisa lebih tinggi dari baseline mayoritas global, padahal di SETIAP grup fase model kalah dari baseline mayoritas grup itu sendiri. Itu paradoks Simpson: keunggulan pooled cuma artefak komposisi kelas.
+Bandingkan kolom `accuracy` dengan `baseline grup` dan lihat `selisih`.
+
+### 4. Bias ambang keputusan (0.5 itu arbitrer)
+
+Ambang Youden dipilih di **val tiap fold**, lalu diterapkan ke test fold itu (bukan dipilih di test).
+
+| | ambang 0.5 | ambang dari val |
+|---|---|---|
+| accuracy | 0.4821 ± 0.0472 | 0.4702 ± 0.0722 |
+| balanced accuracy | 0.4716 ± 0.0521 | 0.4725 ± 0.0745 |
+| laju positif prediksi | 0.4048 ± 0.1909 | 0.5238 ± 0.0722 |
+| ambang terpilih (rata-rata) | 0.5000 | 0.4800 ± 0.0244 |
+
+Kalau ambang dari val lebih baik, angka di kolom 0.5 bukan kemampuan model — itu cuma ambang yang belum disetel.
+
+## Per grup fase subjek (uji paradoks Simpson)
+
+`baseline grup` = baseline mayoritas DIHITUNG DI GRUP ITU SENDIRI, bukan baseline global. Kalau selisih negatif di semua grup, keunggulan pooled tidak bisa dipercaya.
+
+| grup | n | n positif | accuracy | baseline grup | selisih | MCC |
+|---|---|---|---|---|---|---|
+| before_sama | 38 | 24 | 0.3947 | 0.6316 | -0.2368 | -0.1140 |
+| before_berubah | 18 | 1 | 0.5000 | 0.9444 | -0.4444 | -0.2169 |
+
+Catatan: `group` diturunkan dari kolom `condition`, yang MERUPAKAN label. Jadi grup ini hanya alat diagnosis, tidak boleh dipakai sebagai fitur atau untuk koreksi prior — itu kebocoran label.
+
+## Level frame (diagnostik komposisi, BUKAN performa)
+
+Angka di bawah menghitung frame, tapi label milik subjek: tiap fold LOSO menahan satu subjek sehingga test-nya satu kelas. Tabel ini hanya menggambarkan komposisi kelas di dalam subjek, bukan kemampuan model.
+
+| metrik | nilai |
+|---|---|
+| accuracy | 0.4821 ± 0.0472 |
+| macroF1 | 0.4555 ± 0.0539 |
+| balanced accuracy | 0.4716 ± 0.0521 |
+| recall kelas rendah / tinggi | 0.5699 ± 0.1777 / 0.3733 ± 0.2203 |
+| baris | 56 |
+
+Catatan:
+- 56 fold punya test set satu kelas.
+- Satuan baris training: `subject` (tidak mengubah tabel frame di atas).
+- Subjek dengan label ambigu (test-nya memuat 2 kelas): 0 (0 kalau label unit = person; > 0 berarti run memakai label unit = session).
+- File: summary.csv (per seed), per_subject.csv (per seed x subjek).
+[2026-10-10 10:10:03]   baseline pembanding selesai (/home/finny/projects/Skripsi/logs/stage7_baseline_20261010_093122.log)
+[2026-10-10 10:10:03] STAGE 7 SELESAI.
+
+[2026-10-10 10:10:03] ══════════════════════════════════════════════════════════
+[2026-10-10 10:10:03] PIPELINE v3 SELESAI
+[2026-10-10 10:10:03]   Fitur    : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3fixed_poc_temporal.pkl
+[2026-10-10 10:10:03]   Hasil    : output/training/convat_apex_anxiety_loso_v3fixed/summary.md
+[2026-10-10 10:10:03]   Log      : /home/finny/projects/Skripsi/logs/pipeline_v3_20261010_093122.log
+[2026-10-10 10:10:03]   Wasit    : MCC (bukan accuracy) + per-grup vs baseline grup
+[2026-10-10 10:10:03] ══════════════════════════════════════════════════════════

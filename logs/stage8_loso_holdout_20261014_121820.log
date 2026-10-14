@@ -1,0 +1,6 @@
+Device  : cpu (CUDA disembunyikan dari torch)
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_combined_rise.pkl
+agregasi subject: 3111 baris frame -> 55 baris, 110 fitur (mean+std)
+Total baris=55 subjek=39 fitur=110
+Kelas: {'anxiety_tinggi': 34, 'anxiety_rendah': 21}
+--test-persons-file: 5 orang tidak ada di tabel fitur: ['adham_baskara', 'aida_rahma_fadhila', 'ericha_rizki_wardani', 'fiera_ziadattun_nisa_', 'vira_alfita_yunia']. Pastikan fitur holdout sudah digabung (combine_feature_tables.py).

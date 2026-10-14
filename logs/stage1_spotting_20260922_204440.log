@@ -1,0 +1,2 @@
+./scripts/run_pipeline.sh: line 162: export: `/home/finny/projects/Skripsi/.venv/bin/python': not a valid identifier
+./scripts/run_pipeline.sh: line 162: export: `scripts/process_spotting_pipeline.py': not a valid identifier

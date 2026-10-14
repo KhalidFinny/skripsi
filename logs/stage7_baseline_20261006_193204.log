@@ -1,0 +1,38 @@
+Baca tabel fitur (pkl cache): /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_temporal.pkl
+Baris=56 subjek=56 fitur=360
+Kelas: {'anxiety_rendah': 31, 'anxiety_tinggi': 25}
+aggregate=subject | subject-norm=none | permutations=200
+  10/56 fold
+  20/56 fold
+  30/56 fold
+  40/56 fold
+  50/56 fold
+
+# Baseline LOSO - convat_apex_anxiety_loso_v3_acc_baseline
+
+56 fold (1 subjek/fold), protokol sama dengan run_loso.py. Baris training = subject, normalisasi = none.
+
+Pembanding untuk TabR. Di N kecil, model linear/tree sering mengalahkan DL (Grinsztajn et al. 2022; TabPFN Nature 2025).
+
+## Level subjek (1 keputusan per subjek)
+
+| model | accuracy | 95% CI | sensitivity | specificity | PPV | NPV | baseline mayoritas |
+|---|---|---|---|---|---|---|---|
+| logistic | 0.3929 | 0.2758–0.5237 | 0.3600 | 0.4194 | 0.3333 | 0.4483 | 0.5536 |
+| gbdt | 0.3929 | 0.2758–0.5237 | 0.2000 | 0.5484 | 0.2632 | 0.4595 | 0.5536 |
+
+## Permutation test level subjek
+
+200 kali acak label antar subjek. p kecil = akurasi tidak mungkin datang dari acak.
+
+| model | akurasi | null mean ± std | p-value |
+|---|---|---|---|
+| logistic | 0.3929 | 0.5025 ± 0.0656 | 0.9652 |
+| gbdt | 0.3929 | 0.5120 ± 0.0607 | 0.9801 |
+
+Catatan:
+- Model sederhana TIDAK memakai val; val hanya menyamakan jumlah subjek train dengan TabR.
+- Keluaran terpisah dari keluaran TabR; tidak menyentuh exp/tabr/.
+- File: summary.csv, per_subject.csv.
+
+Keluaran: /home/finny/projects/Skripsi/output/training/convat_apex_anxiety_loso_v3_acc_baseline

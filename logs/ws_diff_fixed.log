@@ -1,0 +1,13 @@
+### poc_abs_roi_signals_v3_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.5556 (null 0.4908, p 0.2388)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 0.9412 (acc 0.9412, MCC +0.0000, baseline 0.9444, null 0.9085, p 0.6716) | naik=1 turun=17
+### poc_abs_roi_signals_e3_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.5833 (null 0.4971, p 0.1940)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 1.0000 (acc 1.0000, MCC +0.0000, baseline 0.9444, null 0.9315, p 0.7264) | naik=1 turun=17
+### poc_abs_roi_signals_v3_poc_temporal.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.3889 (null 0.4979, p 0.9353)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 1.0000 (acc 1.0000, MCC +0.0000, baseline 0.9444, null 0.9409, p 0.8209) | naik=1 turun=17
+### poc_dynamics_full.pkl
+Klasifikasi dalam-subjek LOSO: acc 0.4722 (null 0.4925, p 0.5871)
+Deteksi PERUBAHAN (selisih after-before): bal-acc 1.0000 (acc 1.0000, MCC +0.0000, baseline 0.9444, null 0.9497, p 0.8209) | naik=1 turun=17
+ALLDONE

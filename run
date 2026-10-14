@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+# ============================================================================
+# run — entry point pintasan untuk pipeline (tanpa uv / path venv).
+#
+#   ./run pipeline [args...]   -> pipeline/run.sh  (PIPELINE UTAMA)
+#   ./run loso [args...]       -> pipeline/stages/stage_6_train_loso.py
+#   ./run collect [args...]    -> pipeline/stages/stage_7_collect.py
+#   ./run features [args...]   -> pipeline/stages/stage_2_extract_features.py
+#   ./run temporal [args...]   -> pipeline/stages/stage_4_temporal.py
+#   ./run baseline [args...]   -> pipeline/stages/stage_7_baseline.py
+#   ./run desk                 -> MyGo Pipeline Desk dashboard
+#
+# Contoh:
+#   ./run pipeline --fresh
+#   ./run loso --dataset convat_apex_anxiety_loso_roi25_reg --seeds 3
+#   ./run baseline --aggregate subject --permutations 200
+# ============================================================================
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PY="$ROOT/.venv/bin/python"
+GO="${GO:-/home/finny/.local/go/bin/go}"
+
+cmd="${1:-}"
+[ -n "$cmd" ] && shift || true
+
+run_py() {
+  [ -x "$PY" ] || PY="python"
+  exec "$PY" "$ROOT/pipeline/stages/$1" "${@:2}"
+}
+
+case "$cmd" in
+  pipeline|pipe|p)
+    exec "$ROOT/pipeline/run.sh" "$@"
+    ;;
+  loso|l)
+    run_py stage_6_train_loso.py "$@"
+    ;;
+  collect|c)
+    run_py stage_7_collect.py "$@"
+    ;;
+  features|f)
+    run_py stage_2_extract_features.py "$@"
+    ;;
+  temporal|t)
+    run_py stage_4_temporal.py "$@"
+    ;;
+  baseline|b)
+    run_py stage_7_baseline.py "$@"
+    ;;
+  desk|app|dashboard)
+    if [ ! -x "$GO" ]; then
+      GO="$(command -v go || true)"
+    fi
+    if [ -z "$GO" ]; then
+      echo "Go 1.27+ is required to launch Pipeline Desk." >&2
+      exit 1
+    fi
+    if [ -z "${DISPLAY:-}" ] && [ -z "${WAYLAND_DISPLAY:-}" ]; then
+      if [ -z "${XDG_RUNTIME_DIR:-}" ] && [ -d "/run/user/$(id -u)" ]; then
+        export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+      fi
+      if [ -n "${XDG_RUNTIME_DIR:-}" ] && [ -S "$XDG_RUNTIME_DIR/wayland-1" ]; then
+        export WAYLAND_DISPLAY="wayland-1"
+      elif [ -n "${XDG_RUNTIME_DIR:-}" ] && [ -S "$XDG_RUNTIME_DIR/wayland-0" ]; then
+        export WAYLAND_DISPLAY="wayland-0"
+      elif [ -S /tmp/.X11-unix/X0 ]; then
+        export DISPLAY=":0"
+      fi
+    fi
+    cd "$ROOT/desktop/pipelinedesk"
+    PIPELINE_DESK_ROOT="$ROOT" exec "$GO" tool mygo dev "$@"
+    ;;
+  *)
+    cat <<EOF
+usage: ./run <command> [args...]
+
+  pipeline   jalankan pipeline spotting -> fitur -> training  (pipeline/run.sh)
+  loso       jalankan LOSO TabR
+  collect    kumpulkan hasil LOSO
+  features   ekspor fitur POC-ABS
+  temporal   bangun fitur temporal onset->apex->offset
+  baseline   jalankan baseline logistik/GBDT + permutation test
+  desk       buka Pipeline Desk dashboard native MyGo
+
+Stage langsung: pipeline/stages/stage_*.py
+Peta stage     : pipeline/README.md
+
+Contoh:
+  ./run pipeline --fresh
+  ./run loso --dataset convat_apex_anxiety_loso_roi25_reg --seeds 3
+  ./run baseline --aggregate subject --permutations 200
+  ./run desk
+EOF
+    exit 1
+    ;;
+esac

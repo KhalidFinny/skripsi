@@ -1,0 +1,17 @@
+### window=64 JUJUR + cek durasi
+AUC (level jendela) = 0.6492
+  ambang per-fold (inner): P=0.3054 R=0.4740 F1=0.3715 (TP 146, FP 332, FN 162)
+         recall macro=125/251 micro=21/57
+  durasi event deteksi: median 162 frame (n=478, 5.6/video)
+  durasi GT           : median 29 frame
+  dengan syarat IoU >= 0,5: P=0.0105 R=0.0162 F1=0.0127
+F1 = 0.3715
+### window=96 JUJUR + cek durasi
+AUC (level jendela) = 0.6504
+  ambang per-fold (inner): P=0.3857 R=0.4383 F1=0.4103 (TP 135, FP 215, FN 173)
+         recall macro=112/251 micro=23/57
+  durasi event deteksi: median 191 frame (n=350, 4.1/video)
+  durasi GT           : median 29 frame
+  dengan syarat IoU >= 0,5: P=0.0086 R=0.0097 F1=0.0091
+F1 = 0.4103
+ALLDONE

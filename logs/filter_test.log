@@ -1,0 +1,12 @@
+DATASET_ROOT = /home/finny/projects/Skripsi/dataset/datatest/labeled
+OUTPUT_DATASET_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/dataset
+METADATA_PATH = /home/finny/projects/Skripsi/output/apex/datatest/metadata.xlsx
+EVENT_SIGNAL_ROOT = /home/finny/projects/Skripsi/output/apex/datatest/event_signals
+MAX_WORKERS = 4
+konfigurasi                             coverage  det/video
+tanpa filter (semua local max)            1.0000     2773.5
+height=mean+std                           0.9870      735.6
+height + prominence 0.04                  0.9870      623.3
+height + prom + top_k=5 (SEKARANG)        0.4870       25.0
+height + prom + top_k=1                   0.2208        5.0
+prom saja + top_k=1                       0.2208        5.0

@@ -1,0 +1,101 @@
+[2026-10-14 13:35:26] ══════════════════════════════════════════════════════════
+[2026-10-14 13:35:26] PIPELINE v3 — block_size 9, ROI kanonik, arah bertanda
+[2026-10-14 13:35:26]   RAW        : /run/media/finny/New Volume/dataset/anxiety_raw
+[2026-10-14 13:35:26]   OUT        : /home/finny/projects/Skripsi/output/apex_v2
+[2026-10-14 13:35:26]   FITUR      : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+[2026-10-14 13:35:26]   DATASET    : convat_apex_anxiety_loso_roi25_reg
+[2026-10-14 13:35:26]   CONFIG     : /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml
+[2026-10-14 13:35:26]   seeds/fold : 3
+[2026-10-14 13:35:26]   FOLD-FIRST : AKTIF — split per orang SEBELUM spotting
+[2026-10-14 13:35:26]   presplit   : /home/finny/projects/Skripsi/output/presplit (train pool -> stage 1-7, holdout -> stage 8)
+[2026-10-14 13:35:26]   holdout out: /home/finny/projects/Skripsi/output/apex_v2_holdout
+[2026-10-14 13:35:26]   Log        : /home/finny/projects/Skripsi/logs/pipeline_v3_20261014_133526.log
+[2026-10-14 13:35:26] ══════════════════════════════════════════════════════════
+[2026-10-14 13:35:26] FRESH: driv mentah TIDAK ada (/run/media/finny/New Volume/dataset/anxiety_raw).
+[2026-10-14 13:35:26]   Klip event TIDAK dihapus - kalau dihapus, tidak ada cara membuatnya ulang.
+[2026-10-14 13:35:26]   Metadata dibangun ulang dari klip yang ada (stage 1 resume).
+[2026-10-14 13:35:27] FRESH: fitur v3 + hasil training + exp/tabr + data dibersihkan (2 config).
+[2026-10-14 13:35:27] PERINGATAN: driv mentah tidak ada (/run/media/finny/New Volume/dataset/anxiety_raw).
+[2026-10-14 13:35:27]   Stage 1 akan MEMBANGUN ULANG metadata dari klip yang sudah ada (tanpa spotting ulang).
+[2026-10-14 13:35:27]   Set V3_RAW_ROOT kalau memang ingin re-spotting dari video.
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 1/8 : SPOTTING (cari apex/event)
+  APA YANG DILAKUKAN : Deteksi wajah (dlib) -> POC-ABS per frame -> cari apex -> simpan klip event + neutral.png
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (*.avi)
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx
+  ESTIMASI WAKTU     : SEDANG (~50 menit, 560 video) - resume otomatis: sample yang sudah ada dilewati
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  fold-first: SPOT_INCLUDE_PERSONS=/home/finny/projects/Skripsi/output/presplit/train_persons.txt (holdout tidak dibaca)
+[2026-10-14 13:35:27]   log: /home/finny/projects/Skripsi/logs/stage1_spotting_20261014_133526.log
+[2026-10-14 13:35:30] STAGE 1 SELESAI. metadata baris: 85
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 2/8 : EKSTRAKSI FITUR POC-ABS
+  APA YANG DILAKUKAN : POC-ABS per frame vs acuan NETRAL per orang (5 ROI). Arah + magnitudo motion vector per blok.
+  INPUT              : /home/finny/projects/Skripsi/output/apex_v2/dataset/... + metadata.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+  ESTIMASI WAKTU     : SEDANG (~30 menit) - 3 worker (4 worker pernah menyentuh 95C)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:35:30]   log: /home/finny/projects/Skripsi/logs/stage2_ekstraksi_20261014_133526.log
+[2026-10-14 13:36:17] STAGE 2 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 3/8 : CACHE PKL
+  APA YANG DILAKUKAN : Konversi xlsx -> pkl (bit-identik) supaya pembacaan turun dari ~90s ke <1s
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3.xlsx
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+  ESTIMASI WAKTU     : CEPAT (~3 menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:36:17]   log: /home/finny/projects/Skripsi/logs/stage3_cache_20261014_133526.log
+[2026-10-14 13:36:20] STAGE 3 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 4/8 : FITUR TEMPORAL
+  APA YANG DILAKUKAN : Ringkas tiap lintasan onset->apex->offset jadi deskriptor (rise) untuk sinyal POC-ABS (diagregasi mean+std saat training)
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl
+  OUTPUT             : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+  ESTIMASI WAKTU     : CEPAT (detik)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:36:20]   log: /home/finny/projects/Skripsi/logs/stage4_temporal_20261014_133526.log
+[2026-10-14 13:36:20] STAGE 4 SELESAI. Output: /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 5/8 : GERBANG WITHIN-SUBJECT (POC-ABS)
+  APA YANG DILAKUKAN : Orang yang sama, wajah sama, label beda: uji berpasangan + klasifikasi LOSO dalam-subjek. Ini wasit apakah POC-ABS membawa sinyal.
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_full.pkl (per frame) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl (temporal)
+  OUTPUT             : output/training/within_subject_v3_{poc,geo_temporal}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:36:20]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_poc_20261014_133526.log
+[2026-10-14 13:36:29]   log: /home/finny/projects/Skripsi/logs/stage5_gerbang_gabungan_20261014_133526.log
+[2026-10-14 13:36:37] STAGE 5 SELESAI. Ringkasan:
+[2026-10-14 13:36:37]   output/training/within_subject_v3_poc/summary.md
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 6/8 : TRAINING LOSO TabR (2 config)
+  APA YANG DILAKUKAN : fold LOSO (1 subjek = test) x 3 seed, baris = subjek (mean+std), epoch dipilih via akurasi, log ringkas (1 baris/fold); diulang per config: convat_apex_anxiety_loso_roi25_reg convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg
+  INPUT              : /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+  OUTPUT             : third_party/tabular-dl-tabr-official/exp/tabr/<dataset>/fold_*/
+  ESTIMASI WAKTU     : LAMA (~1-2 jam per config) - resume otomatis per fold (DONE.json)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:36:37]   config 1/2: /home/finny/projects/Skripsi/experiments/configs/tabr_loso_compact.toml -> dataset convat_apex_anxiety_loso_roi25_reg
+[2026-10-14 13:36:37]   log: /home/finny/projects/Skripsi/logs/stage6_loso_20261014_133526.log
+[2026-10-14 13:38:06]   config 1 selesai: 32 fold (convat_apex_anxiety_loso_roi25_reg)
+[2026-10-14 13:38:06]   config 2/2: experiments/configs/tabr_loso_roi25_reg.toml -> dataset convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg
+[2026-10-14 13:38:06]   log: /home/finny/projects/Skripsi/logs/stage6_loso_cfg_1_20261014_133526.log
+[2026-10-14 13:41:23]   config 2 selesai: 32 fold (convat_apex_anxiety_loso_roi25_reg_cfg_roi25_reg)
+[2026-10-14 13:41:23] STAGE 6 SELESAI (2 config).
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 7/8 : KUMPULKAN HASIL + BASELINE PEMBANDING (2 config)
+  APA YANG DILAKUKAN : collect per config (MCC, balanced accuracy, bias prediksi, per-grup vs baseline grup, ambang dari val) + logistik/GBDT (sekali, fitur identik)
+  INPUT              : third_party/.../exp/tabr/<dataset>/
+  OUTPUT             : output/training/<dataset>{,_baseline}/
+  ESTIMASI WAKTU     : CEPAT (menit)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:41:23]   log: /home/finny/projects/Skripsi/logs/stage7_collect_20261014_133526.log
+[2026-10-14 13:41:25]   log: /home/finny/projects/Skripsi/logs/stage7_collect_cfg_1_20261014_133526.log
+[2026-10-14 13:41:30]   baseline pembanding selesai (/home/finny/projects/Skripsi/logs/stage7_baseline_20261014_133526.log)
+[2026-10-14 13:41:30] STAGE 7 SELESAI (2 config).
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+STAGE 8/8 : EVALUASI HOLDOUT — 12 orang pertama kali dibaca (2 config)
+  APA YANG DILAKUKAN : spotting+fitur 12 orang holdout (resep sama) -> gabung tabel -> 1 fold final per config (test=12 orang) -> model final per config
+  INPUT              : /run/media/finny/New Volume/dataset/anxiety_raw (hanya 12 orang) + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_poc_temporal_rise.pkl
+  OUTPUT             : /home/finny/projects/Skripsi/output/apex_v2_holdout + /home/finny/projects/Skripsi/experiments/features/apex/poc_abs_roi_signals_v3_combined_rise.pkl + output/training/<dataset>_holdout/
+  ESTIMASI WAKTU     : SEDANG (~15 menit spotting + ~10 menit fitur + 1 fold per config)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+[2026-10-14 13:41:30] GAGAL: stage 8 butuh driv mentah (/run/media/finny/New Volume/dataset/anxiety_raw) untuk spotting 12 orang holdout
